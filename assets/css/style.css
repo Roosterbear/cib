@@ -1,0 +1,73 @@
+/* ----------- */
+/* CHECKBOXES */
+/* --------- */
+
+/* da espacio entre el input text y los checkboxes */
+.checks{
+  padding-top:7px;
+  margin: 9px 0 3px 5px;
+}
+
+/* oculta el input original */
+.checkbox-container input{
+  position: absolute;
+  opacity: 0;
+}
+
+/* estilo contenedor checkbox */
+.checkbox-container{
+  display: block;
+  position: relative;
+  padding-left: 25px;
+  margin: 0 17px 10px 0;
+  cursor: pointer;
+}
+
+/* estilo checkbox */
+.checkmark{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #ddddddbb;
+}
+
+/* cambiar color check */
+.checkbox-container input:checked + .checkmark{
+  background-color: #2196f3;
+}
+
+.checkmark:after{
+  content:"";
+  position: absolute;
+  display: none;  
+}
+
+.checkbox-container input:checked + .checkmark:after{
+  display: block;
+}
+
+.checkmark:after{
+  left: 7px;
+  top: 3px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+/* ------- */
+/* FOOTER */
+/* ----- */
+
+footer{
+  color: #666;
+  text-align: center;
+}
+
+.text-footer{
+  color: #999;
+  font-size: 11px;
+}

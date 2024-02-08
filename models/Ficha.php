@@ -1,11 +1,7 @@
 <?php
 
-/** 
- * @author jguerrero
- * 
- */
 class Ficha extends \CI_Model {
-	private $Id, $titulo, $autor, $ISBN, $fecha, $fechaMod, $datosFijos, $etiquetasMARC, $tipoMaterial, $clasificacion, $estatus;
+	private $Id, $titulo, $autor, $ISBN, $fecha, $fechaMod, $datosFijos, $etiquetasMARC, $tipoMaterial, $clasificacion, $estatus, $coleccion_No;
 	
 	/**
 	 *
