@@ -1,8 +1,8 @@
 <div class="container-fluid">
-<h4>Consulta de libros</h4>
+<img src="/cib/assets/img/biblioteca.png" class="icono" /><h4 class="bib-titulo">Consulta de libros</h4>
 <br>
 <form id="buscar" action="#" method="post" >
-	<div class="row">
+	<div class="row areaBuscar">
 		
 	<div class="col-md-2">
 			<label>Buscar:</label><br>
