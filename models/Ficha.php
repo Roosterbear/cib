@@ -2,16 +2,21 @@
 
 class Ficha extends \CI_Model {
 	private $Id, $titulo, $autor, $ISBN, $fecha, $fechaMod, $datosFijos, $etiquetasMARC, $tipoMaterial, $clasificacion, $estatus, $coleccion_No;
+	public $cib;
 	
 	public function __construct() {
 		parent::__construct ();
+		$this->load->library("CIB");
 	}
 
 	/* ------------------- */
 	/* ----- FICHERO ----- */
 	/* ------------------- */
 	public function buscarLibro(){
-		return "LIBRO I";
+		$this->cib = new CIB();
+		
+		return $this->cib->getBook();
+		
 	}
 	
 	

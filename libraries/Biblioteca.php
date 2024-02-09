@@ -15,6 +15,7 @@ class Biblioteca {
         //$this->db->debug = true;
 	}	
 	
+		
 	public function EjemplarLibro(Ejemplar $ejemplar, $por="id"){
 		if($por=="id" && $ejemplar->getId()===null){ Throw new Exception("Requiere id ".__METHOD__);}
 		if($por=="numAdquisicion" && $ejemplar->getNumAdquisicion()===null){ Throw new Exception("Requiere # de Adquisición ".__METHOD__);}
