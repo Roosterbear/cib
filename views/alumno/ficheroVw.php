@@ -6,7 +6,7 @@
 		
 		<div class="col-md-2">
 			<label>Buscar:</label><br>
-			<input name="inputBuscar" class="form-control" id="inputBuscar">
+			<input name="inputBuscar" class="form-control" id="inputBuscar" onpaste="return false"/>
 		</div>
 
 		<div class="col-md-2"><br>
@@ -18,7 +18,9 @@
 
 	
 </form>
-<div id="contenidoData"></div>
+<div class="contenedorData">
+	<div id="contenidoData">contenido</div>
+</div>
 
 <script>
 	
@@ -30,10 +32,11 @@
 		botonBuscar.addEventListener("click", ()=>{
 			console.log("BOTON APRETADO CORRECTAMENTE");
  		});
-	
+
+		/* PERMITE SOLO LETRAS Y NUMEROS */
 		$(inputBuscar).on("keydown", function(e){
 			let tecla = e.key;
-			let regex = /[a-zA-Z0-9]/;
+			let regex = /[a-zA-Z0-9\s]/;
 			if(!regex.test(tecla)){
 				e.preventDefault();
 				return false;

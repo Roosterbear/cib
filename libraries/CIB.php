@@ -10,7 +10,7 @@ class CIB {
 	}
 	
 	public function getBook(){
-		$sql = "select titulo, autor, clasificacion from cib.ficha where id=1";
+		$sql = "select titulo, autor, clasificacion from cib.ficha where titulo like '%mexico%'";
 		$rs = $this->db->Execute($sql);	
 		
 		return $rs->getArray();		

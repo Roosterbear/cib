@@ -17,6 +17,27 @@
   margin-top: 25px;
 }
 
+
+/* ----------- */
+/* --  DATA -- */
+/* ----------- */
+
+.contenedorData{
+  width: 100%;
+  height: 100vh;
+  background-color: #2196f3;
+}
+
+#contenidoData{
+  display: block;
+  width: 90%;
+  padding-bottom: 25px;
+  margin-bottom: 25px;
+  background: yellowgreen;
+
+}
+
+
 /* ----------- */
 /* CHECKBOXES */
 /* --------- */
