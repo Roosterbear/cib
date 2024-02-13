@@ -3,17 +3,41 @@ class CIB {
 	public $db;
 	
 	public function __construct() {
-		$this->db = &get_instance()->db;
+		// Para utilizar las bases de datos en librerias
+		//$this->db = &get_instance()->db;
+		
+		// Funciones utiles
 		// $rs=$this->db->Execute($sql);
         // $rs->getArray();
         // $rs->fields['descripcion'];
 	}
 	
-	public function getBook(){
-		$sql = "select titulo, autor, clasificacion from cib.ficha where titulo like '%mexico%'";
-		$rs = $this->db->Execute($sql);	
+	
+	// Regresar daros de libro como tabla HTML
+	public function getBook($array){
+			
+		$consecutivo = 0;
+		// No | Titulo | Autor | Clasificacion
+		$tabla = "<table><thead><tr><th>No.</th><th>TITULO</th><th>AUTOR</th><th>CLASIFICACION</th></tr></thead>";
+		$tabla .= "<tbody>";
+		foreach ($array as $a){
+			$consecutivo++;
+			$titulo = $a['titulo'];
+			$autor = $a['autor'];
+			$clasificacion = $a['clasificacion'];
+			
+			$tabla .= "<tr>";
+			$tabla .= "<td class=\"text-center\">{$consecutivo}</td>";
+			$tabla .= "<td>{$titulo}</td>";
+			$tabla .= "<td>{$autor}</td>";
+			$tabla .= "<td>{$clasificacion}</td>";
+			$tabla .= "</tr>";
+			
+		}
 		
-		return $rs->getArray();		
+		$tabla .= "</tbody>";
+		$tabla .= "</table>";
+		return $tabla;		
 	}
 	
 	

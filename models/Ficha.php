@@ -6,16 +6,21 @@ class Ficha extends \CI_Model {
 	
 	public function __construct() {
 		parent::__construct ();
+		//$this->db = &get_instance()->db;
 		$this->load->library("CIB");
 	}
 
 	/* ------------------- */
 	/* ----- FICHERO ----- */
 	/* ------------------- */
-	public function buscarLibro(){
+	public function buscarLibro($busqueda){
 		$this->cib = new CIB();
+				
+		$sql = "select titulo, autor, clasificacion from cib.ficha where titulo like '%".$busqueda."%'";
+		$rs = $this->db->Execute($sql);
 		
-		return $this->cib->getBook();
+		$tabla = $this->cib->getBook($rs->getArray());
+		return $tabla;
 		
 	}
 	

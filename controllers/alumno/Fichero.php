@@ -18,9 +18,9 @@ class Fichero extends \CI_Controller{
 	public function buscar(){
 		$_busqueda = $_POST['busqueda'];		
 		$ficha = new Ficha();
-		$libros = $ficha->buscarLibro();
-		print_r($libros);
-		echo "<h1>{$_busqueda} <h1>";
+		$libros = $ficha->buscarLibro($_busqueda);
+		
+		echo $libros;
 	}
 }
 
