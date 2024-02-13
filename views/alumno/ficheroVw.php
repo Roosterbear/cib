@@ -4,39 +4,28 @@
 <form id="buscar" action="#" method="post" >
 	<div class="row areaBuscar">
 		
-		<div class="col-md-2">
-			<label>Buscar:</label><br>
+		<div class="col-md-12">
+			<i class="fa fa-search iconoBuscar"></i>
+			<label class="labelBuscar">Buscar:</label>
 			<input name="inputBuscar" class="form-control" id="inputBuscar" onpaste="return false"/>
-		</div>
-
-		<div class="col-md-2"><br>
-			<button id="botonBuscar" class="btn btn-block btn-primary btn-sm">Buscar <i class="fa fa-search" aria-hidden="true"></i>
-			</button>
 		</div>
 
 	</div><!-- row  -->
 
 	
 </form>
-<div class="contenedorData">
-	<div id="contenidoData">contenido</div>
-</div>
+<div id="contenidoData"></div>
 
 <script>
 	
 	
 	$(document).ready(function(){
-		const botonBuscar = document.querySelector("#botonBuscar");
 		const inputBuscar = document.querySelector("#inputBuscar");
-		
-		botonBuscar.addEventListener("click", ()=>{
-			console.log("BOTON APRETADO CORRECTAMENTE");
- 		});
 
 		/* PERMITE SOLO LETRAS Y NUMEROS */
 		$(inputBuscar).on("keydown", function(e){
 			let tecla = e.key;
-			let regex = /[a-zA-Z0-9\s]/;
+			let regex = /[a-zA-Z0-9\+\#\:\.\s]/;
 			if(!regex.test(tecla)){
 				e.preventDefault();
 				return false;

@@ -14,14 +14,5 @@
 	<script type="text/javascript" src="/js/lobibox-master/lobibox.min.js"></script>
 	<script type="text/javascript" src="/js/bootstrap-datepicker.min.js"></script>
 	<script type="text/javascript" src="/js/bootstrap-datepicker.es.min.js"></script>
-
-<style type="text/css">
-		body{ font-size: 16px;}
-		select,input{
-			padding: 1px !important;
-			height:auto !important;
-		}
-	</style>
-	
 </head>
 <body>

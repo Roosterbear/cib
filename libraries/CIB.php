@@ -18,8 +18,13 @@ class CIB {
 			
 		$consecutivo = 0;
 		// No | Titulo | Autor | Clasificacion
-		$tabla = "<table><thead><tr><th>No.</th><th>TITULO</th><th>AUTOR</th><th>CLASIFICACION</th></tr></thead>";
+		$tabla = "<table class=\"cib-table\"><thead>";
+		$tabla .= "<tr><th>No.</th>";
+		$tabla .= "<th><i class=\"fa fa-book\" aria-hidden=\"true\"></i> TITULO</th>";
+		$tabla .= "<th><i class=\"fa fa-user-circle\" aria-hidden=\"true\"></i> AUTOR</th>";
+		$tabla .= "<th><i class=\"fa fa-barcode\" aria-hidden=\"true\"></i>	CLASIFICACION</th></tr></thead>";
 		$tabla .= "<tbody>";
+		
 		foreach ($array as $a){
 			$consecutivo++;
 			$titulo = $a['titulo'];

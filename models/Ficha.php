@@ -14,6 +14,7 @@ class Ficha extends \CI_Model {
 	/* ----- FICHERO ----- */
 	/* ------------------- */
 	public function buscarLibro($busqueda){
+		if ($busqueda == '' || $busqueda == ' ') return '';
 		$this->cib = new CIB();
 				
 		$sql = "select titulo, autor, clasificacion from cib.ficha where titulo like '%".$busqueda."%'";
