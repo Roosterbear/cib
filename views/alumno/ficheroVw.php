@@ -5,17 +5,17 @@
 	<div class="row areaBuscar">
 		
 		<div class="col-md-5">
-			<i class="fa fa-search iconoBuscar"></i>
-			<i class="fa fa-book iconoBuscar"></i>
-			<label class="labelBuscar">Buscar por titulo:</label>
+			<i class="fa fa-search iconoBuscar rhino"></i>
+			<i class="fa fa-book iconoBuscar realBlueSky"></i>
+			<label class="labelBuscar">POR TITULO:</label>
 			<input name="inputBuscar" class="form-control" id="inputBuscar" onpaste="return false"/>
 		</div>
 			
 		<div class="col-md-1"></div>
 		<div class="col-md-5">
-			<i class="fa fa-search iconoBuscar"></i>
-			<i class="fa fa-user-circle iconoBuscar"></i>
-			<label class="labelBuscarAutor">Buscar por autor:</label>
+			<i class="fa fa-search iconoBuscar rhino"></i>
+			<i class="fa fa-user-circle iconoBuscar toyRed"></i>
+			<label class="labelBuscarAutor">POR AUTOR:</label>
 			<input name="inputBuscarAutor" class="form-control" id="inputBuscarAutor" onpaste="return false"/>
 		</div>
 	</div><!-- row  -->
