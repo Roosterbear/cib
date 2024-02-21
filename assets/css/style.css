@@ -1,12 +1,17 @@
+/* ---------------- */
+/* -- GENERALES -- */
+/* -------------- */
+
+
 /* -------------- */
 /* -- COLORES -- */
 /* ------------ */
 
-.foodOrange{
+.food{
   color: #fc6736;  
 }
 
-.sexyPurple{
+.sexy{
   color: #3c0753;
 }
 
@@ -14,7 +19,7 @@
   color: #80bcdc;
 }
 
-.toyRed{
+.toy{
   color: #ff004d;
 }
 
@@ -22,7 +27,7 @@
   color: #f4ce14;
 }
 
-.realBlueSky{
+.real{
   color: #00a9ff;
 }
 
@@ -46,21 +51,27 @@
   padding-left:10px;
 }
 
-.areaBuscar{
+.areaBuscar,
+.areaCaptura{
   margin: 25px 0 25px 0;
 }
 
-.iconoBuscar{
+.iconoBuscar,
+.labelBuscar,
+.labelCaptura,
+.iconoCaptura{
   display: inline-block;
 }
 
-.labelBuscar{
-  display: inline-block;
+.inputBuscar,
+.inputCaptura{
+  color: #999;
 }
 
-#inputBuscar{
-  color: #666;
+.iconoCaptura{
+  color: #535353;
 }
+
 
 /* ------------- */
 /* -- TABLAS -- */
@@ -110,6 +121,7 @@
 }
 
 /* estilo contenedor checkbox */
+/* == label de input del checkbox == */
 .checkbox-container{
   display: block;
   position: relative;
@@ -119,6 +131,7 @@
 }
 
 /* estilo checkbox */
+/* == span despues del input del checkbox == */
 .checkmark{
   position: absolute;
   top: 0;

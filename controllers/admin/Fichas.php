@@ -29,7 +29,8 @@ class Fichas extends \CI_Controller{
 
 	public function index(){
 
-		$this->load->view("admin/Fichas/index");
+		//this->load->view("admin/Fichas/index");
+		echo('Seeee, aqui sigo...');
 		
 	}
 	
