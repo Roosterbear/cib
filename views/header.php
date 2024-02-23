@@ -14,5 +14,6 @@
 	<script type="text/javascript" src="/js/lobibox-master/lobibox.min.js"></script>
 	<script type="text/javascript" src="/js/bootstrap-datepicker.min.js"></script>
 	<script type="text/javascript" src="/js/bootstrap-datepicker.es.min.js"></script>
+	<script type="text/javascript" src="/cib/assets/js/script.js" ></script>
 </head>
 <body>

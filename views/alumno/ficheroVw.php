@@ -26,7 +26,6 @@
 
 <script>
 	
-	
 	$(document).ready(function(){
 		const inputBuscar = document.querySelector("#inputBuscar");
 		const inputBuscarAutor = document.querySelector("#inputBuscarAutor");
@@ -34,22 +33,14 @@
 		/* PERMITE SOLO LETRAS Y NUMEROS */
 		$(inputBuscar).on("keydown", function(e){
 			let tecla = e.key;
-			let regex = /[a-zA-Z0-9\+\#\:\.\s]/;
 			inputBuscarAutor.value = '';
-			if(!regex.test(tecla)){
-				e.preventDefault();
-				return false;
-			}
+			blockey(tecla,e);
 		});
 
 		$(inputBuscarAutor).on("keydown", function(e){
 			let tecla = e.key;
-			let regex = /[a-zA-Z0-9\+\#\:\.\s]/;
 			inputBuscar.value = '';
-			if(!regex.test(tecla)){
-				e.preventDefault();
-				return false;
-			}
+			blockey(tecla,e);
 		});
 
 		$(inputBuscar).on("keyup",function(){
