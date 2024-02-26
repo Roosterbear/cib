@@ -2,11 +2,66 @@
 /* -- GENERALES -- */
 /* -------------- */
 
+/* este es para el mensaje de construccion */
 .constr{
   color: transparent;
   margin-left: 165px;
   padding: 15px;
 }
+
+
+
+
+
+/* -------------- */
+/* -- MENU ABC -- */
+/* -------------- */
+.padre{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.abc-tab--padre{
+  padding: 5px 14px;
+  background-color: #fefaff;
+  margin: 3px;
+  border: 1px solid #666;
+  color: #333;
+  cursor: pointer;
+}
+
+.abc-tab--child{
+  padding: 3px 12px ;
+  background-color: white;
+  margin: 3px;
+  border: 1px solid #999;
+  color: #666;
+  cursor: pointer;
+}
+
+#ficha-ejemplar{
+}
+
+
+#ficha{}
+#ejemplar{}
+
+#abc-ficha{
+}
+#abc-ejemplar{
+}
+
+#alta-ficha{}
+#baja-ficha{}
+#cambio-ficha{}
+
+#alta-ejemplar{}
+#baja-ejemplar{}
+#cambio-ejemplar{}
+
+
+
 
 /* -------------- */
 /* -- COLORES -- */
