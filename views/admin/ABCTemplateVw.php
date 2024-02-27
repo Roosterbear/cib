@@ -12,7 +12,7 @@
 
 <div class ="container-fluid">
   <nav id="ficha-ejemplar" class="padre">
-    <div id="ficha" class="abc-tab--padre">Ficha</div>
+    <div id="ficha" class="abc-tab--padre food">Ficha</div>
     <div id="ejemplar" class="abc-tab--padre">Ejemplar</div>
   </nav>
   <nav id="abc-ficha" class="padre">
@@ -28,4 +28,3 @@
   </nav>
 </div>
 <hr/>
-
