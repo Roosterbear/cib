@@ -11,20 +11,20 @@
 </div>
 
 <div class ="container-fluid">
-  <nav id="ficha-ejemplar" class="padre">
-    <div id="ficha" class="abc-tab--padre food">Ficha</div>
-    <div id="ejemplar" class="abc-tab--padre">Ejemplar</div>
-  </nav>
-  <nav id="abc-ficha" class="padre">
-    <div id="alta-ficha" class="abc-tab--child">Alta Ficha</div>
-    <div id="baja-ficha" class="abc-tab--child">Baja Ficha</div>
-    <div id="cambio-ficha" class="abc-tab--child">Cambio Ficha</div>
-  </nav>
+  <section id="ficha-ejemplar" class="padre">
+    <a href="<?php echo base_url('cib.php/admin/Libros/getFicha')?>" id="ficha" class="abc-tab--padre food">Ficha</a>
+    <a href="<?php echo base_url('cib.php/admin/Libros/getEjemplar')?>" id="ejemplar" class="abc-tab--padre">Ejemplar</a>
+  </section>
+  <section id="abc-ficha" class="padre">
+    <a href="<?php echo base_url('cib.php/admin/Libros/altaFicha')?>" id="alta-ficha" class="abc-tab--child">Alta Ficha</a>
+    <a href="<?php echo base_url('cib.php/admin/Libros/bajaFicha')?>" id="baja-ficha" class="abc-tab--child">Baja Ficha</a>
+    <a href="<?php echo base_url('cib.php/admin/Libros/cambioFicha')?>" id="cambio-ficha" class="abc-tab--child">Cambio Ficha</a>
+  </section>
 
-  <nav id="abc-ejemplar" class="padre">
-    <div id="alta-ejemplar" class="abc-tab--child">Alta Ejemplar</div>
-    <div id="baja-ejemplar" class="abc-tab--child">Baja Ejemplar</div>
-    <div id="cambio-ejemplar" class="abc-tab--child">Cambio Ejemplar</div>
-  </nav>
+  <section id="abc-ejemplar" class="padre">
+    <a href="<?php echo base_url('cib.php/admin/Libros/altaEjemplar')?>" id="alta-ejemplar" class="abc-tab--child">Alta Ejemplar</a>
+    <a href="<?php echo base_url('cib.php/admin/Libros/bajaEjemplar')?>" id="baja-ejemplar" class="abc-tab--child">Baja Ejemplar</a>
+    <a href="<?php echo base_url('cib.php/admin/Libros/cambioEjemplar')?>" id="cambio-ejemplar" class="abc-tab--child">Cambio Ejemplar</a>
+  </section>
 </div>
 <hr/>

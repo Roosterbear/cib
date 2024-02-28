@@ -14,10 +14,9 @@ $(document).ready(function(){
 	const cambioEjemplar = document.querySelector("#cambioEjemplar");
 	
 	
-	// hacer un array con los IDs y recorrerlo con listeners de JQuery
-	// hacer una funcion para que deshabilite todos los botones menos el que se mando
-
-
+	ficha.addEventListener('dblclick', function(){
+		alert(ficha.innerText);
+	});
 	const altaLibro = document.querySelectorAll(".altaLibro");
 	
   
