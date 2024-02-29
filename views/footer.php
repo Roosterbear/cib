@@ -14,9 +14,6 @@ $(document).ready(function(){
 	const cambioEjemplar = document.querySelector("#cambioEjemplar");
 	
 	
-	ficha.addEventListener('dblclick', function(){
-		alert(ficha.innerText);
-	});
 	const altaLibro = document.querySelectorAll(".altaLibro");
 	
   

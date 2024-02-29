@@ -1,10 +1,3 @@
-/* ---------------- */
-/* -- GENERALES -- */
-/* -------------- */
-
-
-
-
 /* -------------- */
 /* -- MENU ABC -- */
 /* -------------- */
@@ -15,87 +8,33 @@
 }
 
 .abc-tab--padre{
-  padding: 5px 14px;
+  padding: 5px 30px;
   background-color: #fefaff;
   margin: 3px;
-  border: 1px solid #666;
-  color: #333;
+  border: 1px solid #ccc;
+  color: #545454;
   cursor: pointer;
 }
 
 .abc-tab--child{
-  padding: 3px 12px ;
+  padding: 2px 15px ;
   background-color: white;
   margin: 3px;
-  border: 1px solid #999;
-  color: #666;
+  border: 1px solid #ccc;
+  color: #545454;
   cursor: pointer;
 }
 
-/* ------------------------------ */
-/* ----  BOTONES PRIMARIOS  ---- */
-/* ---------------------------- */
-
-/* -- BOTONES PRIMARIOS GRUPO -- */
-#ficha-ejemplar{
+a:hover{
+  color: black;
 }
 
-/* -- BOTONES PRIMARIOS INDIVIDUALES --*/
-#ficha{}
-#ejemplar{}
-
-
-
-/* ------------------------------ */
-/* ---- BOTONES SECUNDARIOS ---- */
-/* ---------------------------- */
-
-/* -- BOTONES SECUNDARIOS GRUPO -- */
-#abc-ficha{}
-#abc-ejemplar{display: none;}
-
-/* -- BOTONES SECUNDARIOS INDIVIDUALES --*/
-#alta-ficha{}
-#baja-ficha{}
-#cambio-ficha{}
-
-#alta-ejemplar{}
-#baja-ejemplar{}
-#cambio-ejemplar{}
-
-
-
-
-/* -------------- */
-/* -- COLORES -- */
-/* ------------ */
-
-.food{
-  background-color: #fc6736;  
+.selected-tab{
+  background-color: #ffe690;  
 }
 
-.sexy{
-  background-color: #3c0753;
-}
-
-.mint{
-  background-color: #80bcdc;
-}
-
-.toy{
-  background-color: #ff004d;
-}
-
-.banana{
-  background-color: #f4ce14;
-}
-
-.real{
-  background-color: #00a9ff;
-}
-
-.rhino{
-  background-color:#535353;
+.ocultar{
+  display: none;  
 }
 
 /* ----------- */
