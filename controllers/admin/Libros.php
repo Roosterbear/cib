@@ -3,7 +3,18 @@
 class Libros extends \CI_Controller{
 	
 	public function __construct(){
-		parent:: __construct();		
+		parent:: __construct();	
+		
+		$this->load->library("UsuarioSITO",null,"usuario");
+		
+		/*
+		$this->usuario->setUsername(@$_REQUEST["uid"]);
+		$this->usuario->setSitoSession(@$_REQUEST["sid"]);
+		
+		if(!$this->usuario->login()){
+			show_error("La session ha caducado o esta entrando con un usuario no valido",500,"Acceso Denegado");		
+		}
+		*/
 	}
 	
 	public function index(){			
