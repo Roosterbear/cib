@@ -8,16 +8,16 @@
 }
 
 .abc-tab--padre{
-  padding: 5px 30px;
+  padding: 5px 27px;
   background-color: #fefaff;
   margin: 3px;
-  border: 1px solid #ccc;
+  border: 1px solid #666;
   color: #545454;
   cursor: pointer;
 }
 
 .abc-tab--child{
-  padding: 2px 15px ;
+  padding: 2px 18px ;
   background-color: white;
   margin: 3px;
   border: 1px solid #ccc;
@@ -37,6 +37,9 @@ a:hover{
   display: none;  
 }
 
+.desvanecer{
+  opacity: 0.5;
+}
 
 /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */

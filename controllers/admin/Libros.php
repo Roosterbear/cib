@@ -21,6 +21,7 @@ class Libros extends \CI_Controller{
 		$data['ficha'] = 'selected-tab';
 		$data['ocultarFicha'] = 0;
 		$data['ocultarEjemplar'] = 1; 
+		
 		$this->load->view("header");		
 		$this->load->view("/admin/ABCTemplateVw",$data);
 		$this->load->view("/admin/fichaVw");
@@ -32,6 +33,7 @@ class Libros extends \CI_Controller{
 		$data['ficha'] = 'selected-tab';
 		$data['ocultarFicha'] = 0;
 		$data['ocultarEjemplar'] = 1;
+		
 		$this->load->view("header");
 		$this->load->view("/admin/ABCTemplateVw",$data);		
 		$this->load->view("/admin/fichaVw");
@@ -39,9 +41,11 @@ class Libros extends \CI_Controller{
 	}
 	
 	public function altaFicha(){
+		$data['ficha'] = 'selected-tab';
 		$data['altaFicha'] = 'selected-tab';
 		$data['ocultarFicha'] = 0;
 		$data['ocultarEjemplar'] = 1;
+		
 		$this->load->view("header");
 		$this->load->view("/admin/ABCTemplateVw",$data);
 		$this->load->view("/admin/altaFichaVw");
@@ -49,61 +53,72 @@ class Libros extends \CI_Controller{
 	}
 	
 	public function bajaFicha(){
+		$data['ficha'] = 'selected-tab';
 		$data['bajaFicha'] = 'selected-tab';
 		$data['ocultarFicha'] = 0;
 		$data['ocultarEjemplar'] = 1;
+		
 		$this->load->view("header");
 		$this->load->view("/admin/ABCTemplateVw",$data);
 		$this->load->view("/admin/bajaFichaVw");
 		$this->load->view("footer");
 	}
 	
-	public function cambioFicha(){
-		$this->load->view("header");
+	public function cambioFicha(){		
+		$data['ficha'] = 'selected-tab';		
+		$data['cambioFicha'] = 'selected-tab';
 		$data['ocultarFicha'] = 0;
 		$data['ocultarEjemplar'] = 1;
-		$data['cambioFicha'] = 'selected-tab';
+		
+		$this->load->view("header");
 		$this->load->view("/admin/ABCTemplateVw",$data);
 		$this->load->view("/admin/cambioFichaVw");
 		$this->load->view("footer");
 	}
 	
 	/* ----- EJEMPLAR ----- */
-	public function getEjemplar(){
-		$this->load->view("header");
+	public function getEjemplar(){		
 		$data['ejemplar'] = 'selected-tab';
 		$data['ocultarFicha'] = 1;
 		$data['ocultarEjemplar'] = 0;
+		
+		$this->load->view("header");
 		$this->load->view("/admin/ABCTemplateVw",$data);
 		$this->load->view("/admin/ejemplarVw");
 		$this->load->view("footer");
 	}
 	
-	public function altaEjemplar(){
-		$this->load->view("header");
+	public function altaEjemplar(){		
+		$data['ejemplar'] = 'selected-tab';
 		$data['altaEjemplar'] = 'selected-tab';
 		$data['ocultarFicha'] = 1;
 		$data['ocultarEjemplar'] = 0;
+		
+		$this->load->view("header");
 		$this->load->view("/admin/ABCTemplateVw",$data);
 		$this->load->view("/admin/altaEjemplarVw");
 		$this->load->view("footer");
 	}
 	
-	public function bajaEjemplar(){
-		$this->load->view("header");
+	public function bajaEjemplar(){		
+		$data['ejemplar'] = 'selected-tab';
 		$data['bajaEjemplar'] = 'selected-tab';
 		$data['ocultarFicha'] = 1;
 		$data['ocultarEjemplar'] = 0;
+		
+		$this->load->view("header");
 		$this->load->view("/admin/ABCTemplateVw",$data);
 		$this->load->view("/admin/bajaEjemplarVw");
 		$this->load->view("footer");
 	}
 	
-	public function cambioEjemplar(){
-		$this->load->view("header");
+	public function cambioEjemplar(){		
+		$data['ejemplar'] = 'selected-tab';
 		$data['cambioEjemplar'] = 'selected-tab';
 		$data['ocultarFicha'] = 1;
 		$data['ocultarEjemplar'] = 0;
+		
+		$this->load->view("header");
 		$this->load->view("/admin/ABCTemplateVw",$data);
 		$this->load->view("/admin/cambioEjemplarVw");
 		$this->load->view("footer");
