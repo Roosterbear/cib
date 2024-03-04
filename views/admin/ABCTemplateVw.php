@@ -1,5 +1,5 @@
 <i class="fa fa-cog" aria-hidden="true"></i>
-<small>Este sitio esta a modo de construcci&oacute;n</small>
+<small>Este sitio esta en modo <strong>construcci&oacute;n</strong></small>
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-5"></div>
