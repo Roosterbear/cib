@@ -85,8 +85,9 @@ a:hover{
   color: #999;
 }
 
-.iconoCaptura{
-  color: #535353;
+.iconoCaptura,
+.iconoBuscar{
+  color: #999;
 }
 
 /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */

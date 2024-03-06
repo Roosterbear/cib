@@ -1,24 +1,24 @@
 <!-- ***************************************** -->
 <!-- **  BUSQUEDA DE FICHA PARA DAR DE BAJA ** -->
 <!-- ***************************************** -->
-<div id="busquedaFichaBajaFicha">
+<div id="busquedaBajaFicha">
 	<div class="container-fluid">
     <div class="row areaCaptura">
 			<div class="col-md-1"></div>
       <!-- Busqueda de Ficha por ID -->
 			<div class="col-md-5">
-		   	<i class="fa fa-search iconoBuscar rhino"></i>
-			  <i class="fa fa-book iconoBuscar color-icono"></i>
-			  <label class="labelBuscarPorIDBajaFicha">Por ID:</label>
-			  <input name="inputBuscarPorID" class="form-control inputBuscarPorID" id="inputBuscarPorID" onpaste="return false"/>
+		   	<i class="fa fa-search iconoBuscar"></i>
+			  <i class="fa fa-book iconoBuscar"></i>
+			  <label class="labelCaptura" for="inputBuscarPorIDBajaFicha">Por ID:</label>
+			  <input name="inputBuscarPorIDBajaFicha" class="form-control inputBuscar" id="inputBuscarPorIDBajaFicha" onpaste="return false"/>
 		   </div>
 			
       <!-- Busqueda de Ficha por ISBN -->
 		  <div class="col-md-5">
-			  <i class="fa fa-search iconoBuscar rhino"></i>
-			  <i class="fa fa-user-circle iconoBuscar color-icono"></i>
-			  <label class="labelBuscarAutorBajaFicha">Por ISBN:</label>
-			  <input name="inputBuscarAutorBajaFicha" class="form-control inputBuscar" id="inputBuscarAutorBajaFicha" onpaste="return false"/>
+			  <i class="fa fa-search iconoBuscar"></i>
+			  <i class="fa fa-user-circle iconoBuscar"></i>
+			  <label class="labelBuscar" for="inputBuscarPorISBNBajaFicha">Por ISBN:</label>
+			  <input name="inputBuscarISBNBajaFicha" class="form-control inputBuscar" id="inputBuscarISBNBajaFicha" onpaste="return false"/>
 		   </div>
 			 <div class="col-md-1"></div>
 	    </div><!-- row  -->

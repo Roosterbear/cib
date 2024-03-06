@@ -1,22 +1,22 @@
 <!-- ********************** -->
 <!-- ** CAPTURA DE FICHA ** -->
 <!-- ********************** -->
-<div id="capturaFicha">
+<div id="altaFicha">
 	<div class="container-fluid">
 		<div class="row areaCaptura">
 			<!-- Captura de TITULO del Libro -->
 			<div class="col-md-1"></div>
 			<div class="col-md-5">
 				<i class="fa fa-address-book iconoCaptura"></i>
-				<label class="labelCaptura">Titulo:</label>
-				<input name="inputTituloLibro" class="form-control inputBuscar altaLibro" id="inputTituloLibro" onpaste="return false"/>
+				<label class="labelCaptura" for="inputTituloFicha">Titulo:</label>
+				<input name="inputTituloFicha" class="form-control inputBuscar altaFicha" id="inputTituloFicha" onpaste="return false"/>
 			</div>
 			
 			<!-- Captura de AUTOR del Libro -->
 			<div class="col-md-5">
 				<i class="fa fa-user iconoCaptura"></i>
-				<label class="labelCaptura">Autor:</label>
-				<input name="inputAutorLibro" class="form-control inputBuscar altaLibro" id="inputAutorLibro" onpaste="return false"/>
+				<label class="labelCaptura" for="inputAutorFicha">Autor:</label>
+				<input name="inputAutorFicha" class="form-control inputBuscar altaFicha" id="inputAutorFicha" onpaste="return false"/>
 			</div>
 			<div class="col-md-1"></div>
 		</div>
@@ -26,14 +26,14 @@
 			<div class="col-md-1"></div>
 			<div class="col-md-5">
 				<i class="fa fa-archive iconoCaptura"></i>
-				<label class="labelCaptura">ISBN:</label>
-				<input name="inputISBN" class="form-control inputBuscar altaLibro" id="inputISBN" onpaste="return false"/>
+				<label class="labelCaptura" for="inputISBNFicha">ISBN:</label>
+				<input name="inputISBNFicha" class="form-control inputBuscar altaFicha" id="inputISBNFicha" onpaste="return false"/>
 			</div>
 			<!-- Captura de Clasificacion del Libro -->
 			<div class="col-md-5">
 				<i class="fa fa-tag iconoCaptura"></i>
-				<label class="labelCaptura">Clasificacion:</label>
-				<input name="inputClasificacion" class="form-control inputBuscar altaLibro" id="inputClasificacion" onpaste="return false"/>
+				<label class="labelCaptura" for="inputClasificacionFicha">Clasificacion:</label>
+				<input name="inputClasificacionFicha" class="form-control inputBuscar altaFicha" id="inputClasificacionFicha" onpaste="return false"/>
 			</div>
 			<div class="col-md-1"></div>
 		</div>
@@ -43,14 +43,21 @@
 			<div class="col-md-1"></div>
 			<div class="col-md-5">
 				<i class="fa fa-map-marker iconoCaptura"></i>
-				<label class="labelCaptura">Lugar:</label>
-				<input name="inputLugar" class="form-control inputBuscar altaLibro" id="inputLugar" onpaste="return false"/>
+				<label class="labelCaptura" for="selectLugarFicha">Lugar:</label>
+				<select name="selectLugarFicha" class="form-control inputBuscar altaFicha" id="selectLugarFicha">
+					<option value="mexico">M&eacute;xico</option>
+					<option value="usa">Estados Unidos</option>
+					<option value="japon">Jap&oacute;n</option>
+				</select>
 			</div>
 			<!-- Captura de Area del Libro -->
 			<div class="col-md-5">
 				<i class="fa fa-users iconoCaptura"></i>
-				<label class="labelCaptura">Area:</label>
-				<input name="inputArea" class="form-control inputBuscar altaLibro" id="inputArea" onpaste="return false"/>
+				<label class="labelCaptura" for="selectAreaFicha">Area:</label>
+				<select name="selectAreaFicha" class="form-control inputBuscar altaFicha" id="selectAreaFicha"/>
+					<option value="general">General</option>
+					<option value="basicas">Ciencias B&aacute;sicas</option>
+				</select>
 			</div>
 			<div class="col-md-1"></div>
 		</div>
@@ -60,14 +67,15 @@
 			<div class="col-md-1"></div>
 			<div class="col-md-5">
 				<i class="fa fa-commenting iconoCaptura"></i>
-				<label class="labelCaptura">Descripcion:</label>
-				<input name="inputDescripcion" class="form-control inputBuscar altaLibro" id="inputDescripcion" onpaste="return false"/>
+				<label class="labelCaptura" for="inputDescripcionFicha">Descripcion:</label>
+				<input name="inputDescripcionFicha" class="form-control inputBuscar altaFicha" id="inputDescripcionFicha" onpaste="return false"/>
 			</div>
 			<!-- Captura de Edicion -->
 			<div class="col-md-5">
 				<i class="fa fa-pencil-square-o iconoCaptura"></i>
-				<label class="labelCaptura">Edicion:</label>
-				<input name="inputEdicion" class="form-control inputBuscar altaLibro" id="inputEdicion" onpaste="return false"/>
+				<label class="labelCaptura" for="selectEdicionFicha">Edicion:</label>
+				<input type="number" name="selectEdicionFicha" class="form-control inputBuscar altaFicha" id="selectEdicionFicha" 
+				min="1" max="32"/>
 			</div>
 			<div class="col-md-1"></div>
 		</div>
@@ -79,7 +87,7 @@
 
 		<div class="row areaCaptura">
 			<div class="col-md-12 text-center">
-				<button class="btn btn-lg btn-primary">&nbsp;Guardar&nbsp;</button>
+				<button class="btn btn-lg btn-primary" id="btnGuardarAltaFicha">&nbsp;Guardar&nbsp;</button>
 			</div>
 		</div>
 	</div>
