@@ -13,7 +13,7 @@ class CIB {
 	}
 	
 	
-	// Regresar daros de libro como tabla HTML
+	// Regresar datos de libro como tabla HTML
 	public function getBook($array){
 			
 		$consecutivo = 0;
@@ -45,9 +45,38 @@ class CIB {
 		return $tabla;		
 	}
 	
-	
+	/* ABC */
+	public function getFicha($array){
+		
+		// Id | Titulo | Autor | ISBN | Clasificacion
+		$tabla = "<table class=\"cib-table\"><thead>";
+		$tabla .= "<tr><th>Id</th>";
+		$tabla .= "<th><i class=\"fa fa-book\" aria-hidden=\"true\"></i> TITULO</th>";
+		$tabla .= "<th><i class=\"fa fa-user-circle\" aria-hidden=\"true\"></i> AUTOR</th>";
+		$tabla .= "<th><i class=\"fa fa-archive\" aria-hidden=\"true\"></i> ISBN</th>";
+		$tabla .= "<th><i class=\"fa fa-barcode\" aria-hidden=\"true\"></i>	CLASIFICACION</th></tr></thead>";
+		$tabla .= "<tbody>";
+		foreach ($array as $a){			
+			$id = $a['id'];
+			$titulo = $a['titulo'];
+			$autor = $a['autor'];
+			$isbn = $a['isbn'];
+			$clasificacion = $a['clasificacion'];
+				
+			$tabla .= "<tr>";
+			$tabla .= "<td class=\"text-center\">{$id}</td>";
+			$tabla .= "<td>{$titulo}</td>";
+			$tabla .= "<td>{$autor}</td>";
+			$tabla .= "<td>{$isbn}</td>";
+			$tabla .= "<td>{$clasificacion}</td>";
+			$tabla .= "</tr>";
+				
+		}
+		
+		$tabla .= "</tbody>";
+		$tabla .= "</table>";
+		return $tabla;
+	}
 	
 }
-
-
 ?>

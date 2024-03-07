@@ -1,3 +1,21 @@
-<h1>Ficha</h1>
-<small>Aqui se va a mostrar un listado de todas las fichas con filtros</small>
+<div class="row areaCaptura">
+	<div class="col-md-12 text-center">
+		<button class="btn btn-lg btn-success" id="btnGuardarMostrarFicha">&nbsp;Mostrar Fichas&nbsp;</button>
+	</div>
+</div>
 
+
+<div id="mostrarListadoFichas"></div>
+
+<script>
+const link = "<?=site_url("admin/Libros/getFichas")?>";
+
+$(document).ready(function(){
+	const btnGuardarMostrarFicha = document.querySelector("#btnGuardarMostrarFicha");
+	btnGuardarMostrarFicha.addEventListener("click", ()=>{
+		$.post(link,function(resp){
+			$("#mostrarListadoFichas").html(resp);
+		});
+	});
+});
+</script>

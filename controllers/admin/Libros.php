@@ -1,13 +1,16 @@
 <?php
 
+/* --------------------------------------------- */
+/* ESTE ES EL CONTROLADOR PARA EL ABC DE LIBROS */
+/* ------------------------------------------- */
 class Libros extends \CI_Controller{
 	
 	public function __construct(){
 		parent:: __construct();	
-		
+		$this->load->model("Ficha");
+		/*
 		$this->load->library("UsuarioSITO",null,"usuario");
 		
-		/*
 		$this->usuario->setUsername(@$_REQUEST["uid"]);
 		$this->usuario->setSitoSession(@$_REQUEST["sid"]);
 		
@@ -15,6 +18,7 @@ class Libros extends \CI_Controller{
 			show_error("La session ha caducado o esta entrando con un usuario no valido",500,"Acceso Denegado");		
 		}
 		*/
+		
 	}
 	
 	public function index(){			
@@ -122,6 +126,14 @@ class Libros extends \CI_Controller{
 		$this->load->view("/admin/ABCTemplateVw",$data);
 		$this->load->view("/admin/cambioEjemplarVw");
 		$this->load->view("footer");
+	}
+	
+	public function getFichas(){
+		
+		$ficha = new Ficha();
+		
+	
+		echo 'no funciona esta mierd@';
 	}
 	
 	
