@@ -1,18 +1,37 @@
 <?php
 
-/** 
- * @author jguerrero
- * 
- */
-class Ejemplar extends Ficha {
-	
+class Ejemplar extends Ficha {		
 	private $id, $idFicha, $fechaIngreso, $numAdquisicion, $volumen, $ejemplar, $tomo, $accesible, $noEscuela, $fechaModificacion;
-	private $enPrestamo;
+	private $enPrestamo;	
+	public $ficha;
+
 	public function esPrestable(){
 		if($this->accesible==1){ return true;}
 		if($this->accesible==3){ return true;}
 		return false;
 	}
+	
+	public function mostrarEjemplares(){
+		$this->cib = new CIB();
+		
+		$sql = "select idFicha, numAdquisicion, f.titulo, f.autor, f.clasificacion 
+				from cib.ejemplar e
+				inner join cib.ficha f on f.id=e.idFicha
+		";
+		$rs = $this->db->Execute($sql);
+		
+		$tabla = $this->cib->getEjemplar($rs);
+		return $tabla;
+	}
+	
+	
+	
+		
+	
+	
+	
+	
+	
 	
 	/**
 	 * @return the $id

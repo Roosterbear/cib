@@ -5,8 +5,7 @@ class Ficha extends \CI_Model {
 	public $cib;
 	
 	public function __construct() {
-		parent::__construct ();
-		//$this->db = &get_instance()->db;
+		parent::__construct ();		
 		$this->load->library("CIB");
 	}
 
@@ -25,6 +24,23 @@ class Ficha extends \CI_Model {
 		return $tabla;
 		
 	}
+	
+	public function mostrarFichas(){
+		$this->cib = new CIB();
+		
+		$sql = "select id, titulo, autor, isbn, clasificacion from cib.ficha";
+		$rs = $this->db->Execute($sql);
+		
+		$tabla = $this->cib->getFicha($rs);
+		return $tabla;
+	}
+	
+	
+	
+	
+		
+	
+	
 	
 	
 	/* ------------------- */

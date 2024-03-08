@@ -5,9 +5,12 @@
 /* ------------------------------------------- */
 class Libros extends \CI_Controller{
 	
+	public $ficha, $ejemplar;
+	
 	public function __construct(){
 		parent:: __construct();	
 		$this->load->model("Ficha");
+		$this->load->model("Ejemplar");
 		/*
 		$this->load->library("UsuarioSITO",null,"usuario");
 		
@@ -128,14 +131,23 @@ class Libros extends \CI_Controller{
 		$this->load->view("footer");
 	}
 	
-	public function getFichas(){
-		
-		$ficha = new Ficha();
-		
 	
-		echo 'no funciona esta mierd@';
+	/* ------- FICHAS ------- */
+	public function getFichas(){
+		$this->ficha = new Ficha();
+			
+		echo $this->ficha->mostrarFichas();		
 	}
 	
+	
+	
+	
+	/* ------- EJEMPLARES ------- */
+	public function getEjemplares(){
+		$this->ejemplar = new Ejemplar();
+		
+		echo $this->ejemplar->mostrarEjemplares();		
+	}
 	
 	
 		

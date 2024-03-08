@@ -41,6 +41,12 @@ a:hover{
   opacity: 0.5;
 }
 
+#btnGuardarMostrarFicha,
+#btnGuardarMostrarEjemplar{
+  cursor: pointer;
+}
+
+
 /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 

@@ -1,10 +1,25 @@
-<div class="row areaCaptura">
-	<div class="col-md-12 text-center">
-		<button class="btn btn-lg btn-success" id="btnGuardarMostrarEjemplar">&nbsp;Mostrar Ejemplares&nbsp;</button>
+<div class="container-fluid">
+	<div class="row areaCaptura">
+		<div class="col-md-12 text-center">
+			<button class="btn btn-lg btn-success" id="btnGuardarMostrarEjemplar">&nbsp;Mostrar Ejemplares&nbsp;</button>
+		</div>
 	</div>
+	<!-- CONTENIDO -->
+	<div id="mostrarListadoEjemplares"></div>
+	<!--  ******** -->
 </div>
 
+<script>
+const link = "<?=site_url("admin/Libros/getEjemplares")?>";
 
-<h1>Ejemplar</h1>
-<small>Aqui se va a mostrar un listado de todos los ejemplares con filtro</small>
+$(document).ready(function(){
+	const btnGuardarMostrarEjemplar = document.querySelector("#btnGuardarMostrarEjemplar");
+	btnGuardarMostrarEjemplar.addEventListener("click", ()=>{
+		$.post(link,function(resp){
+			$("#mostrarListadoEjemplares").html(resp);
+		});
+	});
+});
+</script>
+
 

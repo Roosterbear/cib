@@ -1,11 +1,13 @@
-<div class="row areaCaptura">
-	<div class="col-md-12 text-center">
-		<button class="btn btn-lg btn-success" id="btnGuardarMostrarFicha">&nbsp;Mostrar Fichas&nbsp;</button>
+<div class="container-fluid">
+	<div class="row areaCaptura">
+		<div class="col-md-12 text-center">
+			<button class="btn btn-lg btn-success" id="btnGuardarMostrarFicha">&nbsp;Mostrar Fichas&nbsp;</button>
+		</div>
 	</div>
+	<!-- CONTENIDO -->
+	<div id="mostrarListadoFichas"></div>
+	<!--  ******** -->
 </div>
-
-
-<div id="mostrarListadoFichas"></div>
 
 <script>
 const link = "<?=site_url("admin/Libros/getFichas")?>";
