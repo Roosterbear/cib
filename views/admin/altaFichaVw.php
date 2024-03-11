@@ -9,7 +9,7 @@
 			<div class="col-md-5">
 				<i class="fa fa-address-book iconoCaptura"></i>
 				<label class="labelCaptura" for="inputTituloFicha">Titulo:</label>
-				<input name="inputTituloFicha" class="form-control inputBuscar altaFicha" id="inputTituloFicha" onpaste="return false"/>
+				<input name="inputTituloFicha" class="form-control inputBuscar altaFicha" id="inputTituloFicha" onpaste="return false" required/>
 			</div>
 			
 			<!-- Captura de AUTOR del Libro -->
@@ -85,6 +85,7 @@
 			<!-- Captura de Imagen -->
 		</div>
 
+		
 		<div class="row areaCaptura">
 			<div class="col-md-12 text-center">
 				<button class="btn btn-lg btn-primary" id="btnGuardarAltaFicha">&nbsp;Guardar&nbsp;</button>
@@ -92,3 +93,42 @@
 		</div>
 	</div>
 </div>
+
+<div id="data"></div>
+
+<script>
+$(document).ready(function(){
+	const data = document.querySelector("#data");
+
+	const btnGuardarAltaFicha = document.querySelector("#btnGuardarAltaFicha");
+
+	$(inputTituloFicha).on("keydown", function(e){
+		let tecla = e.key;
+		blockey(tecla,e);
+	});
+
+	$(inputAutorFicha).on("keydown", function(e){
+		let tecla = e.key;
+		blockey(tecla,e);
+	});
+
+
+	$(inputISBNFicha).on("keydown", function(e){
+		let tecla = e.key;
+		blockey(tecla,e);
+	});
+
+
+	$(inputClasificacionFicha).on("keydown", function(e){
+		let tecla = e.key;
+		blockey(tecla,e);
+	});
+
+	btnGuardarAltaFicha.addEventListener('click', function(){
+		data.innerText = inputTituloFicha.value+' - ';
+		data.innerText += inputAutorFicha.value+' - ';	
+		data.innerText += inputISBNFicha.value+' - ';	
+		data.innerText += inputClasificacionFicha.value+' - ';	
+	});
+});
+</script>

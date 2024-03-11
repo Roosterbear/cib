@@ -14,6 +14,7 @@
   border: 1px solid #999;
   color: #545454;
   cursor: pointer;
+  user-select: none;
 }
 
 .abc-tab--child{
@@ -23,6 +24,7 @@
   border: 1px solid #ccc;
   color: #545454;
   cursor: pointer;
+  user-select: none;
 }
 
 a:hover{
