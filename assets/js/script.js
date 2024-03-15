@@ -6,3 +6,11 @@ function blockey(tecla,e){
 			}
 }
 
+
+function blockeyEdicion(tecla,e){
+	let regex = /[0-9\s]/;
+			if(!regex.test(tecla)){
+				e.preventDefault();
+				return false;
+			}
+}

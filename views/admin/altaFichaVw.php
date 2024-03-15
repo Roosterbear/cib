@@ -73,9 +73,9 @@
 			<!-- Captura de Edicion -->
 			<div class="col-md-5">
 				<i class="fa fa-pencil-square-o iconoCaptura"></i>
-				<label class="labelCaptura" for="selectEdicionFicha">Edicion:</label>
-				<input type="number" name="selectEdicionFicha" class="form-control inputBuscar altaFicha" id="selectEdicionFicha" 
-				min="1" max="32"/>
+				<label class="labelCaptura" for="inputEdicionFicha">Edicion:</label>
+				<input type="number" name="inputEdicionFicha" class="form-control inputBuscar altaFicha" id="inputEdicionFicha" 
+				onpaste="return false" min="1" max="32"/>
 			</div>
 			<div class="col-md-1"></div>
 		</div>
@@ -122,6 +122,12 @@ $(document).ready(function(){
 	$(inputClasificacionFicha).on("keydown", function(e){
 		let tecla = e.key;
 		blockey(tecla,e);
+	});
+
+
+	$(inputEdicionFicha).on("keydown", function(e){
+		let tecla = e.key;
+		blockeyEdicion(tecla,e);
 	});
 
 	btnGuardarAltaFicha.addEventListener('click', function(){
