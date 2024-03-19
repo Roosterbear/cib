@@ -24,6 +24,10 @@ class Libros extends \CI_Controller{
 		
 	}
 	
+	/***********************************/
+	/*  MANEJADORES DE VISTAS         */
+	/*********************************/
+	
 	public function index(){			
 		$data['ficha'] = 'selected-tab';
 		$data['ocultarFicha'] = 0;
@@ -132,6 +136,10 @@ class Libros extends \CI_Controller{
 	}
 	
 	
+	/* --------------------------- */
+	/* --- FUNCIONES PARA ABC ---- */
+	/* --------------------------- */
+	
 	/* ------- FICHAS ------- */
 	public function getFichas(){
 		$this->ficha = new Ficha();
@@ -139,7 +147,30 @@ class Libros extends \CI_Controller{
 		echo $this->ficha->mostrarFichas();		
 	}
 	
+	/* ALTA DE FICHAS */
+	public function addFicha(){
+		$this->ficha = new Ficha();
+		
+		$data['titulo'] = $_REQUEST['titulo'];
+		$data['autor'] = $_Request['autor'];
+		$data['isbn'] = $_REQUEST['isbn'];
+		$data['clasificacion'] = $_REQUEST['clasificacion'];
+		$data['lugar'] = $_REQUEST['lugar'];
+		$data['area'] = $_REQUEST['area'];
+		$data['descripcion'] = $_REQUEST['descripcion'];
+		$data['edicion'] = $_REQUEST['edicion'];
+		
+		echo $this->ficha->add($data);
+		
+	}
 	
+	public function deleteFicha(){
+		$this->ficha = new Ficha();
+	}
+	
+	public function updateFicha(){
+		$this->ficha = new Ficha();
+	}
 	
 	
 	/* ------- EJEMPLARES ------- */
@@ -149,7 +180,17 @@ class Libros extends \CI_Controller{
 		echo $this->ejemplar->mostrarEjemplares();		
 	}
 	
+	public function addEjemplar(){
+		$this->ejemplar = new Ejemplar();
+	}
 	
+	public function deleteEjemplar(){
+		$this->ejemplar = new Ejemplar();
+	}
+	
+	public function updateEjemplar(){
+		$this->ejemplar = new Ejemplar();
+	}
 		
 }
 

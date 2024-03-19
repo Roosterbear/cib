@@ -35,7 +35,25 @@ class Ficha extends \CI_Model {
 		return $tabla;
 	}
 	
+	public function add($data){
+		$this->cib = new CIB();
+		
+		$titulo = $data['titulo'];
+		
+		$sql = "";
+		$rs = $this->db->Execute($sql);
+		
+		$tabla = '';		
+		return $titulo;
+	}
 	
+	public function delete(){
+		
+	}
+	
+	public function update(){
+		
+	}
 	
 	
 		

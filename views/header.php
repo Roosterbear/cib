@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>BIBLIOTECA</title>
+	<link rel="shortcut icon" href="http://sito.utags.edu.mx/images/logo_sito.png">
 	<link rel="stylesheet" href="/css/font-awesome.css/font-awesome.min.css">
 	<link rel="stylesheet" href="/css/bootstrap.4.css/bootstrap.min.css">
 	<link rel="stylesheet" href="/css/lobibox.min.css">

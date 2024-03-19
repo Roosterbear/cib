@@ -24,7 +24,17 @@ class Ejemplar extends Ficha {
 		return $tabla;
 	}
 	
+	public function add(){
 	
+	}
+	
+	public function delete(){
+	
+	}
+	
+	public function update(){
+	
+	}
 	
 		
 	
