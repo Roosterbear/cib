@@ -152,13 +152,13 @@ class Libros extends \CI_Controller{
 		$this->ficha = new Ficha();
 		
 		$data['titulo'] = $_REQUEST['titulo'];
-		$data['autor'] = $_Request['autor'];
+		$data['autor'] = $_REQUEST['autor'];
 		$data['isbn'] = $_REQUEST['isbn'];
 		$data['clasificacion'] = $_REQUEST['clasificacion'];
-		$data['lugar'] = $_REQUEST['lugar'];
-		$data['area'] = $_REQUEST['area'];
-		$data['descripcion'] = $_REQUEST['descripcion'];
-		$data['edicion'] = $_REQUEST['edicion'];
+		//$data['lugar'] = $_REQUEST['lugar'];
+		//$data['area'] = $_REQUEST['area'];
+		//$data['descripcion'] = $_REQUEST['descripcion'];
+		//$data['edicion'] = $_REQUEST['edicion'];
 		
 		echo $this->ficha->add($data);
 		

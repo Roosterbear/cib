@@ -38,6 +38,8 @@
 			<div class="col-md-1"></div>
 		</div>
 
+
+		
 		<div class="row areaCaptura">
 			<!-- Captura de Lugar del Libro -->
 			<div class="col-md-1"></div>
@@ -94,7 +96,9 @@
 	</div>
 </div>
 
-<div id="data"></div>
+<div class="mensajes">
+	<div id="data"></div>
+</div>
 
 <script>
 
@@ -124,32 +128,38 @@ $(document).ready(function(){
 		let tecla = e.key;
 		blockey(tecla,e);
 	});
-
+/*
 	$(inputEdicionFicha).on("keydown", function(e){
 		let tecla = e.key;
 		blockeyEdicion(tecla,e);
 	});
-
+*/
 	btnGuardarAltaFicha.addEventListener('click', function(){
 		const titulo = $('#inputTituloFicha').val();
 		const autor = $('#inputAutorFicha').val();
 		const isbn = $('#inputISBNFicha').val();
 		const clasificacion = $('#inputClasificacionFicha').val();
-		const lugar = document.querySelector('#selectLugarFicha').value;
-		const area = document.querySelector('#selectAreaFicha').value;
-		const descripcion = $('#inputDescripcionFicha').val();
-		const edicion = $('#inputEdicionFicha').val();
+		//const lugar = document.querySelector('#selectLugarFicha').value;
+		//const area = document.querySelector('#selectAreaFicha').value;
+		//const descripcion = $('#inputDescripcionFicha').val();
+		//const edicion = $('#inputEdicionFicha').val();
 		
-		$.post(link,{titulo:titulo,
-								autor:autor,
-								isbn:isbn,
-								clasificacion:clasificacion,
-								lugar:lugar,
-								area:area,
-								descripcion:descripcion,
-								edicion:edicion},function(resp){
-			$("#data").html(resp);
-		});
+		//validarAltaFicha(titulo,autor,isbn,clasificacion)?$("#data").html("validado"):$("#data").html("error");
+		if (validarAltaFicha(titulo)){
+			$.post(link,{titulo:titulo,
+				autor:autor,
+				isbn:isbn,
+				clasificacion:clasificacion
+				//lugar:lugar,
+				//area:area,
+				//descripcion:descripcion,
+				//edicion:edicion
+				},function(resp){
+				$("#data").html(resp);
+			});//post
+		}else{
+			$("#data").html("Faltan campos por llenar");
+		}
 	});
 });
 </script>

@@ -48,6 +48,19 @@ a:hover{
   cursor: pointer;
 }
 
+.mensajes{
+  display: flex;
+  justify-content: center;
+}
+
+#data{
+  background: tomato;
+  color: white;
+  font-weight: bold;
+  width: 50vw;
+}
+
+
 
 /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */

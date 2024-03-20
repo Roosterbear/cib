@@ -36,15 +36,20 @@ class Ficha extends \CI_Model {
 	}
 	
 	public function add($data){
-		$this->cib = new CIB();
-		
+			
 		$titulo = $data['titulo'];
+		$autor = $data['autor'];
+		$isbn = $data['isbn'];
+		$clasificacion = $data['clasificacion'];
+		//$lugar = $data['lugar'];
+		//$area = $data['area'];
+		//$descripcion = $data['descripcion'];
+		//$edicion = $data['edicion'];
 		
-		$sql = "";
-		$rs = $this->db->Execute($sql);
-		
-		$tabla = '';		
-		return $titulo;
+		$sql = "insert into cib.ficha(titulo, autor, ISBN, clasificacion) values('${titulo}','${autor}','${isbn}','${clasificacion}')";
+		//$rs = $this->db->Execute($sql);
+					
+		return $sql;
 	}
 	
 	public function delete(){
