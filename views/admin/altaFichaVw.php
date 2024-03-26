@@ -128,32 +128,25 @@ $(document).ready(function(){
 		let tecla = e.key;
 		blockey(tecla,e);
 	});
-/*
-	$(inputEdicionFicha).on("keydown", function(e){
-		let tecla = e.key;
-		blockeyEdicion(tecla,e);
-	});
-*/
+
 	btnGuardarAltaFicha.addEventListener('click', function(){
 		const titulo = $('#inputTituloFicha').val().trim();
-		const autor = $('#inputAutorFicha').val();
-		const isbn = $('#inputISBNFicha').val();
-		const clasificacion = $('#inputClasificacionFicha').val();
-		//const lugar = document.querySelector('#selectLugarFicha').value;
-		//const area = document.querySelector('#selectAreaFicha').value;
-		//const descripcion = $('#inputDescripcionFicha').val();
-		//const edicion = $('#inputEdicionFicha').val();
-		
-		//validarAltaFicha(titulo,autor,isbn,clasificacion)?$("#data").html("validado"):$("#data").html("error");
-		if (validarAltaFicha(titulo)){
+		const autor = $('#inputAutorFicha').val().trim();
+		const isbn = $('#inputISBNFicha').val().trim();
+		const clasificacion = $('#inputClasificacionFicha').val().trim();
+
+		const titulo0k = validarTituloAltaFicha(titulo);
+		const autor0k = validarAutorAltaFicha(autor);
+		const isbn0k = validarISBNAltaFicha(isbn);
+		const clasificacion0k = validarClasificacionAltaFicha(clasificacion);
+
+		const altaFichaValidada = (titulo0k&&autor0k&&isbn0k&&clasificacion0k)?true:false;	
+
+		if (altaFichaValidada){
 			$.post(link,{titulo:titulo,
-				autor:autor,
-				isbn:isbn,
-				clasificacion:clasificacion
-				//lugar:lugar,
-				//area:area,
-				//descripcion:descripcion,
-				//edicion:edicion
+									autor:autor,
+									isbn:isbn,
+									clasificacion:clasificacion
 				},function(resp){
 				$("#data").html(resp);
 			});//post
