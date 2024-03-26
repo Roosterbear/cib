@@ -6,7 +6,17 @@ function blockey(tecla,e){
 			}
 }
 
+function espacios(tecla){
+	const texto = tecla.target.value;
 
+	if(tecla.keyCode===32){
+		if(/\s{2,}/.test(texto)){}
+			tecla.target.value = texto.trim();
+			tecla.preventDefault();
+	}
+}
+
+// SOLO ACEPTA NUMEROS PARA NUMERO DE EDICION
 function blockeyEdicion(tecla,e){
 	let regex = /[a0-9]/;
 			if(!regex.test(tecla)){

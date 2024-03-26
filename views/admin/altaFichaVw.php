@@ -135,7 +135,7 @@ $(document).ready(function(){
 	});
 */
 	btnGuardarAltaFicha.addEventListener('click', function(){
-		const titulo = $('#inputTituloFicha').val();
+		const titulo = $('#inputTituloFicha').val().trim();
 		const autor = $('#inputAutorFicha').val();
 		const isbn = $('#inputISBNFicha').val();
 		const clasificacion = $('#inputClasificacionFicha').val();
