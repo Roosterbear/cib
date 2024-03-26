@@ -38,56 +38,6 @@
 			<div class="col-md-1"></div>
 		</div>
 
-
-		
-		<div class="row areaCaptura">
-			<!-- Captura de Lugar del Libro -->
-			<div class="col-md-1"></div>
-			<div class="col-md-5">
-				<i class="fa fa-map-marker iconoCaptura"></i>
-				<label class="labelCaptura" for="selectLugarFicha">Lugar:</label>
-				<select name="selectLugarFicha" class="form-control inputCaptura altaFicha" id="selectLugarFicha">
-					<option value="mexico">M&eacute;xico</option>
-					<option value="usa">Estados Unidos</option>
-					<option value="japon">Jap&oacute;n</option>
-				</select>
-			</div>
-			<!-- Captura de Area del Libro -->
-			<div class="col-md-5">
-				<i class="fa fa-users iconoCaptura"></i>
-				<label class="labelCaptura" for="selectAreaFicha">Area:</label>
-				<select name="selectAreaFicha" class="form-control inputCaptura altaFicha" id="selectAreaFicha"/>
-					<option value="general">General</option>
-					<option value="basicas">Ciencias B&aacute;sicas</option>
-				</select>
-			</div>
-			<div class="col-md-1"></div>
-		</div>
-
-		<div class="row areaCaptura">
-			<!-- Captura de Descripcion -->
-			<div class="col-md-1"></div>
-			<div class="col-md-5">
-				<i class="fa fa-commenting iconoCaptura"></i>
-				<label class="labelCaptura" for="inputDescripcionFicha">Descripcion:</label>
-				<input name="inputDescripcionFicha" class="form-control inputCaptura altaFicha" id="inputDescripcionFicha" onpaste="return false"/>
-			</div>
-			<!-- Captura de Edicion -->
-			<div class="col-md-5">
-				<i class="fa fa-pencil-square-o iconoCaptura"></i>
-				<label class="labelCaptura" for="inputEdicionFicha">Edicion:</label>
-				<input type="text" name="inputEdicionFicha" class="form-control inputCaptura altaFicha" id="inputEdicionFicha" 
-				onpaste="return false"/>
-			</div>
-			<div class="col-md-1"></div>
-		</div>
-
-		<br/>	
-		<div class="row areaCaptura">
-			<!-- Captura de Imagen -->
-		</div>
-
-		
 		<div class="row areaCaptura">
 			<div class="col-md-12 text-center">
 				<button class="btn btn-lg btn-primary" id="btnGuardarAltaFicha">&nbsp;Guardar&nbsp;</button>
