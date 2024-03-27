@@ -54,10 +54,12 @@ a:hover{
 }
 
 #data{
-  background: tomato;
-  color: white;
+  background: white;
+  color: tomato;
   font-weight: bold;
   width: 50vw;
+  padding:3px;
+  text-align: center;
 }
 
 

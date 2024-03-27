@@ -80,17 +80,17 @@ $(document).ready(function(){
 	});
 
 	btnGuardarAltaFicha.addEventListener('click', function(){
-		const titulo = $('#inputTituloFicha').val().trim();
+		const titulo = quitarComilla($('#inputTituloFicha').val().trim());
 		const autor = $('#inputAutorFicha').val().trim();
 		const isbn = $('#inputISBNFicha').val().trim();
 		const clasificacion = $('#inputClasificacionFicha').val().trim();
 
 		const titulo0k = validarTituloAltaFicha(titulo);
 		const autor0k = validarAutorAltaFicha(autor);
-		const isbn0k = validarISBNAltaFicha(isbn);
 		const clasificacion0k = validarClasificacionAltaFicha(clasificacion);
 
-		const altaFichaValidada = (titulo0k&&autor0k&&isbn0k&&clasificacion0k)?true:false;	
+		const altaFichaValidada = (titulo0k&&autor0k&&clasificacion0k)?true:false;	
+
 
 		if (altaFichaValidada){
 			$.post(link,{titulo:titulo,
@@ -98,7 +98,7 @@ $(document).ready(function(){
 									isbn:isbn,
 									clasificacion:clasificacion
 				},function(resp){
-				$("#data").html(resp);
+				$("#data").html("Ficha generada con el ID: "+resp);
 			});//post
 		}else{
 			$("#data").html("Faltan campos por llenar");
