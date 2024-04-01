@@ -47,7 +47,7 @@
 </div>
 
 <div class="mensajes">
-	<div id="data"></div>
+	<div id="mensaje"></div>
 </div>
 
 <script>
@@ -55,7 +55,7 @@
 const link = "<?=site_url("admin/Libros/addFicha")?>";
 
 $(document).ready(function(){
-	const data = document.querySelector("#data");
+	const mensaje = document.querySelector("#mensaje");
 
 	const btnGuardarAltaFicha = document.querySelector("#btnGuardarAltaFicha");
 
@@ -101,13 +101,13 @@ $(document).ready(function(){
 									clasificacion:clasificacion
 				},function(resp){
 					resetDataAltaFicha();
-				$('#data').addClass('green').html("Ficha generada con el ID: "+resp);
+				$('#mensaje').addClass('green').html("Ficha generada con el ID: "+resp);
 				setTimeout(()=>{
-					$('#data').removeClass('green').html("");
+					$('#mensaje').removeClass('green').html("");
 				},7000);
 			});//post
 		}else{
-			$('#data').addClass('tomato').html("Faltan campos por llenar");
+			$('#mensaje').addClass('tomato').html("Faltan campos por llenar");
 		}
 	});
 });
