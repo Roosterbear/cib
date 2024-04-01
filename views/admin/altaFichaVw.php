@@ -40,7 +40,7 @@
 
 		<div class="row areaCaptura">
 			<div class="col-md-12 text-center">
-				<button class="btn btn-lg btn-primary" id="btnGuardarAltaFicha">&nbsp;Guardar&nbsp;</button>
+				<button class="btn btn-lg btn-primary puntero" id="btnGuardarAltaFicha">&nbsp;Guardar&nbsp;</button>
 			</div>
 		</div>
 	</div>
@@ -79,7 +79,9 @@ $(document).ready(function(){
 		blockey(tecla,e);
 	});
 
+	
 	btnGuardarAltaFicha.addEventListener('click', function(){
+		
 		const titulo = quitarComilla($('#inputTituloFicha').val().trim());
 		const autor = $('#inputAutorFicha').val().trim();
 		const isbn = $('#inputISBNFicha').val().trim();

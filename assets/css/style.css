@@ -43,9 +43,7 @@ a:hover{
   opacity: 0.5;
 }
 
-#btnGuardarMostrarFicha,
-#btnGuardarMostrarEjemplar,
-#btnGuardarAltaFicha{
+.puntero{
   cursor: pointer;
 }
 
