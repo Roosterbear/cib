@@ -100,11 +100,26 @@ $(document).ready(function(){
 									isbn:isbn,
 									clasificacion:clasificacion
 				},function(resp){
-				$("#data").html("Ficha generada con el ID: "+resp);
+					resetDataAltaFicha();
+				$('#data').addClass('green').html("Ficha generada con el ID: "+resp);
+				setTimeout(()=>{
+					$('#data').removeClass('green').html("");
+				},7000);
 			});//post
 		}else{
-			$("#data").html("Faltan campos por llenar");
+			$('#data').addClass('tomato').html("Faltan campos por llenar");
 		}
 	});
 });
+
+function resetDataAltaFicha(){
+	var t = document.querySelector("#inputTituloFicha");
+	var a = document.querySelector("#inputAutorFicha");
+	var c = document.querySelector("#inputClasificacionFicha");
+	var i = document.querySelector("#inputISBNFicha");
+	t.value = '';
+	a.value = '';
+	c.value = '';
+	i.value = '';
+}
 </script>
