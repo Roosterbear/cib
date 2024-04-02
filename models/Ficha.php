@@ -48,8 +48,8 @@ class Ficha extends \CI_Model {
 		return $this->db->insert_id();
 	}
 	
-	public function delete(){
-		
+	public function delete($id){
+		return true;
 	}
 	
 	public function update(){
