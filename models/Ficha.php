@@ -48,8 +48,12 @@ class Ficha extends \CI_Model {
 		return $this->db->insert_id();
 	}
 	
-	public function delete($id){
-		return true;
+	public function execSQL($sql){
+		$this->cib = new CIB();
+		$rs = $this->db->Execute($sql);
+		
+		
+		return $sql; 
 	}
 	
 	public function update(){

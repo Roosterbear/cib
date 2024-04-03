@@ -160,18 +160,16 @@ class Libros extends \CI_Controller{
 		
 	}
 	
-	public function deleteFicha(){
+	public function showFicha(){
 		$this->ficha = new Ficha();
 		
 		$byID = $_REQUEST['byID'];
 		$value = $_REQUEST['value']; 
 				
-		$sql = "select * from cib.ficha where ";
+		$sql = "select Id from cib.ficha where ";
 		$sql .= $byID==1?" Id = ${value}":" ISBN = '${value}'";
 		
-		echo $sql;
-		
-		
+		echo $this->ficha->execSQL($sql);
 		
 	}
 	

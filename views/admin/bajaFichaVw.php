@@ -38,7 +38,7 @@
 
 	
 $(document).ready(function(){
-	const link = "<?=site_url("admin/Libros/deleteFicha")?>";
+	const link = "<?=site_url("admin/Libros/showFicha")?>";
 	const id = document.querySelector("#inputBuscarPorIDBajaFicha");
 	const isbn = document.querySelector("#inputBuscarPorISBNBajaFicha");
 	const data = document.querySelector("#data");
@@ -65,7 +65,7 @@ $(document).ready(function(){
 	btnBajaFicha.addEventListener('click', ()=>{
 		value = byID==1?id.value:isbn.value;
 		$.post(link,{byID:byID,value:value},function(resp){
-			$("#mensaje").html(resp);
+			$("#data").html(resp);
 		});
 	});
 });

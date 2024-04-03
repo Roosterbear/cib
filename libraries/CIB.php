@@ -79,6 +79,10 @@ class CIB {
 		
 	}
 	
+	public function getOneFicha($ficha){
+		return $ficha['id'];
+	}
+	
 	
 	public function getEjemplar($array){
 	
