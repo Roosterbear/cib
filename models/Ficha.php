@@ -53,7 +53,8 @@ class Ficha extends \CI_Model {
 		$rs = $this->db->Execute($sql);
 		
 		
-		return $sql; 
+		return $this->cib->getOneFicha($rs->getArray());
+		
 	}
 	
 	public function update(){

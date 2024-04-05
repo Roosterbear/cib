@@ -39,31 +39,33 @@
 	
 $(document).ready(function(){
 	const link = "<?=site_url("admin/Libros/showFicha")?>";
+	
 	const id = document.querySelector("#inputBuscarPorIDBajaFicha");
 	const isbn = document.querySelector("#inputBuscarPorISBNBajaFicha");
+	
 	const data = document.querySelector("#data");
 	const mensaje = document.querySelector("#mensaje");
 	
 	const btnBajaFicha = document.querySelector("#btnBajaFicha");
 	let byID = 0;
 	let value = '';
-
+	
 	$(inputBuscarPorIDBajaFicha).on("keydown", function(e){
 		isbn.value = '';
 		byID = 1;		
 		let tecla = e.key;
 		justDigits(tecla,e);
 	});
-
+	
 	$(inputBuscarPorISBNBajaFicha).on("keydown", function(e){
 		id.value = '';
 		byID = 2;
 		let tecla = e.key;
 		blockey(tecla,e);
 	});
-
+	
 	btnBajaFicha.addEventListener('click', ()=>{
-		value = byID==1?id.value:isbn.value;
+		value = byID==1?$("#inputBuscarPorIDBajaFicha").val():$("#inputBuscarPorISBNBajaFicha").val();
 		$.post(link,{byID:byID,value:value},function(resp){
 			$("#data").html(resp);
 		});

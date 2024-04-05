@@ -80,7 +80,35 @@ class CIB {
 	}
 	
 	public function getOneFicha($ficha){
-		return $ficha['id'];
+		//return "<pre>".var_dump($ficha)."</pre>";
+		
+		// Id | Titulo | Autor | ISBN | Clasificacion
+		$tabla = "<table class=\"cib-table\"><thead>";
+		$tabla .= "<tr><th>Id</th>";
+		$tabla .= "<th><i class=\"fa fa-book\" aria-hidden=\"true\"></i> TITULO</th>";
+		$tabla .= "<th><i class=\"fa fa-user-circle\" aria-hidden=\"true\"></i> AUTOR</th>";
+		$tabla .= "<th><i class=\"fa fa-archive\" aria-hidden=\"true\"></i> ISBN</th>";
+		$tabla .= "<th><i class=\"fa fa-barcode\" aria-hidden=\"true\"></i>	CLASIFICACION</th></tr></thead>";
+		$tabla .= "<tbody>";
+		
+		$id = $ficha[0]['Id'];
+		$titulo = $ficha[0]['titulo'];
+		$autor = $ficha[0]['autor'];
+		$isbn = $ficha[0]['ISBN'];
+		$clasificacion = $ficha[0]['clasificacion'];
+	
+		$tabla .= "<tr>";
+		$tabla .= "<td class=\"text-center\">{$id}</td>";
+		$tabla .= "<td>{$titulo}</td>";
+		$tabla .= "<td>{$autor}</td>";
+		$tabla .= "<td>{$isbn}</td>";
+		$tabla .= "<td>{$clasificacion}</td>";
+		$tabla .= "</tr>";
+
+		$tabla .= "</tbody>";
+		$tabla .= "</table>";
+		
+		return $tabla;
 	}
 	
 	
