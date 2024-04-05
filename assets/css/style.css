@@ -52,7 +52,7 @@ a:hover{
   justify-content: center;
 }
 
-#mensaje{
+.mensaje{
   background: white;
   font-weight: bold;
   width: 50vw;
@@ -67,6 +67,11 @@ a:hover{
 .green{
   color: green;
 }
+
+/* --------- */
+/*  BOTONES  */
+/* --------- */
+
 
 
 /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */

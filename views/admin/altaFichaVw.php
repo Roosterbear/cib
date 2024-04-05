@@ -47,7 +47,7 @@
 </div>
 
 <div class="mensajes">
-	<div id="mensaje"></div>
+	<div class="mensaje"></div>
 </div>
 
 <script>

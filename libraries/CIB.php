@@ -91,20 +91,24 @@ class CIB {
 		$tabla .= "<th><i class=\"fa fa-barcode\" aria-hidden=\"true\"></i>	CLASIFICACION</th></tr></thead>";
 		$tabla .= "<tbody>";
 		
-		$id = $ficha[0]['Id'];
-		$titulo = $ficha[0]['titulo'];
-		$autor = $ficha[0]['autor'];
-		$isbn = $ficha[0]['ISBN'];
-		$clasificacion = $ficha[0]['clasificacion'];
-	
-		$tabla .= "<tr>";
-		$tabla .= "<td class=\"text-center\">{$id}</td>";
-		$tabla .= "<td>{$titulo}</td>";
-		$tabla .= "<td>{$autor}</td>";
-		$tabla .= "<td>{$isbn}</td>";
-		$tabla .= "<td>{$clasificacion}</td>";
-		$tabla .= "</tr>";
-
+		if(isset($ficha[0]['Id'])){
+			$id = $ficha[0]['Id'];
+			$titulo = $ficha[0]['titulo'];
+			$autor = $ficha[0]['autor'];
+			$isbn = $ficha[0]['ISBN'];
+			$clasificacion = $ficha[0]['clasificacion'];
+		
+			$tabla .= "<tr>";
+			$tabla .= "<td class=\"text-center\">{$id}</td>";
+			$tabla .= "<td>{$titulo}</td>";
+			$tabla .= "<td>{$autor}</td>";
+			$tabla .= "<td>{$isbn}</td>";
+			$tabla .= "<td>{$clasificacion}</td>";
+			$tabla .= "</tr>";
+		}else{
+			return "<div class=\"mensaje tomato\">ID no encontrado</div>";
+		}
+		
 		$tabla .= "</tbody>";
 		$tabla .= "</table>";
 		

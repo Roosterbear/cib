@@ -25,14 +25,19 @@
     <div id="contenidoData"></div>
 		<div class="row areaCaptura">
 			<div class="col-md-12 text-center">
-				<button class="btn btn-lg btn-primary puntero" id="btnBajaFicha">&nbsp;Mostrar&nbsp;</button>
+				<button class="btn btn-lg btn-success puntero" id="btnMostrarFichaBajaFicha">&nbsp;Mostrar Ficha&nbsp;</button>
 			</div>
 		</div>
 	</div>
 </div>
 <div class="mensajes">
 	<div id="data"></div>
-	<div id="mensaje"></div>
+</div>
+
+<div class="row areaCaptura">
+	<div class="col-md-12 text-center">
+		<button class="btn btn-lg btn-danger puntero" id="btnBajaFicha">&nbsp;Eliminar Ficha?&nbsp;</button>
+	</div>
 </div>
 <script>
 
@@ -64,10 +69,10 @@ $(document).ready(function(){
 		blockey(tecla,e);
 	});
 	
-	btnBajaFicha.addEventListener('click', ()=>{
+	btnMostrarFichaBajaFicha.addEventListener('click', ()=>{
 		value = byID==1?$("#inputBuscarPorIDBajaFicha").val():$("#inputBuscarPorISBNBajaFicha").val();
 		$.post(link,{byID:byID,value:value},function(resp){
-			$("#data").html(resp);
+				$("#data").html(resp);
 		});
 	});
 });
