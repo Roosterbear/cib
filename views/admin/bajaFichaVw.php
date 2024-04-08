@@ -18,7 +18,7 @@
 			  <i class="fa fa-search iconoBuscar"></i>
 			  <i class="fa fa-user-circle iconoBuscar"></i>
 			  <label class="labelBuscar" for="inputBuscarPorISBNBajaFicha">Por ISBN:</label>
-			  <input name="inputBuscarPorISBNBajaFicha" class="form-control inputBuscar" id="inputBuscarPorISBNBajaFicha" onpaste="return false"/>
+			  <input name="inputBuscarPorISBNBajaFicha" class="form-control inputBuscar" id="inputBuscarPorISBNBajaFicha"/>
 		   </div>
 			 <div class="col-md-1"></div>
 	    </div><!-- row  -->
@@ -43,7 +43,8 @@
 
 	
 $(document).ready(function(){
-	const link = "<?=site_url("admin/Libros/showFicha")?>";
+	const link_consulta = "<?=site_url("admin/Libros/showFicha")?>";
+	const link_borrar = "<?=site_url("admin/Libros/deleteFicha")?>";
 	
 	const id = document.querySelector("#inputBuscarPorIDBajaFicha");
 	const isbn = document.querySelector("#inputBuscarPorISBNBajaFicha");
@@ -52,7 +53,10 @@ $(document).ready(function(){
 	const mensaje = document.querySelector("#mensaje");
 	
 	const btnBajaFicha = document.querySelector("#btnBajaFicha");
+	const btnMostrarFichaBajaFicha = document.querySelector("#btnMostrarFichaBajaFicha");
+
 	let byID = 0;
+	let byID_a_borrar = 0;
 	let value = '';
 	
 	$(inputBuscarPorIDBajaFicha).on("keydown", function(e){
@@ -71,9 +75,17 @@ $(document).ready(function(){
 	
 	btnMostrarFichaBajaFicha.addEventListener('click', ()=>{
 		value = byID==1?$("#inputBuscarPorIDBajaFicha").val():$("#inputBuscarPorISBNBajaFicha").val();
-		$.post(link,{byID:byID,value:value},function(resp){
+		byID_a_borrar = byID;
+		if(byID === 2) value = quitarGuiones(value);
+		$.post(link_consulta,{byID:byID,value:value},function(resp){
 				$("#data").html(resp);
 		});
+	});
+
+	btnBajaFicha.addEventListener('click', ()=>{
+		$.post(link_borrar,{byID:byID_a_borrar,value:value},function(resp){
+			$("#data").html(resp);
+		});	
 	});
 });
 </script>

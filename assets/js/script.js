@@ -1,5 +1,5 @@
 function blockey(tecla,e){
-	let regex = /[a-zA-Z0-9\+\#\'\:\.\s]/;
+	let regex = /[a-zA-Z0-9-\+\#\'\:\.\s]/;
 	if(!regex.test(tecla)){
 		e.preventDefault();
 		return false;
@@ -21,6 +21,10 @@ function justDigits(tecla,e){
 
 function quitarComilla(texto){
 	return texto.replace(/'/g,"''");
+}
+
+function quitarGuiones(value) {
+    return value.replace(/-+/g, '-');   
 }
 
 function validarTituloAltaFicha(titulo){	

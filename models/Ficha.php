@@ -56,6 +56,12 @@ class Ficha extends \CI_Model {
 		 
 	}
 	
+	public function deleteFicha($sql){
+		//$rs = $this->db->Execute($sql);
+		
+		return $sql;
+	}
+	
 	public function update(){
 		
 	}
