@@ -179,11 +179,18 @@ class Libros extends \CI_Controller{
 		
 		$byID = $_REQUEST['byID'];
 		$value = $_REQUEST['value'];
+		$id = 0;
 		
-		$sql = "delete from cib.ficha where ";
-		$sql .= $byID==1?" Id = ${value}":" ISBN = '${value}'";
+		// conseguir ID del ISBN dado...
+		if($byID == 2){
+			$id = $this->ficha->getIdFromISBNFicha($value);
+		}else{
+			$id = $value;
+		}
 		
-		echo $this->ficha->deleteFicha($sql);
+		$sql = "delete from cib.ficha where id = $id";
+		
+		echo $this->ficha->deleteFicha($sql,$id);
 	}
 	
 	public function updateFicha(){

@@ -76,6 +76,7 @@ $(document).ready(function(){
 	btnMostrarFichaBajaFicha.addEventListener('click', ()=>{
 		value = byID==1?$("#inputBuscarPorIDBajaFicha").val():$("#inputBuscarPorISBNBajaFicha").val();
 		byID_a_borrar = byID;
+		btnBajaFicha.style = ("display:block");
 		if(byID === 2) value = quitarGuiones(value);
 		$.post(link_consulta,{byID:byID,value:value},function(resp){
 				$("#data").html(resp);
@@ -86,6 +87,7 @@ $(document).ready(function(){
 		$.post(link_borrar,{byID:byID_a_borrar,value:value},function(resp){
 			$("#data").html(resp);
 		});	
+		btnBajaFicha.style = ("display:none");
 	});
 });
 </script>

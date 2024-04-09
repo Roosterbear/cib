@@ -56,10 +56,28 @@ class Ficha extends \CI_Model {
 		 
 	}
 	
-	public function deleteFicha($sql){
-		//$rs = $this->db->Execute($sql);
+	public function getIdFromISBNFicha($isbn){
+		$this->cib = new CIB();
+		$sql = "select id from cib.ficha where ISBN = '$isbn'";
+		$rs = $this->db->Execute($sql);
+		return $rs->fields['id'];
+	}
+	
+	public function deleteFicha($sql,$id){
+		if(!$this->fichaIsFree($id)){			
+		//$rs = $this->db->Execute($sql);		
+		return "ID: $id eliminado";
+		}else{
+			return "ID $id no eliminado por contener ejemplares";
+		}
+	}
+	
+	public function fichaIsFree($id){
+		$this->cib = new CIB();
+		$sql = "select top(1) id from cib.ejemplar where idFicha = (select id from cib.ficha where id = $id)";
+		$rs = $this->db->Execute($sql);
+		return $rs->fields['id'];
 		
-		return $sql;
 	}
 	
 	public function update(){
