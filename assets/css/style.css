@@ -68,6 +68,14 @@ a:hover{
   color: green;
 }
 
+/* ----------- */
+/*  MENSAJES   */
+/* ----------- */
+
+#data > strong > span{
+  color: tomato;
+}
+
 /* --------- */
 /*  BOTONES  */
 /* --------- */

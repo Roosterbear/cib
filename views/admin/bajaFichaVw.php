@@ -88,6 +88,8 @@ $(document).ready(function(){
 			$("#data").html(resp);
 		});	
 		btnBajaFicha.style = ("display:none");
+		id.value = '';
+		isbn.value = '';
 	});
 });
 </script>

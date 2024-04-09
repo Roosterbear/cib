@@ -120,8 +120,8 @@ class CIB {
 	
 		// IdFicha | numAdquisicion | titulo | autor | clasificacion
 		$tabla = "<table class=\"cib-table\"><thead>";
-		$tabla .= "<tr><th>Id Ficha</th>";
-		$tabla .= "<th><i class=\"fa fa-archive\" aria-hidden=\"true\"></i> NUM ADQUISICION</th>";
+		$tabla .= "<tr><th> FICHA </th>";
+		$tabla .= "<th><i class=\"fa fa-archive\" aria-hidden=\"true\"></i> ADQ</th>";
 		$tabla .= "<th><i class=\"fa fa-book\" aria-hidden=\"true\"></i> TITULO</th>";
 		$tabla .= "<th><i class=\"fa fa-user-circle\" aria-hidden=\"true\"></i> AUTOR</th>";		
 		$tabla .= "<th><i class=\"fa fa-barcode\" aria-hidden=\"true\"></i>	CLASIFICACION</th></tr></thead>";
