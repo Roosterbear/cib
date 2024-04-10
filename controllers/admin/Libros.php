@@ -193,6 +193,13 @@ class Libros extends \CI_Controller{
 		echo $this->ficha->deleteFicha($sql,$id);
 	}
 	
+	/* CAMBIO FICHAS */
+	/* ---------------------------------------------------- */
+	/* ---------------------------------------------------- */
+	/* EL BUSCADOR DE FICHAS se encuentra en alumno/Fichero */
+	/* ---------------------------------------------------- */
+	/* ---------------------------------------------------- */
+	
 	public function updateFicha(){
 		$this->ficha = new Ficha();
 	}

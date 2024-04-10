@@ -1,5 +1,5 @@
 function blockey(tecla,e){
-	let regex = /[a-zA-Z0-9-\+\#\'\:\.\s]/;
+	let regex = /[a-zA-Z0-9\+\#\'\:\.\s]/;
 	if(!regex.test(tecla)){
 		e.preventDefault();
 		return false;
@@ -7,7 +7,7 @@ function blockey(tecla,e){
 }
 
 function justDigits(tecla,e){
-	let regex = /[0-9]/;
+	let regex = /[0-9-]/;
 	
 	if(e.key==='Backspace'){
 		return true;

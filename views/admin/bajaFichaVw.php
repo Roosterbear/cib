@@ -70,14 +70,14 @@ $(document).ready(function(){
 		id.value = '';
 		byID = 2;
 		let tecla = e.key;
-		blockey(tecla,e);
+		justDigits(tecla,e);
 	});
 	
 	btnMostrarFichaBajaFicha.addEventListener('click', ()=>{
 		value = byID==1?$("#inputBuscarPorIDBajaFicha").val():$("#inputBuscarPorISBNBajaFicha").val();
 		byID_a_borrar = byID;
 		btnBajaFicha.style = ("display:block");
-		if(byID === 2) value = quitarGuiones(value);
+		value = quitarGuiones(value);
 		$.post(link_consulta,{byID:byID,value:value},function(resp){
 				$("#data").html(resp);
 		});

@@ -19,9 +19,8 @@
 			<input name="inputBuscarAutor" class="form-control inputBuscar" id="inputBuscarAutor" onpaste="return false"/>
 		</div>
 	</div><!-- row  -->
-
-	
 </form>
+
 <div id="contenidoData"></div>
 
 <script>
@@ -29,6 +28,7 @@
 	$(document).ready(function(){
 		const inputBuscar = document.querySelector("#inputBuscar");
 		const inputBuscarAutor = document.querySelector("#inputBuscarAutor");
+		let value = '';
 
 		/* PERMITE SOLO LETRAS Y NUMEROS */
 		$(inputBuscar).on("keydown", function(e){
@@ -44,14 +44,16 @@
 		});
 
 		$(inputBuscar).on("keyup",function(){
-			$.post("<?=site_url("alumno/Fichero/buscar")?> ",{busqueda:$(inputBuscar).val()}, function(resp){
+		  value = quitarGuiones(inputBuscar.value);
+			$.post("<?=site_url("admin/BuscadorFicha/buscar")?> ",{busqueda:value}, function(resp){
 				$("#contenidoData").html( resp );
 			});
 		});
 
 
 		$(inputBuscarAutor).on("keyup",function(){
-			$.post("<?=site_url("alumno/Fichero/buscarAutor")?> ",{busqueda:$(inputBuscarAutor).val()}, function(resp){
+		  value = quitarGuiones(inputBuscarAutor.value);
+			$.post("<?=site_url("admin/BuscadorFicha/buscarAutor")?> ",{busqueda:value}, function(resp){
 				$("#contenidoData").html( resp );
 			});
 		});

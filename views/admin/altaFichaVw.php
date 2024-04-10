@@ -40,7 +40,7 @@
 
 		<div class="row areaCaptura">
 			<div class="col-md-12 text-center">
-				<button class="btn btn-lg btn-primary puntero" id="btnGuardarAltaFicha">&nbsp;Guardar&nbsp;</button>
+				<button class="btn btn-lg btn-success puntero" id="btnGuardarAltaFicha">&nbsp;Guardar&nbsp;</button>
 			</div>
 		</div>
 	</div>
