@@ -76,10 +76,14 @@ $(document).ready(function(){
 	btnMostrarFichaBajaFicha.addEventListener('click', ()=>{
 		value = byID==1?$("#inputBuscarPorIDBajaFicha").val():$("#inputBuscarPorISBNBajaFicha").val();
 		byID_a_borrar = byID;
-		btnBajaFicha.style = ("display:block");
 		value = quitarGuiones(value);
 		$.post(link_consulta,{byID:byID,value:value},function(resp){
-				$("#data").html(resp);
+			if(resp != "<div class=\"mensaje tomato\">ID no encontrado</div>"){
+				btnBajaFicha.style = ("display:block");
+			}
+
+			$("#data").html(resp);
+				
 		});
 	});
 
