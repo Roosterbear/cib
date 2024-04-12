@@ -51,14 +51,14 @@
 		});
 
 		$(inputBuscar).on("keyup",function(){
-			$.post("<?=site_url("admin/BuscadorFicha/buscar")?> ",{busqueda:$(inputBuscar).val()}, function(resp){
+			$.post("<?=site_url("admin/BuscadorFicha/buscar")?> ",{busqueda:$(inputBuscar).val(),cambio:1}, function(resp){
 				$("#contenidoData").html( resp );
 			});
 		});
 
 
 		$(inputBuscarAutor).on("keyup",function(){
-			$.post("<?=site_url("admin/BuscadorFicha/buscarAutor")?> ",{busqueda:$(inputBuscarAutor).val()}, function(resp){
+			$.post("<?=site_url("admin/BuscadorFicha/buscarAutor")?> ",{busqueda:$(inputBuscarAutor).val(),cambio:1}, function(resp){
 				$("#contenidoData").html( resp );
 			});
 		});

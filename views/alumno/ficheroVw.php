@@ -45,7 +45,7 @@
 
 		$(inputBuscar).on("keyup",function(){
 		  value = quitarGuiones(inputBuscar.value);
-			$.post("<?=site_url("admin/BuscadorFicha/buscar")?> ",{busqueda:value}, function(resp){
+			$.post("<?=site_url("admin/BuscadorFicha/buscar")?> ",{busqueda:value,cambio:0}, function(resp){
 				$("#contenidoData").html( resp );
 			});
 		});
@@ -53,7 +53,7 @@
 
 		$(inputBuscarAutor).on("keyup",function(){
 		  value = quitarGuiones(inputBuscarAutor.value);
-			$.post("<?=site_url("admin/BuscadorFicha/buscarAutor")?> ",{busqueda:value}, function(resp){
+			$.post("<?=site_url("admin/BuscadorFicha/buscarAutor")?> ",{busqueda:value,cambio:0}, function(resp){
 				$("#contenidoData").html( resp );
 			});
 		});

@@ -21,8 +21,23 @@ class Ficha extends \CI_Model {
 		$rs = $autor?$this->db->Execute($sqlAutor):$this->db->Execute($sqlTitulo);
 		
 		$tabla = $this->cib->getBook($rs->getArray());
+		return $tabla;		
+	}
+	
+	/* ------------------------ */
+	/* ----- CAMBIO FICHA ----- */
+	/* ------------------------ */	
+	
+	public function buscarLibroCambio($busqueda,$autor){
+		if ($busqueda == '' || $busqueda == ' ') return '';
+		$this->cib = new CIB();
+	
+		$sqlTitulo = "select titulo, autor, clasificacion from cib.ficha where titulo like '%".$busqueda."%'";
+		$sqlAutor = "select titulo, autor, clasificacion from cib.ficha where autor like '%".$busqueda."%'";
+		$rs = $autor?$this->db->Execute($sqlAutor):$this->db->Execute($sqlTitulo);
+	
+		$tabla = $this->cib->getBookCambio($rs->getArray());
 		return $tabla;
-		
 	}
 	
 	public function mostrarFichas(){

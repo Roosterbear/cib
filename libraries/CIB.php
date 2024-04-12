@@ -13,7 +13,7 @@ class CIB {
 	}
 	
 	
-	// Regresar datos de libro como tabla HTML
+	// Regresar datos de libro como tabla HTML para DETALLE
 	public function getBook($array){
 			
 		$consecutivo = 0;
@@ -23,6 +23,7 @@ class CIB {
 		$tabla .= "<th><i class=\"fa fa-book\" aria-hidden=\"true\"></i> TITULO</th>";
 		$tabla .= "<th><i class=\"fa fa-user-circle\" aria-hidden=\"true\"></i> AUTOR</th>";
 		$tabla .= "<th><i class=\"fa fa-barcode\" aria-hidden=\"true\"></i>	CLASIFICACION</th></tr></thead>";
+		
 		$tabla .= "<tbody>";
 		
 		foreach ($array as $a){
@@ -44,6 +45,41 @@ class CIB {
 		$tabla .= "</table>";
 		return $tabla;		
 	}
+	
+	// Regresar datos de libro como tabla HTML para CAMBIO
+	public function getBookCambio($array){
+			
+		$consecutivo = 0;
+		// No | Titulo | Autor | Clasificacion
+		$tabla = "<table class=\"cib-table\"><thead>";
+		$tabla .= "<tr><th>No.</th>";
+		$tabla .= "<th><i class=\"fa fa-book\" aria-hidden=\"true\"></i> TITULO</th>";
+		$tabla .= "<th><i class=\"fa fa-user-circle\" aria-hidden=\"true\"></i> AUTOR</th>";
+		$tabla .= "<th><i class=\"fa fa-barcode\" aria-hidden=\"true\"></i>	CLASIFICACION</th>";
+		$tabla .= "<th><i class=\"fa fa-pencil-square\" aria-hidden=\"true\"></i>	EDITAR</th></tr></thead>";
+		$tabla .= "<tbody>";
+	
+		foreach ($array as $a){
+			$consecutivo++;
+			$titulo = $a['titulo'];
+			$autor = $a['autor'];
+			$clasificacion = $a['clasificacion'];
+				
+			$tabla .= "<tr>";
+			$tabla .= "<td class=\"text-center\">{$consecutivo}</td>";
+			$tabla .= "<td>{$titulo}</td>";
+			$tabla .= "<td>{$autor}</td>";
+			$tabla .= "<td>{$clasificacion}</td>";
+			$tabla .= "<td class=\"text-center\"><i class=\"fa fa-pencil\" aria-hidden=\"true\"></i></td>";
+			$tabla .= "</tr>";
+				
+		}
+	
+		$tabla .= "</tbody>";
+		$tabla .= "</table>";
+		return $tabla;
+	}
+	
 	
 	/* ABC */
 	public function getFicha($array){
