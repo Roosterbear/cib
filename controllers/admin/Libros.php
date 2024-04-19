@@ -165,7 +165,7 @@ class Libros extends \CI_Controller{
 		$this->ficha = new Ficha();
 		
 		$byID = $_REQUEST['byID'];
-		$value = $_REQUEST['value']; 
+		$value = $_REQUEST['value']==''?0:$_REQUEST['value']; 
 				
 		$sql = "select Id, autor, titulo,ISBN, clasificacion from cib.ficha where ";
 		$sql .= $byID==1?" Id = ${value}":" ISBN = '${value}'";

@@ -81,7 +81,6 @@ $(document).ready(function(){
 
 	
 	btnGuardarAltaFicha.addEventListener('click', function(){
-		
 		const titulo = quitarComilla($('#inputTituloFicha').val().trim());
 		const autor = $('#inputAutorFicha').val().trim();
 		const isbn = $('#inputISBNFicha').val().trim();
@@ -100,7 +99,7 @@ $(document).ready(function(){
 									isbn:isbn,
 									clasificacion:clasificacion
 				},function(resp){
-					resetDataAltaFicha();
+					//resetDataAltaFicha();
 				$('#mensaje').addClass('green').html("Ficha generada con el ID: "+resp);
 				setTimeout(()=>{
 					$('#mensaje').removeClass('green').html("");
