@@ -86,9 +86,9 @@ $(document).ready(function(){
 		const isbn = $('#inputISBNFicha').val().trim();
 		const clasificacion = $('#inputClasificacionFicha').val().trim();
 
-		const titulo0k = validarTituloAltaFicha(titulo);
-		const autor0k = validarAutorAltaFicha(autor);
-		const clasificacion0k = validarClasificacionAltaFicha(clasificacion);
+		const titulo0k = validarMayorATres(titulo);
+		const autor0k = validarMayorATres(autor);
+		const clasificacion0k = validarMayorATres(clasificacion);
 
 		const altaFichaValidada = (titulo0k&&autor0k&&clasificacion0k)?true:false;	
 
@@ -99,14 +99,17 @@ $(document).ready(function(){
 									isbn:isbn,
 									clasificacion:clasificacion
 				},function(resp){
-					//resetDataAltaFicha();
-				$('#mensaje').addClass('green').html("Ficha generada con el ID: "+resp);
-				setTimeout(()=>{
-					$('#mensaje').removeClass('green').html("");
-				},7000);
-			});//post
+					$('.mensaje').addClass('green').html("Ficha generada con el ID: "+resp);
+					setTimeout(()=>{
+						$('.mensaje').removeClass('green').html("");
+					},7000);
+				});//post
+				resetDataAltaFicha();
 		}else{
-			$('#mensaje').addClass('tomato').html("Faltan campos por llenar");
+			$('.mensaje').addClass('tomato').html("Faltan campos por llenar");
+			setTimeout(()=>{
+				$('.mensaje').removeClass('tomato').html("");
+			},2000);
 		}
 	});
 });

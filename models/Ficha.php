@@ -61,6 +61,7 @@ class Ficha extends \CI_Model {
 		$rs = $this->db->Execute($sql);
 				
 		return $this->db->insert_id();
+		
 	}
 	
 	public function execSQL($sql){

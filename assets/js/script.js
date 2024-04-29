@@ -27,24 +27,8 @@ function quitarGuiones(value) {
     return value.replace(/-+/g, '-');   
 }
 
-function validarTituloAltaFicha(titulo){	
-	if(titulo ==''||titulo.length<3){
-		return false;
-	}else{
-		return true;
-	}
-}
-
-function validarAutorAltaFicha(autor){
-	if(autor == ''||autor.length<3){
-		return false;
-	}else{
-		return true;
-	}
-}
-
-function validarClasificacionAltaFicha(clasificacion){
-	if(clasificacion == ''||clasificacion.length<3){
+function validarMayorATres(input){	
+	if(input ==''||input.length<3){
 		return false;
 	}else{
 		return true;
