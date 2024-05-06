@@ -6,26 +6,17 @@
     <div class="row areaCaptura">
 			<div class="col-md-1"></div>
       <!-- Busqueda de Ficha por ID -->
-			<div class="col-md-5">
-		   	<i class="fa fa-search iconoBuscar"></i>
+			<div class="col-md-10">
+				<i class="fa fa-search iconoBuscar"></i>
 			  <i class="fa fa-book iconoBuscar"></i>
 			  <label class="labelCaptura">Por ID:</label>
 			  <input name="inputBuscarPorIDAltaEjemplar" class="form-control inputBuscarPorID" id="inputBuscarPorIDAltaEjemplar" onpaste="return false"/>
-		   </div>
-			
-      <!-- Busqueda de Ficha por ISBN -->
-		  <div class="col-md-5">
-			  <i class="fa fa-search iconoBuscar"></i>
-			  <i class="fa fa-user-circle iconoBuscar"></i>
-			  <label class="labelCaptura">Por ISBN:</label>
-			  <input name="inputBuscarPorISBNAltaEjemplar" class="form-control inputBuscar" id="inputBuscarPorISBNAltaEjemplar" onpaste="return false"/>
-		   </div>
-			 <div class="col-md-1"></div>
-	    </div><!-- row  -->
-    <div id="contenidoData"></div>
-  </div>
-</div>
-<br/>
+			</div>
+			<div class="col-md-1"></div>
+		</div>
+	</div>
+	<br/>
+	
 
 <!-- ***************************************************** -->
 <!-- ** AREA PARA MOSTRAR FICHA Y EJEMPLARES CAPTURADOS ** -->

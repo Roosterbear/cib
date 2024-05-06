@@ -163,12 +163,11 @@ class Libros extends \CI_Controller{
 	/* BAJA FICHAS */
 	public function showFicha(){
 		$this->ficha = new Ficha();
-		
-		$byID = $_REQUEST['byID'];
+			
 		$value = $_REQUEST['value']==''?0:$_REQUEST['value']; 
 				
 		$sql = "select Id, autor, titulo,ISBN, clasificacion from cib.ficha where ";
-		$sql .= $byID==1?" Id = ${value}":" ISBN = '${value}'";
+		$sql .= " Id = ${value}";
 		
 		echo $this->ficha->execSQL($sql);
 	}
@@ -177,16 +176,10 @@ class Libros extends \CI_Controller{
 	public function deleteFicha(){
 		$this->ficha = new Ficha();
 		
-		$byID = $_REQUEST['byID'];
 		$value = $_REQUEST['value'];
 		$id = 0;
 		
-		// conseguir ID del ISBN dado...
-		if($byID == 2){
-			$id = $this->ficha->getIdFromISBNFicha($value);
-		}else{
-			$id = $value;
-		}
+		$id = $value;	
 		
 		$sql = "delete from cib.ficha where id = $id";
 		
