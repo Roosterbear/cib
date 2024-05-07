@@ -27,7 +27,7 @@ class CIB {
 		$tabla .= "<tbody>";
 		
 		foreach ($array as $a){
-			$consecutivo++;
+			$consecutivo++;			
 			$titulo = $a['titulo'];
 			$autor = $a['autor'];
 			$clasificacion = $a['clasificacion'];
@@ -56,11 +56,12 @@ class CIB {
 		$tabla .= "<th><i class=\"fa fa-book\" aria-hidden=\"true\"></i> TITULO</th>";
 		$tabla .= "<th><i class=\"fa fa-user-circle\" aria-hidden=\"true\"></i> AUTOR</th>";
 		$tabla .= "<th><i class=\"fa fa-barcode\" aria-hidden=\"true\"></i>	CLASIFICACION</th>";
-		$tabla .= "<th><i class=\"fa fa-pencil-square\" aria-hidden=\"true\"></i>	EDITAR</th></tr></thead>";
+		$tabla .= "<th><i class=\"fa fa-pencil-square\" aria-hidden=\"true\"></i> EDITAR</th></tr></thead>";
 		$tabla .= "<tbody>";
 	
 		foreach ($array as $a){
 			$consecutivo++;
+			$id = $a['id'];
 			$titulo = $a['titulo'];
 			$autor = $a['autor'];
 			$clasificacion = $a['clasificacion'];
@@ -70,7 +71,7 @@ class CIB {
 			$tabla .= "<td>{$titulo}</td>";
 			$tabla .= "<td>{$autor}</td>";
 			$tabla .= "<td>{$clasificacion}</td>";
-			$tabla .= "<td class=\"text-center\"><i class=\"fa fa-pencil\" aria-hidden=\"true\"></i></td>";
+			$tabla .= "<td class=\"text-center lapicito\"><a href=\"updateFicha/{$id}\"><i class=\"fa fa-pencil\" aria-hidden=\"true\"></i></a></td>";
 			$tabla .= "</tr>";
 				
 		}

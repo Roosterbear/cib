@@ -68,6 +68,10 @@ a:hover{
   color: green;
 }
 
+a{
+  color: inherit;
+}
+
 /* ----------- */
 /*  MENSAJES   */
 /* ----------- */
