@@ -196,6 +196,12 @@ class Libros extends \CI_Controller{
 	public function updateFicha($id){
 		$this->ficha = new Ficha();
 		$data['id'] = $id;
+		$array = $this->ficha->mostrarFichasById($id);
+		
+		$data['titulo'] = $array[0]['titulo'];
+		$data['autor'] = $array[0]['autor'];
+		$data['isbn'] = $array[0]['isbn'];
+		$data['clasificacion'] = $array[0]['clasificacion'];
 		
 		$this->load->view("header");		
 		$this->load->view("/admin/formCambioFichaVw",$data);

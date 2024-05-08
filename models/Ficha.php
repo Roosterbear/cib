@@ -50,6 +50,15 @@ class Ficha extends \CI_Model {
 		return $tabla;
 	}
 	
+	public function mostrarFichasById($id){
+		$this->cib = new CIB();
+		
+		$sql = "select id, titulo, autor, isbn, clasificacion from cib.ficha where id = {$id}";
+		$rs = $this->db->Execute($sql);	
+		
+		return $rs->getArray();
+	}
+	
 	public function add($data){
 			
 		$titulo = $data['titulo'];
