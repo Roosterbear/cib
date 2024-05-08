@@ -197,7 +197,7 @@ class Libros extends \CI_Controller{
 		$this->ficha = new Ficha();
 		$data['id'] = $id;
 		
-		$this->load->view("header");
+		$this->load->view("header");		
 		$this->load->view("/admin/formCambioFichaVw",$data);
 		$this->load->view("footer");
 	}
