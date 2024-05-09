@@ -62,3 +62,9 @@
 		</div>
 
 </div>
+
+<script>
+
+const link = "<?=site_url("admin/Libros/update")?>";
+
+</script>

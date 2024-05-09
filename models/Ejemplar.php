@@ -1,33 +1,53 @@
 <?php
 
-class Ejemplar extends Ficha {		
+class Ejemplar extends Ficha {	
+	/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+	/* CLASE PARA MANEJAR EJEMPLARES */
+	/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+	
+	/* ------------------------------------------------------------------------ */
+	/* ------------------------------------------------------------------------ */
+	/* ----------- ESTAS VARIABLES SON HEREDADAS,  N O   M O V E R  ----------- */
 	private $id, $idFicha, $fechaIngreso, $numAdquisicion, $volumen, $ejemplar, $tomo, $accesible, $noEscuela, $fechaModificacion;
 	private $enPrestamo;	
 	public $ficha;
+	/* ------------------------------------------------------------------------ */
+	/* ------------------------------------------------------------------------ */
+	/* ------------------------------------------------------------------------ */
+
+	
+	public function mostrarEjemplares(){
+		$this->cib = new CIB();
+	
+		$sql = "select idFicha, numAdquisicion, f.titulo, f.autor, f.clasificacion
+				from cib.ejemplar e
+				inner join cib.ficha f on f.id=e.idFicha
+		";
+		$rs = $this->db->Execute($sql);
+	
+		$tabla = $this->cib->getEjemplar($rs);
+		return $tabla;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+	/* @@ ESTO DE ABAJO ES CODIGO HEREDADO @@ */
+	/* @@ ----------- NO MOVER ----------- @@ */
+	/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 
 	public function esPrestable(){
 		if($this->accesible==1){ return true;}
 		if($this->accesible==3){ return true;}
 		return false;
 	}
-	
-	public function mostrarEjemplares(){
-		$this->cib = new CIB();
-		
-		$sql = "select idFicha, numAdquisicion, f.titulo, f.autor, f.clasificacion 
-				from cib.ejemplar e
-				inner join cib.ficha f on f.id=e.idFicha
-		";
-		$rs = $this->db->Execute($sql);
-		
-		$tabla = $this->cib->getEjemplar($rs);
-		return $tabla;
-	}
-	
-		
-	
-	
-	
+
 	/**
 	 * @return the $id
 	 */

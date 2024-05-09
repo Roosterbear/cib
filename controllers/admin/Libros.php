@@ -1,10 +1,8 @@
 <?php
-
-/* --------------------------------------------- */
-/* ESTE ES EL CONTROLADOR PARA EL ABC DE LIBROS */
-/* ------------------------------------------- */
 class Libros extends \CI_Controller{
-	
+	/* --------------------------------------------- */
+	/* ESTE ES EL CONTROLADOR PARA EL ABC DE LIBROS */
+	/* ------------------------------------------- */	
 	public $ficha, $ejemplar;
 	
 	public function __construct(){
@@ -24,9 +22,9 @@ class Libros extends \CI_Controller{
 		
 	}
 	
-	/***********************************/
-	/*  MANEJADORES DE VISTAS         */
-	/*********************************/
+	/* ************************************** */
+	/*       MANEJADORES DE VISTAS           */
+	/* ************************************ */
 	
 	public function index(){			
 		$data['ficha'] = 'selected-tab';
@@ -183,7 +181,7 @@ class Libros extends \CI_Controller{
 		
 		$sql = "delete from cib.ficha where id = $id";
 		
-		echo $this->ficha->deleteFicha($sql,$id);
+		echo $this->ficha->delete($sql,$id);
 	}
 	
 	/* CAMBIO FICHAS */

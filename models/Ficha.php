@@ -1,6 +1,9 @@
 <?php
-
 class Ficha extends \CI_Model {
+	/* @@@@@@@@@@@@@@@@@@@@@@@@@ */
+	/* CLASE PARA MANEJAR FICHAS */
+	/* @@@@@@@@@@@@@@@@@@@@@@@@@ */
+
 	private $Id, $titulo, $autor, $ISBN, $fecha, $fechaMod, $datosFijos, $etiquetasMARC, $tipoMaterial, $clasificacion, $estatus, $coleccion_No;
 	public $cib;
 	
@@ -23,6 +26,37 @@ class Ficha extends \CI_Model {
 		$tabla = $this->cib->getBook($rs->getArray());
 		return $tabla;		
 	}
+	
+	public function add($data){
+			
+		$titulo = $data['titulo'];
+		$autor = $data['autor'];
+		$isbn = $data['isbn'];
+		$clasificacion = $data['clasificacion'];
+			
+		$sql = "insert into cib.ficha(titulo, autor, ISBN, clasificacion) values('".$titulo."','".$autor."','".$isbn."','".$clasificacion."')";
+		$rs = $this->db->Execute($sql);
+	
+		return $this->db->insert_id();	
+	}
+	
+	public function delete($sql,$id){
+		if(!$this->fichaIsFree($id)){
+			//$rs = $this->db->Execute($sql);
+			return "<strong>ID: <u>$id</u> <span>ELIMINADO</span></strong>";
+		}else{
+			return "<strong>ID: <span>$id</span> <u>NO eliminado</u> por contener ejemplares</strong>";
+		}
+	}
+	
+	public function fichaIsFree($id){
+		$this->cib = new CIB();
+		$sql = "select top(1) id from cib.ejemplar where idFicha = (select id from cib.ficha where id = $id)";
+		$rs = $this->db->Execute($sql);
+		return $rs->fields['id'];
+	
+	}
+	
 	
 	/* ------------------------ */
 	/* ----- CAMBIO FICHA ----- */
@@ -59,20 +93,6 @@ class Ficha extends \CI_Model {
 		return $rs->getArray();
 	}
 	
-	public function add($data){
-			
-		$titulo = $data['titulo'];
-		$autor = $data['autor'];
-		$isbn = $data['isbn'];
-		$clasificacion = $data['clasificacion'];
-			
-		$sql = "insert into cib.ficha(titulo, autor, ISBN, clasificacion) values('".$titulo."','".$autor."','".$isbn."','".$clasificacion."')";
-		$rs = $this->db->Execute($sql);
-				
-		return $this->db->insert_id();
-		
-	}
-	
 	public function execSQL($sql){
 		$this->cib = new CIB();
 		$rs = $this->db->Execute($sql);
@@ -87,26 +107,20 @@ class Ficha extends \CI_Model {
 		$rs = $this->db->Execute($sql);
 		return $rs->fields['id'];
 	}
-	
-	public function deleteFicha($sql,$id){
-		if(!$this->fichaIsFree($id)){			
-		//$rs = $this->db->Execute($sql);		
-		return "<strong>ID: <u>$id</u> <span>ELIMINADO</span></strong>";
-		}else{
-			return "<strong>ID: <span>$id</span> <u>NO eliminado</u> por contener ejemplares</strong>";
-		}
-	}
-	
-	public function fichaIsFree($id){
+		
+	public function update($data){
 		$this->cib = new CIB();
-		$sql = "select top(1) id from cib.ejemplar where idFicha = (select id from cib.ficha where id = $id)";
-		$rs = $this->db->Execute($sql);
-		return $rs->fields['id'];
 		
-	}
-	
-	public function update(){
+		$id = $data['id'];
+		$titulo = $data['titulo'];
+		$autor = $data['autor'];
+		$clasificacion = $data['clasificacion'];
+		$isbn = $data['isbn'];
 		
+		$sql = "update ";
+		
+		//$rs = $this->db->Execute($sql);
+		return true;
 	}
 	
 	

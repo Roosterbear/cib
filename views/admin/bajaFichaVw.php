@@ -37,7 +37,7 @@
 	
 $(document).ready(function(){
 	const link_consulta = "<?=site_url("admin/Libros/showFicha")?>";
-	const link_borrar = "<?=site_url("admin/Libros/deleteFicha")?>";
+	const link_borrar = "<?=site_url("admin/Libros/delete")?>";
 	
 	const id = document.querySelector("#inputBuscarPorIDBajaFicha");
 	
