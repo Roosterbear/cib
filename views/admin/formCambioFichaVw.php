@@ -21,14 +21,14 @@
 			<div class="col-md-5">		   	
 			  <label class="labelCaptura" for="inputTituloFicha">Titulo: </label>
 			  <input name="inputTituloFicha" class="form-control inputBuscar" id="inputTituloFicha" 
-        value="<?php echo $titulo; ?>" onpaste="return false"/>
+        value="<?php echo @$titulo; ?>" onpaste="return false"/>
 		  </div>
 			
       <!-- Autor Ficha -->
 		  <div class="col-md-5">			 
 			  <label class="labelCaptura" for="inputAutorFicha">Autor: </label>
 			  <input name="inputAutorFicha" class="form-control inputBuscar" id="inputAutorFicha" 
-        value="<?php echo $autor; ?>" onpaste="return false"/>
+        value="<?php echo @$autor; ?>" onpaste="return false"/>
 		  </div>
 
 			<div class="col-md-1"></div>
@@ -41,7 +41,7 @@
 		  <div class="col-md-5">			 
 			  <label class="labelCaptura" for="inputClasificacionFicha">Clasificacion: </label>
 			  <input name="inputClasificacionFicha" class="form-control inputBuscar" id="inputClasificacionFicha" 
-        value="<?php echo $clasificacion; ?>" onpaste="return false"/>
+        value="<?php echo @$clasificacion; ?>" onpaste="return false"/>
 		  </div>
 
 
@@ -49,22 +49,40 @@
 		  <div class="col-md-5">			 
 			  <label class="labelCaptura" for="inputISBNFicha">ISBN: </label>
 			  <input name="inputISBNFicha" class="form-control inputBuscar" id="inputISBNFicha" 
-        value="<?php echo $isbn; ?>" onpaste="return false"/>
+        value="<?php echo @$isbn; ?>" onpaste="return false"/>
 		  </div>
 
        <div class="col-md-1"></div>
     </div>
     <br/>
 		<div class="row areaCaptura">
+      
 			<div class="col-md-12 text-center">
-				<button class="btn btn-lg btn-success puntero" id="btnGuardarCambioFicha">&nbsp;Guardar&nbsp;</button>
+				<button class="btn btn-lg btn-success puntero text-right" id="btnGuardarCambioFicha">&nbsp;Guardar&nbsp;</button>
+				<button class="btn btn-lg btn-danger puntero text-left" id="btnCancelarCambioFicha">&nbsp;Cancelar&nbsp;</button>
 			</div>
+      
 		</div>
-
 </div>
+<div class="respuesta"></div>
 
 <script>
 
-const link = "<?=site_url("admin/Libros/update")?>";
+const link = "<?=site_url("admin/Libros/updateFichaQuery")?>";
+const btnGuardar = document.querySelector("#btnGuardarCambioFicha");
 
+$(document).ready(function(){
+  btnGuardar.addEventListener('click',()=>{
+    const titulo = document.querySelector("#inputTituloFicha").value;
+    const autor = document.querySelector("#inputAutorFicha").value;
+    const clasificacion = document.querySelector("#inputClasificacionFicha").value;
+    const isbn = document.querySelector("#inputISBNFicha").value;
+    const query = titulo+", "+autor+", "+clasificacion+", "+isbn;
+    const id = <?php echo $id; ?>;
+    $.post("<?=site_url("admin/Libros/updateFichaQuery")?>",{id:id,query:query},function(resp){
+      $(".respuesta").html(resp);
+    });
+  });
+
+});
 </script>

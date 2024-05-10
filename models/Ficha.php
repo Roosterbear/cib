@@ -66,8 +66,8 @@ class Ficha extends \CI_Model {
 		if ($busqueda == '' || $busqueda == ' ') return '';
 		$this->cib = new CIB();
 	
-		$sqlTitulo = "select id, titulo, autor, clasificacion from cib.ficha where titulo like '%".$busqueda."%'";
-		$sqlAutor = "select id, titulo, autor, clasificacion from cib.ficha where autor like '%".$busqueda."%'";
+		$sqlTitulo = "select id, titulo, autor, clasificacion, isbn from cib.ficha where titulo like '%".$busqueda."%'";
+		$sqlAutor = "select id, titulo, autor, clasificacion, isbn from cib.ficha where autor like '%".$busqueda."%'";
 		$rs = $autor?$this->db->Execute($sqlAutor):$this->db->Execute($sqlTitulo);
 	
 		$tabla = $this->cib->getBookCambio($rs->getArray());

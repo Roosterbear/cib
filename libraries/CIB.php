@@ -48,7 +48,7 @@ class CIB {
 	
 	// Regresar datos de libro como tabla HTML para CAMBIO
 	public function getBookCambio($array){
-			
+		/* VIENE DE /model/Ficha/buscarLibroCambio($busqueda,$autor)*/	
 		$consecutivo = 0;
 		// No | Titulo | Autor | Clasificacion
 		$tabla = "<table class=\"cib-table\"><thead>";
@@ -65,6 +65,7 @@ class CIB {
 			$titulo = $a['titulo'];
 			$autor = $a['autor'];
 			$clasificacion = $a['clasificacion'];
+			$isbn = $a['isbn'];
 				
 			$tabla .= "<tr>";
 			$tabla .= "<td class=\"text-center\">{$consecutivo}</td>";

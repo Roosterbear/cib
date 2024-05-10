@@ -194,7 +194,9 @@ class Libros extends \CI_Controller{
 	public function updateFicha($id){
 		$this->ficha = new Ficha();
 		$data['id'] = $id;
-		$array = $this->ficha->mostrarFichasById($id);
+		
+		/* OBTENER DATOS FICHA POR ID */
+		$array = $this->ficha->mostrarFichasById($id);		
 		
 		$data['titulo'] = $array[0]['titulo'];
 		$data['autor'] = $array[0]['autor'];
@@ -207,7 +209,15 @@ class Libros extends \CI_Controller{
 	}
 	
 	
-	
+	public function updateFichaQuery(){
+		$this->ficha = new Ficha();
+		
+		$id = $_REQUEST['id'];
+		$query = $_REQUEST['query'];
+		$sql = "update cib.ficha where id = ".$id;
+		
+		echo $sql;
+	}
 	
 	/* ------- EJEMPLARES ------- */
 	public function getEjemplares(){
