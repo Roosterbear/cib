@@ -146,7 +146,7 @@ a{
 /* ----------- */
 
 .cib-table{
-  width: 100% ;
+  width: 100%;
   border-collapse: collapse;
   border: 1px solid #666;
 }
@@ -235,4 +235,23 @@ a{
   border: solid white;
   border-width: 0 3px 3px 0;
   transform: rotate(45deg);
+}
+
+
+@media (max-width: 660px){
+  .cib-table{
+    font-size: 0.6rem;
+  }
+}
+
+@media (min-width: 661px) and (max-width: 1200px){
+  .cib-table{
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1201px){
+  .cib-table{
+    font-size:1.3rem;
+  }
 }

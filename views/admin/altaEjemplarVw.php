@@ -14,21 +14,24 @@
 			</div>
 			<div class="col-md-1"></div>
 		</div>
+		
+		<div class="row areaCaptura">
+			<div class="col-md-12 text-center">
+				<button class="btn btn-lg btn-success puntero" id="btnMostrarFicha">&nbsp;Mostrar&nbsp;</button>
+			</div>		
+		</div>
+
+		<div class="mensajes">
+			<div id="data"></div>
+		</div>
+
 	</div>
 	<br/>
 	
-
-<!-- ***************************************************** -->
-<!-- ** AREA PARA MOSTRAR FICHA Y EJEMPLARES CAPTURADOS ** -->
-<!-- ***************************************************** -->
-<div id="mostrarFichaConEjemplares"></div>
-<br/>
-<hr/>
-<br/>
 <!-- ************************* -->
 <!-- ** CAPTURA DE EJEMPLAR ** -->
 <!-- ************************* -->
-<div id="altaEjemplar">
+<div id="altaEjemplar" class="ocultar">
 	<div class="container-fluid">
 		<div class="row areaCaptura">
 			<!-- Captura de No de Adquisicion -->
@@ -42,18 +45,18 @@
 		</div>
 		
 		<div class="row areaCaptura">
-			<!-- Captura de ISBN del Libro -->
+			<!-- Captura de Tomo del Libro -->
 			<div class="col-md-1"></div>
 			<div class="col-md-5">
 				<i class="fa fa-archive iconoCaptura"></i>
 				<label class="labelCaptura">Tomo:</label>
-				<input name="inputISBNEjemplar" class="form-control inputBuscar" id="inputISBNEjemplar" onpaste="return false"/>
+				<input name="inputTomoEjemplar" class="form-control inputBuscar" id="inputTomoEjemplar" onpaste="return false"/>
 			</div>
-			<!-- Captura de Clasificacion del Libro -->
+			<!-- Captura de Volumen del Libro -->
 			<div class="col-md-5">
 				<i class="fa fa-tag iconoCaptura"></i>
 				<label class="labelCaptura">Volumen:</label>
-				<input name="inputClasificacionEjemplar" class="form-control inputBuscar" id="inputClasificacionEjemplar" onpaste="return false"/>
+				<input name="inputVolumenEjemplar" class="form-control inputBuscar" id="inputVolumenEjemplar" onpaste="return false"/>
 			</div>
 			<div class="col-md-1"></div>
 		</div>
@@ -73,3 +76,38 @@
   
 	</div>
 </div>
+
+<script>
+	$(document).ready(function(){
+
+		const link_consulta = "<?=site_url("admin/Libros/showFicha")?>";
+		const inputIDFicha = document.querySelector("#inputBuscarPorIDAltaEjemplar");
+		const btnMostrarFicha = document.querySelector("#btnMostrarFicha");
+		const btnGuardar = document.querySelector("#btnGuardarAltaEjemplar");
+
+		const inputADQ = document.querySelector("#inputAdquisicionEjemplar");
+		const inputTomo = document.querySelector("#inputTomoEjemplar");
+		const inputVolumen = document.querySelector("#inputVolumenEjemplar");
+
+		let value = '';
+				
+		btnMostrarFicha.addEventListener('click', ()=>{
+			value = inputIDFicha.value;
+
+			$.post(link_consulta,{value:value},function(resp){
+				if(resp != "<div class=\"mensaje tomato\">ID no encontrado</div>"){
+					inputIDFicha.disabled = true;
+					$('#altaEjemplar').removeClass('ocultar');
+					$('#btnMostrarFicha').addClass('ocultar');
+				}
+
+				$("#data").html(resp);
+					
+			});			
+		});
+
+		btnGuardar.addEventListener('click', ()=>{
+			alert(inputADQ.value);
+		});
+	});
+</script>
