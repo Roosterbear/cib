@@ -59,17 +59,22 @@
       
 			<div class="col-md-12 text-center">
 				<button class="btn btn-lg btn-success puntero text-right" id="btnGuardarCambioFicha">&nbsp;Guardar&nbsp;</button>
-				<button class="btn btn-lg btn-danger puntero text-left" id="btnCancelarCambioFicha">&nbsp;Cancelar&nbsp;</button>
+				<button class="btn btn-lg btn-warning puntero text-left" id="btnRegresarCambioFicha">&nbsp;Regresar&nbsp;</button>
 			</div>
       
 		</div>
 </div>
-<div class="respuesta"></div>
+<div class="mensajes">
+  <div class="mensaje green">
+    
+  </div>
+</div>
 
 <script>
 
 const link = "<?=site_url("admin/Libros/updateFichaQuery")?>";
 const btnGuardar = document.querySelector("#btnGuardarCambioFicha");
+const btnRegresar = document.querySelector('#btnRegresarCambioFicha');
 
 $(document).ready(function(){
   btnGuardar.addEventListener('click',()=>{
@@ -77,12 +82,19 @@ $(document).ready(function(){
     const autor = document.querySelector("#inputAutorFicha").value;
     const clasificacion = document.querySelector("#inputClasificacionFicha").value;
     const isbn = document.querySelector("#inputISBNFicha").value;
-    const query = titulo+", "+autor+", "+clasificacion+", "+isbn;
+    const query = "set titulo = '"+titulo+"', autor = '"+autor+"', clasificacion = '"+clasificacion+"', isbn = '"+isbn+"'";
     const id = <?php echo $id; ?>;
     $.post("<?=site_url("admin/Libros/updateFichaQuery")?>",{id:id,query:query},function(resp){
-      $(".respuesta").html(resp);
+      $(".mensaje").html("Se ha modificado el ID: "+resp);
+      setTimeout(()=>{
+        $(".mensaje").html("");
+        window.history.back();
+      },3000);
     });
   });
-
+  
+  btnRegresar.addEventListener('click',()=>{
+    window.history.back();
+  });
 });
 </script>

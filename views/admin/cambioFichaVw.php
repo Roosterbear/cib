@@ -10,7 +10,8 @@
 		   	<i class="fa fa-search iconoBuscar"></i>
 			  <i class="fa fa-book iconoBuscar"></i>
 			  <label class="labelCaptura" for="inputBuscarPorTituloCambioFicha">Por Titulo:</label>
-			  <input name="inputBuscarPorTituloCambioFicha" class="form-control inputBuscar" id="inputBuscarPorTituloCambioFicha" onpaste="return false"/>
+			  <input name="inputBuscarPorTituloCambioFicha" class="form-control inputBuscar" 
+				value = "" id="inputBuscarPorTituloCambioFicha" onpaste="return false"/>
 		   </div>
 			
       <!-- Busqueda de Ficha por Autor -->
@@ -18,7 +19,8 @@
 			  <i class="fa fa-search iconoBuscar"></i>
 			  <i class="fa fa-user-circle iconoBuscar"></i>
 			  <label class="labelBuscar" for="inputBuscarPorAutorCambioFicha">Por Autor:</label>
-			  <input name="inputBuscarAutorCambioFicha" class="form-control inputBuscar" id="inputBuscarAutorCambioFicha" onpaste="return false"/>
+			  <input name="inputBuscarAutorCambioFicha" class="form-control inputBuscar" 
+				value = "" id="inputBuscarAutorCambioFicha" onpaste="return false"/>
 		   </div>
 			<div class="col-md-1"></div>
     </div>
@@ -36,7 +38,7 @@
 	$(document).ready(function(){
 		const inputBuscar = document.querySelector("#inputBuscarPorTituloCambioFicha");
 		const inputBuscarAutor = document.querySelector("#inputBuscarAutorCambioFicha");
-
+		
 		/* PERMITE SOLO LETRAS Y NUMEROS */
 		$(inputBuscar).on("keydown", function(e){
 			let tecla = e.key;

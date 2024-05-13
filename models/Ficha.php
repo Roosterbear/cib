@@ -108,24 +108,12 @@ class Ficha extends \CI_Model {
 		return $rs->fields['id'];
 	}
 		
-	public function update($data){
+	public function update($sql){
 		$this->cib = new CIB();
-		
-		$id = $data['id'];
-		$titulo = $data['titulo'];
-		$autor = $data['autor'];
-		$clasificacion = $data['clasificacion'];
-		$isbn = $data['isbn'];
-		
-		$sql = "update ";
-		
-		//$rs = $this->db->Execute($sql);
+						
+		$rs = $this->db->Execute($sql);
 		return true;
 	}
-	
-	
-		
-	
 	
 	
 	

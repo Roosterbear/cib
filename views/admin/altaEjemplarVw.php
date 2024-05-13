@@ -67,7 +67,7 @@
 
 		<div class="row areaCaptura">
 			<div class="col-md-12 text-center">
-				<button class="btn btn-lg btn-primary" id="btnGuardarAltaEjemplar">&nbsp;Guardar&nbsp;</button>
+				<button class="btn btn-lg btn-success" id="btnGuardarAltaEjemplar">&nbsp;Guardar&nbsp;</button>
 			</div>
 		</div>
   

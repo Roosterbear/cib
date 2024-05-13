@@ -214,9 +214,10 @@ class Libros extends \CI_Controller{
 		
 		$id = $_REQUEST['id'];
 		$query = $_REQUEST['query'];
-		$sql = "update cib.ficha where id = ".$id;
+		$sql = "update cib.ficha ".$query." where id = ".$id;
 		
-		echo $sql;
+		$resultado = $this->ficha->update($sql);
+		echo $resultado?$id:false;
 	}
 	
 	/* ------- EJEMPLARES ------- */
