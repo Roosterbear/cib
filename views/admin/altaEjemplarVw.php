@@ -17,7 +17,7 @@
 		
 		<div class="row areaCaptura">
 			<div class="col-md-12 text-center">
-				<button class="btn btn-lg btn-success puntero" id="btnMostrarFicha">&nbsp;Mostrar&nbsp;</button>
+				<button class="btn butt ok puntero" id="btnMostrarFicha">&nbsp;Mostrar&nbsp;</button>
 			</div>		
 		</div>
 
@@ -70,7 +70,7 @@
 
 		<div class="row areaCaptura">
 			<div class="col-md-12 text-center">
-				<button class="btn btn-lg btn-success" id="btnGuardarAltaEjemplar">&nbsp;Guardar&nbsp;</button>
+				<button class="btn butt ok puntero" id="btnGuardarAltaEjemplar">&nbsp;Guardar&nbsp;</button>
 			</div>
 		</div>
   

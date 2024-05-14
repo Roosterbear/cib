@@ -58,8 +58,8 @@
 		<div class="row areaCaptura">
       
 			<div class="col-md-12 text-center">
-				<button class="btn btn-lg btn-success puntero text-right" id="btnGuardarCambioFicha">&nbsp;Guardar&nbsp;</button>
-				<button class="btn btn-lg btn-warning puntero text-left" id="btnRegresarCambioFicha">&nbsp;Regresar&nbsp;</button>
+				<button class="btn butt ok puntero text-right" id="btnGuardarCambioFicha">&nbsp;Guardar&nbsp;</button>
+				<button class="btn butt war puntero text-left" id="btnRegresarCambioFicha">&nbsp;Regresar&nbsp;</button>
 			</div>
       
 		</div>

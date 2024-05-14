@@ -1,7 +1,7 @@
 <div class="container-fluid">
 	<div class="row areaCaptura">
 		<div class="col-md-12 text-center">
-			<button class="btn btn-lg btn-success puntero" id="btnGuardarMostrarFicha">&nbsp;Mostrar Fichas&nbsp;</button>
+			<button class="btn butt ok puntero" id="btnGuardarMostrarFicha">&nbsp;Mostrar Fichas&nbsp;</button>
 		</div>
 	</div>
 	<!-- CONTENIDO -->

@@ -17,7 +17,7 @@
 
 			<div class="row areaCaptura">
 				<div class="col-md-12 text-center">
-					<button class="btn btn-lg btn-success puntero" id="btnMostrarFichaBajaFicha">&nbsp;Mostrar Ficha&nbsp;</button>
+					<button class="btn butt ok puntero" id="btnMostrarFichaBajaFicha">&nbsp;Mostrar Ficha&nbsp;</button>
 				</div>
 			</div>
 		</div>
@@ -28,7 +28,7 @@
 
 	<div class="row areaCaptura">
 		<div class="col-md-12 text-center">
-			<button class="btn btn-lg btn-danger puntero" id="btnBajaFicha">&nbsp;Eliminar Ficha?&nbsp;</button>
+			<button class="btn butt cancel puntero" id="btnBajaFicha">&nbsp;Eliminar Ficha?&nbsp;</button>
 		</div>
 	</div>
 </div>
