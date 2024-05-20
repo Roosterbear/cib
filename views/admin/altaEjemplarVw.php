@@ -73,8 +73,11 @@
 				<button class="btn butt ok puntero" id="btnGuardarAltaEjemplar">&nbsp;Guardar&nbsp;</button>
 			</div>
 		</div>
-  
 	</div>
+</div>
+
+<div class="mensajes">
+	<div class="mensaje"></div>
 </div>
 
 <script>
