@@ -37,7 +37,7 @@
 	
 $(document).ready(function(){
 	const link_consulta = "<?=site_url("admin/Libros/showFicha")?>";
-	const link_borrar = "<?=site_url("admin/Libros/delete")?>";
+	const link_borrar = "<?=site_url("admin/Libros/deleteFicha")?>";
 	
 	const id = document.querySelector("#inputBuscarPorIDBajaFicha");
 	
@@ -47,12 +47,9 @@ $(document).ready(function(){
 	const btnBajaFicha = document.querySelector("#btnBajaFicha");
 	const btnMostrarFichaBajaFicha = document.querySelector("#btnMostrarFichaBajaFicha");
 
-	let byID_a_borrar = 0;
-	let value = '';
+		let value = '';
 	
-	$(inputBuscarPorIDBajaFicha).on("keydown", function(e){
-		isbn.value = '';
-		byID = 1;		
+	$(inputBuscarPorIDBajaFicha).on("keydown", function(e){			
 		let tecla = e.key;
 		justDigits(tecla,e);
 	});
