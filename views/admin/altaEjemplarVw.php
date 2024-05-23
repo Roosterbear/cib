@@ -86,11 +86,12 @@
 		const link_consulta = "<?=site_url("admin/Libros/showFicha")?>";
 		const inputIDFicha = document.querySelector("#inputBuscarPorIDAltaEjemplar");
 		const btnMostrarFicha = document.querySelector("#btnMostrarFicha");
-		const btnGuardar = document.querySelector("#btnGuardarAltaEjemplar");
-
+		const btnGuardar = document.querySelector("#btnGuardarAltaEjemplar");		
+		
 		const inputADQ = document.querySelector("#inputAdquisicionEjemplar");
 		const inputTomo = document.querySelector("#inputTomoEjemplar");
 		const inputVolumen = document.querySelector("#inputVolumenEjemplar");
+		const checkSePresta = document.querySelector("#checkSePrestaEjemplar");
 
 		let value = '';
 				
@@ -110,7 +111,10 @@
 		});
 
 		btnGuardar.addEventListener('click', ()=>{
-			alert(inputADQ.value);
+			
+			const check = checkSePresta.checked?1:0;
+
+			$('.mensaje').html(check);
 		});
 	});
 </script>
