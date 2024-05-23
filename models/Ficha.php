@@ -27,7 +27,7 @@ class Ficha extends \CI_Model {
 		return $tabla;		
 	}
 	
-	public function add($data){
+	public function addFicha($data){
 			
 		$titulo = $data['titulo'];
 		$autor = $data['autor'];

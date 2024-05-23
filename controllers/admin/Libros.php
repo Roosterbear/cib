@@ -154,7 +154,7 @@ class Libros extends \CI_Controller{
 		$data['isbn'] = $_REQUEST['isbn'];
 		$data['clasificacion'] = $_REQUEST['clasificacion'];
 				
-		echo $this->ficha->add($data);
+		echo $this->ficha->addFicha($data);
 		
 	}
 	
@@ -229,6 +229,14 @@ class Libros extends \CI_Controller{
 	
 	public function addEjemplar(){
 		$this->ejemplar = new Ejemplar();
+		
+		$data['idFicha'] = $_REQUEST['idFicha'];
+		$data['adq'] = $_REQUEST['adq'];
+		$data['tomo'] = $_REQUEST['tomo'];
+		$data['volumen'] = $_REQUEST['volumen'];
+		$data['accesible'] = $_REQUEST['accesible'];
+				
+		echo $this->ejemplar->addEjemplar($data);
 	}
 	
 	public function deleteEjemplar(){

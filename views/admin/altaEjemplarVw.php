@@ -84,6 +84,7 @@
 	$(document).ready(function(){
 
 		const link_consulta = "<?=site_url("admin/Libros/showFicha")?>";
+		const link_alta = "<?=site_url("admin/Libros/addEjemplar")?>";
 		const inputIDFicha = document.querySelector("#inputBuscarPorIDAltaEjemplar");
 		const btnMostrarFicha = document.querySelector("#btnMostrarFicha");
 		const btnGuardar = document.querySelector("#btnGuardarAltaEjemplar");		
@@ -112,9 +113,35 @@
 
 		btnGuardar.addEventListener('click', ()=>{
 			
-			const check = checkSePresta.checked?1:0;
+			const idFicha = inputIDFicha.value;
+			const adq = inputADQ.value;
+			const tomo = inputTomo.value;
+			const volumen = inputVolumen.value;
+			const accesible = checkSePresta.checked?1:0;
 
-			$('.mensaje').html(check);
+			$.post(link_alta,{idFicha:idFicha,
+												adq:adq,
+												tomo:tomo,
+												volumen:volumen,
+												accesible:accesible
+				},function(resp){
+					$('.mensaje').addClass('green').html("Ejemplar generado con el ID: "+resp);
+					setTimeout(()=>{
+						$('.mensaje').removeClass('green').html("");
+					},7000);	
+					resetDataAltaEjemplar();			
+			});			
 		});
 	});
+
+function resetDataAltaEjemplar(){
+	var a = document.querySelector("#inputAdquisicionEjemplar");
+	var t = document.querySelector("#inputTomoEjemplar");
+	var v = document.querySelector("#inputVolumenEjemplar");
+	//var p = document.querySelector("#checkSePrestaEjemplar");
+	a.value = '';
+	t.value = '';
+	v.value = '';
+	//p.value = '';
+}
 </script>
