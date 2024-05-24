@@ -186,7 +186,7 @@ button.war{
   background-color: #333;
   color: #eee;
   text-align: left;
-  height: 40px;
+  height: 40px; 
   border-left: 1px solid #333;
   padding: 0 10px 0 10px;
 }

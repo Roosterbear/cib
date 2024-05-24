@@ -40,7 +40,7 @@ class Ejemplar extends Ficha {
 		$accesible = $data['accesible'];
 		
 		$sql = "insert into cib.ejemplar(idFicha, numAdquisicion, volumen, tomo, accesible) values($idFicha,'".$adquisicion."','".$volumen."','".$tomo."',$accesible)";
-		//$rs = $this->db->Execute($sql);
+		$rs = $this->db->Execute($sql);
 		
 		return $this->db->insert_id();		
 	}

@@ -39,7 +39,7 @@
 			<div class="col-md-10">
 				<i class="fa fa-address-book iconoCaptura"></i>
 				<label class="labelCaptura">No. de Adquisicion:</label>
-				<input name="inputAdquisicionEjemplar" class="form-control inputBuscar" id="inputAdquisicionEjemplar" onpaste="return false"/>
+				<input name="inputAdquisicionEjemplar" class="form-control inputBuscar" id="inputAdquisicionEjemplar"/>
 			</div>
 			<div class="col-md-1"></div>
 		</div>
@@ -95,8 +95,23 @@
 		const checkSePresta = document.querySelector("#checkSePrestaEjemplar");
 
 		let value = '';
+
+		$(inputIDFicha).on("keydown", function(e){
+			let tecla = e.key;
+			justDigits(tecla,e);
+		});
 				
+		$(inputIDFicha).on("keyup", function(e){						
+			if(e.keyCode === 13){
+				mostrarFicha();
+			}			
+		});
+
 		btnMostrarFicha.addEventListener('click', ()=>{
+				mostrarFicha();			
+		});
+
+		function mostrarFicha(){
 			value = inputIDFicha.value;
 
 			$.post(link_consulta,{value:value},function(resp){
@@ -106,9 +121,14 @@
 					$('#btnMostrarFicha').addClass('ocultar');
 				}
 
-				$("#data").html(resp);
-					
+				$("#data").html(resp);			
 			});			
+		}
+
+		inputADQ.addEventListener('input', function(){
+			var inputValue = this.value;
+			var upperCaseValue = inputValue.toUpperCase();
+			this.value = upperCaseValue;
 		});
 
 		btnGuardar.addEventListener('click', ()=>{
@@ -128,8 +148,13 @@
 					$('.mensaje').addClass('green').html("Ejemplar generado con el ID: "+resp);
 					setTimeout(()=>{
 						$('.mensaje').removeClass('green').html("");
-					},7000);	
+					},3000);	
 					resetDataAltaEjemplar();			
+					inputIDFicha.disabled = false;
+					inputIDFicha.value = '';
+					$('#altaEjemplar').addClass('ocultar');
+					$('#btnMostrarFicha').removeClass('ocultar');
+					$("#data").html('');
 			});			
 		});
 	});
@@ -142,6 +167,6 @@ function resetDataAltaEjemplar(){
 	a.value = '';
 	t.value = '';
 	v.value = '';
-	//p.value = '';
+	//p.value = '';	
 }
 </script>
