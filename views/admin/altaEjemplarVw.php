@@ -70,7 +70,8 @@
 
 		<div class="row areaCaptura">
 			<div class="col-md-12 text-center">
-				<button class="btn butt ok puntero" id="btnGuardarAltaEjemplar">&nbsp;Guardar&nbsp;</button>
+				<button class="btn butt ok puntero text-right" id="btnGuardarAltaEjemplar">&nbsp;Guardar&nbsp;</button>
+				<button class="btn butt war puntero text-left" id="btnRegresarAltaEjemplar">&nbsp;Regresar&nbsp;</button>
 			</div>
 		</div>
 	</div>
@@ -83,11 +84,12 @@
 <script>
 	$(document).ready(function(){
 
-		const link_consulta = "<?=site_url("admin/Libros/showFicha")?>";
+		const link_consulta = "<?=site_url("admin/Libros/showFichaEjemplares")?>";
 		const link_alta = "<?=site_url("admin/Libros/addEjemplar")?>";
 		const inputIDFicha = document.querySelector("#inputBuscarPorIDAltaEjemplar");
 		const btnMostrarFicha = document.querySelector("#btnMostrarFicha");
 		const btnGuardar = document.querySelector("#btnGuardarAltaEjemplar");		
+		const btnRegresar = document.querySelector('#btnRegresarAltaEjemplar');
 		
 		const inputADQ = document.querySelector("#inputAdquisicionEjemplar");
 		const inputTomo = document.querySelector("#inputTomoEjemplar");
@@ -157,6 +159,11 @@
 					$("#data").html('');
 			});			
 		});
+
+		btnRegresar.addEventListener('click',()=>{
+			window.history.back();
+		});
+
 	});
 
 function resetDataAltaEjemplar(){

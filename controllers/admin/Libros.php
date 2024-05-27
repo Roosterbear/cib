@@ -227,6 +227,17 @@ class Libros extends \CI_Controller{
 		echo $this->ejemplar->mostrarEjemplares();		
 	}
 	
+	public function showFichaEjemplares(){
+		$this->ficha = new Ficha();
+			
+		$value = $_REQUEST['value']==''?0:$_REQUEST['value'];
+	
+		$sql = "select f.Id as Id, autor, titulo,ISBN, clasificacion, e.numAdquisicion as adquisicion from cib.ficha as f left outer join cib.ejemplar as e on f.id = e.idFicha";
+		$sql .= " where f.Id = ${value} order by 6";
+	
+		echo $this->ficha->execSQLFichaEjemplar($sql);
+	}
+	
 	public function addEjemplar(){
 		$this->ejemplar = new Ejemplar();
 		
