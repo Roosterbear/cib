@@ -193,6 +193,48 @@ class CIB {
 		return $tabla;
 	}
 	
+	public function getFichaEjemplaresBorrar($ficha){
+	
+		// Id | Titulo | Autor | ISBN | Clasificacion
+		$tabla = "<table class=\"cib-table\"><thead>";
+		$tabla .= "<tr><th class=\"text-center\">Id</th>";
+		$tabla .= "<th class=\"text-center\"><i class=\"fa fa-book\" aria-hidden=\"true\"></i> TITULO</th>";
+		$tabla .= "<th class=\"text-center\"><i class=\"fa fa-user-circle\" aria-hidden=\"true\"></i> AUTOR</th>";
+		$tabla .= "<th class=\"text-center\"><i class=\"fa fa-archive\" aria-hidden=\"true\"></i> ISBN</th>";
+		$tabla .= "<th class=\"text-center\"><i class=\"fa fa-barcode\" aria-hidden=\"true\"></i>	CLASIFICACION</th>";
+		$tabla .= "<th class=\"text-center\"><i class=\"fa fa-archive\" aria-hidden=\"true\"></i>	ADQUISICION</th>";
+		$tabla .= "<th class=\"text-center\"><i class=\"fa fa-trash-o\" aria-hidden=\"true\"></i>	ELIMINAR</th></tr></thead>";
+		$tabla .= "<tbody>";
+	
+		if(isset($ficha[0]['Id'])){
+			foreach($ficha as $f){
+				$id = $f['Id'];
+				$titulo = $f['titulo'];
+				$autor = $f['autor'];
+				$isbn = $f['ISBN'];
+				$clasificacion = $f['clasificacion'];
+				$adquisicion = $f['adquisicion'] == ''?' N/A':$f['adquisicion'];
+				$ide = $f['ide'];
+				
+				$tabla .= "<tr>";
+				$tabla .= "<td class=\"text-center\">{$id}</td>";
+				$tabla .= "<td>{$titulo}</td>";
+				$tabla .= "<td>{$autor}</td>";
+				$tabla .= "<td>{$isbn}</td>";
+				$tabla .= "<td>{$clasificacion}</td>";
+				$tabla .= "<td class=\"text-center\">{$adquisicion}</td>";
+				$tabla .= "<td class=\"text-center lapicito\"><a href=\"deleteEjemplar/{$ide}\"><i class=\"fa fa-trash\" aria-hidden=\"true\"></i></a></td>";				
+				$tabla .= "</tr>";
+			}
+		}else{
+			return "<div class=\"mensaje tomato\">ID no encontrado</div>";
+		}
+		$tabla .= "</tbody>";
+		$tabla .= "</table>";
+	
+		return $tabla;
+	}
+	
 	
 	public function getEjemplar($array){
 	

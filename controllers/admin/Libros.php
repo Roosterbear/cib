@@ -227,6 +227,7 @@ class Libros extends \CI_Controller{
 		echo $this->ejemplar->mostrarEjemplares();		
 	}
 	
+	/* ------- ALTA EJEMPLARES ------- */
 	public function showFichaEjemplares(){
 		$this->ficha = new Ficha();
 			
@@ -237,6 +238,20 @@ class Libros extends \CI_Controller{
 	
 		echo $this->ficha->execSQLFichaEjemplar($sql);
 	}
+	
+	/* ------- BAJA EJEMPLARES ------- */	
+	public function showFichaEjemplaresBorrar(){
+		$this->ficha = new Ficha();
+			
+		$value = $_REQUEST['value']==''?0:$_REQUEST['value'];
+	
+		$sql = "select f.Id as Id, autor, titulo,ISBN, clasificacion, e.numAdquisicion as adquisicion, e.id as ide from cib.ficha as f left outer join cib.ejemplar as e on f.id = e.idFicha";
+		$sql .= " where f.Id = ${value} order by 6";
+	
+		echo $this->ficha->execSQLFichaEjemplarBorrar($sql);
+	}
+	
+	
 	
 	public function addEjemplar(){
 		$this->ejemplar = new Ejemplar();
@@ -250,8 +265,16 @@ class Libros extends \CI_Controller{
 		echo $this->ejemplar->addEjemplar($data);
 	}
 	
-	public function deleteEjemplar(){
+	public function deleteEjemplar($ide){
 		$this->ejemplar = new Ejemplar();
+		
+		$data['ide'] = $ide;	
+				
+		$this->load->view("header");
+		$this->load->view("/admin/deletedEjemplarVw",$data);
+		$this->load->view("footer");
+		
+		
 	}
 	
 	public function updateEjemplar(){
