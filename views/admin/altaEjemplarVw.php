@@ -9,7 +9,7 @@
 			<div class="col-md-10">
 				<i class="fa fa-search iconoBuscar"></i>
 			  <i class="fa fa-book iconoBuscar"></i>
-			  <label class="labelCaptura">Por ID:</label>
+			  <label class="labelCaptura">Por ID Ficha:</label>
 			  <input name="inputBuscarPorIDAltaEjemplar" class="form-control inputBuscarPorID" id="inputBuscarPorIDAltaEjemplar" onpaste="return false"/>
 			</div>
 			<div class="col-md-1"></div>
