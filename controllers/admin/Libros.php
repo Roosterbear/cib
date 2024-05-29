@@ -251,6 +251,17 @@ class Libros extends \CI_Controller{
 		echo $this->ficha->execSQLFichaEjemplarBorrar($sql);
 	}
 	
+	/* ------- CAMBIAR EJEMPLARES ------- */
+	public function showFichaEjemplaresCambiar(){
+		$this->ficha = new Ficha();
+			
+		$value = $_REQUEST['value']==''?0:$_REQUEST['value'];
+	
+		$sql = "select f.Id as Id, autor, titulo,ISBN, clasificacion, e.numAdquisicion as adquisicion, e.id as ide from cib.ficha as f left outer join cib.ejemplar as e on f.id = e.idFicha";
+		$sql .= " where f.Id = ${value} order by 6";
+	
+		echo $this->ficha->execSQLFichaEjemplarCambiar($sql);
+	}
 	
 	
 	public function addEjemplar(){
@@ -277,8 +288,14 @@ class Libros extends \CI_Controller{
 		
 	}
 	
-	public function updateEjemplar(){
+	public function updateEjemplar($ide){
 		$this->ejemplar = new Ejemplar();
+		
+		$data['ide'] = $ide;	
+				
+		$this->load->view("header");
+		$this->load->view("/admin/updateEjemplarVw",$data);
+		$this->load->view("footer");
 	}
 		
 }

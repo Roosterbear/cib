@@ -43,12 +43,12 @@
 				
 		$(inputID).on("keyup", function(e){						
 			if(e.keyCode === 13){
-				mostrarFicha();
+				mostrarFicha();				
 			}			
 		});
 
 		btnMostrarFicha.addEventListener('click', ()=>{
-				mostrarFicha();			
+				mostrarFicha();					
 		});	
 
 		btnRegresar.addEventListener('click',()=>{
