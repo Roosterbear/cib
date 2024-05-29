@@ -20,6 +20,7 @@ class CIB {
 		// No | Titulo | Autor | Clasificacion
 		$tabla = "<table class=\"cib-table\"><thead>";
 		$tabla .= "<tr><th>No.</th>";
+		$tabla .= "<th><i class=\"fa fa-id-badge\" aria-hidden=\"true\"></i> ID</th>";
 		$tabla .= "<th><i class=\"fa fa-book\" aria-hidden=\"true\"></i> TITULO</th>";
 		$tabla .= "<th><i class=\"fa fa-user-circle\" aria-hidden=\"true\"></i> AUTOR</th>";
 		$tabla .= "<th><i class=\"fa fa-barcode\" aria-hidden=\"true\"></i>	CLASIFICACION</th></tr></thead>";
@@ -28,12 +29,14 @@ class CIB {
 		
 		foreach ($array as $a){
 			$consecutivo++;			
+			$id = $a['id'];
 			$titulo = $a['titulo'];
 			$autor = $a['autor'];
 			$clasificacion = $a['clasificacion'];
 			
 			$tabla .= "<tr>";
 			$tabla .= "<td class=\"text-center\">{$consecutivo}</td>";
+			$tabla .= "<td class=\"text-center\">{$id}</td>";
 			$tabla .= "<td>{$titulo}</td>";
 			$tabla .= "<td>{$autor}</td>";
 			$tabla .= "<td>{$clasificacion}</td>";
@@ -53,6 +56,7 @@ class CIB {
 		// No | Titulo | Autor | Clasificacion
 		$tabla = "<table class=\"cib-table\"><thead>";
 		$tabla .= "<tr><th>No.</th>";
+		$tabla .= "<th><i class=\"fa fa-id-badge\" aria-hidden=\"true\"></i> ID</th>";
 		$tabla .= "<th><i class=\"fa fa-book\" aria-hidden=\"true\"></i> TITULO</th>";
 		$tabla .= "<th><i class=\"fa fa-user-circle\" aria-hidden=\"true\"></i> AUTOR</th>";
 		$tabla .= "<th><i class=\"fa fa-barcode\" aria-hidden=\"true\"></i>	CLASIFICACION</th>";
@@ -69,6 +73,7 @@ class CIB {
 				
 			$tabla .= "<tr>";
 			$tabla .= "<td class=\"text-center\">{$consecutivo}</td>";
+			$tabla .= "<td class=\"text-center\">{$id}</td>";
 			$tabla .= "<td>{$titulo}</td>";
 			$tabla .= "<td>{$autor}</td>";
 			$tabla .= "<td>{$clasificacion}</td>";
