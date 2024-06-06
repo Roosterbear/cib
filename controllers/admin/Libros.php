@@ -133,12 +133,15 @@ class Libros extends \CI_Controller{
 		$this->load->view("footer");
 	}
 	
-	
+	/* --------------------------- */
 	/* --------------------------- */
 	/* --- FUNCIONES PARA ABC ---- */
 	/* --------------------------- */
+	/* --------------------------- */
 	
+	/* ---------------------- */
 	/* ------- FICHAS ------- */
+	/* ---------------------- */
 	public function getFichas(){
 		$this->ficha = new Ficha();
 			
@@ -220,7 +223,10 @@ class Libros extends \CI_Controller{
 		echo $resultado?$id:false;
 	}
 	
+	
+	/* -------------------------- */
 	/* ------- EJEMPLARES ------- */
+	/* -------------------------- */
 	public function getEjemplares(){
 		$this->ejemplar = new Ejemplar();
 		

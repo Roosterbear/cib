@@ -56,7 +56,7 @@ const link = "<?=site_url("admin/Libros/addFicha")?>";
 
 $(document).ready(function(){
 	const mensaje = document.querySelector("#mensaje");
-
+	const inputClas = document.querySelector("#inputClasificacionFicha");
 	const btnGuardarAltaFicha = document.querySelector("#btnGuardarAltaFicha");
 
 	$(inputTituloFicha).on("keydown", function(e){
@@ -79,7 +79,12 @@ $(document).ready(function(){
 		blockey(tecla,e);
 	});
 
-	
+	inputClas.addEventListener('input', function(){
+			var inputValue = this.value;
+			var upperCaseValue = inputValue.toUpperCase();
+			this.value = upperCaseValue;
+		});
+
 	btnGuardarAltaFicha.addEventListener('click', function(){
 		const titulo = quitarComilla($('#inputTituloFicha').val().trim());
 		const autor = $('#inputAutorFicha').val().trim();
