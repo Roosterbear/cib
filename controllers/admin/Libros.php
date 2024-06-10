@@ -207,7 +207,7 @@ class Libros extends \CI_Controller{
 		$data['clasificacion'] = $array[0]['clasificacion'];
 		
 		$this->load->view("header");		
-		$this->load->view("/admin/formCambioFichaVw",$data);
+		$this->load->view("/admin/cambioFichaFormVw",$data);
 		$this->load->view("footer");
 	}
 	
@@ -289,9 +289,18 @@ class Libros extends \CI_Controller{
 				
 		$this->load->view("header");
 		$this->load->view("/admin/deletedEjemplarVw",$data);
-		$this->load->view("footer");
+		$this->load->view("footer");				
+	}
+	
+	public function borrarEjemplar(){
+		$this->ejemplar = new Ejemplar();
 		
+		$value = $_REQUEST['value'];
+		$id = $value;
 		
+		$sql = "delete from cib.ejemplar where id = $id";
+		
+		echo $this->ejemplar->deleteEjemplar($sql,$id);
 	}
 	
 	public function updateEjemplar($ide){
@@ -300,7 +309,7 @@ class Libros extends \CI_Controller{
 		$data['ide'] = $ide;	
 				
 		$this->load->view("header");
-		$this->load->view("/admin/updateEjemplarVw",$data);
+		$this->load->view("/admin/cambioEjemplarFormVw",$data);
 		$this->load->view("footer");
 	}
 		

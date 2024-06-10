@@ -45,7 +45,14 @@ class Ejemplar extends Ficha {
 		return $this->db->insert_id();		
 	}
 	
-	
+	public function deleteEjemplar($sql,$id){
+		$this->cib = new CIB();
+		
+		//$rs = $this->db->Execute($sql);
+		
+		return "<span class=\"green\">ID: ${id} </span><span class=\"tomato\">Eliminado</span>";
+		
+	}
 	
 	
 	

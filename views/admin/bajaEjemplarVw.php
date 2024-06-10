@@ -52,7 +52,11 @@
 		});	
 
 		btnRegresar.addEventListener('click',()=>{
-			window.history.back();			
+			inputID.disabled = false;					
+			inputID.value = '';
+			$("#data").html('');
+			$('#btnMostrarFicha').removeClass('ocultar');
+			$('#btnRegresarBajaEjemplar').addClass('ocultar');
 		});
 
 		function mostrarFicha(){

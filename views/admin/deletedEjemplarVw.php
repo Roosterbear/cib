@@ -18,42 +18,37 @@
 <div class="row areaCaptura">
 		<div class="col-md-12 text-center">
 			<button class="btn butt cancel puntero" id="btnBajaEjemplar">&nbsp;Eliminar Ejemplar?&nbsp;</button>
+			<button class="btn butt war puntero ocultar" id="btnRegresarBajaEjemplar">&nbsp;Regresar&nbsp;</button>
 		</div>
+		
+		
+		<div class="col-md-12 mensajes text-center">
+			<div id="data"></div>
+	</div>
+
 	</div>
 </div>
 
 <script>
 
 $(document).ready(function(){
-	const link_borrar = "<?=site_url("admin/Libros/deleteEjemplar")?>";
+	const link_borrar = "<?=site_url("admin/Libros/borrarEjemplar")?>";
 	const value = <?php echo $ide; ?>;	
 	const btnBaja = document.querySelector("#btnBajaEjemplar");
-	
+	const btnRegresar = document.querySelector("#btnRegresarBajaEjemplar");
 
 	btnBaja.addEventListener('click', ()=>{
-    /*
 		$.post(link_borrar,{value:value},function(resp){
 			$("#data").html(resp);
 		});	
 		btnBaja.style = ("display:none");
-    */
-		alert(value);
+		$('#btnRegresarBajaEjemplar').removeClass('ocultar');
 	});
 
-	function mostrarFicha(){		
-			value = $("#inputBuscarPorIDBajaFicha").val();
-			value = quitarGuiones(value);
-			$.post(link_consulta,{value:value},function(resp){
-				if(resp != "<div class=\"mensaje tomato\">ID no encontrado</div>"){
-					btnBajaFicha.style = ("display:block");
-				}
-
-				$("#data").html(resp);			
-			});				
-	}
+	btnRegresar.addEventListener('click',()=>{
+		window.history.back();
+	});
 
 });
-
-
 
 </script>
