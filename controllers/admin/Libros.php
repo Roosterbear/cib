@@ -312,6 +312,12 @@ class Libros extends \CI_Controller{
 		$this->load->view("/admin/cambioEjemplarFormVw",$data);
 		$this->load->view("footer");
 	}
+	
+	public function updateEjemplarQuery(){
+		$adq = $_REQUEST['adq'];
+		
+		echo $adq;
+	}
 		
 }
 

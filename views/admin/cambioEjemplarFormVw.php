@@ -68,12 +68,18 @@
 
 <script>
 
-const link = "<?=site_url("admin/Libros/updateFichaQuery")?>";
+const link = "<?=site_url("admin/Libros/updateEjemplarQuery")?>";
 const btnGuardar = document.querySelector("#btnGuardarCambioEjemplar");
 const btnRegresar = document.querySelector('#btnRegresarCambioEjemplar');
 
 $(document).ready(function(){
   
+	btnGuardar.addEventListener('click',()=>{
+		$.post(link,{adq:1},function(resp){
+			$(".mensaje").html("Se ha modificado el Ejemplar: "+resp);
+		});
+	});
+
   btnRegresar.addEventListener('click',()=>{
     window.history.back();
   });
