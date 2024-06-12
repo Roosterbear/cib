@@ -74,8 +74,9 @@ const btnRegresar = document.querySelector('#btnRegresarCambioEjemplar');
 
 $(document).ready(function(){
   
+	adq = "<?php echo $adq; ?>";
 	btnGuardar.addEventListener('click',()=>{
-		$.post(link,{adq:1},function(resp){
+		$.post(link,{adq:adq},function(resp){
 			$(".mensaje").html("Se ha modificado el Ejemplar: "+resp);
 		});
 	});

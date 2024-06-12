@@ -83,7 +83,7 @@ $(document).ready(function(){
     const clasificacion = document.querySelector("#inputClasificacionFicha").value;
     const isbn = document.querySelector("#inputISBNFicha").value;
     const query = "set titulo = '"+titulo+"', autor = '"+autor+"', clasificacion = '"+clasificacion+"', isbn = '"+isbn+"'";
-    const id = <?php echo $id; ?>;
+    const id = <?php echo @$id; ?>;
     $.post("<?=site_url("admin/Libros/updateFichaQuery")?>",{id:id,query:query},function(resp){
       $(".mensaje").html("Se ha modificado el ID: "+resp);
       setTimeout(()=>{

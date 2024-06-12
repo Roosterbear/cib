@@ -307,6 +307,8 @@ class Libros extends \CI_Controller{
 		$this->ejemplar = new Ejemplar();
 		
 		$data['ide'] = $ide;	
+		$array = $this->ejemplar->mostrarEjemplarById($ide);
+		$data['adq'] = $array[0]['numAdquisicion'];
 				
 		$this->load->view("header");
 		$this->load->view("/admin/cambioEjemplarFormVw",$data);

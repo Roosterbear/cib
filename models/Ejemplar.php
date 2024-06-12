@@ -54,6 +54,15 @@ class Ejemplar extends Ficha {
 		
 	}
 	
+	public function mostrarEjemplarById($ide){
+		$this->cib = new CIB();
+	
+		$sql = "select id, numAdquisicion, tomo, volumen, accesible from cib.ejemplar where id =  {$ide}";
+		$rs = $this->db->Execute($sql);
+	
+		return $rs->getArray();
+	}
+	
 	
 	
 	
