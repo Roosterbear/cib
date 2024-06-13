@@ -3,7 +3,7 @@
     <div class="col-md-5"></div>
     <div class="col-md-4 centrado">
       <img src="/cib/assets/img/biblioteca.png" class="icono" />
-      <h4 class="bib-titulo">Edici&oacute;n de Ejemplar <?php echo $ide;?></h4>
+      <h4 class="bib-titulo">Edici&oacute;n de Ejemplar <?php echo $accesible;?></h4>
     </div>
     <div class="col-md-3"></div>
     <br/>
@@ -21,7 +21,8 @@
 			<div class="col-md-10">
 				<i class="fa fa-address-book iconoCaptura"></i>
 				<label class="labelCaptura">No. de Adquisicion:</label>
-				<input name="inputAdquisicionEjemplar" class="form-control inputBuscar" id="inputAdquisicionEjemplar"/>
+				<input name="inputAdquisicionEjemplar" class="form-control inputBuscar" 
+				value = "<?php echo @$adq; ?>" id="inputAdquisicionEjemplar"/>
 			</div>
 			<div class="col-md-1"></div>
 		</div>
@@ -32,13 +33,15 @@
 			<div class="col-md-5">
 				<i class="fa fa-archive iconoCaptura"></i>
 				<label class="labelCaptura">Tomo:</label>
-				<input name="inputTomoEjemplar" class="form-control inputBuscar" id="inputTomoEjemplar" onpaste="return false"/>
+				<input name="inputTomoEjemplar" class="form-control inputBuscar" 
+				value = "<?php echo @$tomo == 0?'':$tomo; ?>" id="inputTomoEjemplar" onpaste="return false"/>
 			</div>
 			<!-- Captura de Volumen del Libro -->
 			<div class="col-md-5">
 				<i class="fa fa-tag iconoCaptura"></i>
 				<label class="labelCaptura">Volumen:</label>
-				<input name="inputVolumenEjemplar" class="form-control inputBuscar" id="inputVolumenEjemplar" onpaste="return false"/>
+				<input name="inputVolumenEjemplar" class="form-control inputBuscar" 
+				value = "<?php echo $volumen == 0?'':$volumen; ?>" id="inputVolumenEjemplar" onpaste="return false"/>
 			</div>
 			<div class="col-md-1"></div>
 		</div>
@@ -46,7 +49,8 @@
 		<br/>
 		<div class="row areaCaptura">
 			<div class="col-md-12 text-center">
-				<label class="labelCaptura">Se presta</label> <input type="checkbox" name="checkSePrestaEjemplar" id="checkSePrestaEjemplar" />
+				<label class="labelCaptura">Se presta</label> <input type="checkbox" name="checkSePrestaEjemplar" 
+				<?php echo $accesible == 1?'checked':''; ?> id="checkSePrestaEjemplar" />
 			</div>
 		</div>
 
@@ -74,9 +78,14 @@ const btnRegresar = document.querySelector('#btnRegresarCambioEjemplar');
 
 $(document).ready(function(){
   
-	adq = "<?php echo $adq; ?>";
+	
 	btnGuardar.addEventListener('click',()=>{
-		$.post(link,{adq:adq},function(resp){
+		
+		const adq = document.querySelector("#inputAdquisicionEjemplar").value;
+		const tomo = document.querySelector("#inputTomoEjemplar").value;
+		const volumen = document.querySelector("#inputVolumenEjemplar").value;
+
+		$.post(link,{adq:adq,tomo:tomo,volumen:volumen},function(resp){
 			$(".mensaje").html("Se ha modificado el Ejemplar: "+resp);
 		});
 	});
