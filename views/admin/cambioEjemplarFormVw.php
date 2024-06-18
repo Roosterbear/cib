@@ -81,11 +81,13 @@ $(document).ready(function(){
 	
 	btnGuardar.addEventListener('click',()=>{
 		
+		const ide = <?php echo $ide; ?>;
 		const adq = document.querySelector("#inputAdquisicionEjemplar").value;
 		const tomo = document.querySelector("#inputTomoEjemplar").value;
 		const volumen = document.querySelector("#inputVolumenEjemplar").value;
+		const accesible = 1;
 
-		$.post(link,{adq:adq,tomo:tomo,volumen:volumen},function(resp){
+		$.post(link,{ide:ide,adq:adq,tomo:tomo,volumen:volumen,accesible:accesible},function(resp){
 			$(".mensaje").html("Se ha modificado el Ejemplar: "+resp);
 		});
 	});

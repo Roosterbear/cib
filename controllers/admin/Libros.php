@@ -319,9 +319,13 @@ class Libros extends \CI_Controller{
 	}
 	
 	public function updateEjemplarQuery(){
+		$ide = $_REQUEST['ide'];
 		$adq = $_REQUEST['adq'];
+		$tomo = $_REQUEST['tomo'];
+		$volumen = $_REQUEST['volumen'];
+		$accesible = $_REQUEST['accesible'];
 		
-		echo $adq;
+		echo $ide.' - '.$adq;
 	}
 		
 }
