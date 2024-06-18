@@ -319,13 +319,12 @@ class Libros extends \CI_Controller{
 	}
 	
 	public function updateEjemplarQuery(){
-		$ide = $_REQUEST['ide'];
-		$adq = $_REQUEST['adq'];
-		$tomo = $_REQUEST['tomo'];
-		$volumen = $_REQUEST['volumen'];
-		$accesible = $_REQUEST['accesible'];
-		
-		echo $ide.' - '.$adq;
+		$ide = $_REQUEST['ide'];		
+		$query = $_REQUEST['query'];
+		$sql = "update cib.ejemplar ".$query." where id = ".$ide;
+		echo $sql;
+		//$resultado = $this->ejemplar->update($sql);
+		//echo $resultado?$ide:false;
 	}
 		
 }

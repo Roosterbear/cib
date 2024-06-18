@@ -63,6 +63,12 @@ class Ejemplar extends Ficha {
 		return $rs->getArray();
 	}
 	
+	public function update($sql){
+		$this->cib = new CIB();
+	
+		$rs = $this->db->Execute($sql);
+		return true;
+	}
 	
 	
 	

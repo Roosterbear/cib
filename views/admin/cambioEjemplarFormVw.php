@@ -34,14 +34,14 @@
 				<i class="fa fa-archive iconoCaptura"></i>
 				<label class="labelCaptura">Tomo:</label>
 				<input name="inputTomoEjemplar" class="form-control inputBuscar" 
-				value = "<?php echo @$tomo == 0?'':$tomo; ?>" id="inputTomoEjemplar" onpaste="return false"/>
+				value = "<?php echo @$tomo; ?>" id="inputTomoEjemplar" onpaste="return false"/>
 			</div>
 			<!-- Captura de Volumen del Libro -->
 			<div class="col-md-5">
 				<i class="fa fa-tag iconoCaptura"></i>
 				<label class="labelCaptura">Volumen:</label>
 				<input name="inputVolumenEjemplar" class="form-control inputBuscar" 
-				value = "<?php echo $volumen == 0?'':$volumen; ?>" id="inputVolumenEjemplar" onpaste="return false"/>
+				value = "<?php echo $volumen; ?>" id="inputVolumenEjemplar" onpaste="return false"/>
 			</div>
 			<div class="col-md-1"></div>
 		</div>
@@ -85,9 +85,10 @@ $(document).ready(function(){
 		const adq = document.querySelector("#inputAdquisicionEjemplar").value;
 		const tomo = document.querySelector("#inputTomoEjemplar").value;
 		const volumen = document.querySelector("#inputVolumenEjemplar").value;
-		const accesible = 1;
+		const accesible = document.querySelector('#checkSePrestaEjemplar').checked==true?1:0;
+		const query = "set numAdquisicion = '"+adq+"', tomo = "+tomo+", volumen = "+volumen+", accesible = "+accesible+"";
 
-		$.post(link,{ide:ide,adq:adq,tomo:tomo,volumen:volumen,accesible:accesible},function(resp){
+		$.post(link,{ide:ide,query:query},function(resp){
 			$(".mensaje").html("Se ha modificado el Ejemplar: "+resp);
 		});
 	});
