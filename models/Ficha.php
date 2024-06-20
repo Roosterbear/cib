@@ -42,7 +42,7 @@ class Ficha extends \CI_Model {
 	
 	public function delete($sql,$id){
 		if(!$this->fichaIsFree($id)){
-			//$rs = $this->db->Execute($sql);
+			$rs = $this->db->Execute($sql);
 			return "<strong>ID: <u>$id</u> <span>ELIMINADO</span></strong>";
 		}else{
 			return "<strong>ID: <span>$id</span> <u>NO eliminado</u> por contener ejemplares</strong>";
