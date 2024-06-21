@@ -86,11 +86,12 @@ $(document).ready(function(){
 		const tomo = document.querySelector("#inputTomoEjemplar").value;
 		const volumen = document.querySelector("#inputVolumenEjemplar").value;
 		const accesible = document.querySelector('#checkSePrestaEjemplar').checked==true?1:0;
-		const query = "set numAdquisicion = '"+adq+"', tomo = "+tomo+", volumen = "+volumen+", accesible = "+accesible+"";
-
+		const query = "set numAdquisicion = '"+adq+"', tomo = "+tomo+", volumen = "+volumen+", accesible = "+accesible+"";		
+		
 		$.post(link,{ide:ide,query:query},function(resp){
 			$(".mensaje").html("Se ha modificado el Ejemplar: "+resp);
 		});
+		
 	});
 
   btnRegresar.addEventListener('click',()=>{

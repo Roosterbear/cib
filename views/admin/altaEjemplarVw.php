@@ -80,7 +80,7 @@
 <div class="mensajes">
 	<div class="mensaje"></div>
 </div>
-
+<div class="espaciado"></div>
 <script>
 	$(document).ready(function(){
 
@@ -95,7 +95,7 @@
 		const inputTomo = document.querySelector("#inputTomoEjemplar");
 		const inputVolumen = document.querySelector("#inputVolumenEjemplar");
 		const checkSePresta = document.querySelector("#checkSePrestaEjemplar");
-
+		
 		let value = '';
 
 		$(inputIDFicha).on("keydown", function(e){
@@ -123,7 +123,7 @@
 					$('#btnMostrarFicha').addClass('ocultar');
 				}
 
-				$("#data").html(resp);			
+				$(".mensaje").html(resp);			
 			});			
 		}
 
@@ -141,23 +141,32 @@
 			const volumen = inputVolumen.value;
 			const accesible = checkSePresta.checked?1:0;
 
-			$.post(link_alta,{idFicha:idFicha,
+			const adq0k = validarMayorATres(adq);
+
+			if(adq0k){
+				$.post(link_alta,{idFicha:idFicha,
 												adq:adq,
 												tomo:tomo,
 												volumen:volumen,
 												accesible:accesible
-				},function(resp){
-					$('.mensaje').addClass('green').html("Ejemplar generado con el ID: "+resp);
-					setTimeout(()=>{
-						$('.mensaje').removeClass('green').html("");
-					},3000);	
-					resetDataAltaEjemplar();			
-					inputIDFicha.disabled = false;
-					inputIDFicha.value = '';
-					$('#altaEjemplar').addClass('ocultar');
-					$('#btnMostrarFicha').removeClass('ocultar');
-					$("#data").html('');
-			});			
+											},function(resp){
+						$('.mensaje').addClass('green').html("Ejemplar generado con el ID: "+resp);
+						setTimeout(()=>{
+							$('.mensaje').removeClass('green').html("");
+						},3000);	
+						resetDataAltaEjemplar();			
+						inputIDFicha.disabled = false;
+						inputIDFicha.value = '';
+						$('#altaEjemplar').addClass('ocultar');
+						$('#btnMostrarFicha').removeClass('ocultar');
+						$("#data").html('');
+				});
+			}else{
+				$('.mensaje').addClass('tomato').html("Faltan campos por llenar");
+				setTimeout(()=>{
+					$('.mensaje').removeClass('tomato').html("");
+				},2000);
+			}			
 		});
 
 		btnRegresar.addEventListener('click',()=>{

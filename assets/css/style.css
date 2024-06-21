@@ -35,6 +35,10 @@ a:hover{
   background-color: #ffe690;  
 }
 
+.espaciado{
+  height: 100px;
+}
+
 .ocultar{
   display: none;  
 }

@@ -18,13 +18,13 @@
 <div class="row areaCaptura">
 		<div class="col-md-12 text-center">
 			<button class="btn butt cancel puntero" id="btnBajaEjemplar">&nbsp;Eliminar Ejemplar?&nbsp;</button>
-			<button class="btn butt war puntero ocultar" id="btnRegresarBajaEjemplar">&nbsp;Regresar&nbsp;</button>
+			<br/><br/>
+			<button class="btn butt war puntero"  id="btnRegresarBajaEjemplar">&nbsp;Regresar&nbsp;</button>
 		</div>
-		
 		
 		<div class="col-md-12 mensajes text-center">
 			<div id="data"></div>
-	</div>
+		</div>
 
 	</div>
 </div>
