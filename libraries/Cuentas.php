@@ -145,7 +145,7 @@ class Cuentas {
 		inner join empleado e on e.cve_persona=p.cve_persona
 		left outer join puesto pt on pt.cve_empleado=e.cve_empleado and pt.activo=1
 		left outer join departamento d on d.cve_departamento=pt.cve_departamento
-		where p.cve_persona={$usuario->getId()}";
+		where p.cve_persona={$usuario->getId()} order by e.activo desc";
 		//pre($sql);
 		$rs=$this->db->Execute($sql);
 		if($rs===false){ $ex1=new Exception($this->db->ErrorMsg()); Throw new Exception("Falló la consulta.  ".__METHOD__,null,$ex1);}
