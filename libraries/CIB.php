@@ -36,8 +36,8 @@ class CIB {
 			
 			$tabla .= "<tr>";
 			$tabla .= "<td class=\"text-center\">{$consecutivo}</td>";
-			$tabla .= "<td class=\"text-center\">{$id}</td>";
-			$tabla .= "<td>{$titulo}</td>";
+			$tabla .= "<td class=\"text-center\">{$id}</td>";			
+			$tabla .= "<td><a href=\"../../admin/Libros/detalleFichero/{$id}\">{$titulo}</a></td>";
 			$tabla .= "<td>{$autor}</td>";
 			$tabla .= "<td>{$clasificacion}</td>";
 			$tabla .= "</tr>";

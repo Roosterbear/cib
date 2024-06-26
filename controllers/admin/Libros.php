@@ -328,6 +328,33 @@ class Libros extends \CI_Controller{
 		$resultado = $this->ejemplar->update($sql);
 		echo $resultado?$ide:false;
 	}
+	
+	/* --------------------------------------------------- */
+	/* --------------------------------------------------- */
+	/* --- FUNCIONES PARA MOSTRAR DETALLES EN FICHERO ---- */
+	/* --------------------------------------------------- */
+	/* --------------------------------------------------- */
 		
+	public function detalleFichero($id){
+		$this->ficha = new Ficha();
+		$data['id'] = $id;
+		
+		/* OBTENER DATOS FICHA POR ID 
+		 
+		$array = $this->ficha->mostrarFichasById($id);
+		
+		$data['titulo'] = $array[0]['titulo'];
+		$data['autor'] = $array[0]['autor'];
+		$data['isbn'] = $array[0]['isbn'];
+		$data['clasificacion'] = $array[0]['clasificacion'];
+		*/
+		
+		$this->load->view("header");
+		$this->load->view("/admin/detalleFicheroVw",$data);
+		$this->load->view("footer");
+		
+		
+		
+	}
 }
 
