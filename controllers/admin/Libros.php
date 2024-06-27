@@ -352,10 +352,18 @@ class Libros extends \CI_Controller{
 		// numAdquisicion, volumen, tomo, accesible
 		$arraye = $this->ejemplar->mostrarEjemplaresByIdFicha($id);
 		
-		$data['adq'] = $arraye[0]['numAdquisicion'];
-		$data['volumen'] = $arraye[0]['volumen'];
-		$data['tomo'] = $arraye[0]['tomo'];
-		$data['accesible'] = $arraye[0]['accesible'];
+		$cont = 0;
+		$ejemplar = [];
+		
+		foreach($arraye as $e){			
+			$ejemplar[$cont]['adq'] = $e['numAdquisicion'];
+			$ejemplar[$cont]['volumen'] = $e['volumen'];
+			$ejemplar[$cont]['tomo'] = $e['tomo'];
+			$ejemplar[$cont]['accesible'] = $e['accesible'];
+			$cont++;			
+		}					
+		
+		$data['ejemplar'] = $ejemplar;
 		
 		$this->load->view("header");
 		$this->load->view("/admin/detalleFicheroVw",$data);
