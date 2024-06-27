@@ -1,6 +1,9 @@
-<?php
-
-echo "Te huele la boca a croqueta de gato ".$id;
-
-
-?>
+<h1><?php echo $id; ?></h1>
+<h1><?php echo $titulo; ?></h1>
+<h1><?php echo $autor; ?></h1>
+<h1><?php echo $isbn; ?></h1>
+<h1><?php echo $clasificacion; ?></h1>
+<h1><?php echo $adq; ?></h1>
+<h1><?php echo $volumen; ?></h1>
+<h1><?php echo $tomo; ?></h1>
+<h1><?php echo $accesible; ?></h1>

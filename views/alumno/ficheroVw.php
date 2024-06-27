@@ -20,7 +20,7 @@
 		</div>
 	</div><!-- row  -->
 </form>
-
+<h2 class="tomato">ESTE MODULO ESTA EN CONSTRUCCION <i class="fa fa-cog" aria-hidden="true"></i></h2>
 <div id="contenidoData"></div>
 
 <script>

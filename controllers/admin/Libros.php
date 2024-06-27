@@ -337,17 +337,25 @@ class Libros extends \CI_Controller{
 		
 	public function detalleFichero($id){
 		$this->ficha = new Ficha();
+		$this->ejemplar = new Ejemplar();
 		$data['id'] = $id;
-		
-		/* OBTENER DATOS FICHA POR ID 
-		 
+
+		// id, titulo, autor, isbn, clasificacion
 		$array = $this->ficha->mostrarFichasById($id);
 		
 		$data['titulo'] = $array[0]['titulo'];
 		$data['autor'] = $array[0]['autor'];
 		$data['isbn'] = $array[0]['isbn'];
 		$data['clasificacion'] = $array[0]['clasificacion'];
-		*/
+		
+		
+		// numAdquisicion, volumen, tomo, accesible
+		$arraye = $this->ejemplar->mostrarEjemplaresByIdFicha($id);
+		
+		$data['adq'] = $arraye[0]['numAdquisicion'];
+		$data['volumen'] = $arraye[0]['volumen'];
+		$data['tomo'] = $arraye[0]['tomo'];
+		$data['accesible'] = $arraye[0]['accesible'];
 		
 		$this->load->view("header");
 		$this->load->view("/admin/detalleFicheroVw",$data);
