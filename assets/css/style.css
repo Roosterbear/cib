@@ -2,20 +2,39 @@
 /* --- FICHERO --- */
 /* --------------- */
 .ficha{
-  margin-top: 1em;
+  margin: 2em 3em;
   padding: 20px;
   border: solid 2px #088395;
 }
 
 h1.fichero{
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   color: #088395;
+}
+
+h2.fichero{
+  font-size: 2rem;  
+}
+
+h3.fichero{
+  font-size: 1.7rem;;
 }
 
 .id{
   color: #888;
 }
 
+.autor{
+  color: #A79277;
+}
+
+.isbn{
+  color: #627254;
+}
+
+.clasificacion{
+  color: #76885B;
+}
 
 
 /* -------------- */

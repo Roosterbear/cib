@@ -1,17 +1,17 @@
-<div class="container">
   <div class="row ficha">
-    <div class="col-md-11">
-      <h1 class="fichero"><?php echo $titulo; ?></h1>
-    </div>
-    <div class="col-md-1 id">ID: <u><?php echo $id; ?></u></div>
     <div class="col-md-12">
-      <h2>Autor: <?php echo $autor; ?></h2>
+      <h1 class="fichero text-center"><?php echo $titulo; ?></h1>
+    </div>
+    <div class="col-md-12"><hr/></div>
+    <div class="col-md-12">
+      <h2 class="fichero"><span class="id">Autor: </span><span class="autor"><?php echo $autor; ?></h2>
+    </div>
+    
+    <div class="col-md-12">
+      <h3 class="fichero"><span class="id">ISBN: </span><span class="isbn"><?php echo $isbn; ?></span></h3>
     </div>
     <div class="col-md-12">
-      <h3>ISBN: <?php echo $isbn; ?></h3>
-    </div>
-    <div class="col-md-12">
-      <h3>Clasificaci&oacute;n: <?php echo $clasificacion; ?></h1>
+      <h3 class="fichero"><span class="id">Clasificaci&oacute;n: </span><span class="clasificacion"><?php echo $clasificacion; ?></span></h1>
     </div>  
     <div class="col-md-12"><hr/></div>
     <div class="col-md-12">
@@ -37,4 +37,3 @@
       </table>
     </div>
   </div>
-</div>
