@@ -320,7 +320,18 @@ class Libros extends \CI_Controller{
 	}
 	
 	public function printEjemplar($ide){
-		echo $ide;
+		$this->ejemplar = new Ejemplar();
+		
+		$data['ide'] = $ide;
+		$array = $this->ejemplar->mostrarEjemplarById($ide);
+		$data['adq'] = $array[0]['numAdquisicion'];
+		$data['tomo'] = $array[0]['tomo'];
+		$data['volumen'] = $array[0]['volumen'];
+		$data['accesible'] = $array[0]['accesible'];
+				
+		$this->load->view("header");
+		$this->load->view("/admin/imprimirEtiquetaVw",$data);
+		$this->load->view("footer");
 	}
 	
 	public function updateEjemplarQuery(){

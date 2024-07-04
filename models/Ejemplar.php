@@ -81,7 +81,6 @@ class Ejemplar extends Ficha {
 	}
 	
 	
-	
 	/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 	/* @@ ESTO DE ABAJO ES CODIGO HEREDADO @@ */
 	/* @@ ----------- NO MOVER ----------- @@ */

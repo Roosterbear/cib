@@ -308,3 +308,9 @@ button.war{
   transform: rotate(45deg);
 }
 
+
+@media print {
+  .no-print {
+    display: none;
+  }
+}
