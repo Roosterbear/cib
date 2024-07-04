@@ -56,7 +56,11 @@
 		});	
 
 		btnRegresar.addEventListener('click',()=>{
-			window.history.back();			
+			inputID.disabled = false;					
+			inputID.value = '';
+			$(".mensajes").html('');
+			$('#btnMostrarFicha').removeClass('ocultar');
+			$('#btnRegresarCambioEjemplar').addClass('ocultar');						
 		});
 
 		function mostrarFicha(){
@@ -66,7 +70,7 @@
 				if(resp != "<div class=\"mensaje tomato\">ID no encontrado</div>"){
 					inputID.disabled = true;					
 					$('#btnMostrarFicha').addClass('ocultar');
-					$('#btnRegresarBajaEjemplar').removeClass('ocultar');
+					$('#btnRegresarCambioEjemplar').removeClass('ocultar');
 				}
 
 				$(".mensajes").html(resp);			

@@ -228,6 +228,7 @@ class Libros extends \CI_Controller{
 	/* ------- EJEMPLARES ------- */
 	/* -------------------------- */
 	public function getEjemplares(){
+		/* ESTA FUNCION NO LA VOY A UTILIZAR */
 		$this->ejemplar = new Ejemplar();
 		
 		echo $this->ejemplar->mostrarEjemplares();		
@@ -318,6 +319,10 @@ class Libros extends \CI_Controller{
 		$this->load->view("footer");
 	}
 	
+	public function printEjemplar($ide){
+		echo $ide;
+	}
+	
 	public function updateEjemplarQuery(){
 		$this->ejemplar = new Ejemplar();
 		
@@ -328,6 +333,20 @@ class Libros extends \CI_Controller{
 		$resultado = $this->ejemplar->update($sql);
 		echo $resultado?$ide:false;
 	}
+		
+	public function showFichaMostrarEjemplares(){
+		$this->ficha = new Ficha();
+			
+		$value = $_REQUEST['value']==''?0:$_REQUEST['value'];
+	
+		$sql = "select f.Id as Id, autor, titulo,ISBN, clasificacion, e.numAdquisicion as adquisicion, e.id as ide from cib.ficha as f left outer join cib.ejemplar as e on f.id = e.idFicha";
+		$sql .= " where f.Id = ${value} order by 6";
+	
+		echo $this->ficha->execSQLFichaEjemplarMostrar($sql);
+	}
+	
+	
+	
 	
 	/* --------------------------------------------------- */
 	/* --------------------------------------------------- */

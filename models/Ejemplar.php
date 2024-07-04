@@ -17,6 +17,7 @@ class Ejemplar extends Ficha {
 
 	
 	public function mostrarEjemplares(){
+		/* ESTA FUNCION NO LA VOY A UTILIZAR */
 		$this->cib = new CIB();
 	
 		$sql = "select idFicha, numAdquisicion, f.titulo, f.autor, f.clasificacion

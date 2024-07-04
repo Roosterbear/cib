@@ -122,7 +122,13 @@ class Ficha extends \CI_Model {
 		$rs = $this->db->Execute($sql);
 	
 		return $this->cib->getFichaEjemplaresCambiar($rs->getArray());
-			
+	}
+	
+	public function execSQLFichaEjemplarMostrar($sql){
+		$this->cib = new CIB();
+		$rs = $this->db->Execute($sql);
+	
+		return $this->cib->getFichaEjemplaresMostrar($rs->getArray());
 	}
 	
 	public function getIdFromISBNFicha($isbn){

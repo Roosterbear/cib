@@ -280,8 +280,50 @@ class CIB {
 		return $tabla;
 	}
 	
+	public function getFichaEjemplaresMostrar($ficha){
+	
+		// Id | Titulo | Autor | ISBN | Clasificacion
+		$tabla = "<table class=\"cib-table\"><thead>";
+		$tabla .= "<tr><th class=\"text-center\">Id</th>";
+		$tabla .= "<th> TITULO </th>";
+		$tabla .= "<th> AUTOR </th>";
+		$tabla .= "<th><i class=\"fa fa-archive\" aria-hidden=\"true\"></i> ISBN</th>";
+		$tabla .= "<th><i class=\"fa fa-barcode\" aria-hidden=\"true\"></i>	CLASIFICACION</th>";
+		$tabla .= "<th><i class=\"fa fa-archive\" aria-hidden=\"true\"></i>	ADQUISICION</th>";
+		$tabla .= "<th class=\"text-center\"> IMPRIMIR</th></tr></thead>";
+		$tabla .= "<tbody>";
+	
+		if(isset($ficha[0]['Id'])){
+			foreach($ficha as $f){
+				$id = $f['Id'];
+				$titulo = $f['titulo'];
+				$autor = $f['autor'];
+				$isbn = $f['ISBN'];
+				$clasificacion = $f['clasificacion'];
+				$adquisicion = $f['adquisicion'] == ''?' N/A':$f['adquisicion'];
+				$ide = $f['ide'];
+	
+				$tabla .= "<tr>";
+				$tabla .= "<td class=\"text-center\">{$id}</td>";
+				$tabla .= "<td>{$titulo}</td>";
+				$tabla .= "<td>{$autor}</td>";
+				$tabla .= "<td>{$isbn}</td>";
+				$tabla .= "<td>{$clasificacion}</td>";
+				$tabla .= "<td>{$adquisicion}</td>";
+				$tabla .= "<td class=\"text-center\"><a href=\"printEjemplar/{$ide}\"><i class=\"fa fa-print\" aria-hidden=\"true\"></i></a></td>";
+				$tabla .= "</tr>";
+			}
+		}else{
+			return "<div class=\"mensaje tomato\">ID no encontrado</div>";
+		}
+		$tabla .= "</tbody>";
+		$tabla .= "</table>";
+	
+		return $tabla;
+	}
 	
 	public function getEjemplar($array){
+		/* ESTA FUNCION YA NO LA VOY A UTILIZAR */
 	
 		// IdFicha | numAdquisicion | titulo | autor | clasificacion
 		$tabla = "<table class=\"cib-table\"><thead>";
