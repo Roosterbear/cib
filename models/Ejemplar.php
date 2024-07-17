@@ -42,16 +42,17 @@ class Ejemplar extends Ficha {
 		
 		$sql = "insert into cib.ejemplar(idFicha, numAdquisicion, volumen, tomo, accesible) values($idFicha,'".$adquisicion."','".$volumen."','".$tomo."',$accesible)";
 		
-		$adqRepetido = $this->adqRepetido($idFicha, $adquisicion);
+		$existeADQ = $this->adqRepetido($idFicha, $adquisicion);
 		
-		if($adqRepetido == ''){
-			return 0;
-		}else{
+		
+		if($existeADQ == ''){
 			// COMENTAR LA SIGUIENTE LINEA PARA HACER PRUEBAS
 			$rs = $this->db->Execute($sql);
 			// ----------------------------------------------
-			
-			return $this->db->insert_id();
+				
+			return $this->db->insert_id();			
+		}else{
+			return 0;
 		}
 	}
 	

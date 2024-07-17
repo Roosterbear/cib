@@ -152,7 +152,7 @@
 												accesible:accesible
 											},function(resp){
 											// AQUI PONER ERROR SI ES ADQ REPETIDO
-											if(resp > 0){
+											if(resp == 0){
 												$('.mensaje').addClass('tomato').html("Numero de ADQUISICION repetido !");
 												setTimeout(()=>{
 													$('.mensaje').removeClass('tomato').html("");
