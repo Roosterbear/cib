@@ -41,9 +41,27 @@ class Ejemplar extends Ficha {
 		$accesible = $data['accesible'];
 		
 		$sql = "insert into cib.ejemplar(idFicha, numAdquisicion, volumen, tomo, accesible) values($idFicha,'".$adquisicion."','".$volumen."','".$tomo."',$accesible)";
-		$rs = $this->db->Execute($sql);
 		
-		return $this->db->insert_id();		
+		$adqRepetido = $this->adqRepetido($idFicha, $adquisicion);
+		
+		if($adqRepetido == ''){
+			return 0;
+		}else{
+			// COMENTAR LA SIGUIENTE LINEA PARA HACER PRUEBAS
+			$rs = $this->db->Execute($sql);
+			// ----------------------------------------------
+			
+			return $this->db->insert_id();
+		}
+	}
+	
+	public function adqRepetido($idFicha, $adq){
+		$this->cib = new CIB();
+		
+		$sql = "select id from cib.ejemplar where idFicha = {$idFicha} and numAdquisicion = '{$adq}'				
+		";
+		$rs = $this->db->Execute($sql);
+		return $rs->fields['id'];
 	}
 	
 	public function deleteEjemplar($sql,$id){

@@ -116,6 +116,7 @@
 		function mostrarFicha(){
 			value = inputIDFicha.value;
 
+			// Libros -> addEjemplar
 			$.post(link_consulta,{value:value},function(resp){
 				if(resp != "<div class=\"mensaje tomato\">ID no encontrado</div>"){
 					inputIDFicha.disabled = true;
@@ -123,7 +124,7 @@
 					$('#btnMostrarFicha').addClass('ocultar');
 				}
 
-				$(".mensaje").html(resp);			
+				$("#data").html(resp);			
 			});			
 		}
 
@@ -150,16 +151,24 @@
 												volumen:volumen,
 												accesible:accesible
 											},function(resp){
-						$('.mensaje').addClass('green').html("Ejemplar generado con el ID: "+resp);
-						setTimeout(()=>{
-							$('.mensaje').removeClass('green').html("");
-						},3000);	
-						resetDataAltaEjemplar();			
-						inputIDFicha.disabled = false;
-						inputIDFicha.value = '';
-						$('#altaEjemplar').addClass('ocultar');
-						$('#btnMostrarFicha').removeClass('ocultar');
-						$("#data").html('');
+											// AQUI PONER ERROR SI ES ADQ REPETIDO
+											if(resp > 0){
+												$('.mensaje').addClass('tomato').html("Numero de ADQUISICION repetido !");
+												setTimeout(()=>{
+													$('.mensaje').removeClass('tomato').html("");
+												},2000);
+											}else{
+												$('.mensaje').addClass('green').html("Ejemplar generado con el ID: "+resp);
+												setTimeout(()=>{
+													$('.mensaje').removeClass('green').html("");
+													resetDataAltaEjemplar();			
+													inputIDFicha.disabled = false;
+													inputIDFicha.value = '';
+													$('#altaEjemplar').addClass('ocultar');
+													$('#btnMostrarFicha').removeClass('ocultar');
+												},2000);	
+												$("#data").html('');
+											}
 				});
 			}else{
 				$('.mensaje').addClass('tomato').html("Faltan campos por llenar");
