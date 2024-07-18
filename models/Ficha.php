@@ -145,7 +145,12 @@ class Ficha extends \CI_Model {
 		return true;
 	}
 	
-	
+	public function execQueryBigSearchOfBooks($sql){
+		$this->cib = new CIB();
+		$rs = $this->db->Execute($sql);
+		
+		return $this->cib->getBigSearch($rs->getArray());
+	}
 	
 	/* ------------------- */
 	/* ----- GETTERS ----- */

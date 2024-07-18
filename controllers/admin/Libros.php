@@ -356,6 +356,22 @@ class Libros extends \CI_Controller{
 		echo $this->ficha->execSQLFichaEjemplarMostrar($sql);
 	}
 	
+	public function bigSearchOfBooks(){
+		$this->ficha = new Ficha();
+		
+		$texto = $_REQUEST['texto'];
+		
+		$sql = "select titulo, autor, fecha, isbn, clasificacion, numAdquisicion, ejemplar, volumen, tomo, accesible
+				from cib.ficha f inner join cib.ejemplar e 
+				on f.Id = e.idFicha
+				where titulo like '%{$texto}%' 
+				or autor like '%{$texto}%'
+				or numAdquisicion like '%{$texto}%'
+				";
+		
+		echo $this->ficha->execQueryBigSearchOfBooks($sql);
+	}
+	
 	
 	
 	

@@ -4,10 +4,22 @@
 			<div class="col-md-1"></div>
       <!-- Busqueda de Ficha por ID -->
 			<div class="col-md-10">
-			<i class="fa fa-search iconoBuscar"></i>
 			  <i class="fa fa-book iconoBuscar"></i>
 			  <label class="labelCaptura">Por ID Ficha:</label>
 			  <input name="inputBuscarPorIDFichaMostrarEjemplar" class="form-control inputBuscarPorID" id="inputBuscarPorIDFichaMostrarEjemplar"/>
+		  </div>
+			<div class="col-md-1"></div>
+	  </div><!-- row  -->    
+  </div>
+
+	<div class="container-fluid">
+    <div class="row areaCaptura">
+			<div class="col-md-1"></div>
+      <!-- Busqueda de Ficha por ID -->
+			<div class="col-md-10">
+			<i class="fa fa-search iconoBuscar"></i>
+			  <label class="labelCaptura">B&uacute;squeda: <small><em>(T&iacute;tulo, Autor, Adquisici&oacute;n)</em></small></label>
+			  <input name="inputBuscarPorPalabrasMostrarEjemplar" class="form-control inputBuscarPorID" id="inputBuscarPorPalabrasMostrarEjemplar"/>
 		  </div>
 			<div class="col-md-1"></div>
 	  </div><!-- row  -->    
@@ -35,7 +47,8 @@
 		const link_consulta = "<?=site_url("admin/Libros/showFichaMostrarEjemplares")?>";
 		const btnMostrar = document.querySelector("#btnMostrarFicha");		
 		const btnRegresar = document.querySelector("#btnRegresarMostrarEjemplar");
-		const inputID = document.querySelector("#inputBuscarPorIDFichaMostrarEjemplar");			
+		const inputID = document.querySelector("#inputBuscarPorIDFichaMostrarEjemplar");
+		const inputPalabra = document.querySelector("#inputBuscarPorPalabrasMostrarEjemplar");
 
 		$(inputID).on("keydown", function(e){
 			let tecla = e.key;
@@ -45,6 +58,12 @@
 		$(inputID).on("keyup", function(e){						
 			if(e.keyCode === 13){
 				mostrarFicha();
+			}			
+		});
+
+		$(inputPalabra).on("keyup", function(e){						
+			if(e.keyCode === 13){
+				mostrarEjemplares();
 			}			
 		});
 
@@ -72,6 +91,12 @@
 
 				$(".mensajes").html(resp);			
 			});			
+		}
+
+		function mostrarEjemplares(){
+			value = inputPalabra.value;
+			resp = "<strong>Ahorita no hago nada, pero me me veas asi por favor.... </strong> "+value;
+			$(".mensajes").html(resp);
 		}
 
 	});

@@ -321,6 +321,63 @@ class CIB {
 	
 		return $tabla;
 	}
+
+	
+	public function getBigSearch($array){		
+		
+		// titulo, autor, fecha, isbn, clasificacion, numAdquisicion, ejemplar, volumen, tomo, accesible
+		$tabla = "<table class=\"cib-table\"><thead>";
+		$tabla .= "<tr><th> No. </th>";
+		$tabla .= "<th> TITULO </th>";
+		$tabla .= "<th> AUTOR </th>";
+		$tabla .= "<th> FECHA </th>";
+		$tabla .= "<th> ISBN </th>";
+		$tabla .= "<th> CLASIFICACION </th>";
+		$tabla .= "<th> ADQUISICION </th>";
+		$tabla .= "<th> EJEMPLAR </th>";
+		$tabla .= "<th> VOLUMEN </th>";
+		$tabla .= "<th> TOMO </th>";
+		$tabla .= "<th> ACCESIBLE </th></tr></thead>";
+		$tabla .= "<tbody>";
+		
+		$contador = 0;
+		foreach ($array as $a){
+			$contador += contador;
+			$titulo = $a['titulo'];
+			$autor = $a['autor'];
+			$fecha = $a['fecha'];
+			$isbn = $a['isbn'];
+			$clasificacion = $a['clasificacion'];
+			$adquisicion = $a['numAdquisicion'];
+			$ejemplar = $a['ejemplar'];
+			$volumen = $a['volumen'];
+			$tomo = $a['tomo'];
+			$accesible = $a['accesible'];
+	
+			$tabla .= "<tr>";
+			$tabla .= "<td class=\"text-center\">{$contador}</td>";			
+			$tabla .= "<td>{$titulo}</td>";
+			$tabla .= "<td>{$autor}</td>";
+			$tabla .= "<td>{$fecha}</td>";
+			$tabla .= "<td>{$isbn}</td>";
+			$tabla .= "<td>{$clasificacion}</td>";
+			$tabla .= "<td>{$adquisicion}</td>";
+			$tabla .= "<td>{$ejemplar}</td>";
+			$tabla .= "<td>{$volumen}</td>";
+			$tabla .= "<td>{$tomo}</td>";
+			$tabla .= "<td>{$accesible}</td>";
+			$tabla .= "</tr>";
+	
+		}
+	
+		$tabla .= "</tbody>";
+		$tabla .= "</table>";
+		return $tabla;
+	
+	}
+	
+	
+	
 	
 	public function getEjemplar($array){
 		/* ESTA FUNCION YA NO LA VOY A UTILIZAR */
@@ -352,11 +409,7 @@ class CIB {
 	
 		$tabla .= "</tbody>";
 		$tabla .= "</table>";
-		return $tabla;
-	
+		return $tabla;	
 	}
-	
-	
-	
 }
 ?>
