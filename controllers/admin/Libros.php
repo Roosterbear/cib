@@ -356,6 +356,10 @@ class Libros extends \CI_Controller{
 		echo $this->ficha->execSQLFichaEjemplarMostrar($sql);
 	}
 	
+	
+	/* --------------------------------------------------- */
+	/* ------------ BUSCADOR EJEMPLARES ------------------ */
+	/* --------------------------------------------------- */
 	public function bigSearchOfBooks(){
 		$this->ficha = new Ficha();
 		
@@ -368,8 +372,8 @@ class Libros extends \CI_Controller{
 				or autor like '%{$texto}%'
 				or numAdquisicion like '%{$texto}%'
 				";
-		
-		echo $this->ficha->execQueryBigSearchOfBooks($sql);
+		echo 'Funciona!';
+		//echo $this->ficha->execQueryBigSearchOfBooks($sql);
 	}
 	
 	

@@ -1,10 +1,13 @@
 <div id="busquedaEjemplar">
+
 	<div class="container-fluid">
     <div class="row areaCaptura">
 			<div class="col-md-1"></div>
-      <!-- Busqueda de Ficha por ID -->
+      <!-- @@@@@@@@@@@@@@@@@@@@@@@@ -->
+      <!-- Busqueda por ID Ficha    -->
+      <!-- @@@@@@@@@@@@@@@@@@@@@@@@ -->
 			<div class="col-md-10">
-			  <i class="fa fa-book iconoBuscar"></i>
+				<i class="fa fa-book iconoBuscar"></i>
 			  <label class="labelCaptura">Por ID Ficha:</label>
 			  <input name="inputBuscarPorIDFichaMostrarEjemplar" class="form-control inputBuscarPorID" id="inputBuscarPorIDFichaMostrarEjemplar"/>
 		  </div>
@@ -12,10 +15,20 @@
 	  </div><!-- row  -->    
   </div>
 
+	
+	<div class="row areaCaptura">
+		<div class="col-md-12 text-center">
+			<button class="btn butt ok puntero" id="btnMostrarFicha">&nbsp;Mostrar&nbsp;</button>
+			<button class="btn butt war puntero ocultar" id="btnRegresarMostrarEjemplar">&nbsp;Regresar&nbsp;</button>
+		</div>		
+	</div>
+
 	<div class="container-fluid">
-    <div class="row areaCaptura">
+		<div class="row areaCaptura">
 			<div class="col-md-1"></div>
-      <!-- Busqueda de Ficha por ID -->
+			<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+      <!-- Busqueda por Texto Ejemplar -->
+			<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 			<div class="col-md-10">
 			<i class="fa fa-search iconoBuscar"></i>
 			  <label class="labelCaptura">B&uacute;squeda: <small><em>(T&iacute;tulo, Autor, Adquisici&oacute;n)</em></small></label>
@@ -24,13 +37,6 @@
 			<div class="col-md-1"></div>
 	  </div><!-- row  -->    
   </div>
-
-	<div class="row areaCaptura">
-		<div class="col-md-12 text-center">
-			<button class="btn butt ok puntero" id="btnMostrarFicha">&nbsp;Mostrar&nbsp;</button>
-			<button class="btn butt war puntero ocultar" id="btnRegresarMostrarEjemplar">&nbsp;Regresar&nbsp;</button>
-		</div>		
-	</div>
 
 	<div class="row areaCaptura">
 		<div class="col-md-1"></div>
@@ -45,6 +51,7 @@
 	$(document).ready(function(){
 	
 		const link_consulta = "<?=site_url("admin/Libros/showFichaMostrarEjemplares")?>";
+		const link_ejemplares = "<?=site_url("admin/Libros/bigSearchOfBooks")?>";
 		const btnMostrar = document.querySelector("#btnMostrarFicha");		
 		const btnRegresar = document.querySelector("#btnRegresarMostrarEjemplar");
 		const inputID = document.querySelector("#inputBuscarPorIDFichaMostrarEjemplar");
@@ -61,12 +68,12 @@
 			}			
 		});
 
+
 		$(inputPalabra).on("keyup", function(e){						
-			if(e.keyCode === 13){
-				mostrarEjemplares();
-			}			
+			mostrarEjemplares();
 		});
 
+		
 		btnMostrarFicha.addEventListener('click', ()=>{
 				mostrarFicha();			
 		});	
@@ -94,9 +101,10 @@
 		}
 
 		function mostrarEjemplares(){
-			value = inputPalabra.value;
-			resp = "<strong>Ahorita no hago nada, pero me me veas asi por favor.... </strong> "+value;
-			$(".mensajes").html(resp);
+			texto = inputPalabra.value;
+			$.post(link_ejemplares,{texto:texto},function(resp){
+				$(".mensajes").html(resp);
+			});
 		}
 
 	});
