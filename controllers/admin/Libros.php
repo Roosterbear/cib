@@ -317,22 +317,7 @@ class Libros extends \CI_Controller{
 		$this->load->view("header");
 		$this->load->view("/admin/cambioEjemplarFormVw",$data);
 		$this->load->view("footer");
-	}
-	
-	public function printEjemplar($ide){
-		$this->ejemplar = new Ejemplar();
-		
-		$data['ide'] = $ide;
-		$array = $this->ejemplar->mostrarEjemplarById($ide);
-		$data['adq'] = $array[0]['numAdquisicion'];
-		$data['tomo'] = $array[0]['tomo'];
-		$data['volumen'] = $array[0]['volumen'];
-		$data['accesible'] = $array[0]['accesible'];
-				
-		$this->load->view("header");
-		$this->load->view("/admin/imprimirEtiquetaVw",$data);
-		$this->load->view("footer");
-	}
+	}		
 	
 	public function updateEjemplarQuery(){
 		$this->ejemplar = new Ejemplar();
@@ -344,7 +329,14 @@ class Libros extends \CI_Controller{
 		$resultado = $this->ejemplar->update($sql);
 		echo $resultado?$ide:false;
 	}
+			
+	/* ---------------------- +++ ------------------------ */
+	
+	/* --------------------------------------------------- */
+	/* ------------ BUSCADOR EJEMPLARES ------------------ */
+	/* --------------------------------------------------- */
 		
+	/* -----------++ BUSCADOR POR FICHA ++---------------- */	
 	public function showFichaMostrarEjemplares(){
 		$this->ficha = new Ficha();
 			
@@ -355,28 +347,48 @@ class Libros extends \CI_Controller{
 	
 		echo $this->ficha->execSQLFichaEjemplarMostrar($sql);
 	}
-	
-	
-	/* --------------------------------------------------- */
-	/* ------------ BUSCADOR EJEMPLARES ------------------ */
-	/* --------------------------------------------------- */
+		
+	/* ---------++ BUSCADOR POR TEXTO ++------------------ */	
 	public function bigSearchOfBooks(){
 		$this->ficha = new Ficha();
 		
 		$texto = $_REQUEST['texto'];
 		
-		$sql = "select titulo, autor, fecha, isbn, clasificacion, numAdquisicion, ejemplar, volumen, tomo, accesible
+		$sql = "select e.idFicha as ficha,titulo, autor,isbn, clasificacion, numAdquisicion, ejemplar, volumen, tomo, accesible
 				from cib.ficha f inner join cib.ejemplar e 
 				on f.Id = e.idFicha
 				where titulo like '%{$texto}%' 
 				or autor like '%{$texto}%'
 				or numAdquisicion like '%{$texto}%'
-				";
-		echo 'Funciona!';
-		//echo $this->ficha->execQueryBigSearchOfBooks($sql);
+				";		
+		echo $this->ficha->execQueryBigSearchOfBooks($sql);
 	}
 	
+	/* ---------------------- +++ ------------------------ */		
+
+	/* --------------------------------------------------- */
+	/* --------------------------------------------------- */
+	/* ------+++++ IMPRIMIR FICHAS CON CODIGOS +++++------ */
+	/* --------------------------------------------------- */
+	/* --------------------------------------------------- */
 	
+	
+	public function printEjemplar($ide){
+		$this->ejemplar = new Ejemplar();
+	
+		$data['ide'] = $ide;
+		$array = $this->ejemplar->mostrarEjemplarById($ide);
+		$data['adq'] = $array[0]['numAdquisicion'];
+		$data['tomo'] = $array[0]['tomo'];
+		$data['volumen'] = $array[0]['volumen'];
+		$data['accesible'] = $array[0]['accesible'];
+	
+		$this->load->view("header");
+		$this->load->view("/admin/imprimirEtiquetaVw",$data);
+		$this->load->view("footer");
+	}
+	
+	/* ---------------------- +++ ------------------------ */
 	
 	
 	/* --------------------------------------------------- */

@@ -328,9 +328,9 @@ class CIB {
 		// titulo, autor, fecha, isbn, clasificacion, numAdquisicion, ejemplar, volumen, tomo, accesible
 		$tabla = "<table class=\"cib-table\"><thead>";
 		$tabla .= "<tr><th> No. </th>";
+		$tabla .= "<th> FICHA </th>";
 		$tabla .= "<th> TITULO </th>";
-		$tabla .= "<th> AUTOR </th>";
-		$tabla .= "<th> FECHA </th>";
+		$tabla .= "<th> AUTOR </th>";		
 		$tabla .= "<th> ISBN </th>";
 		$tabla .= "<th> CLASIFICACION </th>";
 		$tabla .= "<th> ADQUISICION </th>";
@@ -342,10 +342,10 @@ class CIB {
 		
 		$contador = 0;
 		foreach ($array as $a){
-			$contador += contador;
+			$contador = $contador+1;
+			$ficha = $a['ficha'];
 			$titulo = $a['titulo'];
-			$autor = $a['autor'];
-			$fecha = $a['fecha'];
+			$autor = $a['autor'];			
 			$isbn = $a['isbn'];
 			$clasificacion = $a['clasificacion'];
 			$adquisicion = $a['numAdquisicion'];
@@ -356,29 +356,28 @@ class CIB {
 	
 			$tabla .= "<tr>";
 			$tabla .= "<td class=\"text-center\">{$contador}</td>";			
-			$tabla .= "<td>{$titulo}</td>";
-			$tabla .= "<td>{$autor}</td>";
-			$tabla .= "<td>{$fecha}</td>";
+			$tabla .= "<td><strong>{$ficha}</strong></td>";
+			$tabla .= "<td><small>{$titulo}</small></td>";
+			$tabla .= "<td><small>{$autor}</small></td>";			
 			$tabla .= "<td>{$isbn}</td>";
 			$tabla .= "<td>{$clasificacion}</td>";
-			$tabla .= "<td>{$adquisicion}</td>";
-			$tabla .= "<td>{$ejemplar}</td>";
-			$tabla .= "<td>{$volumen}</td>";
-			$tabla .= "<td>{$tomo}</td>";
-			$tabla .= "<td>{$accesible}</td>";
+			$tabla .= "<td class=\"text-center\">{$adquisicion}</td>";
+			$tabla .= "<td class=\"text-center\">{$ejemplar}</td>";
+			$tabla .= "<td class=\"text-center\">{$volumen}</td>";
+			$tabla .= "<td class=\"text-center\">{$tomo}</td>";
+			$tabla .= "<td class=\"text-center\">{$accesible}</td>";
 			$tabla .= "</tr>";
 	
 		}
 	
 		$tabla .= "</tbody>";
 		$tabla .= "</table>";
+	
 		return $tabla;
 	
 	}
 	
-	
-	
-	
+		
 	public function getEjemplar($array){
 		/* ESTA FUNCION YA NO LA VOY A UTILIZAR */
 	
