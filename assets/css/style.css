@@ -120,6 +120,19 @@ h2.gray{
   color:#545454;
 }
 
+
+#getEjemplarByFicha{
+  background-color: rgba(70,70,70,.1);
+  margin: 10px 10%;
+  padding: 0.3rem;
+}
+
+.imprimirEtiquetas{
+  background-color: rgba(70,70,70,.2);
+  margin: 10px 10%;
+}
+
+
 /* ----------- */
 /*  MENSAJES   */
 /* ----------- */

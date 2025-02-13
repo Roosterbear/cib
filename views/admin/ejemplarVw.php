@@ -1,26 +1,36 @@
 <div id="busquedaEjemplar">
+	<div id="getEjemplarByFicha">
+		<div class="container-fluid">		
+			<div class="row areaCaptura">
+				<div class="col-md-1"></div>
+				<!-- @@@@@@@@@@@@@@@@@@@@@@@@ -->
+				<!-- Busqueda por ID Ficha    -->
+				<!-- @@@@@@@@@@@@@@@@@@@@@@@@ -->
+				<div class="col-md-10">
+					<h3><strong>Etiquetas</strong></h3>
+					<i class="fa fa-book iconoBuscar"></i>
+					<label class="labelCaptura">Agregar ID Ficha:</label>
+					<input name="inputBuscarPorIDFichaMostrarEjemplar" class="form-control inputBuscarPorID" id="inputBuscarPorIDFichaMostrarEjemplar"/>
+				</div>
+				<div class="col-md-1"></div>
+			</div><!-- row  -->    
+		</div>
 
-	<div class="container-fluid">
-    <div class="row areaCaptura">
-			<div class="col-md-1"></div>
-      <!-- @@@@@@@@@@@@@@@@@@@@@@@@ -->
-      <!-- Busqueda por ID Ficha    -->
-      <!-- @@@@@@@@@@@@@@@@@@@@@@@@ -->
-			<div class="col-md-10">
-				<i class="fa fa-book iconoBuscar"></i>
-			  <label class="labelCaptura">Por ID Ficha:</label>
-			  <input name="inputBuscarPorIDFichaMostrarEjemplar" class="form-control inputBuscarPorID" id="inputBuscarPorIDFichaMostrarEjemplar"/>
-		  </div>
-			<div class="col-md-1"></div>
-	  </div><!-- row  -->    
-  </div>
+		<div class="row areaCaptura">
+			<div class="col-md-12 text-center">
+				<button class="btn butt ok puntero" id="btnMostrarFicha">&nbsp;Mostrar&nbsp;</button>
+				<button class="btn butt war puntero ocultar" id="btnRegresarMostrarEjemplar">&nbsp;Regresar&nbsp;</button>
+			</div>		
+		</div>
+	</div> <!-- getEjemplarByFicha -->
 
-	
-	<div class="row areaCaptura">
-		<div class="col-md-12 text-center">
-			<button class="btn butt ok puntero" id="btnMostrarFicha">&nbsp;Mostrar&nbsp;</button>
-			<button class="btn butt war puntero ocultar" id="btnRegresarMostrarEjemplar">&nbsp;Regresar&nbsp;</button>
-		</div>		
+	<div class="row etiquetas imprimirEtiquetas text-center">
+		<div class="col-md-6">
+			Aqui van a ir los resultados de las fichas
+		</div>
+		<div class="col-md-6">
+			aqui va a ir una tabla de las etiquetas
+		</div>
 	</div>
 
 	<div class="container-fluid">
