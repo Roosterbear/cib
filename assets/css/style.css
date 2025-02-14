@@ -92,8 +92,7 @@ a:hover{
 }
 
 .mensajes{
-  display: flex;
-  justify-content: center;
+  margin: 0 auto;
 }
 
 .mensaje{
@@ -121,16 +120,36 @@ h2.gray{
 }
 
 
+/* ----------------- */
+/* --- ETIQUETAS --- */
+/* ----------------- */
+
 #getEjemplarByFicha{
   background-color: rgba(70,70,70,.1);
-  margin: 10px 10%;
-  padding: 0.3rem;
+  margin: 0 10%;
+  padding: 5px;
 }
 
-.imprimirEtiquetas{
-  background-color: rgba(70,70,70,.2);
-  margin: 10px 10%;
+.imprimirEtiquetas{  
+  margin: 5px 10%;
 }
+
+.filaCuadricula{
+  display: inline-block;  
+  padding: 0;
+  margin: 0;  
+}
+
+.filaCuadricula div{
+  border: 1px solid #999;
+  min-width:3.5rem;
+  min-height:2rem;
+  display:block;
+  margin-top: 3px;
+  
+}
+
+
 
 
 /* ----------- */
@@ -202,7 +221,7 @@ button.war{
 
 .areaBuscar,
 .areaCaptura{
-  margin: 25px 0 25px 0;
+  margin: 25px 25px 25px 0;
 }
 
 .iconoBuscar,

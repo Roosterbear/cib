@@ -283,34 +283,24 @@ class CIB {
 	public function getFichaEjemplaresMostrar($ficha){
 	
 		// Id | Titulo | Autor | ISBN | Clasificacion
-		$tabla = "<table class=\"cib-table\"><thead>";
-		$tabla .= "<tr><th class=\"text-center\">Id</th>";
-		$tabla .= "<th> TITULO </th>";
-		$tabla .= "<th> AUTOR </th>";
-		$tabla .= "<th><i class=\"fa fa-archive\" aria-hidden=\"true\"></i> ISBN</th>";
-		$tabla .= "<th><i class=\"fa fa-barcode\" aria-hidden=\"true\"></i>	CLASIFICACION</th>";
-		$tabla .= "<th><i class=\"fa fa-archive\" aria-hidden=\"true\"></i>	ADQUISICION</th>";
-		$tabla .= "<th class=\"text-center\"> IMPRIMIR</th></tr></thead>";
+		$tabla = "<table class=\"cib-table\"><thead>";		
+		$tabla .= "<th class=\"text-center\"> <small>TITULO</small> </th>";		
+		$tabla .= "<th class=\"text-center\"><i class=\"fa fa-barcode\" aria-hidden=\"true\"></i>	<small>CLASIFICACION</small></th>";
+		$tabla .= "<th class=\"text-center\"><i class=\"fa fa-archive\" aria-hidden=\"true\"></i>	<small>ADQUISICION</small></th>";
+		$tabla .= "<th class=\"text-center\"> <small>AGREGAR</small></th></tr></thead>";
 		$tabla .= "<tbody>";
 	
 		if(isset($ficha[0]['Id'])){
-			foreach($ficha as $f){
-				$id = $f['Id'];
+			foreach($ficha as $f){				
 				$titulo = $f['titulo'];
-				$autor = $f['autor'];
-				$isbn = $f['ISBN'];
 				$clasificacion = $f['clasificacion'];
 				$adquisicion = $f['adquisicion'] == ''?' N/A':$f['adquisicion'];
-				$ide = $f['ide'];
-	
-				$tabla .= "<tr>";
-				$tabla .= "<td class=\"text-center\">{$id}</td>";
-				$tabla .= "<td>{$titulo}</td>";
-				$tabla .= "<td>{$autor}</td>";
-				$tabla .= "<td>{$isbn}</td>";
-				$tabla .= "<td>{$clasificacion}</td>";
-				$tabla .= "<td>{$adquisicion}</td>";
-				$tabla .= "<td class=\"text-center\"><a href=\"printEjemplar/{$ide}\"><i class=\"fa fa-print\" aria-hidden=\"true\"></i></a></td>";
+				$ide = $f['ide'];	
+				$tabla .= "<tr>";				
+				$tabla .= "<td><small>{$titulo}</small></td>";								
+				$tabla .= "<td><small>{$clasificacion}</small></td>";
+				$tabla .= "<td><small>{$adquisicion}</small></td>";
+				$tabla .= "<td class=\"text-center\"><a href=\"printEjemplar/{$ide}\"><i class=\"fa fa-plus-circle fa-2x green\" aria-hidden=\"true\"></i></a></td>";
 				$tabla .= "</tr>";
 			}
 		}else{
