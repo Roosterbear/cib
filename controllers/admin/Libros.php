@@ -430,9 +430,6 @@ class Libros extends \CI_Controller{
 		$this->load->view("header");
 		$this->load->view("/admin/detalleFicheroVw",$data);
 		$this->load->view("footer");
-		
-		
-		
 	}
 }
 

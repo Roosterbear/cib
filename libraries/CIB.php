@@ -304,7 +304,7 @@ class CIB {
 				$tabla .= "</tr>";
 			}
 		}else{
-			return "<div class=\"mensaje tomato\">ID no encontrado</div>";
+			return "<div class=\"mensaje alert\">ID no encontrado</div>";
 		}
 		$tabla .= "</tbody>";
 		$tabla .= "</table>";
@@ -317,17 +317,16 @@ class CIB {
 		
 		// titulo, autor, fecha, isbn, clasificacion, numAdquisicion, ejemplar, volumen, tomo, accesible
 		$tabla = "<table class=\"cib-table\"><thead>";
-		$tabla .= "<tr><th> No. </th>";
-		$tabla .= "<th> FICHA </th>";
-		$tabla .= "<th> TITULO </th>";
-		$tabla .= "<th> AUTOR </th>";		
-		$tabla .= "<th> ISBN </th>";
-		$tabla .= "<th> CLASIFICACION </th>";
-		$tabla .= "<th> ADQUISICION </th>";
-		$tabla .= "<th> EJEMPLAR </th>";
-		$tabla .= "<th> VOLUMEN </th>";
-		$tabla .= "<th> TOMO </th>";
-		$tabla .= "<th> ACCESIBLE </th></tr></thead>";
+		$tabla .= "<tr><th><small> No. </small></th>";
+		$tabla .= "<th class=\"text-center\"><small> FICHA </small></th>";
+		$tabla .= "<th class=\"text-center\"><small> TITULO </small></th>";
+		$tabla .= "<th class=\"text-center\"><small> AUTOR </small></th>";		
+		$tabla .= "<th class=\"text-center\"><small> ISBN </small></th>";
+		$tabla .= "<th class=\"text-center\"><small> CLASIFICACION </small></th>";
+		$tabla .= "<th class=\"text-center\"><small> ADQUISICION </small></th>";
+		$tabla .= "<th class=\"text-center\"><small> EJEMPLAR </small></th>";
+		$tabla .= "<th class=\"text-center\"><small> VOLUMEN </small></th>";
+		$tabla .= "<th class=\"text-center\"><small> TOMO </small></th>";		
 		$tabla .= "<tbody>";
 		
 		$contador = 0;
@@ -342,20 +341,19 @@ class CIB {
 			$ejemplar = $a['ejemplar'];
 			$volumen = $a['volumen'];
 			$tomo = $a['tomo'];
-			$accesible = $a['accesible'];
+			//$accesible = $a['accesible'];
 	
 			$tabla .= "<tr>";
-			$tabla .= "<td class=\"text-center\">{$contador}</td>";			
-			$tabla .= "<td><strong>{$ficha}</strong></td>";
+			$tabla .= "<td class=\"text-center\"><small>{$contador}</small></td>";			
+			$tabla .= "<td class=\"text-center\"><small><strong>{$ficha}</strong></small></td>";
 			$tabla .= "<td><small>{$titulo}</small></td>";
 			$tabla .= "<td><small>{$autor}</small></td>";			
-			$tabla .= "<td>{$isbn}</td>";
-			$tabla .= "<td>{$clasificacion}</td>";
-			$tabla .= "<td class=\"text-center\">{$adquisicion}</td>";
-			$tabla .= "<td class=\"text-center\">{$ejemplar}</td>";
-			$tabla .= "<td class=\"text-center\">{$volumen}</td>";
-			$tabla .= "<td class=\"text-center\">{$tomo}</td>";
-			$tabla .= "<td class=\"text-center\">{$accesible}</td>";
+			$tabla .= "<td class=\"text-center\"><small>{$isbn}</small></td>";
+			$tabla .= "<td><small>{$clasificacion}</small></td>";
+			$tabla .= "<td class=\"text-center\"><small>{$adquisicion}</small></td>";
+			$tabla .= "<td class=\"text-center\"><small>{$ejemplar}</small></td>";
+			$tabla .= "<td class=\"text-center\"><small>{$volumen}</small></td>";
+			$tabla .= "<td class=\"text-center\"><small>{$tomo}</small></td>";			
 			$tabla .= "</tr>";
 	
 		}

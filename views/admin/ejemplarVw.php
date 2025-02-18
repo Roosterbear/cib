@@ -99,11 +99,8 @@
 
 		$(inputPalabra).on("keyup", function(e){		
 			const texto = (inputPalabra.value).length;				
-			if(texto>1){
-				mostrarEjemplares();
-			}else{
-				$(".mensajes").html('');
-			}
+			$(".mensajes").html('');
+			if(texto>1)	mostrarEjemplares();	
 		});
 
 		

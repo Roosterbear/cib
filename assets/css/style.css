@@ -103,8 +103,17 @@ a:hover{
   text-align: center;
 }
 
+.alert{
+  color: #fff;
+  background-color: rgb(250, 30, 10);
+  font-weight: bold;
+  width: 13rem;
+  margin: 10px auto;
+  padding: 7px;
+}
+
 .tomato{
-  color: tomato;
+  color: rgb(250, 30, 10);
 }
 
 .green{
