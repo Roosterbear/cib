@@ -33,35 +33,45 @@
 
 	<!-- ETIQUETADO -->
 	<div class="row etiquetas imprimirEtiquetas text-center">
-		<div class="col-md-9 etiquetar">
-			<!-- Aqui van a ir los resultados de las fichas -->
+		<!-- +++++ OCULTAR +++++ -->	
+		<div class="col-md-12 text-right margin-bottom">
+			<div class="tab-ocultar">Ocultar</div>	
 		</div>
-		<div class="col-md-3">
-			<!-- Aqui va a ir una tabla de las etiquetas -->
-			<div class="cuadricula text-right">
-				<div><small>AREA DE IMPRESION</small></div>
-				<div class="filaCuadricula">
-					<div id="box-01"></div>
-					<div id="box-02"></div>
-					<div id="box-03"></div>
-					<div id="box-04"></div>
-					<div id="box-05"></div>
-					<div id="box-06"></div>
-					<div id="box-07"></div>
-				</div>
-				<div class="filaCuadricula">
-					<div id="box-08"></div>
-					<div id="box-09"></div>
-					<div id="box-10"></div>
-					<div id="box-11"></div>
-					<div id="box-12"></div>
-					<div id="box-13"></div>
-					<div id="box-14"></div>
+		<aside id="etiquetado" class="ocultar">
+			<div class="col-md-9 etiquetar">
+				<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+				<!-- Aqui van a ir los resultados de las fichas -->
+				<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+			</div>
+			<div class="col-md-3">
+				<!-- Aqui va a ir una tabla de las etiquetas -->
+				<div class="cuadricula text-right">
+					<div><small>AREA DE IMPRESION</small></div>
+					<div class="filaCuadricula">
+						<div id="box-01"></div>
+						<div id="box-02"></div>
+						<div id="box-03"></div>
+						<div id="box-04"></div>
+						<div id="box-05"></div>
+						<div id="box-06"></div>
+						<div id="box-07"></div>
+					</div>
+					<div class="filaCuadricula">
+						<div id="box-08"></div>
+						<div id="box-09"></div>
+						<div id="box-10"></div>
+						<div id="box-11"></div>
+						<div id="box-12"></div>
+						<div id="box-13"></div>
+						<div id="box-14"></div>
+					</div>
 				</div>
 			</div>
-		</div>
+		</aside> <!-- ETIQUETAR -->
+		<!-- ----- OCULTAR ----- -->
 	</div>
 
+	<hr/>
 	<!-- RESULTADOS BUSQUEDA AVANZADA -->
 	<div class="container-fluid">
 		<div class="row areaCaptura">
@@ -78,11 +88,12 @@
 	$(document).ready(function(){
 	
 		const link_consulta = "<?=site_url("admin/Libros/showFichaMostrarEjemplares")?>";
-		const link_ejemplares = "<?=site_url("admin/Libros/bigSearchOfBooks")?>";
-		const btnMostrar = document.querySelector("#btnMostrarFicha");		
+		const link_ejemplares = "<?=site_url("admin/Libros/bigSearchOfBooks")?>";		
 		const btnRegresar = document.querySelector("#btnRegresarMostrarEjemplar");
 		const inputID = document.querySelector("#inputBuscarPorIDFichaMostrarEjemplar");
 		const inputPalabra = document.querySelector("#inputBuscarPorPalabrasMostrarEjemplar");
+		const tabOcultar = document.querySelector(".tab-ocultar");
+		const etiquetado = document.querySelector("#etiquetado");
 
 		/* Para ID Ficha */
 		$(inputID).on("keydown", function(e){
@@ -103,12 +114,6 @@
 			if(texto>1)	mostrarEjemplares();	
 		});
 
-		
-		btnMostrarFicha.addEventListener('click', ()=>{
-			mostrarFicha();			
-		});	
-
-		
 		function mostrarFicha(){
 			value = inputID.value;
 
@@ -125,6 +130,18 @@
 			});
 			
 		}
+
+		/* TAB OCULTAR */
+		tabOcultar.addEventListener('click', function(){			
+			if(etiquetado.classList.contains("ocultar")){
+				etiquetado.classList.remove("ocultar");
+				tabOcultar.textContent = "Mostrar"
+			}else{
+				etiquetado.classList.add("ocultar");
+				tabOcultar.textContent = "Ocultar"
+			}
+		});
+
 
 	});
 	

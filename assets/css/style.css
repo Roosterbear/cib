@@ -158,7 +158,19 @@ h2.gray{
   
 }
 
+.margin-bottom{
+  margin-bottom:10px;
+}
 
+.tab-ocultar{
+  display: inline-block;
+  background-color: #ffcc00;
+  padding: 5px 15px;
+  border-radius: 10px 10px 0 0;
+  color: #666;
+  cursor: pointer;
+  user-select: none;
+}
 
 
 /* ----------- */
