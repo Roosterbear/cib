@@ -32,7 +32,8 @@
 	<!-- AREA DE ETIQUETADO -->
 	<div id="areaEtiquetado" class="row imprimirEtiquetas text-center">
 		<div class="col-md-8 margin-bottom"></div>
-		<div class="col-md-4 text-right margin-bottom"><span class="tab-ocultar">Ocultar</span></div>
+		<div class="col-md-4 text-right margin-bottom">
+			<span class="tab-ocultar"><i class="fa fa-eye-slash ojito" aria-hidden="true"></i></span></div>
 		<div id="addEtiquetas" class="col-md-9 mostrarResultadosById">
 			<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 			<!-- Aqui van a ir los resultados de las fichas -->
@@ -94,6 +95,7 @@
 		const tabOcultar = document.querySelector(".tab-ocultar");
 		const cuadricula = document.querySelector("#cuadricula");
 		const addEtiquetas = document.querySelector("#addEtiquetas");
+		const ojito = document.querySelector(".ojito");
 		let oculto = false; /* POR DEFAULT NO ESTA OCULTO */
 
 
@@ -134,17 +136,19 @@
 		}
 
 		tabOcultar.addEventListener('click', ()=>{
-			if(oculto){
-				tabOcultar.textContent = 'Ocultar';
+			if(oculto){				
 				oculto = !oculto;
 				cuadricula.style.display = 'block';
 				addEtiquetas.style.display = 'block';
+				ojito.classList.add('fa-eye-slash');
+				ojito.classList.remove('fa-eye');
 				
-			}else{
-				tabOcultar.textContent = 'Mostrar';
+			}else{				
 				oculto = !oculto;
 				cuadricula.style.display = 'none';
 				addEtiquetas.style.display = 'none';
+				ojito.classList.remove('fa-eye-slash');
+				ojito.classList.add('fa-eye');
 			}
 		});
 	});
