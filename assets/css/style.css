@@ -158,6 +158,8 @@ h2.gray{
   
 }
 
+
+/* PARA AREA DE ETIQUETAS */
 .margin-bottom{
   margin-bottom:10px;
 }
@@ -169,6 +171,11 @@ h2.gray{
   color: #333;
   cursor: pointer;
   user-select: none;  
+}
+
+#mensajeOjito{
+  color: #666;
+  display:none;
 }
 
 /* ----------- */

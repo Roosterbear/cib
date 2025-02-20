@@ -31,7 +31,9 @@
 
 	<!-- AREA DE ETIQUETADO -->
 	<div id="areaEtiquetado" class="row imprimirEtiquetas text-center">
-		<div class="col-md-8 margin-bottom"></div>
+		<div class="col-md-8 margin-bottom">
+			<small id="mensajeOjito">El contenido de etiquetas esta oculto</small>
+		</div>
 		<div class="col-md-4 text-right margin-bottom">
 			<span class="tab-ocultar"><i class="fa fa-eye-slash ojito" aria-hidden="true"></i></span></div>
 		<div id="addEtiquetas" class="col-md-9 mostrarResultadosById">
@@ -96,6 +98,7 @@
 		const cuadricula = document.querySelector("#cuadricula");
 		const addEtiquetas = document.querySelector("#addEtiquetas");
 		const ojito = document.querySelector(".ojito");
+		const mensajeOjito = document.querySelector("#mensajeOjito");
 		let oculto = false; /* POR DEFAULT NO ESTA OCULTO */
 
 
@@ -142,13 +145,14 @@
 				addEtiquetas.style.display = 'block';
 				ojito.classList.add('fa-eye-slash');
 				ojito.classList.remove('fa-eye');
-				
+				mensajeOjito.style.display = 'none';
 			}else{				
 				oculto = !oculto;
 				cuadricula.style.display = 'none';
 				addEtiquetas.style.display = 'none';
 				ojito.classList.remove('fa-eye-slash');
 				ojito.classList.add('fa-eye');
+				mensajeOjito.style.display = 'inline';
 			}
 		});
 	});
