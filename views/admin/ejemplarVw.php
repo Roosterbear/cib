@@ -1,20 +1,18 @@
-<div id="busquedaEjemplar">
-
+<div id="busquedaEjemplar"><!-- DIV DE TODA LA PAGINA -->
+	
 	<div id="getEjemplarByFicha">
-		
-			<div class="row areaCaptura">
-				<div class="col-md-1"></div>
-				<!-- @@@@@@@@@@@@@@@@@@@@@@@@ -->
-				<!-- Busqueda por ID Ficha    -->
-				<!-- @@@@@@@@@@@@@@@@@@@@@@@@ -->
-				<div class="col-md-10">
-					<i class="fa fa-book iconoBuscar"></i>
-					<label class="labelCaptura">Agregar <strong>Etiqueta</strong> por ID Ficha:</label>
-					<input name="inputBuscarPorIDFichaMostrarEjemplar" class="form-control inputBuscarPorID" id="inputBuscarPorIDFichaMostrarEjemplar"/>
-				</div>
-				<div class="col-md-1"></div>
-			</div><!-- row  -->    
-		
+		<div class="row areaCaptura">
+			<div class="col-md-1"></div>
+			<!-- @@@@@@@@@@@@@@@@@@@@@@@@ -->
+			<!-- Busqueda por ID Ficha    -->
+			<!-- @@@@@@@@@@@@@@@@@@@@@@@@ -->
+			<div class="col-md-10">
+				<i class="fa fa-book iconoBuscar"></i>
+				<label class="labelCaptura">Agregar <strong>Etiqueta</strong> por ID Ficha:</label>
+				<input name="inputBuscarPorIDFichaMostrarEjemplar" class="form-control inputBuscarPorID" id="inputBuscarPorIDFichaMostrarEjemplar"/>
+			</div>
+			<div class="col-md-1"></div>
+		</div><!-- row  -->    
 	</div> <!-- getEjemplarByFicha -->
 
 	<!-- BUSQUEDA AVANZADA -->	
@@ -31,58 +29,59 @@
 		<div class="col-md-1"></div>
 	</div><!-- row  -->   
 
-	<!-- ETIQUETADO -->
-	<div class="row etiquetas imprimirEtiquetas text-center">
-		<!-- +++++ OCULTAR +++++ -->	
-		<div class="col-md-12 text-right margin-bottom">
-			<div class="tab-ocultar">Ocultar</div>	
+	<!-- AREA DE ETIQUETADO -->
+	<div id="areaEtiquetado" class="row imprimirEtiquetas text-center">
+		<div class="col-md-8 margin-bottom"></div>
+		<div class="col-md-4 text-right margin-bottom"><span class="tab-ocultar">Ocultar</span></div>
+		<div id="addEtiquetas" class="col-md-9 mostrarResultadosById">
+			<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+			<!-- Aqui van a ir los resultados de las fichas -->
+			<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 		</div>
-		<aside id="etiquetado" class="ocultar">
-			<div class="col-md-9 etiquetar">
-				<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
-				<!-- Aqui van a ir los resultados de las fichas -->
-				<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
-			</div>
-			<div class="col-md-3">
-				<!-- Aqui va a ir una tabla de las etiquetas -->
-				<div class="cuadricula text-right">
-					<div><small>AREA DE IMPRESION</small></div>
-					<div class="filaCuadricula">
-						<div id="box-01"></div>
-						<div id="box-02"></div>
-						<div id="box-03"></div>
-						<div id="box-04"></div>
-						<div id="box-05"></div>
-						<div id="box-06"></div>
-						<div id="box-07"></div>
-					</div>
-					<div class="filaCuadricula">
-						<div id="box-08"></div>
-						<div id="box-09"></div>
-						<div id="box-10"></div>
-						<div id="box-11"></div>
-						<div id="box-12"></div>
-						<div id="box-13"></div>
-						<div id="box-14"></div>
-					</div>
+
+		<div id="cuadricula" class="col-md-3">
+			
+			<div class="text-right">
+				
+			<div><small>AREA DE IMPRESION</small></div>
+				
+				<div class="filaCuadricula">
+					<div id="box-01"></div>
+					<div id="box-02"></div>
+					<div id="box-03"></div>
+					<div id="box-04"></div>
+					<div id="box-05"></div>
+					<div id="box-06"></div>
+					<div id="box-07"></div>
 				</div>
+				
+				<div class="filaCuadricula">
+					<div id="box-08"></div>
+					<div id="box-09"></div>
+					<div id="box-10"></div>
+					<div id="box-11"></div>
+					<div id="box-12"></div>
+					<div id="box-13"></div>
+					<div id="box-14"></div>
+				</div>
+
 			</div>
-		</aside> <!-- ETIQUETAR -->
-		<!-- ----- OCULTAR ----- -->
+		</div>
 	</div>
 
-	<hr/>
+	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 	<!-- RESULTADOS BUSQUEDA AVANZADA -->
-	<div class="container-fluid">
-		<div class="row areaCaptura">
-			<div class="col-md-1"></div>
-			<div class="col-md-10">
-				<div class="mensajes">
-			</div>
-			<div class="col-md-1"></div>
+	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+	<div class="row areaCaptura">
+		<div class="col-md-1"></div>
+		<div class="col-md-10">
+			<div class="mensajes">
 		</div>
+		<div class="col-md-1"></div>
 	</div>
-</div>
+	<!-- +++ RESULTADOS BUSQUEDA AVANZADA +++ -->
+	
+</div><!-- DIV BusquedaEjemplar -->
 
 <script>
 	$(document).ready(function(){
@@ -93,7 +92,10 @@
 		const inputID = document.querySelector("#inputBuscarPorIDFichaMostrarEjemplar");
 		const inputPalabra = document.querySelector("#inputBuscarPorPalabrasMostrarEjemplar");
 		const tabOcultar = document.querySelector(".tab-ocultar");
-		const etiquetado = document.querySelector("#etiquetado");
+		const cuadricula = document.querySelector("#cuadricula");
+		const addEtiquetas = document.querySelector("#addEtiquetas");
+		let oculto = false; /* POR DEFAULT NO ESTA OCULTO */
+
 
 		/* Para ID Ficha */
 		$(inputID).on("keydown", function(e){
@@ -118,7 +120,7 @@
 			value = inputID.value;
 
 			$.post(link_consulta,{value:value},function(resp){
-				$(".etiquetar").html(resp);			
+				$(".mostrarResultadosById").html(resp);			
 			});			
 		}
 
@@ -131,20 +133,21 @@
 			
 		}
 
-		/* TAB OCULTAR */
-		tabOcultar.addEventListener('click', function(){			
-			if(etiquetado.classList.contains("ocultar")){
-				etiquetado.classList.remove("ocultar");
-				tabOcultar.textContent = "Mostrar"
+		tabOcultar.addEventListener('click', ()=>{
+			if(oculto){
+				tabOcultar.textContent = 'Ocultar';
+				oculto = !oculto;
+				cuadricula.style.display = 'block';
+				addEtiquetas.style.display = 'block';
+				
 			}else{
-				etiquetado.classList.add("ocultar");
-				tabOcultar.textContent = "Ocultar"
+				tabOcultar.textContent = 'Mostrar';
+				oculto = !oculto;
+				cuadricula.style.display = 'none';
+				addEtiquetas.style.display = 'none';
 			}
 		});
-
-
 	});
-	
 </script>
 
 
