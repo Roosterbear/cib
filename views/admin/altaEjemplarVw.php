@@ -124,7 +124,7 @@
 
 			// Libros -> addEjemplar
 			$.post(link_consulta,{value:value},function(resp){
-				if(resp != "<div class=\"mensaje tomato\">ID no encontrado</div>"){
+				if(resp != "<div class=\"mensaje alert\">ID no encontrado</div>"){
 					inputIDFicha.disabled = true;
 					$('#altaEjemplar').removeClass('ocultar');
 					$('#btnMostrarFicha').addClass('ocultar');

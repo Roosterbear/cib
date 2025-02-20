@@ -103,6 +103,7 @@ a:hover{
   text-align: center;
 }
 
+/* MENSAJES LANZADOS DESDE LIBRERIA PHP "CIB" */
 .alert{
   color: #fff;
   background-color: rgb(250, 30, 10);

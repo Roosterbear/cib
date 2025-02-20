@@ -147,7 +147,7 @@ class CIB {
 			$tabla .= "<td>{$clasificacion}</td>";
 			$tabla .= "</tr>";
 		}else{
-			return "<div class=\"mensaje tomato\">ID no encontrado</div>";
+			return "<div class=\"mensaje alert\">ID no encontrado</div>";
 		}
 		
 		$tabla .= "</tbody>";
@@ -188,7 +188,7 @@ class CIB {
 					$tabla .= "</tr>";
 			}			
 		}else{
-			return "<div class=\"mensaje tomato\">ID no encontrado</div>";							
+			return "<div class=\"mensaje alert\">ID no encontrado</div>";							
 		}	
 		$tabla .= "</tbody>";
 		$tabla .= "</table>";
@@ -230,7 +230,7 @@ class CIB {
 				$tabla .= "</tr>";
 			}
 		}else{
-			return "<div class=\"mensaje tomato\">ID no encontrado</div>";
+			return "<div class=\"mensaje alert\">ID no encontrado</div>";
 		}
 		$tabla .= "</tbody>";
 		$tabla .= "</table>";
@@ -272,7 +272,7 @@ class CIB {
 				$tabla .= "</tr>";
 			}
 		}else{
-			return "<div class=\"mensaje tomato\">ID no encontrado</div>";
+			return "<div class=\"mensaje alert\">ID no encontrado</div>";
 		}
 		$tabla .= "</tbody>";
 		$tabla .= "</table>";
