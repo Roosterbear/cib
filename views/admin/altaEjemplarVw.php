@@ -21,8 +21,14 @@
 			</div>		
 		</div>
 
-		<div class="mensajes">
-			<div id="data"></div>
+
+		<div class="row areaCaptura">
+			<div class="col-md-1"></div>
+			<div class="col-md-10">
+				<div class="mensajes">
+					<div id="data"></div>
+				</div>
+			<div class="col-md-1"></div>
 		</div>
 
 	</div>
@@ -179,6 +185,8 @@
 		});
 
 		btnRegresar.addEventListener('click',()=>{
+
+			/* ESTO NO ESTA BIEN */
 			window.history.back();
 		});
 
