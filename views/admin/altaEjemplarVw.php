@@ -14,7 +14,10 @@
 			</div>
 			<div class="col-md-1"></div>
 		</div>
-		
+
+		<!-- +++++++++++++++++++++++++++++++++++++++++ -->
+		<!-- BOTON PARA MOSTRAR EJEMPLARES DE LA FICHA -->
+		<!-- +++++++++++++++++++++++++++++++++++++++++ -->
 		<div class="row areaCaptura">
 			<div class="col-md-12 text-center">
 				<button class="btn butt ok puntero" id="btnMostrarFicha">&nbsp;Mostrar&nbsp;</button>
@@ -185,9 +188,11 @@
 		});
 
 		btnRegresar.addEventListener('click',()=>{
-
-			/* ESTO NO ESTA BIEN */
-			window.history.back();
+			inputIDFicha.disabled = false;
+			$('#altaEjemplar').addClass('ocultar');
+			$('#btnMostrarFicha').removeClass('ocultar');
+			$("#data").html('');
+			inputIDFicha.value = '';
 		});
 
 	});
