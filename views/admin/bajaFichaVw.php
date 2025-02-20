@@ -18,15 +18,20 @@
 			<div class="row areaCaptura">
 				<div class="col-md-12 text-center">
 					<button class="btn butt ok puntero" id="btnMostrarFichaBajaFicha">&nbsp;Mostrar Ficha&nbsp;</button>
+					<button class="btn butt war puntero" id="btnRegresarBajaFicha">&nbsp;Regresar&nbsp;</button>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="mensajes">
-		<div id="data"></div>
-	</div>
 
 	<div class="row areaCaptura">
+		<div class="col-md-1"></div>
+		<div class="col-md-10">
+			<div class="mensajes">
+			<div id="data"></div>
+			</div>
+		<div class="col-md-1"></div>
+		<br/>
 		<div class="col-md-12 text-center">
 			<button class="btn butt cancel puntero" id="btnBajaFicha">&nbsp;Eliminar Ficha?&nbsp;</button>
 		</div>
@@ -45,7 +50,8 @@ $(document).ready(function(){
 	const mensaje = document.querySelector("#mensaje");
 	
 	const btnBajaFicha = document.querySelector("#btnBajaFicha");
-	const btnMostrarFichaBajaFicha = document.querySelector("#btnMostrarFichaBajaFicha");
+	const btnMostrarFicha = document.querySelector("#btnMostrarFichaBajaFicha");
+	const btnRegresar = document.querySelector("#btnRegresarBajaFicha");
 
 	let value = '';
 	
@@ -60,7 +66,7 @@ $(document).ready(function(){
 		}	
 	});
 
-	btnMostrarFichaBajaFicha.addEventListener('click', ()=>{
+	btnMostrarFicha.addEventListener('click', ()=>{
 		mostrarFicha();
 	});
 
@@ -75,15 +81,25 @@ $(document).ready(function(){
 	function mostrarFicha(){		
 			value = $("#inputBuscarPorIDBajaFicha").val();
 			value = quitarGuiones(value);
+			btnRegresar.style = ("display:block");
+			btnMostrarFicha.style = ("display:none");			
+
 			$.post(link_consulta,{value:value},function(resp){
-				if(resp != "<div class=\"mensaje tomato\">ID no encontrado</div>"){
+				if(resp != "<div class=\"mensaje alert\">ID no encontrado</div>"){
+					inputID.disabled = true;
 					btnBajaFicha.style = ("display:block");
 				}
-
-				$("#data").html(resp);			
-			});				
+				$("#data").html(resp);	
+			});	
 	}
 
+	btnRegresar.addEventListener('click', ()=>{
+		inputID.disabled = false;
+		btnBajaFicha.style = ("display:none");
+		$("#data").html('');	
+		btnMostrarFicha.style = ("display:block");			
+		btnRegresar.style = ("display:none");
+	});
 });
 
 
