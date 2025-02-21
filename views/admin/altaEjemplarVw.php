@@ -33,10 +33,10 @@
 				</div>
 			<div class="col-md-1"></div>
 		</div>
-
 	</div>
-	<br/>
-	
+	<div class="mensajes">
+		<div class="mensaje"></div>
+	</div>
 <!-- ************************* -->
 <!-- ** CAPTURA DE EJEMPLAR ** -->
 <!-- ************************* -->
@@ -47,7 +47,7 @@
 			<div class="col-md-1"></div>
 			<div class="col-md-10">
 				<i class="fa fa-address-book iconoCaptura"></i>
-				<label class="labelCaptura">No. de Adquisicion:</label>
+				<label class="labelCaptura">No. de Adquisicion: <span class="tomato">*</span></label>
 				<input name="inputAdquisicionEjemplar" class="form-control inputBuscar" id="inputAdquisicionEjemplar"/>
 			</div>
 			<div class="col-md-1"></div>
@@ -86,9 +86,6 @@
 	</div>
 </div>
 
-<div class="mensajes">
-	<div class="mensaje"></div>
-</div>
 <div class="espaciado"></div>
 <script>
 	$(document).ready(function(){
@@ -180,9 +177,9 @@
 											}
 				});
 			}else{
-				$('.mensaje').addClass('tomato').html("Faltan campos por llenar");
+				$('.mensaje').addClass('alert').html("Faltan campos por llenar");
 				setTimeout(()=>{
-					$('.mensaje').removeClass('tomato').html("");
+					$('.mensaje').removeClass('alert').html("");
 				},2000);
 			}			
 		});

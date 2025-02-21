@@ -103,7 +103,10 @@ a:hover{
   text-align: center;
 }
 
+/* ++++++++++++++++++++++++++++++++++++++++++ */
 /* MENSAJES LANZADOS DESDE LIBRERIA PHP "CIB" */
+/* ==== SE UTILIZA EN TODO EL SISTEMA ====    */
+/* ++++++++++++++++++++++++++++++++++++++++++ */
 .alert{
   color: #fff;
   background-color: rgb(250, 30, 10);
@@ -112,6 +115,9 @@ a:hover{
   margin: 10px auto;
   padding: 7px;
 }
+/* ++++++++++++++++++++++++++++++++++++++++++ */
+/* ++++++++++++++++++++++++++++++++++++++++++ */
+
 
 .tomato{
   color: rgb(250, 30, 10);

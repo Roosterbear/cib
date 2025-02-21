@@ -38,15 +38,19 @@ $(document).ready(function(){
 	const btnRegresar = document.querySelector("#btnRegresarBajaEjemplar");
 
 	btnBaja.addEventListener('click', ()=>{
+		deletation();
+	});
+
+	function deletation(){
 		$.post(link_borrar,{value:value},function(resp){
 			$("#data").html(resp);
 		});	
 		btnBaja.style = ("display:none");
 		$('#btnRegresarBajaEjemplar').removeClass('ocultar');
-	});
+	}
 
 	btnRegresar.addEventListener('click',()=>{
-		window.history.back();
+		window.location.href = "<?=site_url('admin/Libros/bajaEjemplar')?>"; 
 	});
 
 });

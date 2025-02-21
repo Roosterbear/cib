@@ -126,10 +126,10 @@ class CIB {
 		// Id | Titulo | Autor | ISBN | Clasificacion
 		$tabla = "<table class=\"cib-table\"><thead>";
 		$tabla .= "<tr><th class=\"text-center\">Id</th>";
-		$tabla .= "<th class=\"text-center\"><i class=\"fa fa-book\" aria-hidden=\"true\"></i> TITULO</th>";
-		$tabla .= "<th class=\"text-center\"><i class=\"fa fa-user-circle\" aria-hidden=\"true\"></i> AUTOR</th>";
-		$tabla .= "<th class=\"text-center\"><i class=\"fa fa-archive\" aria-hidden=\"true\"></i> ISBN</th>";
-		$tabla .= "<th class=\"text-center\"><i class=\"fa fa-barcode\" aria-hidden=\"true\"></i>	CLASIFICACION</th></tr></thead>";
+		$tabla .= "<th><i class=\"fa fa-book\" aria-hidden=\"true\"></i> TITULO</th>";
+		$tabla .= "<th><i class=\"fa fa-user-circle\" aria-hidden=\"true\"></i> AUTOR</th>";
+		$tabla .= "<th><i class=\"fa fa-archive\" aria-hidden=\"true\"></i> ISBN</th>";
+		$tabla .= "<th><i class=\"fa fa-barcode\" aria-hidden=\"true\"></i>	CLASIFICACION</th></tr></thead>";
 		$tabla .= "<tbody>";
 		
 		if(isset($ficha[0]['Id'])){
@@ -162,10 +162,10 @@ class CIB {
 		// Id | Titulo | Autor | ISBN | Clasificacion
 		$tabla = "<table class=\"cib-table\"><thead>";
 		$tabla .= "<tr><th class=\"text-center\">Id</th>";
-		$tabla .= "<th class=\"text-center\"><i class=\"fa fa-book\" aria-hidden=\"true\"></i> TITULO</th>";
-		$tabla .= "<th class=\"text-center\"><i class=\"fa fa-user-circle\" aria-hidden=\"true\"></i> AUTOR</th>";
-		$tabla .= "<th class=\"text-center\"><i class=\"fa fa-archive\" aria-hidden=\"true\"></i> ISBN</th>";
-		$tabla .= "<th class=\"text-center\"><i class=\"fa fa-barcode\" aria-hidden=\"true\"></i>	CLASIFICACION</th>";
+		$tabla .= "<th><i class=\"fa fa-book\" aria-hidden=\"true\"></i> TITULO</th>";
+		$tabla .= "<th><i class=\"fa fa-user-circle\" aria-hidden=\"true\"></i> AUTOR</th>";
+		$tabla .= "<th><i class=\"fa fa-archive\" aria-hidden=\"true\"></i> ISBN</th>";
+		$tabla .= "<th><i class=\"fa fa-barcode\" aria-hidden=\"true\"></i>	CLASIFICACION</th>";
 		$tabla .= "<th class=\"text-center\"><i class=\"fa fa-archive\" aria-hidden=\"true\"></i>	ADQUISICION</th></tr></thead>";
 		$tabla .= "<tbody>";
 	
@@ -205,7 +205,7 @@ class CIB {
 		$tabla .= "<th> AUTOR </th>";
 		$tabla .= "<th><i class=\"fa fa-archive\" aria-hidden=\"true\"></i> ISBN</th>";
 		$tabla .= "<th><i class=\"fa fa-barcode\" aria-hidden=\"true\"></i>	CLASIFICACION</th>";
-		$tabla .= "<th><i class=\"fa fa-archive\" aria-hidden=\"true\"></i>	ADQUISICION</th>";
+		$tabla .= "<th class=\"text-center\"><i class=\"fa fa-archive\" aria-hidden=\"true\"></i>	ADQUISICION</th>";
 		$tabla .= "<th class=\"text-center\"> ELIMINAR</th></tr></thead>";
 		$tabla .= "<tbody>";
 	
@@ -225,7 +225,7 @@ class CIB {
 				$tabla .= "<td>{$autor}</td>";
 				$tabla .= "<td>{$isbn}</td>";
 				$tabla .= "<td>{$clasificacion}</td>";
-				$tabla .= "<td>{$adquisicion}</td>";
+				$tabla .= "<td class=\"text-center\">{$adquisicion}</td>";
 				$tabla .= "<td class=\"text-center\"><a href=\"deleteEjemplar/{$ide}\"><i class=\"fa fa-trash\" aria-hidden=\"true\"></i></a></td>";				
 				$tabla .= "</tr>";
 			}
