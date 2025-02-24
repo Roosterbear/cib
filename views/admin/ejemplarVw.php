@@ -36,7 +36,7 @@
 		</div>
 		<div class="col-md-4 text-right margin-bottom">
 			<span class="tab-ocultar"><i class="fa fa-eye-slash ojito" aria-hidden="true"></i></span></div>
-		<div id="addEtiquetas" class="col-md-9 mostrarResultadosById">
+		<div id="addEjemplarEtiquetas" class="col-md-9 mostrarResultadosById">
 			<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 			<!-- Aqui van a ir los resultados de las fichas -->
 			<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
@@ -67,7 +67,7 @@
 					<div id="box-13"></div>
 					<div id="box-14"></div>
 				</div>
-
+				<div class="ceiling"><button class="btn butt ok puntero">&nbsp;Imprimir&nbsp;</button></div>
 			</div>
 		</div>
 	</div>
@@ -89,14 +89,24 @@
 <script>
 	$(document).ready(function(){
 	
+		/* -----------++ BUSCADOR POR FICHA ++---------------- */	
 		const link_consulta = "<?=site_url("admin/Libros/showFichaMostrarEjemplares")?>";
+
+		/* ---------++ BUSCADOR POR TEXTO ++------------------ */	
 		const link_ejemplares = "<?=site_url("admin/Libros/bigSearchOfBooks")?>";		
+
 		const btnRegresar = document.querySelector("#btnRegresarMostrarEjemplar");
 		const inputID = document.querySelector("#inputBuscarPorIDFichaMostrarEjemplar");
 		const inputPalabra = document.querySelector("#inputBuscarPorPalabrasMostrarEjemplar");
-		const tabOcultar = document.querySelector(".tab-ocultar");
+
+		/* ---------++ CUADRICULA DE ETIQUETAS ++------------------ */	
 		const cuadricula = document.querySelector("#cuadricula");
-		const addEtiquetas = document.querySelector("#addEtiquetas");
+		
+		/* ---------++ AREA DE EJEMPLARES A AGREGAR ++------------------ */	
+		const addEjemplarEtiquetas = document.querySelector("#addEjemplarEtiquetas");
+
+		/* --------++ OCULTAR / MOSTRAR AREA EJEMPLARES A ETIQUETAR ++----------- */	
+		const tabOcultar = document.querySelector(".tab-ocultar");
 		const ojito = document.querySelector(".ojito");
 		const mensajeOjito = document.querySelector("#mensajeOjito");
 		let oculto = false; /* POR DEFAULT NO ESTA OCULTO */
@@ -142,14 +152,14 @@
 			if(oculto){				
 				oculto = !oculto;
 				cuadricula.style.display = 'block';
-				addEtiquetas.style.display = 'block';
+				addEjemplarEtiquetas.style.display = 'block';
 				ojito.classList.add('fa-eye-slash');
 				ojito.classList.remove('fa-eye');
 				mensajeOjito.style.display = 'none';
 			}else{				
 				oculto = !oculto;
 				cuadricula.style.display = 'none';
-				addEtiquetas.style.display = 'none';
+				addEjemplarEtiquetas.style.display = 'none';
 				ojito.classList.remove('fa-eye-slash');
 				ojito.classList.add('fa-eye');
 				mensajeOjito.style.display = 'inline';

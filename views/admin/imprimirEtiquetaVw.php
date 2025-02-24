@@ -10,4 +10,4 @@
 echo $adq;
 ?>
 </h1>
-<button class="no-print" onclick="window.print()">Imprimir</button>
+<button class="btn butt ok puntero no-print" onclick="window.print()">Imprimir</button>
