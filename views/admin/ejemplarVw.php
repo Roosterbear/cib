@@ -85,21 +85,12 @@
 	<!-- +++ RESULTADOS BUSQUEDA AVANZADA +++ -->
 	
 </div><!-- DIV BusquedaEjemplar -->
-<button class="no-existo">no existo</button>
 <script>
 	$(document).ready(function(){
 		let contador = 0;
-		const $ADQs = ['','','','','','','','','','','','','','','',''];
-		const $adq = 'AAA';
+		const $ADQs = ['','','','','','','','','','','','','','','',''];		
 
-
-		const no = document.querySelector('.no-existo');
-		no.addEventListener('click',()=>{
-			agregarADQ($adq);
-			contador++;
-		});
-
-
+		const addTable = document.querySelector("#add-table");
 
 		/* -----------++ BUSCADOR POR FICHA ++---------------- */	
 		const link_consulta = "<?=site_url("admin/Libros/showFichaMostrarEjemplares")?>";
@@ -123,6 +114,11 @@
 		const mensajeOjito = document.querySelector("#mensajeOjito");
 		let oculto = false; /* POR DEFAULT NO ESTA OCULTO */
 
+		addEjemplarEtiquetas.addEventListener('click', function(e){
+			if(e.target.classList.contains('.add-sign')){
+				alert('FUNCIONA');
+			}
+		});
 
 		/* Para ID Ficha */
 		$(inputID).on("keydown", function(e){

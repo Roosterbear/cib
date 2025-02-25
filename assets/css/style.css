@@ -232,6 +232,17 @@ button.war{
   color: #333;
 }
 
+.add-sign{
+  margin: 0;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.add{
+  display: block;
+}
+
 /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 
