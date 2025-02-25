@@ -114,10 +114,10 @@
 		const mensajeOjito = document.querySelector("#mensajeOjito");
 		let oculto = false; /* POR DEFAULT NO ESTA OCULTO */
 
+		/* --------++ DETECTA EL EJEMPLAR A AGREGAR !! ++----------- */	
 		addEjemplarEtiquetas.addEventListener('click', function(e){
-			if(e.target.classList.contains('.add-sign')){
-				alert('FUNCIONA');
-			}
+			let add = e.target.closest('.add-sign')
+			alert(add.dataset.adq);
 		});
 
 		/* Para ID Ficha */
