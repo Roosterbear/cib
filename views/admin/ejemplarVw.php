@@ -85,10 +85,22 @@
 	<!-- +++ RESULTADOS BUSQUEDA AVANZADA +++ -->
 	
 </div><!-- DIV BusquedaEjemplar -->
-
+<button class="no-existo">no existo</button>
 <script>
 	$(document).ready(function(){
-	
+		let contador = 0;
+		const $ADQs = ['','','','','','','','','','','','','','','',''];
+		const $adq = 'AAA';
+
+
+		const no = document.querySelector('.no-existo');
+		no.addEventListener('click',()=>{
+			agregarADQ($adq);
+			contador++;
+		});
+
+
+
 		/* -----------++ BUSCADOR POR FICHA ++---------------- */	
 		const link_consulta = "<?=site_url("admin/Libros/showFichaMostrarEjemplares")?>";
 
@@ -146,6 +158,11 @@
 				$(".mensajes").html(resp);
 			});
 			
+		}
+
+		function agregarADQ($adq){
+			$ADQs[contador] = $adq;
+			console.log($ADQs);
 		}
 
 		tabOcultar.addEventListener('click', ()=>{
