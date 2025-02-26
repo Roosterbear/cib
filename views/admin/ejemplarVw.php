@@ -117,7 +117,7 @@
 		/* --------++ DETECTA EL EJEMPLAR A AGREGAR !! ++----------- */	
 		addEjemplarEtiquetas.addEventListener('click', function(e){
 			let add = e.target.closest('.add-sign')
-			alert(add.dataset.adq);
+			agregarADQ(add.dataset.adq);
 		});
 
 		/* Para ID Ficha */
