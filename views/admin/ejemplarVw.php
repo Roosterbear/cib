@@ -159,6 +159,11 @@
 		function agregarADQ($adq){
 			$ADQs[contador] = $adq;
 			console.log($ADQs);
+			if(contador<15){
+				contador++;
+			}else{
+				contador = 0;
+			}
 		}
 
 		tabOcultar.addEventListener('click', ()=>{
