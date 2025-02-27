@@ -16,32 +16,24 @@
 				<div class="text-center">
 					<div><small>AREA DE IMPRESION</small></div>
 					<div class="filaCuadricula">
-						<div id="box-01"></div>
-						<div id="box-02"></div>
+						<div id="s01"></div>
+						<div id="s02"></div>
+						<div id="s03"></div>
+						<div id="s04"></div>
+						<div id="s05"></div>
+						<div id="s06"></div>
+						<div id="s07"></div>
+						<div id="s08"></div>
 					</div>
 					<div class="filaCuadricula">
-						<div id="box-03"></div>
-						<div id="box-04"></div>
-					</div>
-					<div class="filaCuadricula">
-						<div id="box-05"></div>
-						<div id="box-06"></div>
-					</div>
-					<div class="filaCuadricula">
-						<div id="box-07"></div>
-						<div id="box-08"></div>
-					</div>
-					<div class="filaCuadricula">
-						<div id="box-09"></div>
-						<div id="box-10"></div>
-					</div>
-					<div class="filaCuadricula">
-						<div id="box-11"></div>
-						<div id="box-12"></div>
-					</div>
-					<div class="filaCuadricula">
-						<div id="box-13"></div>
-						<div id="box-14"></div>
+						<div id="s09"></div>
+						<div id="s10"></div>
+						<div id="s11"></div>
+						<div id="s12"></div>
+						<div id="s13"></div>
+						<div id="s14"></div>
+						<div id="s15"></div>
+						<div id="s16"></div>
 					</div>
 				</div>
 			</div>
@@ -93,7 +85,9 @@
 <script>
 	$(document).ready(function(){
 		let contador = 0;
-		const $ADQs = ['','','','','','','','','','','','','','','',''];		
+		const $ADQs = ['','','','','','','','','','','','','','','',''];	// 16 elementos
+		const $seats = ['s01','s02','s03','s04','s05','s06','s07','s08'
+									,'s09','s10','s11','s12','s13','s14','s15','s16'];	
 
 		const addTable = document.querySelector("#add-table");
 
