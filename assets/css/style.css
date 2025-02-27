@@ -78,21 +78,12 @@ a:hover{
   height: 100px;
 }
 
-.ceiling{
-  margin: 3px;
-}
-
 .ocultar{
   display: none;  
 }
 
 .desvanecer{
   opacity: 0.5;
-}
-
-.puntero{
-  cursor: pointer;
-  user-select: none;
 }
 
 .mensajes{
@@ -139,15 +130,19 @@ h2.gray{
   color:#545454;
 }
 
+hr.line-space{
+  margin: 25px auto;
+}
 
 /* ----------------- */
 /* --- ETIQUETAS --- */
 /* ----------------- */
 
 #getEjemplarByFicha{
-  background-color: rgba(70,70,70,.1);
+  background-color: rgba(199,199,199,.3);
   margin: 0 10%;
-  padding: 5px;
+  padding: 3px;
+  border: solid rgba(70,70,70,.5) 1px;
 }
 
 .imprimirEtiquetas{  
@@ -169,24 +164,8 @@ h2.gray{
   
 }
 
-
-/* PARA AREA DE ETIQUETAS */
 .margin-bottom{
   margin-bottom:10px;
-}
-
-.tab-ocultar{
-  background-color: #ffe690;
-  padding: 5px 15px;
-  border-radius: 10px 10px 0 0;
-  color: #333;
-  cursor: pointer;
-  user-select: none;  
-}
-
-#mensajeOjito{
-  color: #666;
-  display:none;
 }
 
 /* ----------- */
@@ -208,6 +187,20 @@ h2.gray{
 }
 
 #btnMostrarFichaBajaFicha{margin: 0 auto;}
+
+.puntero{
+  cursor: pointer;
+  user-select: none;
+}
+
+.boton-imprimir{
+  display: block;
+  width: 100vh;
+  min-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 15px 0 15px 0;
+}
 
 .butt{
 	font-size: 125%;
@@ -275,9 +268,12 @@ button.war{
   padding-left:10px;
 }
 
+/* +++++++++++++++ */
+/* MARGEN DE AREAS */
+/* +++++++++++++++ */
 .areaBuscar,
 .areaCaptura{
-  margin: 25px 25px 25px 0;
+  margin: 15px;
 }
 
 .iconoBuscar,

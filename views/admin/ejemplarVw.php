@@ -1,19 +1,67 @@
-<div id="busquedaEjemplar"><!-- DIV DE TODA LA PAGINA -->
+<div id="busquedaEjemplar"><!-- DIV DE TODA LA SECCION DE EJEMPLAR -->
 	
 	<div id="getEjemplarByFicha">
 		<div class="row areaCaptura">
-			<div class="col-md-1"></div>
+			
 			<!-- @@@@@@@@@@@@@@@@@@@@@@@@ -->
 			<!-- Busqueda por ID Ficha    -->
 			<!-- @@@@@@@@@@@@@@@@@@@@@@@@ -->
-			<div class="col-md-10">
+			<div class="col-md-8">
 				<i class="fa fa-book iconoBuscar"></i>
 				<label class="labelCaptura">Agregar <strong>Etiqueta</strong> por ID Ficha:</label>
 				<input name="inputBuscarPorIDFichaMostrarEjemplar" class="form-control inputBuscarPorID" id="inputBuscarPorIDFichaMostrarEjemplar"/>
 			</div>
-			<div class="col-md-1"></div>
+			
+			<div id="cuadricula" class="col-md-4">
+				<div class="text-center">
+					<div><small>AREA DE IMPRESION</small></div>
+					<div class="filaCuadricula">
+						<div id="box-01"></div>
+						<div id="box-02"></div>
+					</div>
+					<div class="filaCuadricula">
+						<div id="box-03"></div>
+						<div id="box-04"></div>
+					</div>
+					<div class="filaCuadricula">
+						<div id="box-05"></div>
+						<div id="box-06"></div>
+					</div>
+					<div class="filaCuadricula">
+						<div id="box-07"></div>
+						<div id="box-08"></div>
+					</div>
+					<div class="filaCuadricula">
+						<div id="box-09"></div>
+						<div id="box-10"></div>
+					</div>
+					<div class="filaCuadricula">
+						<div id="box-11"></div>
+						<div id="box-12"></div>
+					</div>
+					<div class="filaCuadricula">
+						<div id="box-13"></div>
+						<div id="box-14"></div>
+					</div>
+				</div>
+			</div>
 		</div><!-- row  -->    
 	</div> <!-- getEjemplarByFicha -->
+
+	
+	<div class="boton-imprimir"><button class="btn butt ok puntero">Imprimir</button></div>
+
+
+	<!-- AREA DE ETIQUETADO -->
+	<div id="areaEtiquetado" class="row imprimirEtiquetas text-center">
+		<div id="addEjemplarEtiquetas" class="col-md-12 mostrarResultadosById">
+			<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+			<!-- Aqui van a ir los resultados de las fichas -->
+			<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+		</div>
+	</div>
+
+	<hr class="line-space"/>
 
 	<!-- BUSQUEDA AVANZADA -->	
 	<div class="row areaCaptura">
@@ -28,49 +76,6 @@
 		</div>
 		<div class="col-md-1"></div>
 	</div><!-- row  -->   
-
-	<!-- AREA DE ETIQUETADO -->
-	<div id="areaEtiquetado" class="row imprimirEtiquetas text-center">
-		<div class="col-md-8 margin-bottom">
-			<small id="mensajeOjito">El contenido de etiquetas esta oculto</small>
-		</div>
-		<div class="col-md-4 text-right margin-bottom">
-			<span class="tab-ocultar"><i class="fa fa-eye-slash ojito" aria-hidden="true"></i></span></div>
-		<div id="addEjemplarEtiquetas" class="col-md-9 mostrarResultadosById">
-			<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
-			<!-- Aqui van a ir los resultados de las fichas -->
-			<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
-		</div>
-
-		<div id="cuadricula" class="col-md-3">
-			
-			<div class="text-right">
-				
-			<div><small>AREA DE IMPRESION</small></div>
-				
-				<div class="filaCuadricula">
-					<div id="box-01"></div>
-					<div id="box-02"></div>
-					<div id="box-03"></div>
-					<div id="box-04"></div>
-					<div id="box-05"></div>
-					<div id="box-06"></div>
-					<div id="box-07"></div>
-				</div>
-				
-				<div class="filaCuadricula">
-					<div id="box-08"></div>
-					<div id="box-09"></div>
-					<div id="box-10"></div>
-					<div id="box-11"></div>
-					<div id="box-12"></div>
-					<div id="box-13"></div>
-					<div id="box-14"></div>
-				</div>
-				<div class="ceiling"><button class="btn butt ok puntero">&nbsp;Imprimir&nbsp;</button></div>
-			</div>
-		</div>
-	</div>
 
 	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 	<!-- RESULTADOS BUSQUEDA AVANZADA -->
@@ -107,12 +112,6 @@
 		
 		/* ---------++ AREA DE EJEMPLARES A AGREGAR ++------------------ */	
 		const addEjemplarEtiquetas = document.querySelector("#addEjemplarEtiquetas");
-
-		/* --------++ OCULTAR / MOSTRAR AREA EJEMPLARES A ETIQUETAR ++----------- */	
-		const tabOcultar = document.querySelector(".tab-ocultar");
-		const ojito = document.querySelector(".ojito");
-		const mensajeOjito = document.querySelector("#mensajeOjito");
-		let oculto = false; /* POR DEFAULT NO ESTA OCULTO */
 
 		/* --------++ DETECTA EL EJEMPLAR A AGREGAR !! ++----------- */	
 		addEjemplarEtiquetas.addEventListener('click', function(e){
@@ -165,24 +164,6 @@
 				contador = 0;
 			}
 		}
-
-		tabOcultar.addEventListener('click', ()=>{
-			if(oculto){				
-				oculto = !oculto;
-				cuadricula.style.display = 'block';
-				addEjemplarEtiquetas.style.display = 'block';
-				ojito.classList.add('fa-eye-slash');
-				ojito.classList.remove('fa-eye');
-				mensajeOjito.style.display = 'none';
-			}else{				
-				oculto = !oculto;
-				cuadricula.style.display = 'none';
-				addEjemplarEtiquetas.style.display = 'none';
-				ojito.classList.remove('fa-eye-slash');
-				ojito.classList.add('fa-eye');
-				mensajeOjito.style.display = 'inline';
-			}
-		});
 	});
 </script>
 
