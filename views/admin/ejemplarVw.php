@@ -6,15 +6,15 @@
 			<!-- @@@@@@@@@@@@@@@@@@@@@@@@ -->
 			<!-- Busqueda por ID Ficha    -->
 			<!-- @@@@@@@@@@@@@@@@@@@@@@@@ -->
-			<div class="col-md-8">
+			<div class="col-md-4">
 				<i class="fa fa-book iconoBuscar"></i>
-				<label class="labelCaptura">Agregar <strong>Etiqueta</strong> por ID Ficha:</label>
+				<label class="labelCaptura"><strong>Etiqueta</strong> por ID Ficha:</label>
 				<input name="inputBuscarPorIDFichaMostrarEjemplar" class="form-control inputBuscarPorID" id="inputBuscarPorIDFichaMostrarEjemplar"/>
 			</div>
 			
-			<div id="cuadricula" class="col-md-4">
+			<div id="cuadricula" class="col-md-8">
 				<div class="text-center">
-					<div><small>AREA DE IMPRESION</small></div>
+					<div><strong class="dark-rhino">AREA ETIQUETAS</strong></div>
 					<div class="filaCuadricula">
 						<div id="s01"></div>
 						<div id="s02"></div>

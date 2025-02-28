@@ -154,6 +154,8 @@ hr.line-space{
   gap: 3px;  
   padding: 0;
   margin-top: 3px;  
+  align-items: center;
+  justify-content: center;
 }
 
 .filaCuadricula div{
@@ -161,6 +163,7 @@ hr.line-space{
   min-width:3.5rem;
   min-height:2rem;
   display:flex;
+  max-width: 100%;
   align-items: center;
   justify-content: center;
   padding: 0;
@@ -264,6 +267,10 @@ button.war{
 
 .rhino{
   color: #a5a5a5;
+}
+
+.dark-rhino{
+  color: #555;
 }
 
 .bib-titulo{
