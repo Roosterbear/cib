@@ -97,6 +97,11 @@
 		/* ---------++ BUSCADOR POR TEXTO ++------------------ */	
 		const link_ejemplares = "<?=site_url("admin/Libros/bigSearchOfBooks")?>";		
 
+		/* ---------++ IMPRIMIR ETIQUETAS DE EJEMPLARES ++------------------ */	
+		const link_ejemplares = "<?=site_url("admin/Libros/imprimirEtiquetasEjemplares")?>";		
+
+		
+		/* ---++ ELEMENTOS DE BUSQUEDA EN IMPRESION DE ETIQUETAS DE EJEMPLARES ++--- */	
 		const btnRegresar = document.querySelector("#btnRegresarMostrarEjemplar");
 		const inputID = document.querySelector("#inputBuscarPorIDFichaMostrarEjemplar");
 		const inputPalabra = document.querySelector("#inputBuscarPorPalabrasMostrarEjemplar");

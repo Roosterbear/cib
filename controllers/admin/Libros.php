@@ -373,7 +373,7 @@ class Libros extends \CI_Controller{
 	/* --------------------------------------------------- */
 	
 	
-	public function printEjemplar($ide){
+	public function imprimirEtiquetasEjemplares($adqs){
 		$this->ejemplar = new Ejemplar();
 	
 		$data['ide'] = $ide;
