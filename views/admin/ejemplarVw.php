@@ -109,8 +109,10 @@
 
 		/* --------++ DETECTA EL EJEMPLAR A AGREGAR !! ++----------- */	
 		addEjemplarEtiquetas.addEventListener('click', function(e){
-			let add = e.target.closest('.add-sign')
-			agregarADQ(add.dataset.adq);
+			let add = e.target.closest('.add-sign');
+			if (add != null){
+				agregarADQ(add.dataset.adq);
+			}
 		});
 
 		/* Para ID Ficha */
@@ -150,7 +152,8 @@
 		}
 
 		function agregarADQ($adq){
-			$ADQs[contador] = $adq;
+			$ADQs[contador] = $adq;			
+			document.querySelector("#"+$seats[contador]).innerHTML = $adq;
 			console.log($ADQs);
 			if(contador<15){
 				contador++;
