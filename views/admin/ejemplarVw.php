@@ -41,7 +41,11 @@
 	</div> <!-- getEjemplarByFicha -->
 
 	
-	<div class="boton-imprimir"><button class="btn butt ok puntero">Imprimir</button></div>
+	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+	<div id="btn-preview"><button class="btn butt war puntero">Previsualizar</button></div>
+	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 
 
 	<!-- AREA DE ETIQUETADO -->
@@ -98,11 +102,12 @@
 		const link_ejemplares = "<?=site_url("admin/Libros/bigSearchOfBooks")?>";		
 
 		/* ---------++ IMPRIMIR ETIQUETAS DE EJEMPLARES ++------------------ */	
-		const link_ejemplares = "<?=site_url("admin/Libros/imprimirEtiquetasEjemplares")?>";		
+		const link_etiquetas_ejemplares = "<?=site_url("admin/Libros/imprimirEtiquetasEjemplares")?>";		
 
 		
 		/* ---++ ELEMENTOS DE BUSQUEDA EN IMPRESION DE ETIQUETAS DE EJEMPLARES ++--- */	
-		const btnRegresar = document.querySelector("#btnRegresarMostrarEjemplar");
+		//const btnRegresar = document.querySelector("#btnRegresarMostrarEjemplar");
+		const btnPreview = document.querySelector("#btn-preview");
 		const inputID = document.querySelector("#inputBuscarPorIDFichaMostrarEjemplar");
 		const inputPalabra = document.querySelector("#inputBuscarPorPalabrasMostrarEjemplar");
 
@@ -166,6 +171,13 @@
 				contador = 0;
 			}
 		}
+
+
+		btnPreview.addEventListener('click', function(){
+			console.log("ESTO NO LO VAS A VER, MALDITA SEA!!!");
+		})
+
+
 	});
 </script>
 

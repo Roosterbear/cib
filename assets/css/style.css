@@ -200,7 +200,9 @@ hr.line-space{
   user-select: none;
 }
 
-.boton-imprimir{
+.boton-imprimir,
+#btn-preview,
+#btn-imprimir{
   display: block;
   width: 100vh;
   min-width: 100%;
