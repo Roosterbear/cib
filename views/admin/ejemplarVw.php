@@ -1,3 +1,13 @@
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@ +++ PREVIEW +++ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<div id="preview" class="ocultar">
+	<h1>Demonios!, que hice...</h1>
+	<button id="btn-preview-regresar">Regresame por favor</button>
+</div>
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 <div id="busquedaEjemplar"><!-- DIV DE TODA LA SECCION DE EJEMPLAR -->
 	
 	<div id="getEjemplarByFicha">
@@ -43,17 +53,14 @@
 	
 	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
-	<div id="btn-preview"><button class="btn butt war puntero">Previsualizar</button></div>
-	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
-	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+	<div id="btn-preview-area"><button id="btn-preview" class="btn butt war puntero">Previsualizar</button></div>
+	<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 
 
 	<!-- AREA DE ETIQUETADO -->
 	<div id="areaEtiquetado" class="row imprimirEtiquetas text-center">
 		<div id="addEjemplarEtiquetas" class="col-md-12 mostrarResultadosById">
-			<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 			<!-- Aqui van a ir los resultados de las fichas -->
-			<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 		</div>
 	</div>
 
@@ -62,9 +69,7 @@
 	<!-- BUSQUEDA AVANZADA -->	
 	<div class="row areaCaptura">
 		<div class="col-md-1"></div>
-		<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 		<!-- Busqueda por Texto Ejemplar -->
-		<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 		<div class="col-md-10">
 		<i class="fa fa-search iconoBuscar"></i>
 			<label class="labelCaptura"><strong>B&uacute;squeda avanzada:</strong> <small><em>(T&iacute;tulo, Autor, Adquisici&oacute;n)</em></small></label>
@@ -75,7 +80,7 @@
 
 	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 	<!-- RESULTADOS BUSQUEDA AVANZADA -->
-	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+	<!-- ++++++++++++++++++++++++++++ -->
 	<div class="row areaCaptura">
 		<div class="col-md-1"></div>
 		<div class="col-md-10">
@@ -89,9 +94,14 @@
 <script>
 	$(document).ready(function(){
 		let contador = 0;
+		const $ejemplares = ['','','','','','','','','','','','','','','',''];	// 16 elementos
 		const $ADQs = ['','','','','','','','','','','','','','','',''];	// 16 elementos
 		const $seats = ['s01','s02','s03','s04','s05','s06','s07','s08'
 									,'s09','s10','s11','s12','s13','s14','s15','s16'];	
+
+
+		const $all_ejemplares = document.querySelector("#busquedaEjemplar");
+		const $preview = document.querySelector("#preview");
 
 		const addTable = document.querySelector("#add-table");
 
@@ -108,7 +118,9 @@
 		/* ---++ ELEMENTOS DE BUSQUEDA EN IMPRESION DE ETIQUETAS DE EJEMPLARES ++--- */	
 		//const btnRegresar = document.querySelector("#btnRegresarMostrarEjemplar");
 		const btnPreview = document.querySelector("#btn-preview");
+		const btnPreviewRegresar = document.querySelector("#btn-preview-regresar"); // PERTENECE AL PREVIEW OCULTO
 		const inputID = document.querySelector("#inputBuscarPorIDFichaMostrarEjemplar");
+		inputID.value = '';
 		const inputPalabra = document.querySelector("#inputBuscarPorPalabrasMostrarEjemplar");
 
 		/* ---------++ CUADRICULA DE ETIQUETAS ++------------------ */	
@@ -117,13 +129,24 @@
 		/* ---------++ AREA DE EJEMPLARES A AGREGAR ++------------------ */	
 		const addEjemplarEtiquetas = document.querySelector("#addEjemplarEtiquetas");
 
-		/* --------++ DETECTA EL EJEMPLAR A AGREGAR !! ++----------- */	
+		/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+		/* ++++++++++++++ AGREGAR EJEMPLARES PARA ETIQUETAS (+) ++++++++++++++++++++ */
+		/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 		addEjemplarEtiquetas.addEventListener('click', function(e){
+			/* Detecta el ejemplar a agregar que se le dio click */	
 			let add = e.target.closest('.add-sign');
+
+			// Verificar que no se haya dado click en elemento vacio!
 			if (add != null){
-				agregarADQ(add.dataset.adq);
+				// AGREGAR A CUADRICULA
+				agregarADQ(add.dataset.ejemplar);
+
+
+
 			}
 		});
+		/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+		/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
 		/* Para ID Ficha */
 		$(inputID).on("keydown", function(e){
@@ -161,10 +184,10 @@
 			
 		}
 
-		function agregarADQ($adq){
-			$ADQs[contador] = $adq;			
-			document.querySelector("#"+$seats[contador]).innerHTML = $adq;
-			console.log($ADQs);
+		function agregarADQ($ejemplar){
+			$ejemplares[contador] = $ejemplar;			
+			document.querySelector("#"+$seats[contador]).innerHTML = $ejemplar;
+			console.log($ejemplares);
 			if(contador<15){
 				contador++;
 			}else{
@@ -174,9 +197,14 @@
 
 
 		btnPreview.addEventListener('click', function(){
-			console.log("ESTO NO LO VAS A VER, MALDITA SEA!!!");
-		})
+			$all_ejemplares.classList.add("ocultar");
+			$preview.classList.remove("ocultar");
+		});
 
+		btnPreviewRegresar.addEventListener('click', function(){
+			$all_ejemplares.classList.remove("ocultar");
+			$preview.classList.add("ocultar");
+		});
 
 	});
 </script>

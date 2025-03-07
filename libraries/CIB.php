@@ -300,7 +300,7 @@ class CIB {
 				$tabla .= "<td><small>{$titulo}</small></td>";								
 				$tabla .= "<td><small>{$clasificacion}</small></td>";
 				$tabla .= "<td><small>{$adquisicion}</small></td>";
-				$tabla .= "<td class=\"text-center\"><button class=\"add-sign\" data-adq=\"{$ide}\"><i class=\"fa fa-plus-circle fa-2x green add\" aria-hidden=\"true\"></i></button></td>";
+				$tabla .= "<td class=\"text-center\"><button class=\"add-sign\" data-ejemplar=\"{$ide}\"><i class=\"fa fa-plus-circle fa-2x green add\" aria-hidden=\"true\"></i></button></td>";
 				$tabla .= "</tr>";
 			}
 		}else{

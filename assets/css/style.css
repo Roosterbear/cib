@@ -145,6 +145,11 @@ hr.line-space{
   border: solid rgba(70,70,70,.5) 1px;
 }
 
+#preview{
+  margin: 0 10%;
+  padding: 3px;
+}
+
 .imprimirEtiquetas{  
   margin: 5px 10%;
 }
@@ -200,8 +205,8 @@ hr.line-space{
   user-select: none;
 }
 
+#btn-preview-area,
 .boton-imprimir,
-#btn-preview,
 #btn-imprimir{
   display: block;
   width: 100vh;
