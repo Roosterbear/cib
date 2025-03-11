@@ -1,10 +1,49 @@
 <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 <!-- @@@@@@@@@@@@@@@@@@@@@@@@ +++ PREVIEW +++ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
-<div id="preview" class="ocultar">
-	<h1>Demonios!, que hice...</h1>
-	<button id="btn-preview-regresar">Regresame por favor</button>
+
+<div id="preview" class="ocultar">	
+	<div>
+		<table id="tabla-etiquetas">
+			<tr>
+				<td>hola</td>
+				<td>hola</td>				
+			</tr>
+			<tr>
+				<td>hola</td>
+				<td>hola</td>				
+			</tr>
+			<tr>
+				<td>hola</td>
+				<td>hola</td>				
+			</tr>
+			<tr>
+				<td>hola</td>
+				<td>hola</td>				
+			</tr>
+			<tr>
+				<td>hola</td>
+				<td>hola</td>				
+			</tr>
+			<tr>
+				<td>hola</td>
+				<td>hola</td>				
+			</tr>
+			<tr>
+				<td>hola</td>
+				<td>hola</td>				
+			</tr>
+			<tr>
+				<td>hola</td>
+				<td>hola</td>				
+			</tr>
+		</table>
+		<div class="espaciado"></div>
+		<button id="btn-preview-imprimir" class="btn butt ok puntero esp no-print">Imprimir</button>
+		<button id="btn-preview-regresar" class="btn butt war puntero esp no-print">Regresar</button>
+	</div>
 </div>
+
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 
 <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
@@ -118,7 +157,10 @@
 		/* ---++ ELEMENTOS DE BUSQUEDA EN IMPRESION DE ETIQUETAS DE EJEMPLARES ++--- */	
 		//const btnRegresar = document.querySelector("#btnRegresarMostrarEjemplar");
 		const btnPreview = document.querySelector("#btn-preview");
+
 		const btnPreviewRegresar = document.querySelector("#btn-preview-regresar"); // PERTENECE AL PREVIEW OCULTO
+		const btnPreviewImprimir = document.querySelector("#btn-preview-imprimir"); // PERTENECE AL PREVIEW OCULTO
+
 		const inputID = document.querySelector("#inputBuscarPorIDFichaMostrarEjemplar");
 		inputID.value = '';
 		const inputPalabra = document.querySelector("#inputBuscarPorPalabrasMostrarEjemplar");
@@ -199,6 +241,10 @@
 		btnPreview.addEventListener('click', function(){
 			$all_ejemplares.classList.add("ocultar");
 			$preview.classList.remove("ocultar");
+		});
+
+		btnPreviewImprimir.addEventListener('click', function(){
+			window.print();
 		});
 
 		btnPreviewRegresar.addEventListener('click', function(){

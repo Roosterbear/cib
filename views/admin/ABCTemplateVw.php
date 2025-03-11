@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid no-print">
   <div class="row">
     <div class="col-md-5"></div>
     <div class="col-md-4 centrado">
@@ -10,7 +10,7 @@
   <hr/>
 </div>
 
-<div class ="container-fluid">
+<div class ="container-fluid no-print">
   <section id="ficha-ejemplar" class="padre">
     <a href="<?php echo base_url('cib.php/admin/Libros/getFicha')?>" id="ficha"  
     class="abc-tab--padre <?=@$ficha?$ficha:'';?>">

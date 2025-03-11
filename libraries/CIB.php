@@ -15,31 +15,25 @@ class CIB {
 	
 	// Regresar datos de libro como tabla HTML para DETALLE
 	public function getBook($array){
-			
-		$consecutivo = 0;
-		// No | Titulo | Autor | Clasificacion
+					
+		// Titulo | Autor | Clasificacion
 		$tabla = "<table class=\"cib-table\"><thead>";
-		$tabla .= "<tr><th>No.</th>";
-		$tabla .= "<th><i class=\"fa fa-id-badge\" aria-hidden=\"true\"></i> ID</th>";
+		$tabla .= "<tr>";		
 		$tabla .= "<th><i class=\"fa fa-book\" aria-hidden=\"true\"></i> TITULO</th>";
 		$tabla .= "<th><i class=\"fa fa-user-circle\" aria-hidden=\"true\"></i> AUTOR</th>";
-		$tabla .= "<th><i class=\"fa fa-barcode\" aria-hidden=\"true\"></i>	CLASIFICACION</th></tr></thead>";
-		
+		$tabla .= "<th><i class=\"fa fa-barcode\" aria-hidden=\"true\"></i>	CLASIFICACION</th></tr></thead>";		
 		$tabla .= "<tbody>";
 		
-		foreach ($array as $a){
-			$consecutivo++;			
+		foreach ($array as $a){						
 			$id = $a['id'];
 			$titulo = $a['titulo'];
 			$autor = $a['autor'];
 			$clasificacion = $a['clasificacion'];
 			
-			$tabla .= "<tr>";
-			$tabla .= "<td class=\"text-center\">{$consecutivo}</td>";
-			$tabla .= "<td class=\"text-center\">{$id}</td>";			
-			$tabla .= "<td><a href=\"../../admin/Libros/detalleFichero/{$id}\">{$titulo}</a></td>";
-			$tabla .= "<td>{$autor}</td>";
-			$tabla .= "<td>{$clasificacion}</td>";
+			$tabla .= "<tr>";							
+			$tabla .= "<td><a href=\"../../admin/Libros/detalleFichero/{$id}\">{$titulo} <small><i class=\"fa fa-link green\" aria-hidden=\"true\"></i></small></a></td>";
+			$tabla .= "<td><small class=\"chiquilin\">{$autor}</small></td>";
+			$tabla .= "<td><small>{$clasificacion}</small></td>";
 			$tabla .= "</tr>";
 			
 		}

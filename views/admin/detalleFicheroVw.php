@@ -35,5 +35,19 @@
           ?>
         </tbody>  
       </table>
+      
+      <div id="btn-regresar-fichero-area">
+        <button id="btn-regresar-fichero" class="btn butt war puntero">Regresar</button>
+      </div>
+      
     </div>
   </div>
+
+  <script>
+    $(document).ready(function(){
+      const btnRegresar = document.querySelector("#btn-regresar-fichero");
+      btnRegresar.addEventListener('click',()=>{
+        window.history.back();
+      });
+    });
+  </script>

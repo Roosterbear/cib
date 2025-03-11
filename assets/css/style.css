@@ -122,6 +122,11 @@ a:hover{
   color: green;
 }
 
+.chiquilin{
+  font-weight: bold;
+  font-size: 0.7rem;
+}
+
 a{
   color: inherit;
 }
@@ -147,6 +152,11 @@ hr.line-space{
 
 #preview{
   margin: 0 10%;
+  padding: 3px;
+}
+
+#tabla-fichero{
+  margin: 0 5%;
   padding: 3px;
 }
 
@@ -207,13 +217,45 @@ hr.line-space{
 
 #btn-preview-area,
 .boton-imprimir,
-#btn-imprimir{
+#btn-imprimir,
+#btn-regresar-fichero-area{
   display: block;
   width: 100vh;
   min-width: 100%;
   margin: 0 auto;
   text-align: center;
   padding: 15px 0 15px 0;
+}
+
+#preview{
+  width: 100vh;
+  min-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 15px 0 15px 0;
+}
+
+#tabla-etiquetas{  
+  width: 100%;
+  height: 100vh; /* 100% del alto de la hoja */
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+#tabla-etiquetas th, #tabla-etiquetas td {  
+  text-align: left;
+  vertical-align: middle;
+  font-size: 16px;
+  padding: 5px;
+  word-wrap: break-word;
+}
+
+#tabla-etiquetas tr {
+  height: 12.5vh; /* 100% dividido entre 8 filas */
+}
+
+#tabla-etiquetas td {
+  border: solid black 1px;
 }
 
 .butt{
@@ -254,6 +296,8 @@ button.war{
 .add{
   display: block;
 }
+
+.esp{margin: 0 5px;}
 
 /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
@@ -409,7 +453,39 @@ button.war{
 
 
 @media print {
+  body {
+   margin: 0;
+   padding: 0;
+  }
+
+  #tabla-etiquetas{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border-collapse: collapse;
+  }
+
+  table {
+    width: 100%;
+    height: 100%;
+  }
+
+  #tabla-etiquetas tr {
+    height: 14.9vh;  
+    width: 50vw;  
+  }
+
+  #tabla-etiquetas td {
+    border: solid black 3px;
+  }
+
   .no-print {
     display: none;
   }
+}
+
+@page {
+  size: A4; /* O usa Letter si es tamaño carta */
+  margin: 0;
 }
