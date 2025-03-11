@@ -2,6 +2,7 @@
 <!-- @@@@@@@@@@@@@@@@@@@@@@@@ +++ PREVIEW +++ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 
+<!-- ESTA SECCION ESTA OCULATA POR DEFAULT -->
 <div id="preview" class="ocultar">	
 	<div>
 		<table id="tabla-etiquetas">
@@ -43,7 +44,6 @@
 		<button id="btn-preview-regresar" class="btn butt war puntero esp no-print">Regresar</button>
 	</div>
 </div>
-
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 
 <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
@@ -58,7 +58,15 @@
 			<div class="col-md-4">
 				<i class="fa fa-book iconoBuscar"></i>
 				<label class="labelCaptura"><strong>Etiqueta</strong> por ID Ficha:</label>
-				<input name="inputBuscarPorIDFichaMostrarEjemplar" class="form-control inputBuscarPorID" id="inputBuscarPorIDFichaMostrarEjemplar"/>
+				
+				<!-- Contenedor para el input y el botón -->
+				<div class="input-group">
+					<input name="inputBuscarPorIDFichaMostrarEjemplar" class="form-control inputBuscarPorID" id="inputBuscarPorIDFichaMostrarEjemplar"/>
+					<button id="btnBuscarPorIDFichaMostrarEjemplar"class="btnBuscarPorIDFichaMostrarEjemplar">
+						<i class="fa fa-search"></i>
+					</button>
+				</div>
+
 			</div>
 			
 			<div id="cuadricula" class="col-md-8">
@@ -162,6 +170,7 @@
 		const btnPreviewImprimir = document.querySelector("#btn-preview-imprimir"); // PERTENECE AL PREVIEW OCULTO
 
 		const inputID = document.querySelector("#inputBuscarPorIDFichaMostrarEjemplar");
+		const btnID = document.querySelector("#btnBuscarPorIDFichaMostrarEjemplar");
 		inputID.value = '';
 		const inputPalabra = document.querySelector("#inputBuscarPorPalabrasMostrarEjemplar");
 
@@ -201,6 +210,11 @@
 				mostrarFicha();
 			}			
 		});
+
+		btnID.addEventListener('click', function(){
+			mostrarFicha();
+		});
+		
 		/* ---------------- */
 
 		$(inputPalabra).on("keyup", function(e){		

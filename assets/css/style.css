@@ -190,6 +190,31 @@ hr.line-space{
   margin-bottom:10px;
 }
 
+/* Contenedor para el input y el botón */
+.input-group {
+  position: relative;
+  display: flex;
+  width: 100%;
+}
+
+/* Estilo del input */
+.inputBuscarPorID {
+  width: 100%;
+  padding-right: 40px; /* Espacio para que el texto no choque con el botón */
+}
+
+/* Botón al lado derecho */
+.btnBuscarPorIDFichaMostrarEjemplar {
+  border: none;  
+  padding: 10px 30px;
+  cursor: pointer;
+	background: #58a linear-gradient(hsla(0,0%,100%,.1), transparent);
+	border-radius: .2em;
+	box-shadow: 0 .05em .25em rgba(0,0,0,.5);
+	color: white;
+  background-color: #6b0;
+}
+	
 /* ----------- */
 /*  MENSAJES   */
 /* ----------- */
