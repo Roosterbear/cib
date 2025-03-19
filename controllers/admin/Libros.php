@@ -276,6 +276,7 @@ class Libros extends \CI_Controller{
 		
 		$data['idFicha'] = $_REQUEST['idFicha'];
 		$data['adq'] = $_REQUEST['adq'];
+		$data['noEjemplar'] = $_REQUEST['noEjemplar'];
 		$data['tomo'] = $_REQUEST['tomo'];
 		$data['volumen'] = $_REQUEST['volumen'];
 		$data['accesible'] = $_REQUEST['accesible'];
@@ -425,5 +426,9 @@ class Libros extends \CI_Controller{
 		$this->load->view("/admin/detalleFicheroVw",$data);
 		$this->load->view("footer");
 	}
+	
+	
+	
+	
 }
 

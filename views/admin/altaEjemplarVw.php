@@ -54,16 +54,23 @@
 		</div>
 		
 		<div class="row areaCaptura">
-			<!-- Captura de Tomo del Libro -->
 			<div class="col-md-1"></div>
-			<div class="col-md-5">
+			<!-- Captura de Ejemplar del Libro -->
+			<div class="col-md-4">
+				<i class="fa fa-tag iconoCaptura"></i>
+				<label class="labelCaptura">No. Ejemplar:</label>
+				<input name="inputNoEjemplar" class="form-control inputBuscar" id="inputNoEjemplar" onpaste="return false"/>
+			</div>
+
+			<!-- Captura de Tomo del Libro -->
+			<div class="col-md-3">
 				<i class="fa fa-archive iconoCaptura"></i>
 				<label class="labelCaptura">Tomo:</label>
 				<input name="inputTomoEjemplar" class="form-control inputBuscar" id="inputTomoEjemplar" onpaste="return false"/>
 			</div>
 			<!-- Captura de Volumen del Libro -->
-			<div class="col-md-5">
-				<i class="fa fa-tag iconoCaptura"></i>
+			<div class="col-md-3">
+				<i class="fa fa-tags iconoCaptura"></i>
 				<label class="labelCaptura">Volumen:</label>
 				<input name="inputVolumenEjemplar" class="form-control inputBuscar" id="inputVolumenEjemplar" onpaste="return false"/>
 			</div>
@@ -98,6 +105,7 @@
 		const btnRegresar = document.querySelector('#btnRegresarAltaEjemplar');
 		
 		const inputADQ = document.querySelector("#inputAdquisicionEjemplar");
+		const inputNoEjemplar = document.querySelector("#inputNoEjemplar");
 		const inputTomo = document.querySelector("#inputTomoEjemplar");
 		const inputVolumen = document.querySelector("#inputVolumenEjemplar");
 		const checkSePresta = document.querySelector("#checkSePrestaEjemplar");
@@ -145,6 +153,7 @@
 			const idFicha = inputIDFicha.value;
 			const adq = inputADQ.value;
 			const tomo = inputTomo.value;
+			const noEjemplar = inputNoEjemplar.value;
 			const volumen = inputVolumen.value;
 			const accesible = checkSePresta.checked?1:0;
 
@@ -153,6 +162,7 @@
 			if(adq0k){
 				$.post(link_alta,{idFicha:idFicha,
 												adq:adq,
+												noEjemplar:noEjemplar,
 												tomo:tomo,
 												volumen:volumen,
 												accesible:accesible

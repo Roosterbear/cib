@@ -30,26 +30,24 @@ class Ejemplar extends Ficha {
 		return $tabla;
 	}
 	
-	
+	// AGREGAR EJEMPLARES !!!!!!!!!!!!!
 	public function addEjemplar($data){
 		$this->cib = new CIB();
 		
 		$idFicha = $data['idFicha'];
 		$adquisicion = $data['adq'];
+		$noEjemplar = $data['noEjemplar'];
 		$tomo = $data['tomo'];
 		$volumen = $data['volumen'];
 		$accesible = $data['accesible'];
 		
-		$sql = "insert into cib.ejemplar(idFicha, numAdquisicion, volumen, tomo, accesible) values($idFicha,'".$adquisicion."','".$volumen."','".$tomo."',$accesible)";
+		$sql = "insert into cib.ejemplar(idFicha, numAdquisicion, ejemplar, volumen, tomo, accesible, fechaModificacion) values($idFicha,'".$adquisicion."','".$noEjemplar."','".$volumen."','".$tomo."',$accesible, GETDATE())";
 		
 		$existeADQ = $this->adqRepetido($idFicha, $adquisicion);
 		
 		
-		if($existeADQ == ''){
-			// COMENTAR LA SIGUIENTE LINEA PARA HACER PRUEBAS
+		if($existeADQ == ''){			
 			$rs = $this->db->Execute($sql);
-			// ----------------------------------------------
-				
 			return $this->db->insert_id();			
 		}else{
 			return 0;
