@@ -7,36 +7,36 @@
 	<div>
 		<table id="tabla-etiquetas">
 			<tr>
-				<td>hola</td>
-				<td>hola</td>				
+				<td id="sp01"></td>
+				<td id="sp02"></td>				
 			</tr>
 			<tr>
-				<td>hola</td>
-				<td>hola</td>				
+				<td id="sp03"></td>
+				<td id="sp04"></td>				
 			</tr>
 			<tr>
-				<td>hola</td>
-				<td>hola</td>				
+				<td id="sp05"></td>
+				<td id="sp06"></td>				
 			</tr>
 			<tr>
-				<td>hola</td>
-				<td>hola</td>				
+				<td id="sp07"></td>
+				<td id="sp08"></td>				
 			</tr>
 			<tr>
-				<td>hola</td>
-				<td>hola</td>				
+				<td id="sp09"></td>
+				<td id="sp10"></td>				
 			</tr>
 			<tr>
-				<td>hola</td>
-				<td>hola</td>				
+				<td id="sp11"></td>
+				<td id="sp12"></td>				
 			</tr>
 			<tr>
-				<td>hola</td>
-				<td>hola</td>				
+				<td id="sp13"></td>
+				<td id="sp14"></td>				
 			</tr>
 			<tr>
-				<td>hola</td>
-				<td>hola</td>				
+				<td id="sp15"></td>
+				<td id="sp16"></td>				
 			</tr>
 		</table>
 		<div class="espaciado"></div>
@@ -144,7 +144,9 @@
 		const $ejemplares = ['','','','','','','','','','','','','','','',''];	// 16 elementos
 		const $ADQs = ['','','','','','','','','','','','','','','',''];	// 16 elementos
 		const $seats = ['s01','s02','s03','s04','s05','s06','s07','s08'
-									,'s09','s10','s11','s12','s13','s14','s15','s16'];	
+									,'s09','s10','s11','s12','s13','s14','s15','s16'];
+		const $seatsPrint = ['sp01','sp02','sp03','sp04','sp05','sp06','sp07','sp08'
+		,'sp09','sp10','sp11','sp12','sp13','sp14','sp15','sp16'];	
 
 
 		const $all_ejemplares = document.querySelector("#busquedaEjemplar");
@@ -243,6 +245,9 @@
 		function agregarADQ($ejemplar){
 			$ejemplares[contador] = $ejemplar;			
 			document.querySelector("#"+$seats[contador]).innerHTML = $ejemplar;
+
+			// Pasarle los datos de la etiqueta
+			document.querySelector("#"+$seatsPrint[contador]).innerHTML = $ejemplar;
 			console.log($ejemplares);
 			if(contador<15){
 				contador++;

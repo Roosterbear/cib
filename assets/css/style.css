@@ -261,10 +261,11 @@ hr.line-space{
 }
 
 #tabla-etiquetas{  
-  width: 100%;
-  height: 100vh; /* 100% del alto de la hoja */
+  width: 35%;
+  height: auto; /* 100% del alto de la hoja */
   border-collapse: collapse;
-  table-layout: fixed;
+  table-layout: fixed;  
+  margin: 0 auto;  
 }
 
 #tabla-etiquetas th, #tabla-etiquetas td {  
