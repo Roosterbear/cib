@@ -14,6 +14,7 @@ class CIB {
 	
 	
 	// Regresar datos de libro como tabla HTML para DETALLE
+	// CONSULTA DE LIBROS ===FICHERO===
 	public function getBook($array){
 					
 		// Titulo | Autor | Clasificacion
@@ -32,7 +33,7 @@ class CIB {
 			
 			$tabla .= "<tr>";							
 			$tabla .= "<td><a href=\"../../admin/Libros/detalleFichero/{$id}\">{$titulo} <small><i class=\"fa fa-link green\" aria-hidden=\"true\"></i></small></a></td>";
-			$tabla .= "<td><small class=\"chiquilin\">{$autor}</small></td>";
+			$tabla .= "<td><small class=\"tiny\">{$autor}</small></td>";
 			$tabla .= "<td><small>{$clasificacion}</small></td>";
 			$tabla .= "</tr>";
 			
@@ -150,7 +151,9 @@ class CIB {
 		return $tabla;
 	}
 	
-	public function getFichaEjemplares($ficha){
+	
+	// ID FICHA ===ALTA EJEMPLAR===
+	public function getFichaEjemplaresAlta($ficha){
 		//return "<pre>".var_dump($ficha)."</pre>";
 	
 		// Id | Titulo | Autor | ISBN | Clasificacion
@@ -336,18 +339,20 @@ class CIB {
 			$volumen = $a['volumen'];
 			$tomo = $a['tomo'];
 			//$accesible = $a['accesible'];
-	
+			$ejemplar_bajito = $ejemplar==0?'v-tiny rhino':'tiny';
+			$volumen_bajito = $volumen==0?'v-tiny rhino':'tiny';
+			$tomo_bajito = $tomo==0?'v-tiny rhino':'tiny';
 			$tabla .= "<tr>";
-			$tabla .= "<td class=\"text-center\"><small>{$contador}</small></td>";			
+			$tabla .= "<td class=\"text-center\"><small class=\"v-tiny\">{$contador}</small></td>";			
 			$tabla .= "<td class=\"text-center\"><small><strong>{$ficha}</strong></small></td>";
 			$tabla .= "<td><small>{$titulo}</small></td>";
-			$tabla .= "<td><small>{$autor}</small></td>";			
-			$tabla .= "<td class=\"text-center\"><small>{$isbn}</small></td>";
-			$tabla .= "<td><small>{$clasificacion}</small></td>";
-			$tabla .= "<td class=\"text-center\"><small>{$adquisicion}</small></td>";
-			$tabla .= "<td class=\"text-center\"><small>{$ejemplar}</small></td>";
-			$tabla .= "<td class=\"text-center\"><small>{$volumen}</small></td>";
-			$tabla .= "<td class=\"text-center\"><small>{$tomo}</small></td>";			
+			$tabla .= "<td><small class=\"tiny\">{$autor}</small></td>";			
+			$tabla .= "<td class=\"text-center\"><small class=\"v-tiny\">{$isbn}</small></td>";
+			$tabla .= "<td><small class=\"dark-rhino tiny\">{$clasificacion}</small></td>";
+			$tabla .= "<td class=\"text-center\"><small class=\"v-tiny\">{$adquisicion}</small></td>";
+			$tabla .= "<td class=\"text-center\"><small class=\"{$ejemplar_bajito}\">{$ejemplar}</small></td>";
+			$tabla .= "<td class=\"text-center\"><small class=\"{$volumen_bajito}\">{$volumen}</small></td>";
+			$tabla .= "<td class=\"text-center\"><small class=\"{$tomo_bajito}\">{$tomo}</small></td>";			
 			$tabla .= "</tr>";
 	
 		}

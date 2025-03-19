@@ -122,9 +122,25 @@ a:hover{
   color: green;
 }
 
-.chiquilin{
+.color-icono{
+  color:#5fbdff;
+}
+
+.rhino{
+  color: #a5a5a5;
+}
+
+.dark-rhino{
+  color: #555;
+}
+
+.tiny{
   font-weight: bold;
   font-size: 0.7rem;
+}
+
+.v-tiny{
+  font-size: 0.6rem;
 }
 
 a{
@@ -336,18 +352,6 @@ button.war{
   width: 40px;
   height: 40px;
   display: inline-block; 
-}
-
-.color-icono{
-  color:#5fbdff;
-}
-
-.rhino{
-  color: #a5a5a5;
-}
-
-.dark-rhino{
-  color: #555;
 }
 
 .bib-titulo{

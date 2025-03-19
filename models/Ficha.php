@@ -105,7 +105,7 @@ class Ficha extends \CI_Model {
 		$this->cib = new CIB();
 		$rs = $this->db->Execute($sql);
 	
-		return $this->cib->getFichaEjemplares($rs->getArray());
+		return $this->cib->getFichaEjemplaresAlta($rs->getArray());
 			
 	}
 	
