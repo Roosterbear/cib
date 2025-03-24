@@ -364,38 +364,5 @@ class CIB {
 	
 	}
 	
-		
-	public function getEjemplar($array){
-		/* ESTA FUNCION YA NO LA VOY A UTILIZAR */
-	
-		// IdFicha | numAdquisicion | titulo | autor | clasificacion
-		$tabla = "<table class=\"cib-table\"><thead>";
-		$tabla .= "<tr><th> FICHA </th>";
-		$tabla .= "<th><i class=\"fa fa-archive\" aria-hidden=\"true\"></i> ADQ</th>";
-		$tabla .= "<th><i class=\"fa fa-book\" aria-hidden=\"true\"></i> TITULO</th>";
-		$tabla .= "<th><i class=\"fa fa-user-circle\" aria-hidden=\"true\"></i> AUTOR</th>";		
-		$tabla .= "<th><i class=\"fa fa-barcode\" aria-hidden=\"true\"></i>	CLASIFICACION</th></tr></thead>";
-		$tabla .= "<tbody>";
-		foreach ($array as $a){
-			$idFicha = $a['idFicha'];
-			$adquisicion = $a['numAdquisicion'];
-			$titulo = $a['titulo'];
-			$autor = $a['autor'];			
-			$clasificacion = $a['clasificacion'];
-	
-			$tabla .= "<tr>";
-			$tabla .= "<td class=\"text-center\">{$idFicha}</td>";
-			$tabla .= "<td>{$adquisicion}</td>";
-			$tabla .= "<td>{$titulo}</td>";
-			$tabla .= "<td>{$autor}</td>";			
-			$tabla .= "<td>{$clasificacion}</td>";
-			$tabla .= "</tr>";
-	
-		}
-	
-		$tabla .= "</tbody>";
-		$tabla .= "</table>";
-		return $tabla;	
-	}
 }
 ?>

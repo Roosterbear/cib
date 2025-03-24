@@ -25,8 +25,7 @@ class Ejemplar extends Ficha {
 				inner join cib.ficha f on f.id=e.idFicha
 		";
 		$rs = $this->db->Execute($sql);
-	
-		$tabla = $this->cib->getEjemplar($rs);
+			
 		return $tabla;
 	}
 	
