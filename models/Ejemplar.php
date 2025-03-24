@@ -16,17 +16,17 @@ class Ejemplar extends Ficha {
 	/* ------------------------------------------------------------------------ */
 
 	
-	public function mostrarEjemplares(){
-		/* ESTA FUNCION NO LA VOY A UTILIZAR */
+	public function infoEtiqueta(){
+		
 		$this->cib = new CIB();
 	
-		$sql = "select idFicha, numAdquisicion, f.titulo, f.autor, f.clasificacion
+		$sql = "select idFicha, e.id, numAdquisicion as adq, f.titulo, f.clasificacion, e.ejemplar
 				from cib.ejemplar e
 				inner join cib.ficha f on f.id=e.idFicha
 		";
 		$rs = $this->db->Execute($sql);
 			
-		return $tabla;
+		return $rs->getArray();
 	}
 	
 	// AGREGAR EJEMPLARES !!!!!!!!!!!!!
