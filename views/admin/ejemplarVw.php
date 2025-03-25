@@ -141,8 +141,12 @@
 <script>
 	$(document).ready(function(){
 		let contador = 0;
+
+		/* ===INFO ETIQUETAS=== */
 		const $ejemplares = ['','','','','','','','','','','','','','','',''];	// 16 elementos
 		const $ADQs = ['','','','','','','','','','','','','','','',''];	// 16 elementos
+		
+		/* ===ESPACIOS=== */
 		const $seats = ['s01','s02','s03','s04','s05','s06','s07','s08'
 									,'s09','s10','s11','s12','s13','s14','s15','s16'];
 		const $seatsPrint = ['sp01','sp02','sp03','sp04','sp05','sp06','sp07','sp08'
@@ -153,6 +157,9 @@
 		const $preview = document.querySelector("#preview");
 
 		const addTable = document.querySelector("#add-table");
+
+		/* -----------++ INFO ETIQUETAS ++---------------- */	
+		const link_info_etiquetas = "<?=site_url("admin/Libros/getInfoEtiquetas")?>";
 
 		/* -----------++ BUSCADOR POR FICHA ++---------------- */	
 		const link_consulta = "<?=site_url("admin/Libros/showFichaMostrarEjemplares")?>";
@@ -187,15 +194,16 @@
 		/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 		addEjemplarEtiquetas.addEventListener('click', function(e){
 			/* Detecta el ejemplar a agregar que se le dio click */	
+			
+			/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+			/* LA CLASE "add-sign" ES DINAMICA PARA CADA EJEMPLAR QUE SE BUSCA POR ID FICHA */
+			/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 			let add = e.target.closest('.add-sign');
 
 			// Verificar que no se haya dado click en elemento vacio!
 			if (add != null){
 				// AGREGAR A CUADRICULA
 				agregarADQ(add.dataset.ejemplar);
-
-
-
 			}
 		});
 		/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
@@ -242,6 +250,10 @@
 			
 		}
 
+
+		/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+		/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+		/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 		function agregarADQ($ejemplar){
 			$ejemplares[contador] = $ejemplar;			
 			document.querySelector("#"+$seats[contador]).innerHTML = $ejemplar;
@@ -254,6 +266,11 @@
 			}else{
 				contador = 0;
 			}
+
+			/* OBTENER INFO DE ETIQUETA */
+			$.post(link_info_etiquetas,{id:$ejemplar},function(resp){
+				console.log(resp);
+			});
 		}
 
 

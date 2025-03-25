@@ -16,17 +16,22 @@ class Ejemplar extends Ficha {
 	/* ------------------------------------------------------------------------ */
 
 	
-	public function infoEtiqueta(){
+	/* ------------------------------------------------------------------------ */
+	/* ========= FUNCION PARA INFO DE ETIQUETAS EN EJEMPLARES ================= */
+	/* ------------------------------------------------------------------------ */
+	public function infoEtiqueta($id_ejemplar){
 		
 		$this->cib = new CIB();
 	
-		$sql = "select idFicha, e.id, numAdquisicion as adq, f.titulo, f.clasificacion, e.ejemplar
+		$sql = "select idFicha, e.id as id, numAdquisicion as adq, f.titulo, f.clasificacion, e.ejemplar
 				from cib.ejemplar e
 				inner join cib.ficha f on f.id=e.idFicha
+				where e.id = $id_ejemplar
 		";
 		$rs = $this->db->Execute($sql);
 			
-		return $rs->getArray();
+		//return $rs->getArray();
+		return $rs->fields['clasificacion'];
 	}
 	
 	// AGREGAR EJEMPLARES !!!!!!!!!!!!!

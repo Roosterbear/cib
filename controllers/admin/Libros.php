@@ -227,11 +227,12 @@ class Libros extends \CI_Controller{
 	/* -------------------------- */
 	/* ------- EJEMPLARES ------- */
 	/* -------------------------- */
-	public function getEjemplares(){
-		/* ESTA FUNCION NO LA VOY A UTILIZAR */
+	public function getInfoEtiquetas(){
+		
+		$id_ejemplar = $_REQUEST['id'];
 		$this->ejemplar = new Ejemplar();
 		
-		echo $this->ejemplar->mostrarEjemplares();		
+		echo $this->ejemplar->infoEtiqueta($id_ejemplar);		
 	}
 	
 	/* ------- ALTA EJEMPLARES ------- */
