@@ -230,9 +230,11 @@ class Libros extends \CI_Controller{
 	public function getInfoEtiquetas(){
 		
 		$id_ejemplar = $_REQUEST['id'];
+		$valor_regreso = $_REQUEST['valor'];
+		
 		$this->ejemplar = new Ejemplar();
 		
-		echo $this->ejemplar->infoEtiqueta($id_ejemplar);		
+		echo ($this->ejemplar->infoEtiqueta($id_ejemplar,$valor_regreso));		
 	}
 	
 	/* ------- ALTA EJEMPLARES ------- */
@@ -427,9 +429,5 @@ class Libros extends \CI_Controller{
 		$this->load->view("/admin/detalleFicheroVw",$data);
 		$this->load->view("footer");
 	}
-	
-	
-	
-	
 }
 

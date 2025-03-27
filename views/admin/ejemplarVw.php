@@ -268,9 +268,15 @@
 			}
 
 			/* OBTENER INFO DE ETIQUETA */
-			$.post(link_info_etiquetas,{id:$ejemplar},function(resp){
+			$.post(link_info_etiquetas,{id:$ejemplar,valor:'clasificacion'},function(resp){
 				console.log(resp);
-			});
+			});	
+			$.post(link_info_etiquetas,{id:$ejemplar,valor:'ejemplar'},function(resp){
+				console.log(resp);
+			});	
+			$.post(link_info_etiquetas,{id:$ejemplar,valor:'adq'},function(resp){
+				console.log(resp);
+			});	
 		}
 
 

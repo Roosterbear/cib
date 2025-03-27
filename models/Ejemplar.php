@@ -19,7 +19,7 @@ class Ejemplar extends Ficha {
 	/* ------------------------------------------------------------------------ */
 	/* ========= FUNCION PARA INFO DE ETIQUETAS EN EJEMPLARES ================= */
 	/* ------------------------------------------------------------------------ */
-	public function infoEtiqueta($id_ejemplar){
+	public function infoEtiqueta($id_ejemplar,$valor_regreso){
 		
 		$this->cib = new CIB();
 	
@@ -30,8 +30,10 @@ class Ejemplar extends Ficha {
 		";
 		$rs = $this->db->Execute($sql);
 			
-		//return $rs->getArray();
-		return $rs->fields['clasificacion'];
+		if($valor_regreso == 'clasificacion')return $rs->fields['clasificacion'];
+		if($valor_regreso == 'ejemplar')return $rs->fields['ejemplar'];
+		if($valor_regreso == 'adq')return $rs->fields['adq'];
+		return '';
 	}
 	
 	// AGREGAR EJEMPLARES !!!!!!!!!!!!!
