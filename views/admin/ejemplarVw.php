@@ -138,8 +138,10 @@
 	<!-- +++ RESULTADOS BUSQUEDA AVANZADA +++ -->
 	
 </div><!-- DIV BusquedaEjemplar -->
+
 <script>
 	$(document).ready(function(){
+		
 		let contador = 0;
 
 		/* ===INFO ETIQUETAS=== */
@@ -149,6 +151,7 @@
 		/* ===ESPACIOS=== */
 		const $seats = ['s01','s02','s03','s04','s05','s06','s07','s08'
 									,'s09','s10','s11','s12','s13','s14','s15','s16'];
+
 		const $seatsPrint = ['sp01','sp02','sp03','sp04','sp05','sp06','sp07','sp08'
 		,'sp09','sp10','sp11','sp12','sp13','sp14','sp15','sp16'];	
 
@@ -260,6 +263,7 @@
 
 			// Pasarle los datos de la etiqueta
 			document.querySelector("#"+$seatsPrint[contador]).innerHTML = $ejemplar;
+			document.querySelector("#"+$seatsPrint[contador]).innerHTML += $svg;
 			console.log($ejemplares);
 			if(contador<15){
 				contador++;
