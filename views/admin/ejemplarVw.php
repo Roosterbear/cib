@@ -279,10 +279,13 @@
 			console.log($ejemplares); // El array que se va llenando
 			const version = `.v-${contador}`; // Version del SVG
 
+
+			// ===&&&&&& AQUI SE VA A GENERAR LA INFORMACION DE LA ETIQUETA &&&&&===
 			$.post(link_info_etiquetas,{id:$IdEjemplar},function(resp){
 				document.querySelector(version).setAttribute("jsbarcode-value", resp);
 				JsBarcode(".barcode").init();
 			});	
+			// =====================================================================
 
 			// Pasarle los datos de la etiqueta
 			document.querySelector("#"+$seatsPrint[contador]).innerHTML = _svg;
