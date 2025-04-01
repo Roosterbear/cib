@@ -140,24 +140,21 @@
 	
 </div><!-- DIV BusquedaEjemplar -->
 
-
-<svg class="barcode"
-  jsbarcode-format="code39"
-  jsbarcode-value="ABC1234567"
-  jsbarcode-textmargin="0"
-	jsbarcode-width="1"
-	jsbarcode-height="50"
-  jsbarcode-fontoptions="bold">
-</svg>
-
 <script>
 	$(document).ready(function(){
-		
-		let kk = document.querySelector(".barcode");
-		kk.setAttribute("jsbarcode-value", "AG0022681");
-		JsBarcode(".barcode").init();
-		let contador = 0;
+				
+		let _svg = `<svg class="barcode"
+							jsbarcode-format="code39"
+							jsbarcode-value="ABC1234567"
+							jsbarcode-textmargin="0"
+							jsbarcode-width="1"
+							jsbarcode-height="50"
+							jsbarcode-fontoptions="bold">
+						</svg>
+						`;
 
+		let contador = 0;
+		
 		/* ===INFO ETIQUETAS=== */
 		const $ejemplares = ['','','','','','','','','','','','','','','',''];	// 16 elementos
 		const $ADQs = ['','','','','','','','','','','','','','','',''];	// 16 elementos
@@ -300,10 +297,14 @@
 			});	
 			
 			// Pasarle los datos de la etiqueta
-			document.querySelector("#"+$seatsPrint[contador]).innerHTML = $adq;
+			document.querySelector("#"+$seatsPrint[contador]).innerHTML = _svg;
 			
 			console.log($ejemplares); // El array que se va llenando
-		
+
+			let _barcode = document.querySelector(".barcode");
+			_barcode.setAttribute("jsbarcode-value", "AG0022681");
+			JsBarcode(".barcode").init();
+
 			/* === ESTO RESETEA LOS ESPACIOS CUANDO SE LLEGA A 16 === */
 			if(contador<15){
 				contador++;
