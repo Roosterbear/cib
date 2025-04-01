@@ -227,15 +227,18 @@ class Libros extends \CI_Controller{
 	/* -------------------------- */
 	/* ------- EJEMPLARES ------- */
 	/* -------------------------- */
+	
+	// === TRAER LA INFORMACIÓN QUE VA EN LA ETIQUETA ===
 	public function getInfoEtiquetas(){
 		
-		$id_ejemplar = $_REQUEST['id'];
-		$valor_regreso = $_REQUEST['valor'];
+		$id_ejemplar = $_REQUEST['id'];		
 		
 		$this->ejemplar = new Ejemplar();
 		
-		echo ($this->ejemplar->infoEtiqueta($id_ejemplar,$valor_regreso));		
+		echo ($this->ejemplar->infoEtiqueta($id_ejemplar));		
 	}
+	// ===================================================
+	
 	
 	/* ------- ALTA EJEMPLARES ------- */
 	public function showFichaEjemplares(){

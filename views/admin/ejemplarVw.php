@@ -143,20 +143,6 @@
 <script>
 	$(document).ready(function(){
 
-		var $clasificacion = '';
-		var $ejemplar = '';
-		var $adq = '';
-
-		let _svg = `<svg class="barcode"
-							jsbarcode-format="code39"
-							jsbarcode-value="ABC1234567"
-							jsbarcode-textmargin="0"
-							jsbarcode-width="1"
-							jsbarcode-height="50"
-							jsbarcode-fontoptions="bold">
-						</svg>
-						`;
-
 		let contador = 0;
 		
 		/* ===INFO ETIQUETAS=== */
@@ -275,41 +261,32 @@
 		/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 		/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 		function agregarADQ($IdEjemplar){
-			
+			let _svg = `<svg class="barcode v-${contador}"
+							jsbarcode-format="code39"
+							jsbarcode-value="ABC1234567"
+							jsbarcode-textmargin="0"
+							jsbarcode-width="1"
+							jsbarcode-height="50"
+							jsbarcode-fontoptions="bold">
+						</svg>
+						`;
 			// Guarda en el array el ID del ejemplar
 			$ejemplares[contador] = $IdEjemplar;		
 			// Agrega ID del ejemplar a la cuadrícula	
 			document.querySelector("#"+$seats[contador]).innerHTML = $IdEjemplar;
 
-			/* --esto esta mal, tengo que hacer UN solo llamado-- */
-			/* OBTENER INFO DE ETIQUETA */
-			$.post(link_info_etiquetas,{id:$IdEjemplar,valor:'clasificacion'},function(resp){
-				$clasificacion = resp;
-				console.log($clasificacion);
-			});	
-			
-			$.post(link_info_etiquetas,{id:$IdEjemplar,valor:'ejemplar'},function(resp){
-				$ejemplar = resp;
-				console.log($ejemplar);
-			});	
-			
-			$.post(link_info_etiquetas,{id:$IdEjemplar,valor:'adq'},function(resp){
-				$adq = resp;
-				console.log($adq);
-			});	
 			
 			console.log($ejemplares); // El array que se va llenando
+			const version = `.v-${contador}`; // Version del SVG
+
+			$.post(link_info_etiquetas,{id:$IdEjemplar},function(resp){
+				document.querySelector(version).setAttribute("jsbarcode-value", resp);
+				JsBarcode(".barcode").init();
+			});	
 
 			// Pasarle los datos de la etiqueta
 			document.querySelector("#"+$seatsPrint[contador]).innerHTML = _svg;
 			
-			let _barcode = document.querySelector(".barcode");
-			_barcode.setAttribute("jsbarcode-value", "jlksdjlkjas");
-			JsBarcode(".barcode").init();
-
-			// TENGO QUE USAR PROMESAS !!!
-			console.log($adq+"--nosirve");
-
 			/* === ESTO RESETEA LOS ESPACIOS CUANDO SE LLEGA A 16 === */
 			if(contador<15){
 				contador++;
