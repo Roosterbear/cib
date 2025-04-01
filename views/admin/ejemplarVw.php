@@ -5,6 +5,9 @@
 <!-- ESTA SECCION ESTA OCULATA POR DEFAULT -->
 <div id="preview" class="ocultar">	
 	<div>
+		<button id="btn-preview-imprimir" class="btn butt ok puntero esp no-print">Imprimir</button>
+		<button id="btn-preview-regresar" class="btn butt war puntero esp no-print">Regresar</button>
+		<div class="mini-espaciado"></div>
 		<table id="tabla-etiquetas">
 			<tr>
 				<td id="sp01"></td>
@@ -39,9 +42,7 @@
 				<td id="sp16"></td>				
 			</tr>
 		</table>
-		<div class="espaciado"></div>
-		<button id="btn-preview-imprimir" class="btn butt ok puntero esp no-print">Imprimir</button>
-		<button id="btn-preview-regresar" class="btn butt war puntero esp no-print">Regresar</button>
+		<div class="mini-espaciado"></div>
 	</div>
 </div>
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
@@ -139,9 +140,22 @@
 	
 </div><!-- DIV BusquedaEjemplar -->
 
+
+<svg class="barcode"
+  jsbarcode-format="code39"
+  jsbarcode-value="ABC1234567"
+  jsbarcode-textmargin="0"
+	jsbarcode-width="1"
+	jsbarcode-height="50"
+  jsbarcode-fontoptions="bold">
+</svg>
+
 <script>
 	$(document).ready(function(){
 		
+		let kk = document.querySelector(".barcode");
+		kk.setAttribute("jsbarcode-value", "AG0022681");
+		JsBarcode(".barcode").init();
 		let contador = 0;
 
 		/* ===INFO ETIQUETAS=== */
@@ -257,32 +271,46 @@
 		/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 		/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 		/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
-		function agregarADQ($ejemplar){
-			$ejemplares[contador] = $ejemplar;			
-			document.querySelector("#"+$seats[contador]).innerHTML = $ejemplar;
+		function agregarADQ($IdEjemplar){
+			
+			let $clasificacion = '';
+			let $ejemplar = '';
+			let $adq = '';
 
+			// Guarda en el array el ID del ejemplar
+			$ejemplares[contador] = $IdEjemplar;		
+			// Agrega ID del ejemplar a la cuadrícula	
+			document.querySelector("#"+$seats[contador]).innerHTML = $IdEjemplar;
+
+			/* --esto esta mal, tengo que hacer UN solo llamado-- */
+			/* OBTENER INFO DE ETIQUETA */
+			$.post(link_info_etiquetas,{id:$IdEjemplar,valor:'clasificacion'},function(resp){
+				$clasificacion = resp;
+				console.log($clasificacion);
+			});	
+			
+			$.post(link_info_etiquetas,{id:$IdEjemplar,valor:'ejemplar'},function(resp){
+				$ejemplar = resp;
+				console.log($ejemplar);
+			});	
+			
+			$.post(link_info_etiquetas,{id:$IdEjemplar,valor:'adq'},function(resp){
+				$adq = resp;
+				console.log($adq);
+			});	
+			
 			// Pasarle los datos de la etiqueta
-			document.querySelector("#"+$seatsPrint[contador]).innerHTML = $ejemplar;
-			document.querySelector("#"+$seatsPrint[contador]).innerHTML += $svg;
-			console.log($ejemplares);
+			document.querySelector("#"+$seatsPrint[contador]).innerHTML = $adq;
+			
+			console.log($ejemplares); // El array que se va llenando
+		
+			/* === ESTO RESETEA LOS ESPACIOS CUANDO SE LLEGA A 16 === */
 			if(contador<15){
 				contador++;
 			}else{
 				contador = 0;
 			}
-
-			/* OBTENER INFO DE ETIQUETA */
-			$.post(link_info_etiquetas,{id:$ejemplar,valor:'clasificacion'},function(resp){
-				console.log(resp);
-			});	
-			$.post(link_info_etiquetas,{id:$ejemplar,valor:'ejemplar'},function(resp){
-				console.log(resp);
-			});	
-			$.post(link_info_etiquetas,{id:$ejemplar,valor:'adq'},function(resp){
-				console.log(resp);
-			});	
 		}
-
 
 		btnPreview.addEventListener('click', function(){
 			$all_ejemplares.classList.add("ocultar");
@@ -300,10 +328,4 @@
 
 	});
 </script>
-
-
-
-
-
-
 
