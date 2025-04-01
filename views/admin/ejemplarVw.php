@@ -142,7 +142,11 @@
 
 <script>
 	$(document).ready(function(){
-				
+
+		var $clasificacion = '';
+		var $ejemplar = '';
+		var $adq = '';
+
 		let _svg = `<svg class="barcode"
 							jsbarcode-format="code39"
 							jsbarcode-value="ABC1234567"
@@ -206,6 +210,8 @@
 		/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 		/* ++++++++++++++ AGREGAR EJEMPLARES PARA ETIQUETAS (+) ++++++++++++++++++++ */
 		/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+		// SE GENERA DINAMICAMENTE EN LA LIBRERIA CIB/getFichaEjemplaresMostrar($ficha)
 		addEjemplarEtiquetas.addEventListener('click', function(e){
 			/* Detecta el ejemplar a agregar que se le dio click */	
 			
@@ -270,10 +276,6 @@
 		/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 		function agregarADQ($IdEjemplar){
 			
-			let $clasificacion = '';
-			let $ejemplar = '';
-			let $adq = '';
-
 			// Guarda en el array el ID del ejemplar
 			$ejemplares[contador] = $IdEjemplar;		
 			// Agrega ID del ejemplar a la cuadrícula	
@@ -296,14 +298,17 @@
 				console.log($adq);
 			});	
 			
+			console.log($ejemplares); // El array que se va llenando
+
 			// Pasarle los datos de la etiqueta
 			document.querySelector("#"+$seatsPrint[contador]).innerHTML = _svg;
 			
-			console.log($ejemplares); // El array que se va llenando
-
 			let _barcode = document.querySelector(".barcode");
-			_barcode.setAttribute("jsbarcode-value", "AG0022681");
+			_barcode.setAttribute("jsbarcode-value", "jlksdjlkjas");
 			JsBarcode(".barcode").init();
+
+			// TENGO QUE USAR PROMESAS !!!
+			console.log($adq+"--nosirve");
 
 			/* === ESTO RESETEA LOS ESPACIOS CUANDO SE LLEGA A 16 === */
 			if(contador<15){

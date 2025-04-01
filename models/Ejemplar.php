@@ -30,6 +30,8 @@ class Ejemplar extends Ficha {
 		";
 		$rs = $this->db->Execute($sql);
 			
+		
+		// MEJOR REGRESAR TODO EN UN TEXTO ...
 		if($valor_regreso == 'clasificacion')return $rs->fields['clasificacion'];
 		if($valor_regreso == 'ejemplar')return $rs->fields['ejemplar'];
 		if($valor_regreso == 'adq')return $rs->fields['adq'];

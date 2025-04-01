@@ -277,6 +277,11 @@ class CIB {
 		return $tabla;
 	}
 	
+	
+	/* ------------------------------------------------------------------------ */
+	/* ======= FUNCION DINAMICA PARA AGREGAR EJEMPLARES A IMPRIMIR ============ */
+	/* ------------------------------------------------------------------------ */
+	
 	public function getFichaEjemplaresMostrar($ficha){
 	
 		// Id | Titulo | Autor | ISBN | Clasificacion
