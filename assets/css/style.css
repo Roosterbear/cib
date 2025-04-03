@@ -281,7 +281,7 @@ hr.line-space{
 }
 
 #tabla-etiquetas{  
-  width: 35%;
+  width: 50%;
   height: auto; /* 100% del alto de la hoja */
   border-collapse: collapse;
   table-layout: fixed;  

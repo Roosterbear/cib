@@ -10,8 +10,10 @@
 		<div class="mini-espaciado"></div>
 		<table id="tabla-etiquetas">
 			<tr>
-				<td id="sp01"></td>
-				<td id="sp02"></td>				
+				<td id="sp01">
+				</td>
+				<td id="sp02">
+				</td>				
 			</tr>
 			<tr>
 				<td id="sp03"></td>
@@ -261,14 +263,19 @@
 		/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 		/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 		function agregarADQ($IdEjemplar){
-			let _svg = `<svg class="barcode v-${contador}"
+			let _svg = `<table style="margin: 0 auto;"><tr>
+							<td width="10%" style="border: none;">GENERAL HD 38.5 M57</td>
+							<td width="90%" style="border: none;">
+							<small>CIB</small><br/>
+							<small>Ej. </small><br/>
+							<svg class="barcode v-${contador}"							
 							jsbarcode-format="code39"
 							jsbarcode-value="ABC1234567"
 							jsbarcode-textmargin="0"
 							jsbarcode-width="1"
-							jsbarcode-height="50"
-							jsbarcode-fontoptions="bold">
+							jsbarcode-height="40">
 						</svg>
+						</td></tr></table>
 						`;
 			// Guarda en el array el ID del ejemplar
 			$ejemplares[contador] = $IdEjemplar;		
