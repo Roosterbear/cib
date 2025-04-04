@@ -263,8 +263,8 @@
 		/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 		/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 		function agregarADQ($IdEjemplar){
-			let _svg = `<table style="margin: 0 auto;"><tr>
-							<td width="10%" style="border: none;">GENERAL HD 38.5 M57</td>
+			let _svg = `<div style="margin: 0 auto;width:100%;background-color: red;"><table><tr>
+							<td width="10%" style="border: none;margin: 0 auto;background-color:green">GENERAL HD 38.5 M57</td>
 							<td width="90%" style="border: none;">
 							<small>CIB</small><br/>
 							<small>Ej. </small><br/>
@@ -275,7 +275,7 @@
 							jsbarcode-width="1"
 							jsbarcode-height="40">
 						</svg>
-						</td></tr></table>
+						</td></tr></table></div>
 						`;
 			// Guarda en el array el ID del ejemplar
 			$ejemplares[contador] = $IdEjemplar;		
