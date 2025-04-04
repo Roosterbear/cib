@@ -281,11 +281,12 @@ hr.line-space{
 }
 
 #tabla-etiquetas{  
-  width: 50%;
+  width: 40%;
   height: auto; /* 100% del alto de la hoja */
   border-collapse: collapse;
   table-layout: fixed;  
   margin: 0 auto;  
+  padding: 0;
 }
 
 #tabla-etiquetas th, #tabla-etiquetas td {  
@@ -303,6 +304,19 @@ hr.line-space{
 #tabla-etiquetas td {
   border: solid black 1px;
 }
+
+.mosquito{
+  display: block;
+  font-size: 10px;
+  padding:0;
+  margin: 0;
+}
+
+td.td-etiqueta{
+  border: none !important;
+  padding: 0 0 0 50px !important;
+}
+
 
 .butt{
 	font-size: 125%;
@@ -485,6 +499,11 @@ button.war{
   transform: rotate(45deg);
 }
 
+@media screen and (max-width:1800px){
+  #tabla-etiquetas{  
+    table-layout: unset;/* 100% del alto de la hoja */
+  }
+}
 
 @media print {
   body {
@@ -497,7 +516,6 @@ button.war{
     height: 100%;
     margin: 0;
     padding: 0;
-    border-collapse: collapse;
   }
 
   table {
@@ -506,7 +524,7 @@ button.war{
   }
 
   #tabla-etiquetas tr {
-    height: 14.9vh;  
+    height: 14.7vh;  
     width: 50vw;  
   }
 
