@@ -29,12 +29,9 @@ class Ejemplar extends Ficha {
 				where e.id = $id_ejemplar
 		";
 		$rs = $this->db->Execute($sql);
-			
 		
-		// MEJOR REGRESAR TODO EN UN TEXTO ...
-		
-		return $rs->fields['adq'];
-		
+		$resultado = $rs->fields['ejemplar'].','.$rs->fields['adq'].','.$rs->fields['clasificacion'];
+		return $resultado;
 	}
 	
 	// AGREGAR EJEMPLARES !!!!!!!!!!!!!

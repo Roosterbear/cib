@@ -114,6 +114,7 @@
 		</div>
 	</div>
 
+	<div id="pintame">	</div>
 	<hr class="line-space"/>
 
 	<!-- BUSQUEDA AVANZADA -->	
@@ -264,61 +265,68 @@
 		/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 		function agregarADQ($IdEjemplar){
 			let _svg = `<div style="margin: 0 auto; padding: 0;width:98%;"><table><tr>
-							<td width="25%" class="td-etiqueta"><small>GENERAL HD 38.5 M57</small></td>
-							<td width="75%" class="td-etiqueta">
-							<small class="mosquito">CIB</small>
-							<small class="mosquito">Ej. </small>
-							<svg class="barcode v-${contador}"							
-							jsbarcode-format="code39"
-							jsbarcode-value="ABC1234567"
-							jsbarcode-textmargin="0"
-							jsbarcode-width="1"
-							jsbarcode-height="30">
-						</svg>
-						</td></tr></table></div>
-						`;
+			<td width="25%" class="td-etiqueta"><small id="clasificacion-${contador}"></small></td>
+			<td width="75%" class="td-etiqueta">
+			<small class="mosquito">CIB</small>
+			<small id="ejemplar-${contador}" class="mosquito"></small>
+			<svg class="barcode v-${contador}"							
+			jsbarcode-format="code39"
+			jsbarcode-value="ABC1234567"
+			jsbarcode-textmargin="0"
+			jsbarcode-width="1"
+			jsbarcode-height="30">
+			</svg>
+			</td></tr></table></div>
+			`;
 			// Guarda en el array el ID del ejemplar
 			$ejemplares[contador] = $IdEjemplar;		
 			// Agrega ID del ejemplar a la cuadrícula	
 			document.querySelector("#"+$seats[contador]).innerHTML = $IdEjemplar;
-
+			
 			
 			console.log($ejemplares); // El array que se va llenando
 			const version = `.v-${contador}`; // Version del SVG
-
-
+			
+			
 			// ===&&&&&& AQUI SE VA A GENERAR LA INFORMACION DE LA ETIQUETA &&&&&===
 			$.post(link_info_etiquetas,{id:$IdEjemplar},function(resp){
-				document.querySelector(version).setAttribute("jsbarcode-value", resp);
+				document.querySelector("#pintame").innerHTML = `<strong>${contador}</strong>`;
+				const [e, adq, c] = resp.split(',');
+				let __ejemplar = `#ejemplar-${contador}`;
+				let __clasificacion = `#clasificacion-${contador}`;
+				document.querySelector(__ejemplar).innerHTML = `Ej. ${e}`;
+				document.querySelector(__clasificacion).innerHTML = c;
+				document.querySelector(version).setAttribute("jsbarcode-value", adq);
 				JsBarcode(".barcode").init();
+				/* === ESTO RESETEA LOS ESPACIOS CUANDO SE LLEGA A 16 === */
+				if(contador<15){
+					contador++;
+				}else{
+					contador = 0;
+				}
 			});	
 			// =====================================================================
-
+			
 			// Pasarle los datos de la etiqueta
 			document.querySelector("#"+$seatsPrint[contador]).innerHTML = _svg;
 			
-			/* === ESTO RESETEA LOS ESPACIOS CUANDO SE LLEGA A 16 === */
-			if(contador<15){
-				contador++;
-			}else{
-				contador = 0;
-			}
+			
 		}
-
+		
 		btnPreview.addEventListener('click', function(){
 			$all_ejemplares.classList.add("ocultar");
 			$preview.classList.remove("ocultar");
 		});
-
+		
 		btnPreviewImprimir.addEventListener('click', function(){
 			window.print();
 		});
-
+		
 		btnPreviewRegresar.addEventListener('click', function(){
 			$all_ejemplares.classList.remove("ocultar");
 			$preview.classList.add("ocultar");
 		});
-
+		
 	});
 </script>
 
