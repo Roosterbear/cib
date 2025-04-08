@@ -319,7 +319,10 @@
 		});
 		
 		btnPreviewImprimir.addEventListener('click', function(){
-			window.print();
+			setTimeout(()=>{
+				window.print();
+				window.close();
+			},300);
 		});
 		
 		btnPreviewRegresar.addEventListener('click', function(){

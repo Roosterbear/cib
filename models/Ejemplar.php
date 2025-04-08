@@ -30,6 +30,7 @@ class Ejemplar extends Ficha {
 		";
 		$rs = $this->db->Execute($sql);
 		
+		// Los regreso en un solo texto por comas y los separo en el AJAX
 		$resultado = $rs->fields['ejemplar'].','.$rs->fields['adq'].','.$rs->fields['clasificacion'];
 		return $resultado;
 	}

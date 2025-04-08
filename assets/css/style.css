@@ -507,37 +507,45 @@ button.war{
 
 @media print {
   body {
-   margin: 0;
-   padding: 0;
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: translateY(-10mm);
   }
 
   #tabla-etiquetas{
-    width: 100%;
-    height: 100%;
     margin: 0;
-    padding: 0;
+    padding: 0;  
+    width: 100%; 
   }
 
   table {
     width: 100%;
     height: 100%;
-  }
-
-  #tabla-etiquetas tr {
-    height: 14.7vh;  
-    width: 50vw;  
+    max-width: fit-content !important;
+    max-height: fit-content !important;
   }
 
   #tabla-etiquetas td {
-    border: solid black 3px;
+    border: solid #666 3px;   
   }
 
+  #tabla-etiquetas * {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  #tabla-etiquetas tr {
+    height: calc(260mm / 8);
+  }
+  
   .no-print {
     display: none;
   }
+
+  
+  @page {
+    size: auto; /* O usa Letter si es tamaño carta */
+    margin: 0;
+  }
 }
 
-@page {
-  size: A4; /* O usa Letter si es tamaño carta */
-  margin: 0;
-}
