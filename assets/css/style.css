@@ -281,7 +281,7 @@ hr.line-space{
 }
 
 #tabla-etiquetas{  
-  width: 50%;
+  width: 40%;
   height: auto; /* 100% del alto de la hoja */
   border-collapse: collapse;
   table-layout: fixed;  
@@ -303,7 +303,6 @@ hr.line-space{
 
 #tabla-etiquetas td {
   border: solid black 1px;
-  min-width: 50%;
 }
 
 .mosquito{

@@ -263,9 +263,9 @@
 		/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 		/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 		function agregarADQ($IdEjemplar){
-			let _svg = `<div style="margin: 0 auto; padding: 0;"><table><tr>
-			<td width="20%" class="td-etiqueta"><small id="clasificacion-${contador}"></small></td>
-			<td width="75%" class="td-etiqueta">
+			let _svg = `<div style="margin: 0 auto; width:98%;padding: 0;"><table><tr>
+			<td width="5%" class="td-etiqueta"><small id="clasificacion-${contador}"></small></td>
+			<td width="95%" class="td-etiqueta">
 			<small class="mosquito">CIB</small>
 			<small id="ejemplar-${contador}" class="mosquito"></small>
 			<svg class="barcode v-${contador}"							
