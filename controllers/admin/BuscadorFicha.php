@@ -13,7 +13,9 @@ class BuscadorFicha extends \CI_Controller{
 		$_busqueda = $_POST['busqueda'];
 		$_cambio = $_POST['cambio'];
 		$ficha = new Ficha();
-		$libros = $_cambio?$ficha->buscarLibroCambio($_busqueda,$_autor):$ficha->buscarLibro($_busqueda,$_autor);
+		
+		// == FUNCION PARA CAMBIO Y CONSULTA == buscarLibroCambio : buscarLibro (con liga a: Libros/detalleFichero/ - view:detalleFichero)		
+		$libros = $_cambio?$ficha->buscarLibroCambio($_busqueda,$_autor) : $ficha->buscarLibro($_busqueda,$_autor);
 	
 		echo $libros;
 	}
@@ -22,8 +24,10 @@ class BuscadorFicha extends \CI_Controller{
 		$_autor = 1;
 		$_busqueda = $_POST['busqueda'];
 		$_cambio = $_POST['cambio'];
-		$ficha = new Ficha();		
-		$libros = $_cambio?$ficha->buscarLibroCambio($_busqueda,$_autor):$ficha->buscarLibro($_busqueda,$_autor);
+		$ficha = new Ficha();
+		
+		// ===== FUNCION PARA CAMBIO Y CONSULTA ==== buscarLibroCambio : buscarLibro (con liga a: Libros/detalleFichero/ - view:detalleFichero)
+		$libros = $_cambio?$ficha->buscarLibroCambio($_busqueda,$_autor) : $ficha->buscarLibro($_busqueda,$_autor);
 	
 		echo $libros;
 	}

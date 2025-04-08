@@ -14,10 +14,13 @@
       <h3 class="fichero"><span class="id">Clasificaci&oacute;n: </span><span class="clasificacion"><?php echo $clasificacion; ?></span></h1>
     </div>  
     <div class="col-md-12"><hr/></div>
+
+    <!-- DETALLE DE LOS EJEMPLARES -->
     <div class="col-md-12">
       <table class="cib-table">
         <thead>
           <th class="text-center"> ADQUISICION </th>
+          <th class="text-center"> EJEMPLAR </th>
           <th class="text-center"> VOLUMEN </th>
           <th class="text-center"> TOMO </th>
           <th class="text-center"> ACCESIBLE </th>
@@ -27,6 +30,7 @@
           foreach($ejemplar as $e){
             echo "<tr>";
             echo "<td class=\"text-center\">".$e['adq']."</td>";
+            echo "<td class=\"text-center\">".$e['ejemplar']."</td>";
             echo "<td class=\"text-center\">".$e['volumen']."</td>";
             echo "<td class=\"text-center\">".$e['tomo']."</td>";
             echo "<td class=\"text-center\">".$e['accesible']."</td>";

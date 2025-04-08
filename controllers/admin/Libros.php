@@ -422,6 +422,7 @@ class Libros extends \CI_Controller{
 			$ejemplar[$cont]['adq'] = $e['numAdquisicion'];
 			$ejemplar[$cont]['volumen'] = $e['volumen'];
 			$ejemplar[$cont]['tomo'] = $e['tomo'];
+			$ejemplar[$cont]['ejemplar'] = $e['ejemplar'];
 			$ejemplar[$cont]['accesible'] = $e['accesible'];
 			$cont++;			
 		}					

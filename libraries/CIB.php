@@ -20,6 +20,7 @@ class CIB {
 		// Titulo | Autor | Clasificacion
 		$tabla = "<table class=\"cib-table\"><thead>";
 		$tabla .= "<tr>";		
+		$tabla .= "<th class=\"text-center\">ID</th>";
 		$tabla .= "<th><i class=\"fa fa-book\" aria-hidden=\"true\"></i> TITULO</th>";
 		$tabla .= "<th><i class=\"fa fa-user-circle\" aria-hidden=\"true\"></i> AUTOR</th>";
 		$tabla .= "<th><i class=\"fa fa-barcode\" aria-hidden=\"true\"></i>	CLASIFICACION</th></tr></thead>";		
@@ -31,7 +32,8 @@ class CIB {
 			$autor = $a['autor'];
 			$clasificacion = $a['clasificacion'];
 			
-			$tabla .= "<tr>";							
+			$tabla .= "<tr>";
+			$tabla .= "<td><small>{$id}</small></td>";
 			$tabla .= "<td><a href=\"../../admin/Libros/detalleFichero/{$id}\">{$titulo} <small><i class=\"fa fa-link green\" aria-hidden=\"true\"></i></small></a></td>";
 			$tabla .= "<td><small class=\"tiny\">{$autor}</small></td>";
 			$tabla .= "<td><small>{$clasificacion}</small></td>";

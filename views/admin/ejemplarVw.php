@@ -114,7 +114,6 @@
 		</div>
 	</div>
 
-	<div id="pintame">	</div>
 	<hr class="line-space"/>
 
 	<!-- BUSQUEDA AVANZADA -->	
@@ -264,8 +263,8 @@
 		/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 		/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 		function agregarADQ($IdEjemplar){
-			let _svg = `<div style="margin: 0 auto; padding: 0;width:98%;"><table><tr>
-			<td width="25%" class="td-etiqueta"><small id="clasificacion-${contador}"></small></td>
+			let _svg = `<div style="margin: 0 auto; padding: 0;"><table><tr>
+			<td width="20%" class="td-etiqueta"><small id="clasificacion-${contador}"></small></td>
 			<td width="75%" class="td-etiqueta">
 			<small class="mosquito">CIB</small>
 			<small id="ejemplar-${contador}" class="mosquito"></small>
@@ -290,7 +289,7 @@
 			
 			// ===&&&&&& AQUI SE VA A GENERAR LA INFORMACION DE LA ETIQUETA &&&&&===
 			$.post(link_info_etiquetas,{id:$IdEjemplar},function(resp){
-				document.querySelector("#pintame").innerHTML = `<strong>${contador}</strong>`;
+				
 				const [e, adq, c] = resp.split(',');
 				let __ejemplar = `#ejemplar-${contador}`;
 				let __clasificacion = `#clasificacion-${contador}`;
