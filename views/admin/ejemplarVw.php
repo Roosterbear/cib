@@ -10,10 +10,8 @@
 		<div class="mini-espaciado"></div>
 		<table id="tabla-etiquetas">
 			<tr>
-				<td id="sp01">
-				</td>
-				<td id="sp02">
-				</td>				
+				<td id="sp01"></td>
+				<td id="sp02"></td>				
 			</tr>
 			<tr>
 				<td id="sp03"></td>
@@ -263,7 +261,7 @@
 		/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 		/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 		function agregarADQ($IdEjemplar){
-			let _svg = `<div style="margin: 0 auto; width:98%;padding: 0;"><table><tr>
+			let _svg = `<div style="margin: 0 auto; width:100%;padding: 0;"><table><tr>
 			<td width="5%" class="td-etiqueta"><small id="clasificacion-${contador}"></small></td>
 			<td width="95%" class="td-etiqueta">
 			<small class="mosquito">CIB</small>

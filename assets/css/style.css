@@ -281,7 +281,7 @@ hr.line-space{
 }
 
 #tabla-etiquetas{  
-  width: 40%;
+  width: 60%;
   height: auto; /* 100% del alto de la hoja */
   border-collapse: collapse;
   table-layout: fixed;  
@@ -499,9 +499,10 @@ button.war{
   transform: rotate(45deg);
 }
 
-@media screen and (max-width:1800px){
+@media screen and (max-width:1300px){
   #tabla-etiquetas{  
-    table-layout: unset;/* 100% del alto de la hoja */
+    width: 80%;
+    height: auto; /* 100% del alto de la hoja */
   }
 }
 
@@ -536,6 +537,7 @@ button.war{
 
   #tabla-etiquetas tr {
     height: calc(260mm / 8);
+    min-width: 100%;
   }
   
   .no-print {
