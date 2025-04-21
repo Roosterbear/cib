@@ -262,8 +262,9 @@
 		/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 		function agregarADQ($IdEjemplar){
 			let _svg = `<div style="margin: 0 auto; width:100%;padding: 0;"><table><tr>
-			<td width="5%" class="td-etiqueta"><small id="clasificacion-${contador}"></small></td>
-			<td width="95%" class="td-etiqueta">
+			<td width="10%" class="td-etiqueta">
+			<div class="clasificacion" style="line-height: 1; padding: 0; margin: 0;" id="clasificacion-${contador}"></div></td>
+			<td width="90%" class="td-etiqueta">
 			<small class="mosquito">CIB</small>
 			<small id="ejemplar-${contador}" class="mosquito"></small>
 			<svg class="barcode v-${contador}"							
@@ -292,7 +293,9 @@
 				let __ejemplar = `#ejemplar-${contador}`;
 				let __clasificacion = `#clasificacion-${contador}`;
 				document.querySelector(__ejemplar).innerHTML = `Ej. ${e}`;
-				document.querySelector(__clasificacion).innerHTML = c;
+				document.querySelector(__clasificacion).innerHTML = `=PRUEBA=<br/>HD<br/>38.5<br/>M57<br/>2019<br/>extra`;
+				//document.querySelector(__clasificacion).innerHTML = c;
+				console.log(c);
 				document.querySelector(version).setAttribute("jsbarcode-value", adq);
 				JsBarcode(".barcode").init();
 				/* === ESTO RESETEA LOS ESPACIOS CUANDO SE LLEGA A 16 === */

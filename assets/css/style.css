@@ -32,9 +32,6 @@ h3.fichero{
   color: #627254;
 }
 
-.clasificacion{
-  color: #76885B;
-}
 
 
 /* -------------- */
@@ -234,7 +231,15 @@ hr.line-space{
 	color: white;
   background-color: #6b0;
 }
-	
+
+.clasificacion{
+  font-weight: bold;
+  font-size: 11px;
+}
+
+
+
+
 /* ----------- */
 /*  MENSAJES   */
 /* ----------- */
@@ -307,7 +312,7 @@ hr.line-space{
 
 .mosquito{
   display: block;
-  font-size: 10px;
+  font-size: 12px;
   padding:0;
   margin: 0;
 }
@@ -540,6 +545,10 @@ button.war{
     min-width: 100%;
   }
   
+  #tabla-etiquetas td {
+    border: 0;
+  }
+
   .no-print {
     display: none;
   }
