@@ -264,7 +264,7 @@
 			let _svg = `<div style="margin: 0 auto; width:100%;padding: 0;"><table><tr>
 			<td width="10%" class="td-etiqueta">
 			<div class="clasificacion" style="line-height: 1; padding: 0; margin: 0;" id="clasificacion-${contador}"></div></td>
-			<td width="90%" class="td-etiqueta">
+			<td width="90%" class="td-etiqueta" style="line-height: 1; padding: 0; margin: 0;">
 			<small class="mosquito">CIB</small>
 			<small id="ejemplar-${contador}" class="mosquito"></small>
 			<svg class="barcode v-${contador}"							
@@ -272,7 +272,7 @@
 			jsbarcode-value="ABC1234567"
 			jsbarcode-textmargin="0"
 			jsbarcode-width="1"
-			jsbarcode-height="30">
+			jsbarcode-height="28">
 			</svg>
 			</td></tr></table></div>
 			`;
