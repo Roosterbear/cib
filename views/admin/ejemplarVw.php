@@ -74,24 +74,24 @@
 				<div class="text-center">
 					<div><strong class="dark-rhino">AREA ETIQUETAS</strong></div>
 					<div class="filaCuadricula">
-						<div id="s01"></div>
-						<div id="s02"></div>
-						<div id="s03"></div>
-						<div id="s04"></div>
-						<div id="s05"></div>
-						<div id="s06"></div>
-						<div id="s07"></div>
-						<div id="s08"></div>
+						<div id="s02" class="puntero"></div>
+						<div id="s04" class="puntero"></div>
+						<div id="s06" class="puntero"></div>
+						<div id="s08" class="puntero"></div>
+						<div id="s10" class="puntero"></div>
+						<div id="s12" class="puntero"></div>
+						<div id="s14" class="puntero"></div>
+						<div id="s16" class="puntero"></div>
 					</div>
 					<div class="filaCuadricula">
-						<div id="s09"></div>
-						<div id="s10"></div>
-						<div id="s11"></div>
-						<div id="s12"></div>
-						<div id="s13"></div>
-						<div id="s14"></div>
-						<div id="s15"></div>
-						<div id="s16"></div>
+						<div id="s01" class="puntero"></div>
+						<div id="s03" class="puntero"></div>
+						<div id="s05" class="puntero"></div>
+						<div id="s07" class="puntero"></div>
+						<div id="s09" class="puntero"></div>
+						<div id="s11" class="puntero"></div>
+						<div id="s13" class="puntero"></div>
+						<div id="s15" class="puntero"></div>
 					</div>
 				</div>
 			</div>
@@ -215,6 +215,12 @@
 		/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 		/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
+		/* ---------++ ELIMINAR EN AREA DE ETIQUETAS ++------------------ */	
+		cuadricula.addEventListener('click', function(e){
+			let delBox = e.target.closest('.puntero');
+			alert(delBox.id);
+		});
+
 		/* Para ID Ficha */
 		$(inputID).on("keydown", function(e){
 			let tecla = e.key;
@@ -279,7 +285,7 @@
 			// Guarda en el array el ID del ejemplar
 			$ejemplares[contador] = $IdEjemplar;		
 			// Agrega ID del ejemplar a la cuadrícula	
-			document.querySelector("#"+$seats[contador]).innerHTML = $IdEjemplar;
+			document.querySelector("#"+$seats[contador]).innerHTML = `${$IdEjemplar}  <i class="fa fa-trash fa-2x rhino"></i>`;
 			
 			
 			console.log($ejemplares); // El array que se va llenando
@@ -295,8 +301,6 @@
 				const [clas1,clas2,clas3,clas4,clas5,clas6] = c.split(' ');
 				document.querySelector(__ejemplar).innerHTML = `Ej. ${e}`;
 				document.querySelector(__clasificacion).innerHTML = `${clas1||''}<br/>${clas2||''}<br/>${clas3||''}<br/>${clas4||''}<br/>${clas5||''}<br/>${clas6||''}`;
-
-				console.log(c);
 				document.querySelector(version).setAttribute("jsbarcode-value", adq);
 				JsBarcode(".barcode").init();
 				/* === ESTO RESETEA LOS ESPACIOS CUANDO SE LLEGA A 16 === */
