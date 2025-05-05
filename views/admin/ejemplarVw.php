@@ -292,9 +292,9 @@
 				const [e, adq, c] = resp.split(',');
 				let __ejemplar = `#ejemplar-${contador}`;
 				let __clasificacion = `#clasificacion-${contador}`;
-				const [clas1,clas2,clas3,clas4,clas5] = c.split(' ');
+				const [clas1,clas2,clas3,clas4,clas5,clas6] = c.split(' ');
 				document.querySelector(__ejemplar).innerHTML = `Ej. ${e}`;
-				document.querySelector(__clasificacion).innerHTML = `${clas1}<br/>${clas2}<br/>${clas3}<br/>${clas4}<br/>${clas5}<br/>`;
+				document.querySelector(__clasificacion).innerHTML = `${clas1||''}<br/>${clas2||''}<br/>${clas3||''}<br/>${clas4||''}<br/>${clas5||''}<br/>${clas6||''}`;
 
 				console.log(c);
 				document.querySelector(version).setAttribute("jsbarcode-value", adq);
