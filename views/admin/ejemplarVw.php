@@ -218,7 +218,7 @@
 
 
 		/* ---------++ ELIMINAR EN AREA DE ETIQUETAS ++------------------ */	
-		cuadricula.addEventListener('click', function(e){
+		cuadricula.addEventListener('dblclick', function(e){
 			let delBox = e.target.closest('.puntero');
 			
 			// Nos da el asiento que se le dio click!!
@@ -227,6 +227,15 @@
 		/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 		/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
+		/* ---------++ POSICIONAR EN AREA DE ETIQUETAS ++------------------ */	
+		cuadricula.addEventListener('click', function(e){
+			let posBox = e.target.closest('.puntero');
+			
+			// Nos da el asiento que se le dio click!!
+			posicionarADQ(posBox.id);
+		});
+		/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+		/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
 
 
@@ -335,6 +344,10 @@
 			$ejemplares[$borrar] = ``;
 		}
 
+		function posicionarADQ($idBorrar){
+			$borrar = $idBorrar.substring(2)-1;
+			contador = $borrar;
+		}
 
 
 		btnPreview.addEventListener('click', function(){
