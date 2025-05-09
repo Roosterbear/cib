@@ -524,8 +524,8 @@ button.war{
   }
 
   table {
-    width: 100%;
-    height: 100%;
+    width: 95%;
+    height: 95%;
     max-width: fit-content !important;
     max-height: fit-content !important;
   }
@@ -540,7 +540,7 @@ button.war{
   }
 
   #tabla-etiquetas tr {
-    height: calc(260mm / 8);
+    height: calc(268mm / 8);
     min-width: 100%;
   }
   

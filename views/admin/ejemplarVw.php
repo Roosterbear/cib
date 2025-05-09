@@ -8,37 +8,37 @@
 		<button id="btn-preview-imprimir" class="btn butt ok puntero esp no-print">Imprimir</button>
 		<button id="btn-preview-regresar" class="btn butt war puntero esp no-print">Regresar</button>
 		<div class="mini-espaciado"></div>
-		<table id="tabla-etiquetas">
+		<table id="tabla-etiquetas" style="margin-top: -10px;">
 			<tr>
-				<td id="sp01"></td>
+				<td id="sp01" style="width: 40%;"></td>
 				<td id="sp02"></td>				
 			</tr>
 			<tr>
-				<td id="sp03"></td>
+				<td id="sp03" style="width: 45%;"></td>
 				<td id="sp04"></td>				
 			</tr>
 			<tr>
-				<td id="sp05"></td>
+				<td id="sp05" style="width: 45%;"></td>
 				<td id="sp06"></td>				
 			</tr>
 			<tr>
-				<td id="sp07"></td>
+				<td id="sp07" style="width: 45%;"></td>
 				<td id="sp08"></td>				
 			</tr>
 			<tr>
-				<td id="sp09"></td>
+				<td id="sp09" style="width: 45%;"></td>
 				<td id="sp10"></td>				
 			</tr>
 			<tr>
-				<td id="sp11"></td>
+				<td id="sp11" style="width: 45%;"></td>
 				<td id="sp12"></td>				
 			</tr>
 			<tr>
-				<td id="sp13"></td>
+				<td id="sp13" style="width: 45%;"></td>
 				<td id="sp14"></td>				
 			</tr>
 			<tr>
-				<td id="sp15"></td>
+				<td id="sp15" style="width: 45%;"></td>
 				<td id="sp16"></td>				
 			</tr>
 		</table>
@@ -93,6 +93,10 @@
 						<div id="s13" class="puntero"></div>
 						<div id="s15" class="puntero"></div>
 					</div>
+					<small class="text-right">
+						<strong>Doble click</strong> para <strong class="tomato">eliminar</strong>, 
+						<strong class="rhino"><em>Click</em></strong> para <strong class="green">posicionar</strong>.
+					</small>
 				</div>
 			</div>
 		</div><!-- row  -->    
@@ -222,7 +226,7 @@
 			let delBox = e.target.closest('.puntero');
 			
 			// Nos da el asiento que se le dio click!!
-			eliminarADQ(delBox.id);
+			if (delBox != null) eliminarADQ(delBox.id);
 		});
 		/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 		/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
@@ -232,7 +236,7 @@
 			let posBox = e.target.closest('.puntero');
 			
 			// Nos da el asiento que se le dio click!!
-			posicionarADQ(posBox.id);
+			if (posBox != null) posicionarADQ(posBox.id);
 		});
 		/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 		/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
