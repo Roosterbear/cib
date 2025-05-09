@@ -329,40 +329,10 @@
 		/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
 		function eliminarADQ($idBorrar){
-			let _svg = ``;
-			
-			alert($idBorrar);
-			
-			//$ejemplares[contador] = $IdEjemplar;		
-			//document.querySelector("#"+$seats[contador]).innerHTML = `${$IdEjemplar}  <i class="fa fa-trash fa-2x rhino"></i>`;
-			
-			
-			//console.log($ejemplares); // El array que se va llenando
-			//const version = `.v-${contador}`; // Version del SVG
-			
-			
-			
-			/*
-			$.post(link_info_etiquetas,{id:$IdEjemplar},function(resp){
-				
-				const [e, adq, c] = resp.split(',');
-				let __ejemplar = `#ejemplar-${contador}`;
-				let __clasificacion = `#clasificacion-${contador}`;
-				const [clas1,clas2,clas3,clas4,clas5,clas6] = c.split(' ');
-				document.querySelector(__ejemplar).innerHTML = `Ej. ${e}`;
-				document.querySelector(__clasificacion).innerHTML = `${clas1||''}<br/>${clas2||''}<br/>${clas3||''}<br/>${clas4||''}<br/>${clas5||''}<br/>${clas6||''}`;
-				document.querySelector(version).setAttribute("jsbarcode-value", adq);
-				JsBarcode(".barcode").init();
-				if(contador<15){
-					contador++;
-				}else{
-					contador = 0;
-				}
-			});	
-			*/
-
-
-			//document.querySelector("#"+$seatsPrint[contador]).innerHTML = _svg;
+			$borrar = $idBorrar.substring(2)-1;
+			document.querySelector("#"+$seats[$borrar]).innerHTML = ``;
+			document.querySelector("#"+$seatsPrint[$borrar]).innerHTML = ``;
+			$ejemplares[$borrar] = ``;
 		}
 
 
