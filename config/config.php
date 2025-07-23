@@ -23,7 +23,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = '//calificacion.app.utags.edu.mx/';
+$config['base_url'] = '//calificacion-app.utags.edu.mx/';
+//$config['base_url'] = '/cib/';
+
 
 /*
 |--------------------------------------------------------------------------

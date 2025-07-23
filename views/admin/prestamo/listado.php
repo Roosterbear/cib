@@ -10,7 +10,7 @@
 			</button>
 		</div>
 		<div class="col"></div>
-		<div class="col">Máximo: <b><?php echo $perfil->getLibros()?></b></div>
+		<div class="col">Mï¿½ximo: <b><?php echo $perfil->getLibros()?></b></div>
 		<div class="col text-right">
 		<?php  if ($multa){?>
 	   		<span class="badge badge-danger">Tiene Multa</span>
@@ -28,14 +28,14 @@
 <table class="table table-striped table-bordered">
 <thead class="thead-inverse">
 <tr>
-	<th>No Adquisición</th>
-	<th>Título</th>
+	<th>No Adquisiciï¿½n</th>
+	<th>Tï¿½tulo</th>
 	<th>Autor</th>
-	<th>Política</th>
+	<th>Polï¿½tica</th>
 	<th>Salida</th>
 	<th>Entrega </th>
 	<th>Renovaciones</th>
-	<th>Acción</th>
+	<th>Acciï¿½n</th>
 
 </tr>
 </thead>

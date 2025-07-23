@@ -1,5 +1,5 @@
 <div id="tabla-fichero">
-	<img src="/cib/assets/img/world-book.png" class="icono" /><h4 class="bib-titulo">Consulta de libros</h4>
+	<img src="/assets/img/world-book.png" class="icono" /><h4 class="bib-titulo">Consulta de libros</h4>
 	<br>
 	<form id="buscar" action="#" method="post" >
 		<div class="row areaBuscar">
