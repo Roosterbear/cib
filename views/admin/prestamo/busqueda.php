@@ -9,7 +9,7 @@
 <div class="modal-body">
 <form action="<?php echo site_url("admin/Prestamos/BuscarLibro")?>" data-objetivo="#response_devolver" >
 <div class="form-row align-items-center">
-<label for="adquisicion" class="col-auto"># de Adquisición:</label>
+<label for="adquisicion" class="col-auto"># de Adquisici&oacute;n:</label>
 
 <div class="col-auto">
 <input type="text" class="form-control mr-sm-2" name="numAdquisicion" required="required">

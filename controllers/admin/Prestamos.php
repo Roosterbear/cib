@@ -1,40 +1,15 @@
 <?php
-///require_once ('system/core/Controller.php');
 
-/**
- *
- * @author jguerrero
- *
- */
 class Prestamos extends \CI_Controller {
-  // TODO - Insert your code here
+
   private $idUsuario=11328;
 
-  /**
-   *
-   * @var UsuarioSITO
-   */
   public $usuario;
 
-  /**
-   *
-   * @var Cuentas
-   */
   public $cuentas;
-  /**
-   *
-   * @var Biblioteca
-   */
+
   public $biblioteca;
-  /**
-   *
-   * @return void
-   *
-   */
-  /**
-   *
-   * @var Cajas
-   */
+
   public $cajas;
 
   public function __construct() {
@@ -47,7 +22,6 @@ class Prestamos extends \CI_Controller {
 
     if(!$this->usuario->login()){
       show_error("La session ha caducado o esta entrando con un usuario no valido",500,"Acceso Denegado");
-
     }
 
     $this->load->helper("alerta");
@@ -64,8 +38,6 @@ class Prestamos extends \CI_Controller {
     $this->load->model("Perfil");
     $this->load->model("PrestamoRenovacion");
 
-
-
     $this->load->library("Cuentas");
     $this->load->library("Biblioteca");
     $this->load->library("MenusDB");
@@ -73,37 +45,58 @@ class Prestamos extends \CI_Controller {
     $this->load->library("Cajas");
   }
 
-
   public function index(){
     $this->load->view("admin/prestamo/index");
   }
 
   public function buscarUsuario(){
     try{
-      $busqueda= utf8_decode($_REQUEST["usuario"]);
-      $usuario =new Usuario();
+      /* SE MANDO POR POST usuario */
+      /* $busqueda = usuario enviado */
+      $busqueda = utf8_decode($_REQUEST["usuario"]);
+
+      /* SE CREA UN NUEVO USUARIO */
+      $usuario = new Usuario();
+      
       if(preg_match("/^([ab]\d{5})|(\d{6})$/i", $busqueda)){
-        //if(is_numeric($busqueda)){
+        
+        /* SE BUSCA POR MATRICULA O NUMERO DE EMPLEADO */
         $usuario->setUsuario($busqueda);
       }else{
+        /* SE BUSCA POR NOMBRE */
         $usuario->setNombre($busqueda);
       }
 
-      $listado=$this->cuentas->listUsuarios($usuario,12);
+
+      /* ------------------------------------------- */
+      /* SE PASA EL USUARIO PARA OBTENER INFORMACION */
+      /* ------------------------------------------- */
+      
+      /* $cuentas es una LIBRERIA */
+      /* Recibe el objeto $usuario y lineas a mostrar */
+      $listado = $this->cuentas->listUsuarios($usuario,12);
 
       if(count($listado)==0){
         throw new Exception("No se encontro ningun resultado",2);
       }
+
+      /* SI SOLO HAY UN RESULTADO, MOSTRAR PRESTAMOS */
       if(count($listado)==1){
         $usr=array_pop($listado);
+
+        /* CARGA LA VISTA DE PRESTAMO DE USUARIO === SOLO 1 USUARIO === */
         $this->vwPrestamoUsuario($usr->getId(), $usr->getTipo());
+
       }else{
+        
+        /* SI HAY VARIOS RESULTADOS, MOSTRAR LISTADO */
         $this->output->append_output('<div class="row" >');
         foreach ($listado as $usr){
 
+          /* CARGA LA VISTA DE PRESTAMO DE USUARIO === VARIOS USUARIOS === */
           $this->vwUsuario($usr->getId(), $usr->getTipo());
-
         }
+
         $this->output->append_output('</div>');
       }
     }catch(Exception $e){
@@ -119,7 +112,6 @@ class Prestamos extends \CI_Controller {
       $ejemplar= new Ejemplar();
       $ejemplar->setNumAdquisicion($busqueda);
 
-
       $d["ejemplar"]=$this->biblioteca->EjemplarLibro($ejemplar,"numAdquisicion");
       $d["idPerfil"]=$idPerfil;
       $this->load->view("admin/prestamo/ejemplar",$d);
@@ -129,18 +121,13 @@ class Prestamos extends \CI_Controller {
     }
   }
 
-
   public function Nuevo(){
     try{
-
-
       $prestamo= new Prestamo();
-
       $prestamo->setIdejemplar(@$_REQUEST['idEjemplar']);
       $prestamo->setIdsolicitante(@$_REQUEST['idSolicitante']);
       $prestamo->setIdpolitica(@$_REQUEST['idPolitica']);
       $prestamo->setIdusuario($this->usuario->getCve_persona());
-
 
       $this->biblioteca->prestarEjemplar($prestamo);
 
@@ -152,12 +139,8 @@ class Prestamos extends \CI_Controller {
     }
   }
 
-
-
   public function Renovar($idPrestamo,$idUsuario,$tipo){
     try{
-
-
       $prestamo= new Prestamo($idPrestamo);
       $prestamo->setIdusuario($this->usuario->getCve_persona());
 
@@ -173,8 +156,6 @@ class Prestamos extends \CI_Controller {
 
   public function Devolver($idPrestamo,$idUsuario,$tipo){
     try{
-
-
       $prestamo= new Prestamo($idPrestamo);
       $prestamo->setIdusuario($this->usuario->getCve_persona());
 
@@ -192,19 +173,23 @@ class Prestamos extends \CI_Controller {
     try{
 
       if($tipo=="Alumno"){
+
+        /* === Se crea usuario ALUMNO === */
         $usuario= new Alumno($idUsuario);
         $this->cuentas->UsuarioAlumno($usuario);
       }
       if($tipo=="Empleado"){
+
+        /* === Se crea usuario EMPLEADO === */
         $usuario= new Empleado($idUsuario);
         $this->cuentas->UsuarioEmpleado($usuario);
       }
-
-
+      
       $datos["usuario"]=$usuario;
       $datos["seleccionable"]=$seleccionable;
+      
+      /* === Se carga la vista === */
       $this->load->view("admin/usuario",$datos);
-
 
     }catch(Exception $e){
       send_exception($e);
@@ -216,6 +201,7 @@ class Prestamos extends \CI_Controller {
       $usuario= new Usuario($idUsuario);
       $usuario->setTipo($tipo);
       $this->vwUsuario($usuario->getId(), $tipo,false);
+
       $d["idSolicitante"]=$usuario->getId();
       $d["prestamos"]=$this->biblioteca->ListPrestamosPorUsuario($usuario);
       $d["tipo"]=$usuario->getTipo();
@@ -236,16 +222,12 @@ class Prestamos extends \CI_Controller {
         }
       }
 
-
       $this->load->view("admin/prestamo/listado",$d);
-
 
     }catch(Exception $e){
       send_exception($e);
     }
-
   }
-
 
   public function vwHistorial($idUsuario){
     try{
@@ -254,11 +236,9 @@ class Prestamos extends \CI_Controller {
 
       $this->load->view("admin/prestamo/historial",$d);
 
-
     }catch(Exception $e){
       send_exception($e);
     }
-
   }
 
   public function vwNuevoPrestamo($idSolicitante,$tipo){
@@ -269,22 +249,18 @@ class Prestamos extends \CI_Controller {
 
       $user=$this->cuentas->Usuario($usuario);
       $d["usuario"]=$user;
-      //pre($usr);
 
       $this->load->view("admin/prestamo/nuevo_prestamo",$d);
-
 
     }catch(Exception $e){
       send_exception($e);
     }
-
   }
 
   public function vwEjemplar($idEjemplar){
     try{
 
       $ejemplar= new Ejemplar($idEjemplar);
-      //$ejemplar->setNumAdquisicion($id);
 
       $d["ejemplar"]=$this->biblioteca->EjemplarLibro($ejemplar);
 

@@ -4,7 +4,7 @@
 ?><!DOCTYPE html>
 <html>
 <head>
-	<title>Prestamo y Recepci�n</title>
+	<title>Prestamo y Recepcion</title>
 	<link rel="stylesheet" href="/css/font-awesome.css/font-awesome.min.css">
 	<link rel="stylesheet" href="/css/bootstrap.4.css/bootstrap.min.css">
 	<link rel="stylesheet" href="/css/lobibox.min.css">
@@ -29,7 +29,7 @@
 </head>
 <body>
 <div class="container-fluid">
-<h4>Prestamo y Recepcion de Libros</h4>
+<h4>Prestamo y Recepci&oacute;n de Libros</h4>
 <br>
 <form id="buscar" action="<?php echo site_url("admin/prestamos/")?>buscarUsuario" method="post" >
 <div class="row">
@@ -40,12 +40,16 @@
 		<input name="usuario" class="form-control" required="required">
 	</div>
 	<div class="col-md-2"><br>
+		<!-- BOTON BUSCAR -->
 		<button class="btn btn-block btn-primary btn-sm">Buscar <i class="fa fa-search" aria-hidden="true"></i>
 		</button>
 	</div>
 	<div class="col-md-2">
 		<br>
-	    <button class="btn btn-block btn btn-success btn-sm pull-right" type="button" data-direccion="admin/Prestamos/vwBuscarLibro" data-objetivo="#e_modal_content" data-toggle="modal" data-target=#e_modal >Devolver <i class="fa fa-sign-in" aria-hidden="true"></i></button>
+		<!-- BOTON DEVOLVER -->
+	    <button class="btn btn-block btn btn-success btn-sm pull-right" type="button" 
+		data-direccion="admin/Prestamos/vwBuscarLibro" data-objetivo="#e_modal_content" 
+		data-toggle="modal" data-target=#e_modal >Devolver <i class="fa fa-sign-in" aria-hidden="true"></i></button>
 	</div>   
 </div>
 </form>

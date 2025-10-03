@@ -1,14 +1,8 @@
 <?php
 
-/** 
- * @author jguerrero
- * 
- */
 class Cuentas {
 	public $db;
 	
-	/**
-	 */
 	function __construct() {
 		$this->db=&get_instance()->db;
 	}
@@ -34,21 +28,20 @@ class Cuentas {
 		
 		$filter="";
 		
-		
+		/* SI AL OBJETO $usuario SE LE PASO EL NOMBRE */
 		if($usuario->getNombre()!=""){ 
-			
 			$words=explode(" ", $usuario->NombreCompleto());
 			foreach($words as $word){
 				$filter.=" and p.nombre + p.apellido_paterno +p.apellido_materno like '%$word%' ";
 			}
 		}
 		
+		/* SI AL OBJETO $usuario SE LE PASO EL NUMERO DE USUARIO */
 		if($usuario->getUsuario()!==null){
 			$filter.=" and isnull(e.cve_empleado,isnull(a.matricula,0)) = '{$usuario->getUsuario()}'";
-			
 		}
 		
-		
+		/* SI RESULTA QUE NO FILTRO POR NOMBRE NI NUMERO DE USUARIO */
 		if($filter==""){ Throw new Exception("Ningun filtro de busqueda ".__METHOD__);}
 		
 		$sql="select top $top p.cve_persona,p.cve_persona,p.nombre,p.apellido_paterno,p.apellido_materno 
@@ -59,14 +52,20 @@ class Cuentas {
 		left outer join empleado e on e.cve_persona=p.cve_persona
 		left outer join alumno a on a.cve_alumno=p.cve_persona
 		where (e.cve_empleado is not null or a.cve_alumno is not null) $filter";
-		//pre($sql);
-		//$rs=$this->db->Execute($sql);
+		/* A LA CONSULTA SE LE AGREGA EL FILTRO CORRESPONDIENTE */
 		
-		$rs=$this->db->Execute($sql);
-		if($rs===false){ $ex1=new Exception($this->db->ErrorMsg()); Throw new Exception("Falló la consulta".__METHOD__,null,$ex1);}
-		//if($rs->RecordCount()<1){ Throw new Exception("No se encontro resultados".__METHOD__,1); }
+
+		/* EJECUTAR CONSULTA */
+		$rs = $this->db->Execute($sql);
+
+		/* SI FALLA LA CONSULTA, ==LANZAR ERROR== */
+		if($rs===false){ $ex1=new Exception($this->db->ErrorMsg()); Throw new Exception("Fallo la consulta".__METHOD__,null,$ex1);}
+		
+		/* CREAMOS ARRAY VACIO DE USUARIOS */
 		$usuarios=array();
 		
+		
+		/* LLENAMOS EL ARRAY DE USUARIOS */
 		while(!$rs->EOF){
 			$u= new Usuario();
 			$u->setId($rs->fields["cve_persona"]);
@@ -76,20 +75,11 @@ class Cuentas {
 			$u->setActivo($rs->fields["activo"]==1);
 			$u->setTipo($rs->fields["tipo"]);
 			$u->setUsuario($rs->fields["cuenta"]);
-			
-			
 			$usuarios[$u->getId()]=$u;
 			$rs->MoveNext();
 		}
-		
 		return $usuarios;
-		
-		
-		
-		
 	}
-	
-	
 	
 	public function UsuarioAlumno(Alumno $alumno){
 		if($alumno->getId()===null){ Throw new Exception("Requiere id.  ".__METHOD__);}
@@ -118,7 +108,7 @@ class Cuentas {
 		where p.cve_persona={$alumno->getId()}";
 		//pre($sql);	
 		$rs=$this->db->Execute($sql);
-		if($rs===false){ $ex1=new Exception($this->db->ErrorMsg()); Throw new Exception("Falló la consulta.  ".__METHOD__,null,$ex1);}
+		if($rs===false){ $ex1=new Exception($this->db->ErrorMsg()); Throw new Exception("Fallï¿½ la consulta.  ".__METHOD__,null,$ex1);}
 		if($rs->RecordCount()<1){ Throw new Exception("No se encontro resultado.  ".__METHOD__,1); }
 			
 		$alumno->setNombre($rs->fields["nombre"]);
@@ -148,7 +138,7 @@ class Cuentas {
 		where p.cve_persona={$usuario->getId()} order by e.activo desc";
 		//pre($sql);
 		$rs=$this->db->Execute($sql);
-		if($rs===false){ $ex1=new Exception($this->db->ErrorMsg()); Throw new Exception("Falló la consulta.  ".__METHOD__,null,$ex1);}
+		if($rs===false){ $ex1=new Exception($this->db->ErrorMsg()); Throw new Exception("Fallï¿½ la consulta.  ".__METHOD__,null,$ex1);}
 		if($rs->RecordCount()<1){ Throw new Exception("No se encontro resultado".__METHOD__,1); }
 		
 		$usuario->setId($rs->fields["cve_persona"]);
@@ -170,7 +160,7 @@ class Cuentas {
 		$sql="select * from perfil where id={$perfil->getId()}";
 		//pre($sql);
 		$rs=$this->db->Execute($sql);
-		if($rs===false){ $ex1=new Exception($this->db->ErrorMsg()); Throw new Exception("Falló la consulta.  ".__METHOD__,null,$ex1);}
+		if($rs===false){ $ex1=new Exception($this->db->ErrorMsg()); Throw new Exception("Fallï¿½ la consulta.  ".__METHOD__,null,$ex1);}
 		if($rs->RecordCount()<1){ Throw new Exception("No se encontro registro".__METHOD__,1); }
 		
 		$perfil->setId($rs->fields["id"]);
