@@ -1,42 +1,56 @@
-<?php /* @var $perfil Perfil */
+<?php 
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// MODAL para mostrar los prestamos del Usuario
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 ?>
 <div class="card">
 <div class="card-header">
 	<div class="row">
 		<div class="col"><h6>Libros en Prestamo</h6></div>
 		<div class="col">
+			<!-- BOTON "Historial" -->
 			<button class="btn btn btn-secondary btn-sm " data-toggle="modal" data-target="#e_modal_lg" data-direccion="admin/Prestamos/vwHistorial/<?=$idSolicitante?>" data-objetivo="#e_modal_lg_content">
-			Historial <i class="fa fa-history" aria-hidden="true"></i>
+				Historial <i class="fa fa-history" aria-hidden="true"></i>
 			</button>
 		</div>
 		<div class="col"></div>
-		<div class="col">M�ximo: <b><?php echo $perfil->getLibros()?></b></div>
+		<div class="col">M&aacute;ximo: <b><?php echo $perfil->getLibros()?></b></div>
 		<div class="col text-right">
-		<?php  if ($multa){?>
-	   		<span class="badge badge-danger">Tiene Multa</span>
-	   	<?php } ?>
-		<?php if( $nuevoPrestamo){?>
-			<button class="btn btn btn-primary btn-sm " data-toggle="modal" data-target="#e_modal" data-direccion="admin/Prestamos/vwNuevoPrestamo/<?=$idSolicitante?>/<?=$tipo?>" data-objetivo="#e_modal_content">
-			Prestar Libro <i class="fa fa-book" aria-hidden="true"></i>
-			</button>
-		<?php } ?>
+			
+			<!-- MENSAJE Si tiene Multa -->
+			<?php  if ($multa){?>
+				<span class="badge badge-danger">Tiene Multa</span>
+			<?php } ?>
+			
+			<!-- EL BOTON DE "Prestar Libro" DESAPARECE SI YA ALCANZO EL MAXIMO -->
+			<?php if( $nuevoPrestamo){?>
+				<!-- BOTON "Prestar Libro" -->
+				<button class="btn btn btn-primary btn-sm " data-toggle="modal" data-target="#e_modal" data-direccion="admin/Prestamos/vwNuevoPrestamo/<?=$idSolicitante?>/<?=$tipo?>" data-objetivo="#e_modal_content">
+					Prestar Libro <i class="fa fa-book" aria-hidden="true"></i>
+				</button>
+			<?php } ?>
 		</div>
 
 	</div>
 </div>
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- ENCABEZADO DE TABLA DE PRESTAMOS -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+ 
+<!-- Se muestra independientemente si el usuario tiene prestamos o no -->
 <div class="card-body">
 <table class="table table-striped table-bordered">
 <thead class="thead-inverse">
 <tr>
-	<th>No Adquisici�n</th>
-	<th>T�tulo</th>
+	<th>No Adquisici&oacute;n</th>
+	<th>T&iacute;tulo</th>
 	<th>Autor</th>
-	<th>Pol�tica</th>
+	<th>Pol&iacute;tica</th>
 	<th>Salida</th>
 	<th>Entrega </th>
 	<th>Renovaciones</th>
-	<th>Acci�n</th>
-
+	<th>Acci&oacute;n</th>
 </tr>
 </thead>
 

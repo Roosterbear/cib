@@ -1,4 +1,7 @@
 <?php
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// MODAL PARA BOTON "Historial"
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 ?>
 <div class="card">
 <div class="card-header">
@@ -13,10 +16,10 @@
 <table class="table table-striped table-bordered">
 <thead class="thead-inverse">
 <tr>
-	<th>No Adquisición</th>
-	<th>Título</th>
+	<th>No Adquisici&oacute;n</th>
+	<th>T&iacute;tulo</th>
 	<th>Autor</th>
-	<th>Política</th>
+	<th>Pol&iacute;tica</th>
 	<th>Salida</th>
 	<th>Entrada </th>
 	<th>Renovaciones</th>

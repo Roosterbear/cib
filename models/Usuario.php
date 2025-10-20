@@ -131,11 +131,6 @@ class Usuario extends \CI_Model {
 	public function setIdPerfil($idPerfil) {
 		$this->idPerfil = $idPerfil;
 	}
-
-
-
-
-	
 }
 
 ?>

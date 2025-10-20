@@ -1,4 +1,8 @@
 <?php
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// MODAL PARA BOTON "Devolver" -> "Buscar"
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
 @$hoy=new DateTime();
 @$fecha=new DateTime($prestamo->getFechaEntrega()." 23:59:00");
 $vencido=$fecha<$hoy; 

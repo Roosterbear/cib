@@ -16,6 +16,7 @@ class BibliotecaMenus extends MenusDB {
 		$query="select nombre,id from cib.politica p 
 		inner join cib.perfilPolitica pp on p.id=pp.idPolitica
 		where pp.idPerfil=$idPerfil";
+		
 		return $this->generarMenu($query, $nombre, $id);
 	}
 	

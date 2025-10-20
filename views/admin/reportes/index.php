@@ -27,11 +27,6 @@
 <br>
 <h4>Reportes</h4>
 
-
-
-
-
-
 <hr>
 
 <table></table>
@@ -50,38 +45,46 @@
 			<td>Libros en Prestamo</td>
 			<td><button data-direccion="admin/Reportes/RptLibrosEnPrestamo" class="btn btn-primary btn-sm" >Ver</button></td>
 			<td>
+				<!--
 				<a href="<?=site_url("admin/Reportes/RptLibrosEnPrestamo/xlsx")?>" class="btn btn-success btn-sm"  title="Excel">
 					Descargar <i class="fa fa-file-excel-o" aria-hidden="true"></i>
 				</a>
+				-->
 			</td>
 		</tr>
 		<tr>
 			<td>Libros en Prestamo Vencidos</td>
 			<td><button data-direccion="admin/Reportes/RptLibrosEnPrestamoVencidos" class="btn btn-primary btn-sm" >Ver</button></td>
 			<td>
+				<!--
 				<a href="<?=site_url("admin/Reportes/RptLibrosEnPrestamoVencidos/xlsx")?>" class="btn btn-success btn-sm"  title="Excel">
 					Descargar <i class="fa fa-file-excel-o" aria-hidden="true"></i>
 				</a>
+				-->
 			</td>
 		</tr>
 		<tr>
 			<td>Activos en Prestamo</td>
 			<td><button data-direccion="admin/Reportes/RptActivosEnPrestamo" class="btn btn-primary btn-sm" >Ver</button></td>
 			<td>
+				<!--
 				<a href="<?=site_url("admin/Reportes/RptActivosEnPrestamo/xlsx")?>" class="btn btn-success btn-sm"  title="Excel">
 					Descargar <i class="fa fa-file-excel-o" aria-hidden="true"></i>
 				</a>
+				-->
 			</td>
 
 		</tr>
 		
 		<tr>
-			<td>Activos Histórico</td>
+			<td>Activos Hist&oacute;rico</td>
 			<td><button data-direccion="admin/Reportes/RptActivosHistorico" class="btn btn-primary btn-sm" >Ver</button></td>
 			<td>
+				<!--
 				<a href="<?=site_url("admin/Reportes/RptActivosHistorico/xlsx")?>" class="btn btn-success btn-sm"  title="Excel">
 					Descargar <i class="fa fa-file-excel-o" aria-hidden="true"></i>
 				</a>
+				-->
 			</td>
 
 		</tr>

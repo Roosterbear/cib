@@ -107,6 +107,8 @@ class Prestamos extends \CI_Controller {
   public function buscarEjemplar(){
     try{
       $busqueda= utf8_decode($_REQUEST["adquisicion"]);
+
+      /* Hasta aqui esta llegando bien el PERFIL */
       $idPerfil=$_REQUEST["idPerfil"];
 
       $ejemplar= new Ejemplar();

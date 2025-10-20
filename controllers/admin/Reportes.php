@@ -27,7 +27,7 @@ class Reportes extends \CI_Controller {
 		
 		parent::__construct ();
 		$this->load->library("Biblioteca");
-		$this->load->library("PHPExcel");
+		//$this->load->library("PHPExcel");
 		$this->load->helper("alerta");
 
 	}
@@ -62,7 +62,7 @@ class Reportes extends \CI_Controller {
 		
 		//Limpiamos el buffer de salida
 		ob_end_clean();
-		// Redirect output to a client’s web browser (Excel2007)
+		// Redirect output to a clientï¿½s web browser (Excel2007)
 		header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
 		header('Content-Disposition: attachment;filename="'.$reporteNombre.'.xlsx"');
 		header('Cache-Control: max-age=0');
@@ -87,10 +87,10 @@ class Reportes extends \CI_Controller {
 				echo $this->arrayToTable($array,"table table-bordered");
 				exit;
 			}elseif($tipo=="xlsx"){
-				$this->toExcel($array,"Libros_en_prestamo");
+				//$this->toExcel($array,"Libros_en_prestamo");
 				
 			}
-			throw new Exception("Metodo de Exportación desconocido.");
+			throw new Exception("Metodo de Exportacion desconocido.");
 				
 				
 		}catch(Exception $e){
@@ -109,7 +109,7 @@ class Reportes extends \CI_Controller {
 				$this->toExcel($array,"Libros_en_prestamo");
 			
 			}
-			throw new Exception("Metodo de Exportación desconocido.");;
+			throw new Exception("Metodo de Exportaciï¿½n desconocido.");;
 
 		}catch(Exception $e){
 			echo show_error($e->getMessage());
@@ -124,10 +124,10 @@ class Reportes extends \CI_Controller {
 				echo $this->arrayToTable($array,"table table-bordered");
 				exit;
 			}elseif($tipo=="xlsx"){
-				$this->toExcel($array,"Libros_en_prestamo");
+				//$this->toExcel($array,"Libros_en_prestamo");
 					
 			}
-			throw new Exception("Metodo de Exportación desconocido.");;
+			throw new Exception("Metodo de Exportaciï¿½n desconocido.");;
 	
 		}catch(Exception $e){
 			echo show_error($e->getMessage());
@@ -142,10 +142,10 @@ class Reportes extends \CI_Controller {
 				echo $this->arrayToTable($array,"table table-bordered");
 				exit;
 			}elseif($tipo=="xlsx"){
-				$this->toExcel($array,"Libros_en_prestamo");
+				//$this->toExcel($array,"Libros_en_prestamo");
 					
 			}
-			throw new Exception("Metodo de Exportación desconocido.");
+			throw new Exception("Metodo de Exportaciï¿½n desconocido.");
 	
 	
 		}catch(Exception $e){

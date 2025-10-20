@@ -1,4 +1,7 @@
 <?php
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@
+// MODAL PARA BOTON "Devolver"
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@
 ?>
 <div class="modal-header">
 <h6 class="modal-title" id="exampleModalLabel">Regresar Ejemplar</h6>
@@ -27,7 +30,4 @@
 </div>
 <div class="modal-footer"></div>
 <script type="text/javascript">
-
-//$("#e_modal_lg").modal('show');
-
 </script>

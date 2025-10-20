@@ -97,7 +97,6 @@ $("body").on("submit","form",function(e){
 			$("#modulo").html(resp);
 		}
 		
-		//$("#modulo").html(resp);
 	}).fail(function(resp){
         notificacion("error",resp.responseText);
     });

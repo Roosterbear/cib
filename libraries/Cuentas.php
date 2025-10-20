@@ -19,9 +19,7 @@ class Cuentas {
 			$usr= new Empleado($usuario->getId());
 			$this->UsuarioEmpleado($usr);
 		}
-		
 		return $usr;
-		
 	}
 	
 	public function listUsuarios(Usuario $usuario,$top="ALL"){
@@ -30,9 +28,10 @@ class Cuentas {
 		
 		/* SI AL OBJETO $usuario SE LE PASO EL NOMBRE */
 		if($usuario->getNombre()!=""){ 
-			$words=explode(" ", $usuario->NombreCompleto());
+			$words = explode(" ", $usuario->NombreCompleto());
 			foreach($words as $word){
-				$filter.=" and p.nombre + p.apellido_paterno +p.apellido_materno like '%$word%' ";
+				if ($word=="") continue;
+				$filter.=" and p.nombre + p.apellido_paterno + p.apellido_materno like '%$word%' ";
 			}
 		}
 		
@@ -51,9 +50,8 @@ class Cuentas {
 		from persona p
 		left outer join empleado e on e.cve_persona=p.cve_persona
 		left outer join alumno a on a.cve_alumno=p.cve_persona
-		where (e.cve_empleado is not null or a.cve_alumno is not null) $filter";
+		where (e.cve_empleado is not null or a.cve_alumno is not null) $filter order by 1 desc";
 		/* A LA CONSULTA SE LE AGREGA EL FILTRO CORRESPONDIENTE */
-		
 
 		/* EJECUTAR CONSULTA */
 		$rs = $this->db->Execute($sql);
@@ -108,7 +106,7 @@ class Cuentas {
 		where p.cve_persona={$alumno->getId()}";
 		//pre($sql);	
 		$rs=$this->db->Execute($sql);
-		if($rs===false){ $ex1=new Exception($this->db->ErrorMsg()); Throw new Exception("Fall� la consulta.  ".__METHOD__,null,$ex1);}
+		if($rs===false){ $ex1=new Exception($this->db->ErrorMsg()); Throw new Exception("Fallo la consulta.  ".__METHOD__,null,$ex1);}
 		if($rs->RecordCount()<1){ Throw new Exception("No se encontro resultado.  ".__METHOD__,1); }
 			
 		$alumno->setNombre($rs->fields["nombre"]);
@@ -158,9 +156,9 @@ class Cuentas {
 	public function Perfil(Perfil $perfil){
 		if($perfil->getId()===null){ Throw new Exception("Requiere id.  ".__METHOD__);}
 		$sql="select * from perfil where id={$perfil->getId()}";
-		//pre($sql);
+		pre($sql);
 		$rs=$this->db->Execute($sql);
-		if($rs===false){ $ex1=new Exception($this->db->ErrorMsg()); Throw new Exception("Fall� la consulta.  ".__METHOD__,null,$ex1);}
+		if($rs===false){ $ex1=new Exception($this->db->ErrorMsg()); Throw new Exception("Fallo la consulta.  ".__METHOD__,null,$ex1);}
 		if($rs->RecordCount()<1){ Throw new Exception("No se encontro registro".__METHOD__,1); }
 		
 		$perfil->setId($rs->fields["id"]);
@@ -169,8 +167,5 @@ class Cuentas {
 		
 		return  $perfil;
 	}
-	
-	
 }
-
 ?>

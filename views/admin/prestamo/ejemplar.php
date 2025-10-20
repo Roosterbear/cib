@@ -1,12 +1,16 @@
 <?php
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// MODAL PARA BOTON "Prestar Libro" -> "Buscar"
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
 $bm=new BibliotecaMenus();
 $bm->setClass("form-control input-sm");
 $bm->setRequerdio(true);
 $bm->setBlank1stItem(false);
-/* @var $ejemplar Ejemplar */
+
+// === OBJETO === Ejemplar
 $ejemplar;
 
-//$idPerfil=2;
 ?>
 <div class="card">
  
@@ -14,12 +18,9 @@ $ejemplar;
  <h6 class="card-title"><?=$ejemplar->getTitulo()?></h6>
  <p class="card-text">
  	Autor: <b><?php echo $ejemplar->getAutor()?></b><br>
- 	Clasificación: <b><?php echo $ejemplar->getClasificacion()?></b><br>
- 	Adquisición: <b>#<?=$ejemplar->getNumAdquisicion()?></b>
+ 	Clasificaci&oacute;n: <b><?php echo $ejemplar->getClasificacion()?></b><br>
+ 	Adquisici&oacute;n: <b>#<?=$ejemplar->getNumAdquisicion()?></b>
  </p>
-
- 
-
  	<div class="row">
 	 	<?php if(true/*$ejemplar->esPrestable()*/){	 	
 		 	if($ejemplar->getEnPrestamo()){ ?>
@@ -27,6 +28,11 @@ $ejemplar;
 				<b class="text-success">Actualmente en Prestamo</b>
 			</div>
 			<?php }else{ ?> 
+
+
+				 		
+
+		
 	 	<div class="col-sm-8"><label>Politica de Prestamo:</label><?php echo $bm->PoliticaPefil($idPerfil);?></div>
 	 	<div class="col-sm-4">
 	 		<br><button class="btn btn-success " id="btn_prestar">Prestar <i class="fa fa-book" aria-hidden="true"></i> </button>
