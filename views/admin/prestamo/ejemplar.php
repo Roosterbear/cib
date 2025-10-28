@@ -22,6 +22,7 @@ $ejemplar;
  	Adquisici&oacute;n: <b>#<?=$ejemplar->getNumAdquisicion()?></b>
  </p>
  	<div class="row">
+		<!-- TODO -->
 	 	<?php if(true/*$ejemplar->esPrestable()*/){	 	
 		 	if($ejemplar->getEnPrestamo()){ ?>
 			<div class="col-sm-12 text-right">

@@ -9,7 +9,9 @@
 		<div class="col"><h6>Libros en Prestamo</h6></div>
 		<div class="col">
 			<!-- BOTON "Historial" -->
-			<button class="btn btn btn-secondary btn-sm " data-toggle="modal" data-target="#e_modal_lg" data-direccion="admin/Prestamos/vwHistorial/<?=$idSolicitante?>" data-objetivo="#e_modal_lg_content">
+			<button class="btn btn btn-secondary btn-sm " style="cursor:pointer;"
+			data-toggle="modal" data-target="#e_modal_lg" 
+			data-direccion="admin/Prestamos/vwHistorial/<?=$idSolicitante?>" data-objetivo="#e_modal_lg_content">
 				Historial <i class="fa fa-history" aria-hidden="true"></i>
 			</button>
 		</div>
@@ -25,7 +27,9 @@
 			<!-- EL BOTON DE "Prestar Libro" DESAPARECE SI YA ALCANZO EL MAXIMO -->
 			<?php if( $nuevoPrestamo){?>
 				<!-- BOTON "Prestar Libro" -->
-				<button class="btn btn btn-primary btn-sm " data-toggle="modal" data-target="#e_modal" data-direccion="admin/Prestamos/vwNuevoPrestamo/<?=$idSolicitante?>/<?=$tipo?>" data-objetivo="#e_modal_content">
+				<button class="btn btn btn-primary btn-sm " style="cursor:pointer;"
+					data-toggle="modal" data-target="#e_modal" 
+					data-direccion="admin/Prestamos/vwNuevoPrestamo/<?=$idSolicitante?>/<?=$tipo?>" data-objetivo="#e_modal_content">
 					Prestar Libro <i class="fa fa-book" aria-hidden="true"></i>
 				</button>
 			<?php } ?>
@@ -79,8 +83,12 @@
 	</td>
 
 	<td>
-	 <button class="btn btn-sm btn-primary" data-direccion="admin/Prestamos/Renovar/<?=$p->getId()."/".$p->getIdSolicitante()."/".$tipo?>"><i class="fa fa-undo" aria-hidden="true"></i> Renovar</button>
-	 <button class="btn btn-sm btn-success" data-direccion="admin/Prestamos/Devolver/<?=$p->getId()."/".$p->getIdSolicitante()."/".$tipo?>"><i class="fa fa-sign-in" aria-hidden="true"></i> Devolver</button>
+	 <button class="btn btn-sm btn-primary" style="cursor:pointer;"
+	 	data-direccion="admin/Prestamos/Renovar/<?=$p->getId()."/".$p->getIdSolicitante()."/".$tipo?>">
+		<i class="fa fa-undo" aria-hidden="true"></i> Renovar</button>
+	 <button class="btn btn-sm btn-success" style="cursor:pointer;"
+	 	data-direccion="admin/Prestamos/Devolver/<?=$p->getId()."/".$p->getIdSolicitante()."/".$tipo?>">
+		<i class="fa fa-sign-in" aria-hidden="true"></i> Devolver</button>
 	</td>
 </tr>
 <?php } ?>

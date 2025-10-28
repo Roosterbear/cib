@@ -16,29 +16,28 @@
     <!-- Pasamos la informacion necesaria para prestamo -->
     <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 
-    <!-- Enviamos el ID Persona -->
+    <!-- Regresa el ID Persona -->
     <input type="hidden" name="idSolicitante" value="<?=$usuario->getId() ?>"/>
 
-    <!-- Regresa "Alumno" o "Empleado" -->
+    <!-- Regresa texto: "Alumno" o "Empleado" -->
     <input type="hidden" name="tipo" value="<?=$usuario->getTipo()?>"/>
     
-
-
-
-
 
     <!-- === ESTA PARTE ES LA QUE NO FUNCIONA === -->
     <!-- === BUSCAR DE DONDE SE ESTA LLENANDO ESTA VARIABLE ===  -->
     <input type="hidden" name="idPerfil" value="<?=$usuario->getIdPerfil()?>"/>
     
+
+    
     <!-- Capturamos el Numero de Adquisicion -->
     <div class="form-row align-items-center">
         <label for="adquisicion" class="col-auto"># de Adquisicion:</label>
         <div class="col-auto">
-            <input type="text" class="form-control mr-sm-2" name="adquisicion" id="adquisicion" required="required">
+            <input type="text" class="form-control mr-sm-2" 
+            name="adquisicion" id="adquisicion" required="required">
         </div>
         <div class="col-auto">
-            <button class="btn btn-primary btn-sm mr-sm-2">Buscar</button>
+            <button class="btn btn-primary btn-sm mr-sm-2" style="cursor:pointer;">Buscar</button>
         </div>
     </div>
 </form>
@@ -47,7 +46,19 @@
 <form action="<?php echo site_url("admin/Prestamos/nuevo")?>"  novalidate>
 	<input type="hidden" name="idSolicitante" value="<?=$usuario->getId()?>"/>
 	<input type="hidden" name="tipo" value="<?=$usuario->getTipo()?>"/>
-	<div id="response_adquisicion"></div>
+    
+    
+    <!-- ****************************************** -->
+    <!-- NO SE LE ESTA PASANDO LA POLITICA -->
+    <!-- ****************************************** -->
+	
+    <!-- De donde se esta obteniendo?? -->
+    
+    
+    
+    
+    
+    <div id="response_adquisicion"></div>
 </form>	
 </div>
 <div class="modal-footer"></div>

@@ -19,7 +19,7 @@
 
 </div>
 <div class="col-auto">
-<button class="btn btn-primary btn-sm mr-sm-2">Buscar</button>
+<button class="btn btn-primary btn-sm mr-sm-2" style="cursor:pointer;">Buscar</button>
 </div>
 </div>
 

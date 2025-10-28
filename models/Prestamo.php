@@ -21,7 +21,6 @@ class Prestamo extends \CI_Model {
 
     $this->ejemplar=new Ejemplar();
     $this->politica= new Politica();
-    // TODO - Insert your code here
   }
   /**
    * @return the $id

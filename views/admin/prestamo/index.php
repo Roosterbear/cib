@@ -41,14 +41,14 @@
 	</div>
 	<div class="col-md-2"><br>
 		<!-- BOTON BUSCAR -->
-		<button class="btn btn-block btn-primary btn-sm">Buscar <i class="fa fa-search" aria-hidden="true"></i>
+		<button class="btn btn-block btn-primary btn-sm" style="cursor:pointer;">Buscar <i class="fa fa-search" aria-hidden="true"></i>
 		</button>
 	</div>
 	<div class="col-md-2">
 		<br>
 		<!-- BOTON DEVOLVER -->
 	    <button class="btn btn-block btn btn-success btn-sm pull-right" type="button" 
-		data-direccion="admin/Prestamos/vwBuscarLibro" data-objetivo="#e_modal_content" 
+		data-direccion="admin/Prestamos/vwBuscarLibro" data-objetivo="#e_modal_content" style="cursor:pointer;"
 		data-toggle="modal" data-target=#e_modal >Devolver <i class="fa fa-sign-in" aria-hidden="true"></i></button>
 	</div>   
 </div>

@@ -47,8 +47,7 @@
 				<!-- Muestra si es ACTIVO -->	
 				<span class="text-success"> Activo</span>
 				<?php if($seleccionable){?>
-					<!-- ********************************* -->
-					<!-- NO SE QUE CARAJOS HACE ESTA PARTE -->
+					
 					<!-- ********************************* -->
 					<button class="btn btn-primary btn-sm" 
 					data-direccion="admin/<?=get_instance()->router->fetch_class();?>/vwPrestamoUsuario<?php echo "/{$usuario->getId()}/{$usuario->getTipo()}";?>">

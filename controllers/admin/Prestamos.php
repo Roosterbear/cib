@@ -33,8 +33,16 @@ class Prestamos extends \CI_Controller {
     $this->load->model("Ficha");
     $this->load->model("Ejemplar");
 
+    // *************************
+    // Acceder a Modelo POLITICA
+    // *************************
     $this->load->model("Politica");
+    
+    // *************************
+    // Acceder a Modelo PRESTAMO
+    // *************************
     $this->load->model("Prestamo");
+
     $this->load->model("Perfil");
     $this->load->model("PrestamoRenovacion");
 
@@ -106,16 +114,25 @@ class Prestamos extends \CI_Controller {
 
   public function buscarEjemplar(){
     try{
+
+      // ***************************************************************
+      // DE ACUERDO AL NUMERO DE ADQUISICION, SE REGRESA OBJETO EJEMPLAR
+      // ***************************************************************
       $busqueda= utf8_decode($_REQUEST["adquisicion"]);
 
-      /* Hasta aqui esta llegando bien el PERFIL */
       $idPerfil=$_REQUEST["idPerfil"];
 
       $ejemplar= new Ejemplar();
       $ejemplar->setNumAdquisicion($busqueda);
 
+      // ***************************************************************
+      // AQUI VA TODA LA INFORMACION DEL EJEMPLAR A BUSCAR PARA PRESTAMO
+      // ***************************************************************
       $d["ejemplar"]=$this->biblioteca->EjemplarLibro($ejemplar,"numAdquisicion");
+
+      // ***************************************************************
       $d["idPerfil"]=$idPerfil;
+
       $this->load->view("admin/prestamo/ejemplar",$d);
 
     }catch(Exception $e){
@@ -123,12 +140,25 @@ class Prestamos extends \CI_Controller {
     }
   }
 
+  // **********
+  // REVISAR
+  // **********
+
   public function Nuevo(){
+
+
     try{
       $prestamo= new Prestamo();
       $prestamo->setIdejemplar(@$_REQUEST['idEjemplar']);
       $prestamo->setIdsolicitante(@$_REQUEST['idSolicitante']);
+
+      // ******************************************************
+      // No estamos pasando la politica, de donde la obtiene???
+      // ******************************************************
+
+      
       $prestamo->setIdpolitica(@$_REQUEST['idPolitica']);
+      
       $prestamo->setIdusuario($this->usuario->getCve_persona());
 
       $this->biblioteca->prestarEjemplar($prestamo);
@@ -214,7 +244,6 @@ class Prestamos extends \CI_Controller {
       $d["perfil"]=$this->biblioteca->Perfil($perfil);
       $d["multa"]=false;
       $d["nuevoPrestamo"]=false;
-      //pre(var_dump($user);
 
       //Validamos que no tenga ninguna multa
       $d["multa"]=$this->cajas->TieneAdeudosBiblioteca($usuario);
