@@ -6,7 +6,7 @@ class Us3r extends \CI_Controller{
      * @var Correo
      */
     public $correo;
-    
+
 	public function __construct(){
 		parent:: __construct();	
 		$this->load->library("Correo","correo");
@@ -16,7 +16,7 @@ class Us3r extends \CI_Controller{
 		$this->load->model("AccesoBD");
 		$this->load->view("header");
 
-		$listado=$this->AccesoBD->listadoAlumnosConLibrosaCaducar();
+		$listado = $this->AccesoBD->listadoAlumnosConLibrosaCaducar();
 
 		foreach($listado as $matricula=>$data){
 			$titulos = array_column($data, 'titulo');
@@ -39,7 +39,12 @@ class Us3r extends \CI_Controller{
 			$mensaje .= "y disponible el material bibliográfico para todos los usuarios.";
             $mensaje .= "<br/>Si ya realizaste la devolución, por favor ignora este mensaje.";
 			
-			$this->correo->Enviar($para, $asunto, $mensaje);
+			$log = "CORREO enviado a ".$para." de los libros: ".$titulosEjemplares;
+			if($this->correo->Enviar($para, $asunto, $mensaje)){
+				$this->AccesoBD->grabarLogEnvioCorreo($log,false);
+;			}else{
+				$this->AccesoBD->grabarLogEnvioCorreo($log,true);
+			}
 			pre($mensaje);
 		}
 

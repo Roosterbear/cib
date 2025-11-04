@@ -15,7 +15,7 @@ class AccesoBD extends \CI_Model {
         inner join persona per on per.cve_persona = p.idSolicitante
         inner join alumno a on per.cve_persona = a.cve_alumno
         where CONVERT(date, fechaEntrega) = CONVERT(date, DATEADD(day, 1, GETDATE()))";
-        $rs=$this->db->execute($sql);
+        $rs = $this->db->execute($sql);
         $listado=array();
         while(!$rs->EOF){
             $listado[ $rs->fields['matricula']][] = [
@@ -25,5 +25,13 @@ class AccesoBD extends \CI_Model {
             $rs->MoveNext();
         }
         return $listado;
+    }
+
+    public function grabarLogEnvioCorreo($log, $status_error){
+        $log = $status_error?'ERROR->'.$log:$log;
+        $sql = "insert into loglf (descripcion) 
+        values (CONCAT('".$log."->',CONVERT(varchar(19),GETDATE(),120)))";
+        $rs = $this->db->execute($sql);
+        return true;
     }
 }

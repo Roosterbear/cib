@@ -53,6 +53,8 @@ class Correo {
 		return $mail->send();
 	}
 	
+
+    // NO SE USA PARA CIB
 	public function EnviarUT($para,$asunto,$body){
 	    
 	    $mail=&$this->mail;
