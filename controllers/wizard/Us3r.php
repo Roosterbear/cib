@@ -25,9 +25,9 @@ class Us3r extends \CI_Controller{
 			$ids = array_column($data, 'id');
 
 			$titulosEjemplares = implode(", ", $titulos);
+			$idsPantalla = implode(", ", $ids);
 
 			$para = $matricula."@utags.edu.mx";
-			//$para = "luis.perea@utags.edu.mx";
 			$asunto = "Recordatorio: Fecha límite de devolución de tu prestamo de libro";
 			
 			$mensaje = "Estimado(a) <strong>{$nombre}</strong>:";
@@ -59,7 +59,8 @@ class Us3r extends \CI_Controller{
 				$this->AccesoBD->grabarLogEnvioCorreo($log.'->'.$e->getMessage(),true);
 			}
 
-			pre($mensaje);
+			$pantalla = $para." - ".$idsPantalla."\n";
+			pre($pantalla);
 		}
 
 		
