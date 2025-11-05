@@ -21,15 +21,18 @@ class Us3r extends \CI_Controller{
 		foreach($listado as $matricula=>$data){
 			$titulos = array_column($data, 'titulo');
 			$nombre = $data[0]['nombre'];
+			$primerID = $data[0]['id'];
+			$ids = array_column($data, 'id');
+
 			$titulosEjemplares = implode(", ", $titulos);
 
-			//$para = $matricula."@utags.edu.mx";
-			$para = "luis.perea@utags.edu.mx";
+			$para = $matricula."@utags.edu.mx";
+			//$para = "luis.perea@utags.edu.mx";
 			$asunto = "Recordatorio: Fecha límite de devolución de tu prestamo de libro";
 			
 			$mensaje = "Estimado(a) <strong>{$nombre}</strong>:";
             $mensaje .= "<br/><br/>Te recordamos que el periodo de préstamo de tu(s) libro(s):<br/>[<strong>";
-			$mensaje .= $titulosEjemplares;
+			$mensaje .= utf8_encode($titulosEjemplares);
 			$mensaje .= "</strong>] está por concluir.<br/>";
 			$mensaje .= "Por favor, asegúrate de realizar la devolución a más tardar el día de mañana para evitar cargos adicionales.";
 			$mensaje .= "<br/>En caso de no devolver el material en el tiempo establecido, se aplicara una multa de ";
@@ -40,11 +43,22 @@ class Us3r extends \CI_Controller{
             $mensaje .= "<br/>Si ya realizaste la devolución, por favor ignora este mensaje.";
 			
 			$log = "CORREO enviado a ".$para." de los libros: ".$titulosEjemplares;
-			if($this->correo->Enviar($para, $asunto, $mensaje)){
-				$this->AccesoBD->grabarLogEnvioCorreo($log,false);
-;			}else{
-				$this->AccesoBD->grabarLogEnvioCorreo($log,true);
+			try{
+				if(!$this->AccesoBD->getAviso($primerID)){
+					if($this->correo->Enviar($para, $asunto, $mensaje)){
+						foreach($ids as $id){
+							$this->AccesoBD->setAviso($id);
+						}
+						// GRABAR log
+						$this->AccesoBD->grabarLogEnvioCorreo($log,false);
+					}else{
+						$this->AccesoBD->grabarLogEnvioCorreo($log,true);
+					} // if ENVIO DE CORREO
+				} // if VERIFICACION DE AVISO ENVIADO
+			}catch(Exception $e){
+				$this->AccesoBD->grabarLogEnvioCorreo($log.'->'.$e->getMessage(),true);
 			}
+
 			pre($mensaje);
 		}
 

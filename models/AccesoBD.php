@@ -9,7 +9,7 @@ class AccesoBD extends \CI_Model {
     }
 
     public function listadoAlumnosConLibrosaCaducar(){
-        $sql="select a.matricula,f.titulo, per.nombre from cib.prestamo p
+        $sql="select a.matricula,f.titulo, per.nombre, p.id from cib.prestamo p
         inner join cib.ejemplar e on p.idEjemplar = e.id
         inner join cib.ficha f on e.idFicha = f.Id
         inner join persona per on per.cve_persona = p.idSolicitante
@@ -20,7 +20,8 @@ class AccesoBD extends \CI_Model {
         while(!$rs->EOF){
             $listado[ $rs->fields['matricula']][] = [
                 'titulo'=>$rs->fields['titulo'],
-                'nombre'=>$rs->fields['nombre']
+                'nombre'=>$rs->fields['nombre'],
+                'id'=>$rs->fields['id']
             ];
             $rs->MoveNext();
         }
@@ -33,5 +34,18 @@ class AccesoBD extends \CI_Model {
         values (CONCAT('".$log."->',CONVERT(varchar(19),GETDATE(),120)))";
         $rs = $this->db->execute($sql);
         return true;
+    }
+
+    public function setAviso($id){        
+        $sql = "update cib.prestamo set aviso = 1 where id = ";
+        $sql .= $id;        
+        $rs = $this->db->execute($sql);
+    }
+
+    public function getAviso($id){
+        $sql = "select aviso from cib.prestamo where id = ";
+        $sql .= $id;        
+        $rs = $this->db->execute($sql);
+        return $rs->fields['aviso'];
     }
 }

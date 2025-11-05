@@ -78,11 +78,5 @@ class Alumno extends Usuario {
 	public function setFechaBaja($fechaBaja) {
 		$this->fechaBaja = $fechaBaja;
 	}
-
-
-
-	
-
 }
-
 ?>
